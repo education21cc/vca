@@ -1,0 +1,38 @@
+{"frames": {
+
+"tile-people-transports-cart-01.png":
+{
+	"frame": {"x":0,"y":0,"w":128,"h":138},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":138},
+	"sourceSize": {"w":128,"h":138}
+},
+"tile-people-transports-forklift-01.png":
+{
+	"frame": {"x":128,"y":0,"w":224,"h":224},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":224,"h":224},
+	"sourceSize": {"w":224,"h":224}
+},
+"tile-people-transports-pallettruck-01.png":
+{
+	"frame": {"x":352,"y":0,"w":192,"h":192},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":192},
+	"sourceSize": {"w":192,"h":192}
+}},
+"animations": {
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "people-transports.png",
+	"format": "RGBA8888",
+	"size": {"w":544,"h":224},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:38d65825803e80ab7ab1424e99b28544:45d7b849799e64c7a5da3be53e83129b:c934d48fea29fc51d4162bb1fad007ec$"
+}
+}

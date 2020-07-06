@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import { Stage, Sprite } from '@inlet/react-pixi';
-import { loadResource } from './utils/pixiJs';
-import { TiledMapData } from './utils/tiledMapData';
-import { SpritesheetData, SpriteData } from './utils/spritesheetData';
-import * as PIXI from 'pixi.js';
-import Map from "./Map";
+import Map from "./components/Map";
 
-const TILE_WIDTH = 128;
-const TILE_HEIGHT = 64;
+
 function App() {
-
-
+  const [currentMap, setCurrentMap] = useState("maps/testmap2.json");
   return (
     <div className="App">
-      <Map jsonPath={`${process.env.PUBLIC_URL}maps/testmap1.json`} />
+      <select value={currentMap} onChange={e => setCurrentMap(e.currentTarget.value)}>
+        <option>maps/testmap1.json</option>
+        <option>maps/testmap2.json</option>
+      </select>
+      <Map jsonPath={currentMap} />
         {/* <Stage width={mapWidth} height={mapHeight} options={{backgroundColor: 0x0}} className="background">
             {textures && (
               <>
@@ -154,34 +151,4 @@ function App() {
 
 export default App;
 
-const parseSpritesheetData = (mapData: TiledMapData): SpritesheetData => {
-  const tileset = mapData.tilesets[0];
-  const columns = tileset.columns;
-
-  const frames: { [name: string]: SpriteData } = {};
-  for (let i = 0; i < tileset.tilecount; i++) {
-      const w = tileset.tilewidth;
-      const h = tileset.tileheight;
-      const x = (i % columns) * w;
-      const y = Math.floor(i / columns) * h;
-
-      frames[`${tileset.name}-${i + tileset.firstgid}`] = { 
-          frame: {x, y, w, h},
-          spriteSourceSize: {x, y, w, h},
-          rotated: false,
-          trimmed: false,
-          sourceSize: { w, h}
-      };
-  }
-  const image = tileset.image;
-  const size = { w: tileset.imagewidth, h: tileset.imageheight };
-  return {
-      frames,
-      meta: {
-          image,
-          size,
-          scale: 1
-      }
-  };
-}
 

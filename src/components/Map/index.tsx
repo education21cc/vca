@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { loadResource } from '../utils/pixiJs';
+import { loadResource } from '../../utils/pixiJs';
 import { Stage, Sprite, Container } from '@inlet/react-pixi';
-import { TiledMapData, TiledTilesetData, TiledLayerData } from '../utils/tiledMapData';
-import { SpritesheetData, SpriteData } from '../utils/spritesheetData';
+import { TiledMapData, TiledTilesetData, TiledLayerData } from '../../utils/tiledMapData';
+import { SpritesheetData, SpriteData } from '../../utils/spritesheetData';
 import * as PIXI from 'pixi.js';
-import useTilesetsLoader from '../hooks/useTilesetsLoader';
+import useTilesetsLoader from '../../hooks/useTilesetsLoader';
+import Viewport from '../Viewport';
+import { SCALE_MODES } from 'pixi.js';
 
 const TILE_WIDTH = 128;
 const TILE_HEIGHT = 64;
+const MARGIN_TOP = 128;   // extra top margin around the map
+
+const screenWidth = 1280;
+const screenHeight = 720;
+
 interface Props { 
     jsonPath: string
 }
@@ -23,8 +30,6 @@ if (process.env.NODE_ENV === "development") {
 const Map = (props: Props) => {
   const {jsonPath} = props;
   const [mapData, setMapData] = useState<TiledMapData>();
-  const mapWidth = TILE_WIDTH * 6;
-  const mapHeight = TILE_HEIGHT * 6;
 
   const {
     loadComplete,
@@ -33,6 +38,7 @@ const Map = (props: Props) => {
   } = useTilesetsLoader(determineTilesetSpritesheetPath);
 
   useEffect(() => {
+    PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
     loadResource(`${process.env.PUBLIC_URL}/${jsonPath}`, (resource) => {
       setMapData(resource.data);
     });
@@ -44,23 +50,24 @@ const Map = (props: Props) => {
     }
   }, [loadTilesets, mapData]);
 
-  console.log(`loadcomplete: ${loadComplete}`);
 
   const tileLocationToPosition = (location: [number, number]) => {
-    const x = (location[0] - location[1]) * TILE_WIDTH / 2 + (TILE_WIDTH * 6 / 2);
-    const y = (location[0] + location[1]) * TILE_HEIGHT / 2 + (TILE_HEIGHT);
+    const x = (location[0] - location[1]) * TILE_WIDTH / 2 + (TILE_WIDTH * mapData!.width / 2);
+    const y = (location[0] + location[1]) * TILE_HEIGHT / 2 + (TILE_HEIGHT) + MARGIN_TOP;
     return new PIXI.Point(x, y);
   }
 
-  if (!loadComplete) {
+  if (!loadComplete || !mapData) {
     return (
       <div>Loading...</div>
     )
   }
-  const textures = tilesetsTextures["structure-floor"];
-  
+
+  const mapWidth = TILE_WIDTH * mapData.width;
+  const mapHeight = TILE_HEIGHT * mapData.height + MARGIN_TOP;
+
   const renderLayers = (layers: TiledLayerData[]) => {
-    return layers.map((layer: TiledLayerData) => {
+    return layers.filter(l => l.visible).map((layer: TiledLayerData) => {
       return (
         <Container key={layer.name} name={layer.name}>
           {renderLayerTiles(layer.data)}
@@ -93,24 +100,34 @@ const Map = (props: Props) => {
       if (!tilesetsTextures[spritesheet][textureName]) {
         console.warn(`Could not find texture ${spritesheet} ${textureName}`);
       }
+      // tilesetsTextures[spritesheet][textureName].baseTexture.scaleMode = SCALE_MODES.NEAREST;
       return (
           <Sprite
             key={i}
             name={`${x},${y}`}
             texture={tilesetsTextures[spritesheet][textureName]}
             anchor={[0, 1]}
-            pivot={[64, 0]}
+            pivot={[TILE_WIDTH / 2, 0]}
             position={tileLocationToPosition([x, y])}
           /> 
       );  
     })
   }
 
+  const options = {
+    sharedLoader: true,
+    backgroundColor: 0xffffff
+}
   return (
-    <Stage width={mapWidth} height={mapHeight} options={{backgroundColor: 0x0}} className="background">
-      {textures && (
-        renderLayers(mapData!.layers)
-      )}
+    <Stage width={screenWidth} height={screenHeight} className="background" options={options}>
+      <Viewport
+        worldWidth={mapWidth}
+        worldHeight={mapHeight}
+        screenWidth={screenWidth}
+        screenHeight={screenHeight}
+      >
+       {renderLayers(mapData.layers)}
+      </Viewport>
     </Stage>
   );
 }
@@ -118,8 +135,9 @@ const Map = (props: Props) => {
 export default Map;
 
 // returns the path to the spritesheet for given tileset
-const determineTilesetSpritesheetPath = (tilesetData: TiledTilesetData) => `${process.env.PUBLIC_URL}maps/tilesets/${tilesetData.name}.json`;
+const determineTilesetSpritesheetPath = (tilesetData: TiledTilesetData) => `${process.env.PUBLIC_URL}/maps/tilesets/${tilesetData.name}.json`;
 
+// finds tileset based on gid
 const findTileset = (gid: number, tilesets: TiledTilesetData[]) => {
   let tileset;
   for (let i = tilesets.length - 1; i >= 0; i--) {
@@ -130,35 +148,3 @@ const findTileset = (gid: number, tilesets: TiledTilesetData[]) => {
   }
   return tileset;
 }
-
-const parseSpritesheetData = (mapData: TiledMapData): SpritesheetData => {
-  const tileset = mapData.tilesets[0];
-  const columns = tileset.columns;
-
-  const frames: { [name: string]: SpriteData } = {};
-  for (let i = 0; i < tileset.tilecount; i++) {
-      const w = tileset.tilewidth;
-      const h = tileset.tileheight;
-      const x = (i % columns) * w;
-      const y = Math.floor(i / columns) * h;
-
-      frames[`${tileset.name}-${i + tileset.firstgid}`] = { 
-          frame: {x, y, w, h},
-          spriteSourceSize: {x, y, w, h},
-          rotated: false,
-          trimmed: false,
-          sourceSize: { w, h}
-      };
-  }
-  const image = tileset.image;
-  const size = { w: tileset.imagewidth, h: tileset.imageheight };
-  return {
-      frames,
-      meta: {
-          image,
-          size,
-          scale: 1
-      }
-  };
-}
-
