@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { loadResource } from '../../utils/pixiJs';
 import { Stage, Sprite, Container } from '@inlet/react-pixi';
 import { TiledMapData, TiledTilesetData, TiledLayerData } from '../../utils/tiledMapData';
@@ -7,6 +7,7 @@ import * as PIXI from 'pixi.js';
 import useTilesetsLoader from '../../hooks/useTilesetsLoader';
 import Viewport from '../Viewport';
 import { SCALE_MODES } from 'pixi.js';
+import { Viewport as PixiViewport } from "pixi-viewport";
 
 const TILE_WIDTH = 128;
 const TILE_HEIGHT = 64;
@@ -57,14 +58,25 @@ const Map = (props: Props) => {
     return new PIXI.Point(x, y);
   }
 
+  const mapWidth = TILE_WIDTH * (mapData?.width || 1);
+  const mapHeight = TILE_HEIGHT * (mapData?.height || 1) + MARGIN_TOP;
+
+  const viewportRef = useRef<PixiViewport>(null);
+  useEffect(() => {
+    // focus on center of the map
+    if (viewportRef.current && mapData) {
+        const viewport = viewportRef.current;
+        viewport.moveCenter(mapWidth / 2, mapHeight / 2);
+        console.log("hi")
+    }
+  }, [mapData, mapHeight, mapWidth]);
+
+
   if (!loadComplete || !mapData) {
     return (
       <div>Loading...</div>
     )
   }
-
-  const mapWidth = TILE_WIDTH * mapData.width;
-  const mapHeight = TILE_HEIGHT * mapData.height + MARGIN_TOP;
 
   const renderLayers = (layers: TiledLayerData[]) => {
     return layers.filter(l => l.visible).map((layer: TiledLayerData) => {
@@ -90,6 +102,7 @@ const Map = (props: Props) => {
       // the image is in the format "tiles/structure-wall/tile-structure-wall-gray-left.png"
       // the 'structure-wall' part refers to the spritesheet, the 'tile-structure-wall-gray-left' is the texture on the spriesheet
       const [
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         _,
         spritesheet,
         textureName
@@ -114,10 +127,12 @@ const Map = (props: Props) => {
     })
   }
 
+
+
   const options = {
     sharedLoader: true,
     backgroundColor: 0xffffff
-}
+  }
   return (
     <Stage width={screenWidth} height={screenHeight} className="background" options={options}>
       <Viewport
@@ -125,6 +140,7 @@ const Map = (props: Props) => {
         worldHeight={mapHeight}
         screenWidth={screenWidth}
         screenHeight={screenHeight}
+        ref={viewportRef}
       >
        {renderLayers(mapData.layers)}
       </Viewport>

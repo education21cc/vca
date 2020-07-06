@@ -17,7 +17,6 @@ interface Props {
  */
 const Viewport = forwardRef<PixiViewport, any>((props, ref) => {
   const app = useApp();
-console.log(app )
   return <PixiComponentViewport app={app} {...props} ref={ref} />;
 })
 
