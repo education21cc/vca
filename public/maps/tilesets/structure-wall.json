@@ -1,0 +1,60 @@
+{"frames": {
+
+"tile-structure-wall-corner-semitransparent.png":
+{
+	"frame": {"x":1,"y":1,"w":128,"h":224},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":224},
+	"sourceSize": {"w":128,"h":224}
+},
+"tile-structure-wall-gray-corner.png":
+{
+	"frame": {"x":131,"y":1,"w":128,"h":224},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":224},
+	"sourceSize": {"w":128,"h":224}
+},
+"tile-structure-wall-gray-left.png":
+{
+	"frame": {"x":261,"y":1,"w":65,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":63,"y":0,"w":65,"h":224},
+	"sourceSize": {"w":128,"h":224}
+},
+"tile-structure-wall-gray-right.png":
+{
+	"frame": {"x":328,"y":1,"w":65,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":224},
+	"sourceSize": {"w":128,"h":224}
+},
+"tile-structure-wall-left-semitransparent-mid.png":
+{
+	"frame": {"x":395,"y":1,"w":65,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":63,"y":0,"w":65,"h":224},
+	"sourceSize": {"w":128,"h":224}
+},
+"tile-structure-wall-right-semitransparent-mid.png":
+{
+	"frame": {"x":462,"y":1,"w":65,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":224},
+	"sourceSize": {"w":128,"h":224}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "structure-wall.png",
+	"format": "RGBA8888",
+	"size": {"w":528,"h":226},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:15e5b5e30b6733c16cf03a675c78ab70:2f2768d02279d3f27a590afb3f1b304e:b1f26009722fad37b9550ceeb1b2f63e$"
+}
+}
