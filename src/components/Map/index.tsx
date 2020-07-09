@@ -2,12 +2,15 @@ import React, { useEffect, useState, useRef } from 'react';
 import { loadResource } from '../../utils/pixiJs';
 import { Stage, Sprite, Container } from '@inlet/react-pixi';
 import { TiledMapData, TiledTilesetData, TiledLayerData } from '../../utils/tiledMapData';
-import { SpritesheetData, SpriteData } from '../../utils/spritesheetData';
 import * as PIXI from 'pixi.js';
 import useTilesetsLoader from '../../hooks/useTilesetsLoader';
 import Viewport from '../Viewport';
 import { SCALE_MODES } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
+
+window.PIXI = PIXI;
+// eslint-disable-next-line import/first
+import 'pixi-tilemap'; // tilemap is not a real npm module :/
 
 const TILE_WIDTH = 128;
 const TILE_HEIGHT = 64;
@@ -79,24 +82,38 @@ const Map = (props: Props) => {
   }
 
   const renderLayers = (layers: TiledLayerData[]) => {
-    return layers.filter(l => l.visible).map((layer: TiledLayerData) => {
+    return layers.filter(l => l.visible).map((layer: TiledLayerData, index: number) => {
       return (
-        <Container key={layer.name} name={layer.name}>
-          {renderLayerTiles(layer.data)}
-        </Container>
-      )  
+        // <Container key={layer.name} name={layer.name}>
+        renderLayerTiles(layer, index)
+        // </Container>
+      )  //people-transports/tile-people-transports-cart-01.png
     });
   } 
 
-  const renderLayerTiles = (tileData: number[]) => {
+  const renderLayerTiles = (layer: TiledLayerData, layerIndex: number) => {
+    const tileData = layer.data;
     return tileData.map((gid, i) => {
-      const tileset = findTileset(gid, mapData!.tilesets);
-      if (!tileset || !tileset.tiles) return null;
+      const actualGid = gid & 0x1FFFFFFF;
+      const tileset = findTileset(actualGid, mapData!.tilesets);
+      if (!tileset || !tileset.tiles || gid === 0) return null;
 
       const columns = mapData!.width;
       const x = (i % columns);
       const y = Math.floor(i / columns);
-      const texture = tileset.tiles.find((t) => t.id === gid - tileset.firstgid);
+      
+      // See https://discourse.mapeditor.org/t/data-field-in-the-tmx-format-json/3633
+      const flipHor = (gid & 0x80000000) !== 0;
+      const flipVert = (gid & 0x40000000) !== 0;
+      // const flipDiag = (gid & 0x20000000) !== 0;
+      const scale: [number, number] = [1, 1];
+      if (flipHor) {
+        scale[0] *= -1;
+      }
+      if (flipVert) {
+        scale[1] *= -1;
+      }
+      const texture = tileset.tiles.find((t) => t.id === actualGid - tileset.firstgid);
       if (!texture) return null;
 
       // the image is in the format "tiles/structure-wall/tile-structure-wall-gray-left.png"
@@ -113,15 +130,17 @@ const Map = (props: Props) => {
       if (!tilesetsTextures[spritesheet][textureName]) {
         console.warn(`Could not find texture ${spritesheet} ${textureName}`);
       }
-      // tilesetsTextures[spritesheet][textureName].baseTexture.scaleMode = SCALE_MODES.NEAREST;
+
       return (
           <Sprite
             key={i}
-            name={`${x},${y}`}
+            name={`${layer.name}: ${x},${y} (${textureName})`}
+            scale={scale}
             texture={tilesetsTextures[spritesheet][textureName]}
             anchor={[0, 1]}
             pivot={[TILE_WIDTH / 2, 0]}
             position={tileLocationToPosition([x, y])}
+            zIndex={i * 100 + layerIndex}
           /> 
       );  
     })
@@ -130,6 +149,7 @@ const Map = (props: Props) => {
 
 
   const options = {
+    roundPixels: true,
     sharedLoader: true,
     backgroundColor: 0xffffff
   }
@@ -142,7 +162,9 @@ const Map = (props: Props) => {
         screenHeight={screenHeight}
         ref={viewportRef}
       >
-       {renderLayers(mapData.layers)}
+        <Container sortableChildren={true}>
+        {renderLayers(mapData.layers)}
+        </Container>
       </Viewport>
     </Stage>
   );
