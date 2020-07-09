@@ -19,7 +19,7 @@ const useTilesetsLoader = (determineTilesetSpritesheetPath: (tileset: TiledTiles
         const path = determineTilesetSpritesheetPath(nextTileset);
         loadResource(`${path}`, (resource) => {
             if (resource.error) {
-                console.error(resource.error);
+                throw new Error(`Loading ${path}\n${resource.error}`);
             }
             const newTilesets = { 
                 ...tilesetsTextures,
