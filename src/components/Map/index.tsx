@@ -153,7 +153,7 @@ const Map = (props: Props) => {
       if (!tilesetsTextures[spritesheet].textures![textureName]) {
         console.warn(`Could not find texture ${spritesheet} ${textureName}`);
       }
-console.log(x, y, tileLocationToPosition([x, y], mapData.width))
+
       return (
           <Sprite
             key={i}
