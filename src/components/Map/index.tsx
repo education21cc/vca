@@ -11,8 +11,8 @@ import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP } from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
 import FloorTileLayer from 'components/pixi/FloorTileLayer';
 
-const screenWidth = 1280;
-const screenHeight = 720;
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
 
 interface Props { 
   jsonPath: string
