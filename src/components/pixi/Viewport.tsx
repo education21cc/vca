@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { Viewport as PixiViewport, ClickEventData } from "pixi-viewport";
 import { PixiComponent, useApp } from "@inlet/react-pixi";
+import * as PIXI  from 'pixi.js';
 
 interface Props {
   onClick?(event: ClickEventData): void;
@@ -17,6 +18,13 @@ interface Props {
  */
 const Viewport = forwardRef<PixiViewport, any>((props, ref) => {
   const app = useApp();
+  window.PIXI = PIXI;
+  //app.renderer.plugins.tilemap = require('pixi-tilemap');
+  // const cr = (PIXI as any).CanvasRenderer;
+  // if (cr) {
+  //     cr.registerPlugin('tilemap', pixi_tilemap.CanvasTileRenderer);
+  // }
+  
   return <PixiComponentViewport app={app} {...props} ref={ref} />;
 })
 

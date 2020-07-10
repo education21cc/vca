@@ -1,26 +1,21 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { loadResource } from '../../utils/pixiJs';
+import { loadResource } from 'utils/pixiJs';
 import { Stage, Sprite, Container } from '@inlet/react-pixi';
-import { TiledMapData, TiledTilesetData, TiledLayerData } from '../../utils/tiledMapData';
+import { TiledMapData, TiledTilesetData, TiledLayerData } from 'utils/tiledMapData';
 import * as PIXI from 'pixi.js';
-import useTilesetsLoader from '../../hooks/useTilesetsLoader';
-import Viewport from '../Viewport';
+import useTilesetsLoader from 'hooks/useTilesetsLoader';
+import Viewport from '../pixi/Viewport';
 import { SCALE_MODES } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
-
-window.PIXI = PIXI;
-// eslint-disable-next-line import/first
-import 'pixi-tilemap'; // tilemap is not a real npm module :/
-
-const TILE_WIDTH = 128;
-const TILE_HEIGHT = 64;
-const MARGIN_TOP = 128;   // extra top margin around the map
+import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP } from 'constants/tiles';
+import { tileLocationToPosition } from 'utils/isometric';
+import FloorTileLayer from 'components/pixi/FloorTileLayer';
 
 const screenWidth = 1280;
 const screenHeight = 720;
 
 interface Props { 
-    jsonPath: string
+  jsonPath: string
 }
 
 // // This stuff is needed for the pixi-js browser plugin
@@ -34,6 +29,7 @@ if (process.env.NODE_ENV === "development") {
 const Map = (props: Props) => {
   const {jsonPath} = props;
   const [mapData, setMapData] = useState<TiledMapData>();
+  PIXI.settings.ROUND_PIXELS = true;
 
   const {
     loadComplete,
@@ -53,13 +49,6 @@ const Map = (props: Props) => {
       loadTilesets(mapData.tilesets);
     }
   }, [loadTilesets, mapData]);
-
-
-  const tileLocationToPosition = (location: [number, number]) => {
-    const x = (location[0] - location[1]) * TILE_WIDTH / 2 + (TILE_WIDTH * mapData!.width / 2);
-    const y = (location[0] + location[1]) * TILE_HEIGHT / 2 + (TILE_HEIGHT) + MARGIN_TOP;
-    return new PIXI.Point(x, y);
-  }
 
   const mapWidth = TILE_WIDTH * (mapData?.width || 1);
   const mapHeight = TILE_HEIGHT * (mapData?.height || 1) + MARGIN_TOP;
@@ -81,8 +70,42 @@ const Map = (props: Props) => {
     )
   }
 
+  const renderFloor = (layer?: TiledLayerData) => {
+    if (!layer) {
+      console.warn("No layer with name 'floor' found!");
+      return null;
+    }
+    const firstTileGid = layer.data.find(Boolean);
+    if (!firstTileGid) {
+      console.warn("Layer with name 'floor' is empty?");
+      return null;
+    }
+    const actualGid = firstTileGid & 0x1FFFFFFF;
+    const tileset = findTileset(actualGid, mapData!.tilesets);
+    if (!tileset) {
+      console.warn("No tileset found for floor layer. Huh?");
+      return null;
+    }
+    const resource = tilesetsTextures[tileset.name];
+    PIXI.utils.clearTextureCache();
+
+    if (!resource.spritesheet) {
+      console.warn(`No texture loaded found for floor layer. Was looking for ${tileset.name}`);
+      return null;
+    }
+    return (
+      <FloorTileLayer 
+        texture={(resource.spritesheet as any)._texture}
+        horizontalTiles={mapData.width}
+        layer={layer}
+        tileset={tileset}
+        spritesheet={resource.spritesheet}
+      />
+    )
+  }
+
   const renderLayers = (layers: TiledLayerData[]) => {
-    return layers.filter(l => l.visible).map((layer: TiledLayerData, index: number) => {
+    return layers.filter(l => l.visible && l.name !== "floor").map((layer: TiledLayerData, index: number) => {
       return (
         // <Container key={layer.name} name={layer.name}>
         renderLayerTiles(layer, index)
@@ -127,19 +150,19 @@ const Map = (props: Props) => {
       if (!tilesetsTextures[spritesheet]) {
         console.warn(`Could not find spritesheet ${spritesheet} ${tilesetsTextures}`);
       };
-      if (!tilesetsTextures[spritesheet][textureName]) {
+      if (!tilesetsTextures[spritesheet].textures![textureName]) {
         console.warn(`Could not find texture ${spritesheet} ${textureName}`);
       }
-
+console.log(x, y, tileLocationToPosition([x, y], mapData.width))
       return (
           <Sprite
             key={i}
             name={`${layer.name}: ${x},${y} (${textureName})`}
             scale={scale}
-            texture={tilesetsTextures[spritesheet][textureName]}
+            texture={tilesetsTextures[spritesheet].textures![textureName]}
             anchor={[0, 1]}
             pivot={[TILE_WIDTH / 2, 0]}
-            position={tileLocationToPosition([x, y])}
+            position={tileLocationToPosition([x, y], mapData.width)}
             zIndex={i * 100 + layerIndex}
           /> 
       );  
@@ -149,9 +172,8 @@ const Map = (props: Props) => {
 
 
   const options = {
-    roundPixels: true,
     sharedLoader: true,
-    backgroundColor: 0xffffff
+    backgroundColor: 0x0
   }
   return (
     <Stage width={screenWidth} height={screenHeight} className="background" options={options}>
@@ -162,8 +184,9 @@ const Map = (props: Props) => {
         screenHeight={screenHeight}
         ref={viewportRef}
       >
+        {renderFloor(mapData.layers.find(l => l.name === "floor"))}
         <Container sortableChildren={true}>
-        {renderLayers(mapData.layers)}
+          {renderLayers(mapData.layers)}
         </Container>
       </Viewport>
     </Stage>

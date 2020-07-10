@@ -1,6 +1,6 @@
 {"frames": {
 
-"tile-racks-small-01.png":
+"tile-racks-blue-01.png":
 {
 	"frame": {"x":4,"y":4,"w":192,"h":244},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":244},
 	"sourceSize": {"w":192,"h":244}
 },
-"tile-racks-small-02.png":
+"tile-racks-blue-02.png":
 {
 	"frame": {"x":396,"y":4,"w":192,"h":232},
 	"rotated": false,
@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":232},
 	"sourceSize": {"w":192,"h":232}
 },
-"tile-racks-small-03.png":
+"tile-racks-blue-03.png":
 {
 	"frame": {"x":200,"y":4,"w":192,"h":233},
 	"rotated": false,
@@ -24,7 +24,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":233},
 	"sourceSize": {"w":192,"h":233}
 },
-"tile-racks-small-04.png":
+"tile-racks-blue-04.png":
 {
 	"frame": {"x":592,"y":4,"w":192,"h":232},
 	"rotated": false,
@@ -32,7 +32,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":232},
 	"sourceSize": {"w":192,"h":232}
 },
-"tile-racks-small-end.png":
+"tile-racks-blue-end.png":
 {
 	"frame": {"x":788,"y":4,"w":68,"h":171},
 	"rotated": false,
@@ -41,7 +41,7 @@
 	"sourceSize": {"w":68,"h":232}
 }},
 "animations": {
-	"tile-racks-small": ["tile-racks-small-01.png","tile-racks-small-02.png","tile-racks-small-03.png","tile-racks-small-04.png"]
+	"tile-racks-blue": ["tile-racks-blue-01.png","tile-racks-blue-02.png","tile-racks-blue-03.png","tile-racks-blue-04.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -50,6 +50,6 @@
 	"format": "RGBA8888",
 	"size": {"w":860,"h":252},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:e62add800e027a96d5d56f20078e5885:2cac136cb963e4d131f170431601f391:d6574d340a58419540a907f1be1563d8$"
+	"smartupdate": "$TexturePacker:SmartUpdate:cfb5c89757395030119700485a281a0b:2cac136cb963e4d131f170431601f391:d6574d340a58419540a907f1be1563d8$"
 }
 }
