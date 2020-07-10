@@ -1,0 +1,46 @@
+{"frames": {
+
+"tile-people-misc-handshake-01.png":
+{
+	"frame": {"x":2,"y":2,"w":129,"h":153},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":35,"w":129,"h":153},
+	"sourceSize": {"w":160,"h":192}
+},
+"tile-people-misc-hardhatbox.png":
+{
+	"frame": {"x":135,"y":125,"w":60,"h":115},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":115},
+	"sourceSize": {"w":60,"h":115}
+},
+"tile-people-misc-shoulder.png":
+{
+	"frame": {"x":202,"y":2,"w":47,"h":122},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":50,"y":10,"w":47,"h":122},
+	"sourceSize": {"w":128,"h":134}
+},
+"tile-people-misc-tablet.png":
+{
+	"frame": {"x":135,"y":2,"w":63,"h":119},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":21,"y":10,"w":63,"h":119},
+	"sourceSize": {"w":128,"h":134}
+}},
+"animations": {
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "people-misc.png",
+	"format": "RGBA8888",
+	"size": {"w":251,"h":242},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e4eb38615af40cc0378e254ec519c969:460fee7869bcdb2e5c5eb89fcca0e351:8b6b403079140aa7dc2eb68bfcf9a703$"
+}
+}
