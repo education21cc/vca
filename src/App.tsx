@@ -4,12 +4,13 @@ import Map from "./components/Map";
 
 
 function App() {
-  const [currentMap, setCurrentMap] = useState("maps/testmap2.json");
+  const [currentMap, setCurrentMap] = useState("maps/testmap3.json");
   return (
     <div className="App">
       <select value={currentMap} onChange={e => setCurrentMap(e.currentTarget.value)}>
         <option>maps/testmap1.json</option>
         <option>maps/testmap2.json</option>
+        <option>maps/testmap3.json</option>
       </select>
       <Map jsonPath={currentMap} />
         {/* <Stage width={mapWidth} height={mapHeight} options={{backgroundColor: 0x0}} className="background">
