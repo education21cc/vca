@@ -34,7 +34,7 @@ export interface TileData {
 }
 
 export interface TiledLayerData {
-    data: number[];
+    data: number[] | string;
     objects: TiledObjectData[];
     type: TiledLayerType;
     height: number;
@@ -46,6 +46,8 @@ export interface TiledLayerData {
     y: number;
     width: number;
     properties?: TiledProperty[];
+    encoding?: 'base64';
+    compression?: '' | 'gzip' | 'zstd';
 }
 
 export interface TiledObjectData {
