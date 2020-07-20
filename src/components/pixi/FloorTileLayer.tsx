@@ -8,6 +8,7 @@ require('pixi-tilemap');
 
 interface Props  {
   texture: PIXI.Texture;
+  verticalTiles: number;
   horizontalTiles: number;
   layer: TiledLayerData;
   tileset: TiledTilesetData;
@@ -24,14 +25,16 @@ const FloorTileLayer = PixiComponent<Props, any>("FloorTileLayer", {
   },
 
   applyProps(instance, oldProps: Props, props: Props) {
-    const {layer, tileset, horizontalTiles, spritesheet } = props;
+    const {layer, tileset, verticalTiles, horizontalTiles, spritesheet } = props;
     if (!layer.data) {
       return;
     }
     for (let i = 0; i < layer.data.length; i++) {
       if (layer.data[i] > 0) {
         const location: [number, number] = [i % horizontalTiles, Math.floor(i / horizontalTiles)];
-        const position = tileLocationToPosition(location, horizontalTiles);
+        const position = tileLocationToPosition(location, horizontalTiles, verticalTiles);
+
+        // @ts-ignore
         const tile = tileset.tiles!.find((t) => t.id === layer.data[i] - tileset.firstgid);
         const tileName = tile?.image.substr(tile?.image.lastIndexOf('/') + 1);
         

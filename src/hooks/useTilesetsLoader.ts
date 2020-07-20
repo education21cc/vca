@@ -13,6 +13,7 @@ const useTilesetsLoader = (determineTilesetSpritesheetPath: (tileset: TiledTiles
 
     useEffect(() => {
         if (!data) return;
+        console.log('loading tilesets', data)
         const nextTileset = nextTilesetToload(data, tilesetsTextures);
         if (!nextTileset) return;
 

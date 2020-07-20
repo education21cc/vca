@@ -11,6 +11,7 @@ function App() {
         <option>maps/testmap1.json</option>
         <option>maps/testmap2.json</option>
         <option>maps/testmap3.json</option>
+        <option>maps/testmap4.json</option>
       </select>
       <Map jsonPath={currentMap} />
         {/* <Stage width={mapWidth} height={mapHeight} options={{backgroundColor: 0x0}} className="background">

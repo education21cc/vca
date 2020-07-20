@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { loadResource } from 'utils/pixiJs';
-import { Stage, Sprite, Container } from '@inlet/react-pixi';
+import { Stage, Sprite, Container, Graphics } from '@inlet/react-pixi';
 import { TiledMapData, TiledTilesetData, TiledLayerData } from 'utils/tiledMapData';
 import * as PIXI from 'pixi.js';
 import useTilesetsLoader from 'hooks/useTilesetsLoader';
 import Viewport from '../pixi/Viewport';
 import { SCALE_MODES } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
-import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP } from 'constants/tiles';
+import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
 import FloorTileLayer from 'components/pixi/FloorTileLayer';
 
@@ -50,8 +50,9 @@ const Map = (props: Props) => {
     }
   }, [loadTilesets, mapData]);
 
-  const mapWidth = TILE_WIDTH * (mapData?.width || 1);
-  const mapHeight = TILE_HEIGHT * (mapData?.height || 1) + MARGIN_TOP;
+  // https://stackoverflow.com/questions/4615116/how-to-calculate-the-height-and-width-of-an-isometric-rectangle-square
+  const mapWidth = ((mapData?.width || 1) + (mapData?.height || 1)) * (TILE_WIDTH / 2);
+  const mapHeight = ((mapData?.width || 1) + (mapData?.height || 1)) * (TILE_HEIGHT / 2) + MARGIN_TOP;
 
   const viewportRef = useRef<PixiViewport>(null);
   useEffect(() => {
@@ -75,7 +76,8 @@ const Map = (props: Props) => {
       console.warn("No layer with name 'floor' found!");
       return null;
     }
-    const firstTileGid = layer.data.find(Boolean);
+    const data = getTiles(layer);
+    const firstTileGid = data.find(Boolean);
     if (!firstTileGid) {
       console.warn("Layer with name 'floor' is empty?");
       return null;
@@ -96,6 +98,7 @@ const Map = (props: Props) => {
     return (
       <FloorTileLayer 
         texture={(resource.spritesheet as any)._texture}
+        verticalTiles={mapData.height}
         horizontalTiles={mapData.width}
         layer={layer}
         tileset={tileset}
@@ -106,16 +109,16 @@ const Map = (props: Props) => {
 
   const renderLayers = (layers: TiledLayerData[]) => {
     return layers.filter(l => l.visible && l.name !== "floor").map((layer: TiledLayerData, index: number) => {
+      const data = getTiles(layer);
       return (
         // <Container key={layer.name} name={layer.name}>
-        renderLayerTiles(layer, index)
+        renderLayerTiles(data, layer, index)
         // </Container>
       )  //people-transports/tile-people-transports-cart-01.png
     });
   } 
 
-  const renderLayerTiles = (layer: TiledLayerData, layerIndex: number) => {
-    const tileData = layer.data;
+  const renderLayerTiles = (tileData: number[], layer: TiledLayerData, layerIndex: number) => {
     return tileData.map((gid, i) => {
       const actualGid = gid & 0x1FFFFFFF;
       const tileset = findTileset(actualGid, mapData!.tilesets);
@@ -162,7 +165,7 @@ const Map = (props: Props) => {
             texture={tilesetsTextures[spritesheet].textures![textureName]}
             anchor={[0, 1]}
             pivot={[TILE_WIDTH / 2, 0]}
-            position={tileLocationToPosition([x, y], mapData.width)}
+            position={tileLocationToPosition([x, y], mapData.width, mapData.height)}
             zIndex={i * 100 + layerIndex}
           /> 
       );  
@@ -175,6 +178,8 @@ const Map = (props: Props) => {
     sharedLoader: true,
     backgroundColor: 0x0
   }
+  console.log(mapHeight)
+
   return (
     <Stage width={screenWidth} height={screenHeight} className="background" options={options}>
       <Viewport
@@ -185,6 +190,17 @@ const Map = (props: Props) => {
         ref={viewportRef}
       >
         {renderFloor(mapData.layers.find(l => l.name === "floor"))}
+        <Graphics
+            name="selectioncircle"
+            draw={graphics => {
+                const line = 3;
+                graphics.lineStyle(line, 0xFFFFFF);
+                graphics.drawCircle(0, 0, 5);
+                graphics.endFill();
+            }}
+            position={tileLocationToPosition([0, 0], mapData.width, mapData.height)}
+
+        />
         <Container sortableChildren={true}>
           {renderLayers(mapData.layers)}
         </Container>
@@ -208,4 +224,45 @@ const findTileset = (gid: number, tilesets: TiledTilesetData[]) => {
     }
   }
   return tileset;
+}
+
+const getTiles = (layer: TiledLayerData): number[] => {
+
+    let data = null;
+    let rawData = layer.data;
+
+    if (typeof(rawData) !== 'string') {
+      // return new Uint8Array(rawData);
+      return rawData;
+    }
+
+    // ==================================
+    // == If applicable, decode Base64 ==
+    // ==================================
+    if(layer.encoding === 'base64') {
+        // data = base64.decode(rawData);
+        // data = base64.decode("dGVzdA==");
+        console.log(data);
+    }
+
+    // ============================================
+    // == If applicable, extract compressed data ==
+    // ============================================
+    if(layer.compression === 'gzip') {
+    //    data = zlib.gunzipSync(data);
+    }
+
+    // ====================================
+    // == Read buffer data every 4 bytes ==
+    // ====================================
+
+    // Each 32-bit integer is placed in an 8-bit integer array.
+    // There will never be a tile ID greater than 255, so only 1 byte is required.
+    // let array = new Uint8Array(layer.width * layer.height);
+    // for(let i=0, index=0; i<data.length; i += 4, index++) {
+    //     array[index] = data.readUInt32LE(i);
+    //     index++;
+    // }
+    // return array;
+    return [];
 }
