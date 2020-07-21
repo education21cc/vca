@@ -2,7 +2,7 @@
 
 "tile-pallet-boxes-dark-tall-01.png":
 {
-	"frame": {"x":4,"y":328,"w":114,"h":128},
+	"frame": {"x":4,"y":434,"w":114,"h":128},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":7,"y":0,"w":114,"h":128},
@@ -10,7 +10,7 @@
 },
 "tile-pallet-boxes-dark-tall-three-01.png":
 {
-	"frame": {"x":4,"y":460,"w":114,"h":128},
+	"frame": {"x":4,"y":566,"w":114,"h":128},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":7,"y":0,"w":114,"h":128},
@@ -18,7 +18,7 @@
 },
 "tile-pallet-boxes-flat-01.png":
 {
-	"frame": {"x":4,"y":228,"w":115,"h":96},
+	"frame": {"x":4,"y":334,"w":115,"h":96},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":6,"y":32,"w":115,"h":96},
@@ -26,7 +26,7 @@
 },
 "tile-pallet-boxes-less-01.png":
 {
-	"frame": {"x":4,"y":4,"w":115,"h":108},
+	"frame": {"x":4,"y":110,"w":115,"h":108},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":6,"y":20,"w":115,"h":108},
@@ -34,37 +34,70 @@
 },
 "tile-pallet-boxes-many-01.png":
 {
-	"frame": {"x":4,"y":116,"w":115,"h":108},
+	"frame": {"x":4,"y":222,"w":115,"h":108},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":6,"y":20,"w":115,"h":108},
 	"sourceSize": {"w":128,"h":128}
 },
-"tile-pallet-boxes-smaller-01.png":
-{
-	"frame": {"x":4,"y":724,"w":103,"h":124},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":13,"y":4,"w":103,"h":124},
-	"sourceSize": {"w":128,"h":128}
-},
 "tile-pallet-boxes-tall-01.png":
 {
-	"frame": {"x":4,"y":592,"w":114,"h":128},
+	"frame": {"x":4,"y":698,"w":114,"h":128},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":7,"y":0,"w":114,"h":128},
 	"sourceSize": {"w":128,"h":128}
+},
+"tile-pallet-boxes-white-01.png":
+{
+	"frame": {"x":4,"y":938,"w":104,"h":124},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":4,"w":104,"h":124},
+	"sourceSize": {"w":128,"h":128}
+},
+"tile-pallet-boxes-white-02.png":
+{
+	"frame": {"x":4,"y":1066,"w":104,"h":124},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":4,"w":104,"h":124},
+	"sourceSize": {"w":128,"h":128}
+},
+"tile-pallet-boxes-white-03.png":
+{
+	"frame": {"x":4,"y":1194,"w":104,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":26,"w":104,"h":102},
+	"sourceSize": {"w":128,"h":128}
+},
+"tile-pallet-boxes-white-04.png":
+{
+	"frame": {"x":4,"y":830,"w":104,"h":112},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":16,"w":104,"h":112},
+	"sourceSize": {"w":128,"h":128}
+},
+"tile-pallet-boxes-white-05.png":
+{
+	"frame": {"x":4,"y":4,"w":116,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":26,"w":116,"h":102},
+	"sourceSize": {"w":128,"h":128}
 }},
 "animations": {
+	"tile-pallet-boxes-white": ["tile-pallet-boxes-white-01.png","tile-pallet-boxes-white-02.png","tile-pallet-boxes-white-03.png","tile-pallet-boxes-white-04.png","tile-pallet-boxes-white-05.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "pallet-boxes.png",
 	"format": "RGBA8888",
-	"size": {"w":123,"h":852},
+	"size": {"w":124,"h":1300},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:76a9d6d94f826eeb0a05cd2342a580e1:037952dde37e956d1c577a81ca2cc7be:e832594e4d55a00038739e73728c7ed2$"
+	"smartupdate": "$TexturePacker:SmartUpdate:d0c93d2d54488c79e1d6ba5474ef1888:f60de24d44e870ff008ac13d28528a1b:e832594e4d55a00038739e73728c7ed2$"
 }
 }

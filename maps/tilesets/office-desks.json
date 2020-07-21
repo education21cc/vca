@@ -1,0 +1,39 @@
+{"frames": {
+
+"tile-office-desk-wood-01.png":
+{
+	"frame": {"x":2,"y":2,"w":134,"h":122},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":134,"h":122},
+	"sourceSize": {"w":134,"h":122}
+},
+"tile-office-desk-wood-02.png":
+{
+	"frame": {"x":136,"y":2,"w":135,"h":122},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":135,"h":122},
+	"sourceSize": {"w":135,"h":122}
+},
+"tile-office-desk-wood-03.png":
+{
+	"frame": {"x":271,"y":2,"w":134,"h":122},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":134,"h":122},
+	"sourceSize": {"w":134,"h":122}
+}},
+"animations": {
+	"tile-office-desk-wood": ["tile-office-desk-wood-01.png","tile-office-desk-wood-02.png","tile-office-desk-wood-03.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "office-desks.png",
+	"format": "RGBA8888",
+	"size": {"w":407,"h":126},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:41422f1aaa788d6870d7669f0ca88313:d5373514cc4bfa84617c9d57b1815de1:4860242fd68c745b4d6e053ed2f65779$"
+}
+}
