@@ -4,7 +4,7 @@ export interface TiledMapData {
     tilewidth: number;
     tileheight: number;
     infinite: boolean;
-    backgroundcolor: string | null;
+    backgroundcolor?: string;
     orientation: Orientation;
     renderorder: RenderOrder;
     tilesets: TiledTilesetData[];

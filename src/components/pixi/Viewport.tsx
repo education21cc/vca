@@ -46,7 +46,7 @@ const PixiComponentViewport = PixiComponent("Viewport", {
     viewport.on("clicked", (event) => { if(props.onClick) props.onClick(event) });
 
     const {
-      minScale = .5,
+      minScale = .3,
       maxScale = 1
     } = props;
 

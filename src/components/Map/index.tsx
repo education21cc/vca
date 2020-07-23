@@ -45,6 +45,7 @@ const Map = (props: Props) => {
   }, [jsonPath]);
 
   useEffect(() => {
+    console.log('mapdata changed', mapData)
     if (mapData) {
       loadTilesets(mapData.tilesets);
     }
@@ -60,7 +61,6 @@ const Map = (props: Props) => {
     if (viewportRef.current && mapData) {
         const viewport = viewportRef.current;
         viewport.moveCenter(mapWidth / 2, mapHeight / 2);
-        console.log("hi")
     }
   }, [mapData, mapHeight, mapWidth]);
 
@@ -172,13 +172,10 @@ const Map = (props: Props) => {
     })
   }
 
-
-
-  const options = {
+  const options = { 
     sharedLoader: true,
-    backgroundColor: 0x0
+    backgroundColor: parseBackgroundColor(mapData?.backgroundcolor)
   }
-  console.log(mapHeight)
 
   return (
     <Stage width={screenWidth} height={screenHeight} className="background" options={options}>
@@ -210,7 +207,6 @@ const Map = (props: Props) => {
 }
 
 export default Map;
-
 // returns the path to the spritesheet for given tileset
 const determineTilesetSpritesheetPath = (tilesetData: TiledTilesetData) => `${process.env.PUBLIC_URL}/maps/tilesets/${tilesetData.name}.json`;
 
@@ -224,6 +220,11 @@ const findTileset = (gid: number, tilesets: TiledTilesetData[]) => {
     }
   }
   return tileset;
+}
+
+const parseBackgroundColor = (asString: string | undefined) : number | undefined => {
+  if (!asString) { return; }
+  return parseInt(asString.substring(1), 16); // strip the hash, conver to int
 }
 
 const getTiles = (layer: TiledLayerData): number[] => {
@@ -242,7 +243,6 @@ const getTiles = (layer: TiledLayerData): number[] => {
     if(layer.encoding === 'base64') {
         // data = base64.decode(rawData);
         // data = base64.decode("dGVzdA==");
-        console.log(data);
     }
 
     // ============================================
