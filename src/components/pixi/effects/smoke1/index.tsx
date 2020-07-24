@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const Smoke1 = (props: Props) => {
-    const { x = 0, y = 0 } = props
+    const { x = 0, y = 0 } = props;
     return (
         <ParticleEmitter
             name="smoke"

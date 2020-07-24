@@ -19,12 +19,7 @@ interface Props {
 const Viewport = forwardRef<PixiViewport, any>((props, ref) => {
   const app = useApp();
   window.PIXI = PIXI;
-  //app.renderer.plugins.tilemap = require('pixi-tilemap');
-  // const cr = (PIXI as any).CanvasRenderer;
-  // if (cr) {
-  //     cr.registerPlugin('tilemap', pixi_tilemap.CanvasTileRenderer);
-  // }
-  
+
   return <PixiComponentViewport app={app} {...props} ref={ref} />;
 })
 
@@ -55,6 +50,7 @@ const PixiComponentViewport = PixiComponent("Viewport", {
       .pinch()
       .wheel()
       .clamp({ direction: 'all' })
+      .setZoom(.4)
       .clampZoom({ minScale, maxScale })
       .decelerate();
 

@@ -46,7 +46,7 @@ const Map = (props: Props) => {
   }, [jsonPath]);
 
   useEffect(() => {
-    console.log('mapdata changed', mapData)
+    // console.log('mapdata changed', mapData)
     if (mapData) {
       loadTilesets(mapData.tilesets);
     }
@@ -59,11 +59,11 @@ const Map = (props: Props) => {
   const viewportRef = useRef<PixiViewport>(null);
   useEffect(() => {
     // focus on center of the map
-    if (viewportRef.current && mapData) {
+    if (viewportRef.current) {
         const viewport = viewportRef.current;
         viewport.moveCenter(mapWidth / 2, mapHeight / 2);
     }
-  }, [mapData, mapHeight, mapWidth]);
+  }, [mapData, mapHeight, mapWidth, tilesetsTextures]);
 
 
   if (!loadComplete || !mapData) {
@@ -182,7 +182,7 @@ const Map = (props: Props) => {
   } 
 
   const renderObjects = (objects: TiledObjectData[]) => {
-    return objects.map(o => {
+    return objects.map((o, index) => {
       if (o.polygon) {
         const {x, y } = o;
         const location: [number, number] = [
@@ -196,9 +196,9 @@ const Map = (props: Props) => {
           return acc;
         }, []);
 
-
         return (
-          <Graphics 
+          <Graphics
+            key={`${o.type}${o.name}${index}`}
             draw={graphics => {
               graphics.beginFill(0xBADA55);
               graphics.drawPolygon(points);
@@ -250,6 +250,7 @@ const Map = (props: Props) => {
   
         return (
             <Sprite
+              key={`${o.type}${o.name}${index}`}
               name={`${o.name}: ${x},${y} (${textureName})`}
               scale={scale}
               texture={tilesetsTextures[spritesheet].textures![textureName]}
@@ -272,6 +273,7 @@ const Map = (props: Props) => {
     if (offset) {
       [x, y] = offset.value.split(',');
     }
+    console.log(x, y)
 
     // return (
     //   <Graphics

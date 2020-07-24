@@ -222,7 +222,7 @@
                         {
                          "name":"offset",
                          "type":"string",
-                         "value":"0, 100"
+                         "value":"0, -100"
                         }],
                  "rotation":0,
                  "type":"situation",
