@@ -173,34 +173,6 @@
          "name":"objects",
          "objects":[
                 {
-                 "height":0,
-                 "id":2,
-                 "name":"",
-                 "polygon":[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":64,
-                         "y":0
-                        }, 
-                        {
-                         "x":64.5,
-                         "y":63.5
-                        }, 
-                        {
-                         "x":-0.5,
-                         "y":63.5
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":576.25,
-                 "y":1536.75
-                }, 
-                {
                  "gid":72,
                  "height":193,
                  "id":6,
@@ -237,32 +209,27 @@
                  "y":1344
                 }, 
                 {
-                 "height":0,
-                 "id":12,
+                 "gid":65,
+                 "height":128,
+                 "id":13,
                  "name":"",
-                 "polygon":[
+                 "properties":[
                         {
-                         "x":0,
-                         "y":0
+                         "name":"effect",
+                         "type":"string",
+                         "value":"smoke1"
                         }, 
                         {
-                         "x":0,
-                         "y":-128
-                        }, 
-                        {
-                         "x":128,
-                         "y":-128
-                        }, 
-                        {
-                         "x":128,
-                         "y":0
+                         "name":"offset",
+                         "type":"string",
+                         "value":"0, 100"
                         }],
                  "rotation":0,
-                 "type":"",
+                 "type":"situation",
                  "visible":true,
-                 "width":0,
-                 "x":1024,
-                 "y":1280
+                 "width":128,
+                 "x":1920,
+                 "y":1024
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -271,7 +238,7 @@
          "y":0
         }],
  "nextlayerid":15,
- "nextobjectid":13,
+ "nextobjectid":14,
  "orientation":"isometric",
  "renderorder":"right-down",
  "tiledversion":"1.4.1",

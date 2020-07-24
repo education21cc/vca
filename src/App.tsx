@@ -20,7 +20,6 @@ function App() {
 
   const handleGameDataReceived = (data: GameData<Content>) => {
     //setContent(data.content);
-    console.log(data)
     setCurrentMap(data.content.mapJson);
   }
 
