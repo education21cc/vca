@@ -2,13 +2,10 @@ import React from "react";
 import smoke from './smoke.json';
 import ParticleEmitter from 'components/pixi/ParticleEmitter';
 import { TILE_WIDTH } from "constants/tiles";
+import { Container } from "@inlet/react-pixi";
 
-export interface Props {
-    x?: number,
-    y?: number
-}
 
-const Smoke1 = (props: Props) => {
+const Smoke1 = (props: React.ComponentProps<typeof Container> ) => {
     const { x = 0, y = 0 } = props;
     return (
         <ParticleEmitter

@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import './styles/modal.css';
+import { Situation } from 'data/Content';
 
 
 interface Props {
+  situation: Situation;
   onClose: () => void;
 }
 
 const Modal = (props: Props) => {
-  const { onClose} = props;
+  const { onClose, situation} = props;
 
   const handleClose = () => {
     onClose();
@@ -26,10 +28,11 @@ const Modal = (props: Props) => {
     >
       <>
         <div className="header">
-          <h1>TEST </h1>
+          <h1>{situation.title} </h1>
           <div className="modal-close" onClick={() => handleClose()}></div>
         </div>
-        <iframe src="https://21cceducation.nl/content/webgl_portfolio/games/ConveyorGame/"></iframe>
+        {/* <iframe src="https://21cceducation.nl/content/webgl_portfolio/games/ConveyorGame/"></iframe> */}
+        <iframe src={situation.url} title="game"></iframe>
       </>
     </ReactModal>  
   )

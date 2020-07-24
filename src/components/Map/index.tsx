@@ -8,7 +8,7 @@ import Viewport from '../pixi/Viewport';
 import { SCALE_MODES } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
 import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
-import { tileLocationToPosition, getOriginX } from 'utils/isometric';
+import { tileLocationToPosition } from 'utils/isometric';
 import FloorTileLayer from 'components/pixi/FloorTileLayer';
 import Smoke1 from 'components/pixi/effects/smoke1';
 
@@ -16,7 +16,8 @@ const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
 
 interface Props { 
-  jsonPath: string
+  jsonPath: string;
+  onSituationClick: (situation: string) => void;
 }
 
 // // This stuff is needed for the pixi-js browser plugin
@@ -28,7 +29,7 @@ if (process.env.NODE_ENV === "development") {
 
 
 const Map = (props: Props) => {
-  const {jsonPath} = props;
+  const {jsonPath, onSituationClick} = props;
   const [mapData, setMapData] = useState<TiledMapData>();
   PIXI.settings.ROUND_PIXELS = true;
 
@@ -112,11 +113,8 @@ const Map = (props: Props) => {
     return layers.filter(l => l.visible && l.name !== "floor" && l.type === TiledLayerType.tilelayer)
       .map((layer: TiledLayerData, index: number) => {
       const data = getTiles(layer);
-      return (
-        // <Container key={layer.name} name={layer.name}>
-        renderLayerTiles(data, layer, index)
+      return renderLayerTiles(data, layer, index)
         // </Container>
-      )  //people-transports/tile-people-transports-cart-01.png
     });
   } 
 
@@ -210,6 +208,7 @@ const Map = (props: Props) => {
         )
       }
       else if (o.gid) {
+        // todo: DRY
         const {x, y, gid } = o;
         const location: [number, number] = [
           x / TILE_HEIGHT - 1,
@@ -257,6 +256,8 @@ const Map = (props: Props) => {
               anchor={[0, 1]}
               pivot={[TILE_WIDTH / 2, 0]}
               position={tileLocationToPosition(location, mapData.width, mapData.height)}
+              pointerdown={() => onSituationClick(o.name)}
+              interactive={!!o.name}
             >
               {renderEffects(o.properties)}
             </Sprite> 
@@ -273,7 +274,6 @@ const Map = (props: Props) => {
     if (offset) {
       [x, y] = offset.value.split(',');
     }
-    console.log(x, y)
 
     // return (
     //   <Graphics
@@ -290,7 +290,10 @@ const Map = (props: Props) => {
     //   />
     // )
     return (
-      <Smoke1 x={x} y={y}/>
+      <Smoke1 
+        x={x}
+        y={y}
+      />
     )
   }
 
