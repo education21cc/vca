@@ -157,6 +157,14 @@ object-assign
  */
 
 /*!
+ * pixi-particles - v4.2.1
+ * Compiled Sat, 02 May 2020 01:25:39 UTC
+ *
+ * pixi-particles is licensed under the MIT License.
+ * http://www.opensource.org/licenses/mit-license
+ */
+
+/*!
  * pixi.js - v5.3.0
  * Compiled Thu, 18 Jun 2020 23:27:40 UTC
  *
