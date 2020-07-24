@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { loadResource } from 'utils/pixiJs';
 import { Stage, Sprite, Container, Graphics } from '@inlet/react-pixi';
-import { TiledMapData, TiledTilesetData, TiledLayerData } from 'utils/tiledMapData';
+import { TiledMapData, TiledTilesetData, TiledLayerData, TiledLayerType, TiledObjectData } from 'utils/tiledMapData';
 import * as PIXI from 'pixi.js';
 import useTilesetsLoader from 'hooks/useTilesetsLoader';
 import Viewport from '../pixi/Viewport';
 import { SCALE_MODES } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
 import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
-import { tileLocationToPosition } from 'utils/isometric';
+import { tileLocationToPosition, getOriginX } from 'utils/isometric';
 import FloorTileLayer from 'components/pixi/FloorTileLayer';
 
 const screenWidth = window.innerWidth;
@@ -108,7 +108,8 @@ const Map = (props: Props) => {
   }
 
   const renderLayers = (layers: TiledLayerData[]) => {
-    return layers.filter(l => l.visible && l.name !== "floor").map((layer: TiledLayerData, index: number) => {
+    return layers.filter(l => l.visible && l.name !== "floor" && l.type === TiledLayerType.tilelayer)
+      .map((layer: TiledLayerData, index: number) => {
       const data = getTiles(layer);
       return (
         // <Container key={layer.name} name={layer.name}>
@@ -127,7 +128,7 @@ const Map = (props: Props) => {
       const columns = mapData!.width;
       const x = (i % columns);
       const y = Math.floor(i / columns);
-      
+      console.log(x, y, tileLocationToPosition([x, y], mapData.width, mapData.height))
       // See https://discourse.mapeditor.org/t/data-field-in-the-tmx-format-json/3633
       const flipHor = (gid & 0x80000000) !== 0;
       const flipVert = (gid & 0x40000000) !== 0;
@@ -172,6 +173,98 @@ const Map = (props: Props) => {
     })
   }
 
+  const renderObjectLayers = (layers: TiledLayerData[]) => {
+
+    return layers.filter(l => l.visible && l.type === TiledLayerType.objectgroup)
+      .map((layer: TiledLayerData, index: number) => {
+        console.log(layer.objects)
+        return renderObjects(layer.objects);
+    });
+  } 
+
+  const renderObjects = (objects: TiledObjectData[]) => {
+    return objects.map(o => {
+      if (o.polygon) {
+        const {x, y } = o;
+        const location: [number, number] = [
+          x / TILE_HEIGHT,
+          y / TILE_HEIGHT
+        ];
+ 
+        const points = o.polygon.reduce((acc: number[], value: { x: number, y: number} ) => {
+          acc.push(value.y + value.x)
+          acc.push((value.y / 2) - (value.x / 2));
+          return acc;
+        }, []);
+
+
+        return (
+          <Graphics 
+            draw={graphics => {
+              graphics.beginFill(0xBADA55);
+              graphics.drawPolygon(points);
+              graphics.endFill();
+            }}
+            position={tileLocationToPosition(location, mapData.width, mapData.height)}
+            pivot={[TILE_WIDTH / 2, TILE_HEIGHT /2]}
+          />
+        )
+      }
+      else if (o.gid) {
+        const {x, y, gid } = o;
+        const location: [number, number] = [
+          x / TILE_HEIGHT - 1,
+          y / TILE_HEIGHT - 1
+        ];
+        console.log(`this is at `, location, tileLocationToPosition([x, y], mapData.width, mapData.height))
+        const actualGid = gid & 0x1FFFFFFF;
+        const tileset = findTileset(actualGid, mapData!.tilesets);
+        if (!tileset || !tileset.tiles || gid === 0) return null;
+          
+        // See https://discourse.mapeditor.org/t/data-field-in-the-tmx-format-json/3633
+        const flipHor = (gid & 0x80000000) !== 0;
+        const flipVert = (gid & 0x40000000) !== 0;
+        // const flipDiag = (gid & 0x20000000) !== 0;
+        const scale: [number, number] = [1, 1];
+        if (flipHor) {
+          scale[0] *= -1;
+        }
+        if (flipVert) {
+          scale[1] *= -1;
+        }
+        const texture = tileset.tiles.find((t) => t.id === actualGid - tileset.firstgid);
+        if (!texture) return null;
+  
+        // the image is in the format "tiles/structure-wall/tile-structure-wall-gray-left.png"
+        // the 'structure-wall' part refers to the spritesheet, the 'tile-structure-wall-gray-left' is the texture on the spriesheet
+        const [
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          _,
+          spritesheet,
+          textureName
+        ] = texture.image.split("/");
+        if (!tilesetsTextures[spritesheet]) {
+          console.warn(`Could not find spritesheet ${spritesheet} ${tilesetsTextures}`);
+        };
+        if (!tilesetsTextures[spritesheet].textures![textureName]) {
+          console.warn(`Could not find texture ${spritesheet} ${textureName}`);
+        }
+  
+        return (
+            <Sprite
+              name={`${o.name}: ${x},${y} (${textureName})`}
+              scale={scale}
+              texture={tilesetsTextures[spritesheet].textures![textureName]}
+              anchor={[0, 1]}
+              pivot={[TILE_WIDTH / 2, 0]}
+              position={tileLocationToPosition(location, mapData.width, mapData.height)}
+            /> 
+        );  
+      }
+      return null;
+    })
+  }
+
   const options = { 
     sharedLoader: true,
     backgroundColor: parseBackgroundColor(mapData?.backgroundcolor)
@@ -187,7 +280,7 @@ const Map = (props: Props) => {
         ref={viewportRef}
       >
         {renderFloor(mapData.layers.find(l => l.name === "floor"))}
-        <Graphics
+        {/* <Graphics
             name="selectioncircle"
             draw={graphics => {
                 const line = 3;
@@ -197,10 +290,11 @@ const Map = (props: Props) => {
             }}
             position={tileLocationToPosition([0, 0], mapData.width, mapData.height)}
 
-        />
+        /> */}
         <Container sortableChildren={true}>
           {renderLayers(mapData.layers)}
         </Container>
+        {renderObjectLayers(mapData.layers)}
       </Viewport>
     </Stage>
   );

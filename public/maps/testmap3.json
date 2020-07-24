@@ -170,11 +170,11 @@
         {
          "draworder":"topdown",
          "id":14,
-         "name":"Object Layer 1",
+         "name":"objects",
          "objects":[
                 {
                  "height":0,
-                 "id":1,
+                 "id":2,
                  "name":"",
                  "polygon":[
                         {
@@ -182,23 +182,87 @@
                          "y":0
                         }, 
                         {
-                         "x":0.75,
-                         "y":-62.75
+                         "x":64,
+                         "y":0
                         }, 
                         {
-                         "x":65,
-                         "y":-61
+                         "x":64.5,
+                         "y":63.5
                         }, 
                         {
-                         "x":64.75,
-                         "y":1.25
+                         "x":-0.5,
+                         "y":63.5
                         }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":576.25,
+                 "y":1536.75
+                }, 
+                {
+                 "gid":72,
+                 "height":193,
+                 "id":6,
+                 "name":"",
                  "rotation":0,
                  "type":"situation",
                  "visible":true,
+                 "width":192,
+                 "x":768,
+                 "y":1600
+                }, 
+                {
+                 "gid":71,
+                 "height":128,
+                 "id":8,
+                 "name":"",
+                 "rotation":0,
+                 "type":"situation",
+                 "visible":true,
+                 "width":128,
+                 "x":0,
+                 "y":0
+                }, 
+                {
+                 "gid":39,
+                 "height":128,
+                 "id":11,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":832,
+                 "y":1344
+                }, 
+                {
+                 "height":0,
+                 "id":12,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":0,
+                         "y":-128
+                        }, 
+                        {
+                         "x":128,
+                         "y":-128
+                        }, 
+                        {
+                         "x":128,
+                         "y":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
                  "width":0,
-                 "x":576.5,
-                 "y":1599.5
+                 "x":1024,
+                 "y":1280
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -207,7 +271,7 @@
          "y":0
         }],
  "nextlayerid":15,
- "nextobjectid":2,
+ "nextobjectid":13,
  "orientation":"isometric",
  "renderorder":"right-down",
  "tiledversion":"1.4.1",

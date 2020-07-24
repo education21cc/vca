@@ -55,6 +55,7 @@ export interface TiledObjectData {
     id: number;
     name: string;
     properties?: TiledProperty[];
+    polygon?: { x: number, y: number}[];
     type: string;
     visible: boolean;
     width: number;
