@@ -1,3 +1,5 @@
+import { GameData } from "components/playerBridge/GameData";
+
 export interface Content {
   mapJson: string,
   situations: { [key: string]: Situation }
@@ -14,6 +16,12 @@ export enum Mode {
 export interface FinderContent {
     instruction: string;
     situations: string[];
+    final: ContentConfig;
+}
+
+export interface ContentConfig {
+  url: string
+  data: GameData<any>
 }
 
 export interface Situation {

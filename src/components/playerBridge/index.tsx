@@ -3,13 +3,14 @@ import './style/styles.css';
 import { ReactComponent as CloseIcon } from './style/close.svg';
 
 interface Props {
+    disableBackButton?: boolean;
     gameDataReceived: (gameData: any) => void;
 }
 
 // start w  REACT_APP_PLAYER_MODE=true npm start
 
 const PlayerBridge = (props: Props) => {   
-    const {gameDataReceived} = props;
+    const {gameDataReceived, disableBackButton} = props;
 
     const send = (payload: any) => {
         // @ts-ignore
@@ -67,7 +68,9 @@ const PlayerBridge = (props: Props) => {
         return null;
     }
 
-
+    if (disableBackButton === true) {
+        return null;
+    }
     return (
         <div className="close">
             <CloseIcon onClick={exit} />
