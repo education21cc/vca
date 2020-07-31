@@ -32,6 +32,9 @@ function App() {
     // See if we are fed gamedata by 21ccplayer app, if not, go fetch it ourselves
     // @ts-ignore
     if(!window.GAME_DATA || !process.env.REACT_APP_PLAYER_MODE) {
+      console.log("no bridge found, fetching fallback")
+      // @ts-ignore
+      console.log(window.GAMEDATA)
       fetch(`${process.env.PUBLIC_URL}/config/data.json`)
         .then((response) => {
           response.json().then((data) => {

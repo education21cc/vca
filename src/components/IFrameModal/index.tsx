@@ -36,7 +36,6 @@ const IFrameModal = (props: Props) => {
           break;
       }
     };
-console.log('hi')
     ref?.current?.addEventListener('load', handleLoad, true);
     window.addEventListener('message', handleMessage, true);
 
