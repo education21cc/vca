@@ -1,0 +1,36 @@
+{
+  "userId": 2,
+  "settings": {
+    "muted": false
+
+  },
+  "content": {
+      "mapJson": "maps/testmap3.json",
+      "situations": {
+          "fire": {
+            "url": "https://21cceducation.nl/content/webgl_portfolio/games/ForkliftLabels/",
+            "title": "Fire in the garbage bin!"
+          }
+      },
+      "scenarios": {
+        "test": {
+          "location": [10, 10]
+        }
+      },
+      "finder": {
+        "instruction": "Vind drie gevaarlijke situaties",
+        "situations": ["burningBin", "tallBoxes"]
+      }
+  },
+  "translations": [{
+      "key": "outro-description",
+      "value": "You did not remember {0} cards"
+  }],
+  "levelsCompleted": [{
+    "level": 0,
+    "score": 6,
+    "maxScore": 8
+
+  }]
+
+}

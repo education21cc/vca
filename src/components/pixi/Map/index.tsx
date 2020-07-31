@@ -4,19 +4,24 @@ import { Stage, Sprite, Container, Graphics } from '@inlet/react-pixi';
 import { TiledMapData, TiledTilesetData, TiledLayerData, TiledLayerType, TiledObjectData, TiledProperty } from 'utils/tiledMapData';
 import * as PIXI from 'pixi.js';
 import useTilesetsLoader from 'hooks/useTilesetsLoader';
-import Viewport from '../pixi/Viewport';
+import Viewport from '../Viewport';
 import { SCALE_MODES } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
 import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
 import FloorTileLayer from 'components/pixi/FloorTileLayer';
 import Smoke1 from 'components/pixi/effects/smoke1';
+import Marker from 'components/pixi/Marker';
+import { Content, Scenario } from 'data/Content';
+import { findTileset } from 'utils/tiles';
+import MapObject from '../MapObject';
 
 const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
 
 interface Props { 
-  jsonPath: string;
+  content: Content;
+  foundSituations: string[];
   onSituationClick: (situation: string) => void;
 }
 
@@ -27,9 +32,9 @@ if (process.env.NODE_ENV === "development") {
   window.__PIXI_INSPECTOR_GLOBAL_HOOK__ && window.__PIXI_INSPECTOR_GLOBAL_HOOK__.register({ PIXI });
 }
 
-
 const Map = (props: Props) => {
-  const {jsonPath, onSituationClick} = props;
+  const { content, foundSituations, onSituationClick} = props;
+  const jsonPath = content.mapJson;
   const [mapData, setMapData] = useState<TiledMapData>();
   PIXI.settings.ROUND_PIXELS = true;
 
@@ -47,7 +52,6 @@ const Map = (props: Props) => {
   }, [jsonPath]);
 
   useEffect(() => {
-    // console.log('mapdata changed', mapData)
     if (mapData) {
       loadTilesets(mapData.tilesets);
     }
@@ -114,7 +118,6 @@ const Map = (props: Props) => {
       .map((layer: TiledLayerData, index: number) => {
       const data = getTiles(layer);
       return renderLayerTiles(data, layer, index)
-        // </Container>
     });
   } 
 
@@ -174,127 +177,48 @@ const Map = (props: Props) => {
   const renderObjectLayers = (layers: TiledLayerData[]) => {
 
     return layers.filter(l => l.visible && l.type === TiledLayerType.objectgroup)
-      .map((layer: TiledLayerData, index: number) => {
+      .map((layer: TiledLayerData) => {
         return renderObjects(layer.objects);
     });
   } 
 
   const renderObjects = (objects: TiledObjectData[]) => {
     return objects.map((o, index) => {
-      if (o.polygon) {
-        const {x, y } = o;
-        const location: [number, number] = [
-          x / TILE_HEIGHT,
-          y / TILE_HEIGHT
-        ];
- 
-        const points = o.polygon.reduce((acc: number[], value: { x: number, y: number} ) => {
-          acc.push(value.y + value.x)
-          acc.push((value.y / 2) - (value.x / 2));
-          return acc;
-        }, []);
-
-        return (
-          <Graphics
-            key={`${o.type}${o.name}${index}`}
-            draw={graphics => {
-              graphics.beginFill(0xBADA55);
-              graphics.drawPolygon(points);
-              graphics.endFill();
-            }}
-            position={tileLocationToPosition(location, mapData.width, mapData.height)}
-            pivot={[TILE_WIDTH / 2, TILE_HEIGHT /2]}
-          />
-        )
-      }
-      else if (o.gid) {
-        // todo: DRY
-        const {x, y, gid } = o;
-        const location: [number, number] = [
-          x / TILE_HEIGHT - 1,
-          y / TILE_HEIGHT - 1
-        ];
-        const actualGid = gid & 0x1FFFFFFF;
-        const tileset = findTileset(actualGid, mapData!.tilesets);
-        if (!tileset || !tileset.tiles || gid === 0) return null;
-          
-        // See https://discourse.mapeditor.org/t/data-field-in-the-tmx-format-json/3633
-        const flipHor = (gid & 0x80000000) !== 0;
-        const flipVert = (gid & 0x40000000) !== 0;
-        // const flipDiag = (gid & 0x20000000) !== 0;
-        const scale: [number, number] = [1, 1];
-        if (flipHor) {
-          scale[0] *= -1;
-        }
-        if (flipVert) {
-          scale[1] *= -1;
-        }
-        const texture = tileset.tiles.find((t) => t.id === actualGid - tileset.firstgid);
-        if (!texture) return null;
-  
-        // the image is in the format "tiles/structure-wall/tile-structure-wall-gray-left.png"
-        // the 'structure-wall' part refers to the spritesheet, the 'tile-structure-wall-gray-left' is the texture on the spriesheet
-        const [
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          _,
-          spritesheet,
-          textureName
-        ] = texture.image.split("/");
-        if (!tilesetsTextures[spritesheet]) {
-          console.warn(`Could not find spritesheet ${spritesheet} ${tilesetsTextures}`);
-        };
-        if (!tilesetsTextures[spritesheet].textures![textureName]) {
-          console.warn(`Could not find texture ${spritesheet} ${textureName}`);
-        }
-  
-        return (
-            <Sprite
-              key={`${o.type}${o.name}${index}`}
-              name={`${o.name}: ${x},${y} (${textureName})`}
-              scale={scale}
-              texture={tilesetsTextures[spritesheet].textures![textureName]}
-              anchor={[0, 1]}
-              pivot={[TILE_WIDTH / 2, 0]}
-              position={tileLocationToPosition(location, mapData.width, mapData.height)}
-              pointerdown={() => onSituationClick(o.name)}
-              interactive={!!o.name}
-            >
-              {renderEffects(o.properties)}
-            </Sprite> 
-        );  
-      }
-      return null;
+      const found = foundSituations.indexOf(o.name) > -1;
+      return (
+        <MapObject
+          data={o}
+          key={`${o.type}${o.name}${index}`}
+          found={found}
+          tilesetsTextures={tilesetsTextures}
+          mapData={mapData}
+          onClick={onSituationClick}
+        />
+      )
     })
   }
 
-  const renderEffects = (properties?: TiledProperty[]) => {
-    if (!properties) return null;
-    let x, y;
-    const offset = properties.find(p => p.name === 'offset');
-    if (offset) {
-      [x, y] = offset.value.split(',');
-    }
 
-    // return (
-    //   <Graphics
-    //       name="selectioncircle"
-    //       draw={graphics => {
-    //           const line = 3;
-    //           graphics.lineStyle(line, 0xBADA55);
-    //           graphics.drawCircle(0, 0, 5);
-    //           graphics.endFill();
-    //       }}
-    //       pivot={[-TILE_WIDTH / 2, 0]}
-    //       position={[0, 0]}
+  const handleMarkerClick = (name: string, scenario: Scenario) => {
+    console.log(name)
+    props.onSituationClick(name);
+  }
 
-    //   />
-    // )
+  const renderScenarioMarker = (name: string, scenario: Scenario, index: number) => {
+    const delay = index * 0.5;
+    const position = tileLocationToPosition(scenario.location as [number, number], mapData.width, mapData.height);
+    // const bounce = answers[index] === undefined;
+    const bounce = true;
     return (
-      <Smoke1 
-        x={x}
-        y={y}
+      <Marker 
+        position={position} 
+        pointertap={() => handleMarkerClick(name, scenario)}
+        delay={delay}
+        bounce={bounce}
+        key={name}
+        name={name}
       />
-    )
+    ); 
   }
 
   const options = { 
@@ -327,6 +251,7 @@ const Map = (props: Props) => {
           {renderLayers(mapData.layers)}
         </Container>
         {renderObjectLayers(mapData.layers)}
+        {Object.entries(content.scenarios).map(([key, value], index) => renderScenarioMarker(key, value, index))}
       </Viewport>
     </Stage>
   );
@@ -336,17 +261,6 @@ export default Map;
 // returns the path to the spritesheet for given tileset
 const determineTilesetSpritesheetPath = (tilesetData: TiledTilesetData) => `${process.env.PUBLIC_URL}/maps/tilesets/${tilesetData.name}.json`;
 
-// finds tileset based on gid
-const findTileset = (gid: number, tilesets: TiledTilesetData[]) => {
-  let tileset;
-  for (let i = tilesets.length - 1; i >= 0; i--) {
-    tileset = tilesets[i];
-    if (tileset.firstgid <= gid) {
-      break;
-    }
-  }
-  return tileset;
-}
 
 const parseBackgroundColor = (asString: string | undefined) : number | undefined => {
   if (!asString) { return; }

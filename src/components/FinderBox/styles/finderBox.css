@@ -1,0 +1,7 @@
+.finder-box {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  background: white;
+  padding: 16px;  
+}
