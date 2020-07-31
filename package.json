@@ -12,6 +12,7 @@
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
     "gh-pages": "^3.1.0",
+    "gsap": "^3.4.2",
     "pixi-particles": "^4.2.1",
     "pixi-tilemap": "^2.0.6",
     "pixi-viewport": "^4.12.0",
@@ -23,6 +24,7 @@
     "typescript": "^3.9.6"
   },
   "scripts": {
+    "start:player": "REACT_APP_PLAYER_MODE=true react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:player": "REACT_APP_PLAYER_MODE=true react-scripts build",
