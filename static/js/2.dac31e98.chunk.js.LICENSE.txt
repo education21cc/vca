@@ -11,12 +11,6 @@ object-assign
 */
 
 /*!
-  Copyright (c) 2015 Jed Watson.
-  Based on code that is Copyright 2013-2015, Facebook, Inc.
-  All rights reserved.
-*/
-
-/*!
  * @pixi/accessibility - v5.3.0
  * Compiled Thu, 18 Jun 2020 23:27:40 UTC
  *
@@ -145,16 +139,34 @@ object-assign
  */
 
 /*!
- * Adapted from jQuery UI core
+ * CSSPlugin 3.4.2
+ * https://greensock.com
  *
- * http://jqueryui.com
+ * Copyright 2008-2020, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * GSAP 3.4.2
+ * https://greensock.com
  *
- * Copyright 2014 jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
+ * @license Copyright 2008-2020, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * PixiPlugin 3.4.2
+ * https://greensock.com
  *
- * http://api.jqueryui.com/category/ui-core/
- */
+ * @license Copyright 2008-2020, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
 
 /*!
  * pixi-particles - v4.2.1
