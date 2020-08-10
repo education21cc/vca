@@ -65,12 +65,27 @@ function App() {
     }
   }
 
+  const handleScenarioClick = (scenario: string) => {
+    console.log(scenario)
+    // if (foundSituations.indexOf(situation) === -1){
+    //   setFoundSituations([...foundSituations, situation]);
+    // }
+  }
+
 
   return (
     <div className="App" >
       <PlayerBridge gameDataReceived={handleGameDataReceived} disableBackButton={!!iframe}/>
       {/* {situation && <Modal onClose={handleClose} situation={situation}/>  } */}
-      {content && <Map content={content} onSituationClick={handleSituationClick} foundSituations={foundSituations}/> }
+      {content && (
+        <Map 
+          content={content} 
+          onSituationClick={handleSituationClick} 
+          foundSituations={foundSituations}
+          solvedScenarios={solvedScenarios}
+          onScenarioClick={handleScenarioClick}
+        />
+      )}
       {content?.finder && <FinderBox content={content.finder} foundSituations={foundSituations} />}
       {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />}
       {iframe && <IFrameModal content={iframe} onClose={handleClose} />}

@@ -119,7 +119,7 @@
           }
         },
         "test2": {
-          "location": [10, 10],
+          "location": [20, 10],
           "title": "The Trouble with Kumar2",
           "content": {
             "scene": [{

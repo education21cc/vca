@@ -10,7 +10,6 @@ import { Viewport as PixiViewport } from "pixi-viewport";
 import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
 import FloorTileLayer from 'components/pixi/FloorTileLayer';
-import Smoke1 from 'components/pixi/effects/smoke1';
 import Marker from 'components/pixi/Marker';
 import { Content, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
@@ -23,6 +22,8 @@ interface Props {
   content: Content;
   foundSituations: string[];
   onSituationClick: (situation: string) => void;
+  solvedScenarios: string[];
+  onScenarioClick: (scenario: string) => void;
 }
 
 // // This stuff is needed for the pixi-js browser plugin
@@ -160,16 +161,16 @@ const Map = (props: Props) => {
       }
 
       return (
-          <Sprite
-            key={i}
-            name={`${layer.name}: ${x},${y} (${textureName})`}
-            scale={scale}
-            texture={tilesetsTextures[spritesheet].textures![textureName]}
-            anchor={[0, 1]}
-            pivot={[TILE_WIDTH / 2, 0]}
-            position={tileLocationToPosition([x, y], mapData.width, mapData.height)}
-            zIndex={i * 100 + layerIndex}
-          /> 
+        <Sprite
+          key={i}
+          name={`${layer.name}: ${x},${y} (${textureName})`}
+          scale={scale}
+          texture={tilesetsTextures[spritesheet].textures![textureName]}
+          anchor={[0, 1]}
+          pivot={[TILE_WIDTH / 2, 0]}
+          position={tileLocationToPosition([x, y], mapData.width, mapData.height)}
+          zIndex={i * 100 + layerIndex}
+        /> 
       );  
     })
   }
@@ -200,7 +201,7 @@ const Map = (props: Props) => {
 
 
   const handleMarkerClick = (name: string, scenario: Scenario) => {
-    props.onSituationClick(name);
+    props.onScenarioClick(name);
   }
 
   const renderScenarioMarker = (name: string, scenario: Scenario, index: number) => {
