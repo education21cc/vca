@@ -11,6 +11,7 @@ interface Props {
     bounce?: boolean;
 }
 
+/* A map marker (the red or green arrow thimg) */
 const Marker = (props: Props & ComponentProps<typeof Sprite>) => {
     const ref = useRef<PIXI.Sprite>(null);
     const data = useRef<PIXI.InteractionData>();

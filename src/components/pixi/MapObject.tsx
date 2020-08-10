@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { TiledObjectData, TiledProperty, TiledMapData } from 'utils/tiledMapData';
 import { TILE_HEIGHT, TILE_WIDTH } from 'constants/tiles';
 import { Sprite, Graphics } from '@inlet/react-pixi';
 import { findTileset } from 'utils/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
 import Smoke1 from './effects/smoke1';
+import { gsap } from 'gsap'
 
 
 interface Props {
@@ -18,6 +19,21 @@ interface Props {
 const MapObject = (props: Props) => {
   const o = props.data;
   const {mapData, tilesetsTextures, found, onClick} = props;
+
+  const popInDuration = 1;
+  const checkRef = useRef(null);
+  useEffect(() => {
+    // Pop in animation!
+    if (!checkRef.current) return;
+    gsap.from(checkRef.current, { 
+      duration: popInDuration,
+      ease: "elastic.out(2, 0.5)",
+      pixi: { 
+        visible: false,
+        scale: .1, 
+      }
+    });
+  }, [found]);
 
   if (o.polygon) {
     const {x, y } = o;
@@ -97,9 +113,10 @@ const MapObject = (props: Props) => {
         >
           {renderEffects(o.properties)}
           {found && <Sprite
+            ref={checkRef}
             image={`${process.env.PUBLIC_URL}/images/ui/check.svg`}
             scale={.8}
-            anchor={[0, 1]}
+            anchor={[-.1, 1]}
             pivot={[TILE_WIDTH / 2, 0]}
           />}
         </Sprite> 
