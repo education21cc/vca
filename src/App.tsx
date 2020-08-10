@@ -48,11 +48,13 @@ function App() {
   }, []);
    
   useEffect(() => {
+    let timeout: number;
     if (content?.finder) {
       if (foundSituations.length === content.finder.situations.length) {
-        setIframe(content.finder.final);
+        timeout = setTimeout(setIframe, 1000, content.finder.final);
       }
     }
+    return () => { clearTimeout(timeout);}
   }, [content, foundSituations]);
 
   const handleSituationClick = (situation: string) => {
