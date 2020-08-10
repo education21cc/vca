@@ -1,8 +1,8 @@
 {
   "name": "vca",
   "version": "0.1.0",
-  "homepage-": "https://spassvogel.github.io/vca",
-  "homepage": "vca/",
+  "homepage": "https://spassvogel.github.io/vca",
+  "homepage-": "vca/",
   "private": true,
   "dependencies": {
     "@inlet/react-pixi": "^5.0.1",
@@ -30,9 +30,8 @@
     "build:player": "REACT_APP_PLAYER_MODE=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "REACT_APP_PLAYER_MODE=true npm run build:player",
-    "deploy": "gh-pages -d build",
-    "deploy:player": "REACT_APP_PLAYER_MODE=true gh-pages -d build"
+    "predeploy": "npm run build:player",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

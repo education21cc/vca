@@ -200,7 +200,6 @@ const Map = (props: Props) => {
 
 
   const handleMarkerClick = (name: string, scenario: Scenario) => {
-    console.log(name)
     props.onSituationClick(name);
   }
 

@@ -30,24 +30,26 @@ function App() {
 
   useEffect(() => {
     // See if we are fed gamedata by 21ccplayer app, if not, go fetch it ourselves
-    // @ts-ignore
-    if(!window.GAME_DATA || !process.env.REACT_APP_PLAYER_MODE) {
-      console.log("no bridge found, fetching fallback")
+    const timeout = setTimeout(() => {
       // @ts-ignore
-      console.log(window.GAMEDATA)
-      fetch(`${process.env.PUBLIC_URL}/config/data.json`)
-        .then((response) => {
-          response.json().then((data) => {
-            handleGameDataReceived(data);
+      if(!window.GAME_DATA || !process.env.REACT_APP_PLAYER_MODE) {
+        console.log("no bridge found, fetching fallback")
+        // @ts-ignore
+  
+        fetch(`${process.env.PUBLIC_URL}/config/data.json`)
+          .then((response) => {
+            response.json().then((data) => {
+              handleGameDataReceived(data);
+            })
           })
-        })
-    }
+      }
+    }, 300); // todo: maybe a less hacky way
+    return () => { clearTimeout(timeout)};
   }, []);
    
   useEffect(() => {
     if (content?.finder) {
       if (foundSituations.length === content.finder.situations.length) {
-        //console.log('we are done')
         setIframe(content.finder.final);
       }
     }
