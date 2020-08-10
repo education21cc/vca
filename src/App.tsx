@@ -9,6 +9,7 @@ import { PixiPlugin } from 'gsap/all';
 import { gsap } from 'gsap'
 import FinderBox from 'components/FinderBox';
 import IFrameModal from 'components/IFrameModal';
+import ScenarioBox from 'components/ScenariosBox';
 
 PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
@@ -19,6 +20,7 @@ function App() {
   const [content, setContent] = useState<Content>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
   const [iframe, setIframe] = useState<ContentConfig>();
+  const solvedScenarios: string[] = [];
 
   const handleClose = () => {
     setIframe(undefined);
@@ -70,6 +72,7 @@ function App() {
       {/* {situation && <Modal onClose={handleClose} situation={situation}/>  } */}
       {content && <Map content={content} onSituationClick={handleSituationClick} foundSituations={foundSituations}/> }
       {content?.finder && <FinderBox content={content.finder} foundSituations={foundSituations} />}
+      {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />}
       {iframe && <IFrameModal content={iframe} onClose={handleClose} />}
     </div>
   );

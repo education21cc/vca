@@ -4,7 +4,6 @@ export interface Content {
   mapJson: string,
   situations: { [key: string]: Situation }
   scenarios: { [key: string]: Scenario }
-  // mode: Mode;
   finder?: FinderContent
 }
 
@@ -32,6 +31,7 @@ export interface Situation {
 
 export interface Scenario {
   location: number[];
+  title: string;
   description: string;
   sequence: SequenceItem[];
   scene: SceneElement[];
@@ -56,7 +56,7 @@ export interface ConflictReaction {
   yesText: string;
   noText: string;
   confirmImage?: string 
-  }
+}
 
 export enum SequenceItemType {
   caption = 'caption',
@@ -71,3 +71,59 @@ export interface SequenceItem {
   
   scene?: SceneElement[]; // optional override
 }
+
+// Something
+
+// export interface ConflictContent {
+//   description: string;
+//   sequence: SequenceItem[];
+//   scene: SceneElement[];
+//   situationSpeech: string;
+//   options: string[];
+//   reactions: ConflictReaction[];
+// }
+
+// export interface SceneElement {
+//   image?: string;
+//   type?: SceneElementType;
+//   position?: [number, number];
+//   scale?: number;
+//   flipped: boolean;
+//   pose: AvatarPose;
+// }
+
+// export enum SceneElementType {
+//   sprite = "sprite",
+//   avatar = "avatar",
+// }
+
+// export enum AvatarPose {
+//   angle = "angle",
+//   front = "front",
+//   side = "side",
+//   angry = "angry"
+// }
+
+// export interface ConflictReaction { 
+//   correct: boolean, 
+//   text: string, 
+//   scene: SceneElement[]; 
+//   confirmText: string,
+//   yesText: string;
+//   noText: string;
+//   confirmImage?: string 
+// }
+
+// export enum SequenceItemType {
+//   caption = 'caption',
+//   speech = 'speech',
+//   image = 'image',  // image, no speech
+// }
+
+// export interface SequenceItem {
+//   type: SequenceItemType,
+//   text: string,
+//   balloonArrowPos?: number;
+  
+//   scene?: SceneElement[]; // optional override
+// }
