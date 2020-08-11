@@ -14,7 +14,214 @@
       },
       "scenarios": {
         "test": {
-          "location": [10, 10]
+          "location": [10, 10],
+          "title": "The Trouble with Kumar",
+          "content": {
+            "scene": [{
+              "image":  "images/conflict/kumar/background.png"
+            }, {
+              "image":  "images/conflict/kumar/dev.png",
+              "position": [784, 175]
+            }, {
+              "type": "avatar",
+              "position": [1124, 155],
+              "pose": "angle",
+              "scale": 0.85,
+              "flipped": true
+            }],
+            "sequence": [{
+              "type": "caption",
+              "text": "As you’re taking a round in the warehouse in the morning, Dev approaches you with a complaint against his team mate, Kumar"
+            }, {
+              "type": "speech",
+              "text": "Kumar and I are scheduled for the same warehouse shift.",
+              "balloonArrowPos": 33
+            }, {
+              "type": "speech",
+              "text": "He regularly plays games on his cell phone while I pick the orders.",
+              "scene": [{
+                "image":  "images/conflict/kumar/background.png"
+              }, {
+                "image":  "images/conflict/kumar/dev.png",
+                "position": [784, 175]
+              }, {
+                "image":  "images/conflict/kumar/kumar-playing.png",
+                "position": [112, 77]
+              }, {
+                "type": "avatar",
+                "image":  "images/conflict/kumar/dev.png",
+                "position": [1124, 155],
+                "pose": "angle",
+                "scale": 0.85,
+                "flipped": true
+              }]
+            }, {
+              "type": "speech",
+              "text": "I have to do the bulk of the work while he plays."
+            }, {
+              "type": "speech",
+              "text": "I've asked him on four different occasions to help me, but he doesn't listen to me.",
+              "scene": [{
+                "image":  "images/conflict/kumar/background.png"
+              }, {
+                "image":  "images/conflict/kumar/dev-handsup.png",
+                "position": [758, 175]
+              }, {
+                "type": "avatar",
+                "position": [1124, 155],
+                "pose": "angle",
+                "scale": 0.85,
+                "flipped": true
+              }]
+            }],
+            "description": "You’ve already reprimanded Kumar in the past about his slack behaviour. What kind of disciplinary action should you take against him now?",
+            "options": [
+              "Send Kumar a notification of termination",
+              "Scold Kumar in front of his team mates",
+              "Set strict productivity targets for Kumar"
+            ],
+            "reactions": [{
+              "confirmText": "Are you sure you want to terminate Kumar without giving him a chance to take responsibility?",
+              "yesText": "he’s hampering warehouse productivity",
+              "noText": "I’m a softie; I can’t fire anyone really",
+              "correct": false,
+              "text": "You’ve fired Kumar without allowing him a chance to take responsibility. This has negatively affected the morale of the employees. \nWorkers feel that your response was disproportionate to Kumar’s offence and now feel discouraged and worried about their own job security.",
+              "scene": [{
+                "image":  "images/conflict/kumar/kumar-fired.png"
+              }]
+            }, {
+              "confirmText": "Are you sure you want to embarrass Kumar like that?",
+              "yesText": "I want to discourage others from this kind of behaviour",
+              "noText": "perhaps that won’t let me cultivate a trusting relationship",
+              "correct": false,
+              "text": "You gave Kumar a dressing down in front of others. He resents you now as he has become a laughing stock for a group of warehouse workers. \nHe wants to quit and his friends are not happy about how things panned out either.",
+              "scene": [{
+                "image":  "images/conflict/kumar/kumar-humiliated.png"
+              }, {
+                "type": "avatar",
+                "position": [824, 125],
+                "pose": "angry"
+              }]
+            }, {
+              "confirmText": "Are you sure you want to give Kumar a second chance?",
+              "yesText": "it’s the only way I’ll be able to build trust in the team",
+              "noText": "he lacks discipline and won’t change his behaviour",
+              "correct": true,
+              "text": "You did the right thing by giving Kumar a chance to take responsibility and become more professional. You made him and—by extension—others in the team feel supported and laid the ground for cultivating a more trusting relationship with the employees.",
+              "scene": [{
+                "image":  "images/conflict/kumar/kumar-working.png"
+              }, {
+                "type": "avatar",
+                "position": [824, 125],
+                "pose": "angle"
+              }]
+            }]
+          }
+        },
+        "test2": {
+          "location": [20, 10],
+          "title": "The Trouble with Kumar2",
+          "content": {
+            "scene": [{
+              "image":  "images/conflict/kumar/background.png"
+            }, {
+              "image":  "images/conflict/kumar/dev.png",
+              "position": [784, 175]
+            }, {
+              "type": "avatar",
+              "position": [1124, 155],
+              "pose": "angle",
+              "scale": 0.85,
+              "flipped": true
+            }],
+            "sequence": [{
+              "type": "caption",
+              "text": "As you’re taking a round in the warehouse in the morning, Dev approaches you with a complaint against his team mate, Kumar"
+            }, {
+              "type": "speech",
+              "text": "Kumar and I are scheduled for the same warehouse shift.",
+              "balloonArrowPos": 33
+            }, {
+              "type": "speech",
+              "text": "He regularly plays games on his cell phone while I pick the orders.",
+              "scene": [{
+                "image":  "images/conflict/kumar/background.png"
+              }, {
+                "image":  "images/conflict/kumar/dev.png",
+                "position": [784, 175]
+              }, {
+                "image":  "images/conflict/kumar/kumar-playing.png",
+                "position": [112, 77]
+              }, {
+                "type": "avatar",
+                "image":  "images/conflict/kumar/dev.png",
+                "position": [1124, 155],
+                "pose": "angle",
+                "scale": 0.85,
+                "flipped": true
+              }]
+            }, {
+              "type": "speech",
+              "text": "I have to do the bulk of the work while he plays."
+            }, {
+              "type": "speech",
+              "text": "I've asked him on four different occasions to help me, but he doesn't listen to me.",
+              "scene": [{
+                "image":  "images/conflict/kumar/background.png"
+              }, {
+                "image":  "images/conflict/kumar/dev-handsup.png",
+                "position": [758, 175]
+              }, {
+                "type": "avatar",
+                "position": [1124, 155],
+                "pose": "angle",
+                "scale": 0.85,
+                "flipped": true
+              }]
+            }],
+            "description": "You’ve already reprimanded Kumar in the past about his slack behaviour. What kind of disciplinary action should you take against him now?",
+            "options": [
+              "Send Kumar a notification of termination",
+              "Scold Kumar in front of his team mates",
+              "Set strict productivity targets for Kumar"
+            ],
+            "reactions": [{
+              "confirmText": "Are you sure you want to terminate Kumar without giving him a chance to take responsibility?",
+              "yesText": "he’s hampering warehouse productivity",
+              "noText": "I’m a softie; I can’t fire anyone really",
+              "correct": false,
+              "text": "You’ve fired Kumar without allowing him a chance to take responsibility. This has negatively affected the morale of the employees. \nWorkers feel that your response was disproportionate to Kumar’s offence and now feel discouraged and worried about their own job security.",
+              "scene": [{
+                "image":  "images/conflict/kumar/kumar-fired.png"
+              }]
+            }, {
+              "confirmText": "Are you sure you want to embarrass Kumar like that?",
+              "yesText": "I want to discourage others from this kind of behaviour",
+              "noText": "perhaps that won’t let me cultivate a trusting relationship",
+              "correct": false,
+              "text": "You gave Kumar a dressing down in front of others. He resents you now as he has become a laughing stock for a group of warehouse workers. \nHe wants to quit and his friends are not happy about how things panned out either.",
+              "scene": [{
+                "image":  "images/conflict/kumar/kumar-humiliated.png"
+              }, {
+                "type": "avatar",
+                "position": [824, 125],
+                "pose": "angry"
+              }]
+            }, {
+              "confirmText": "Are you sure you want to give Kumar a second chance?",
+              "yesText": "it’s the only way I’ll be able to build trust in the team",
+              "noText": "he lacks discipline and won’t change his behaviour",
+              "correct": true,
+              "text": "You did the right thing by giving Kumar a chance to take responsibility and become more professional. You made him and—by extension—others in the team feel supported and laid the ground for cultivating a more trusting relationship with the employees.",
+              "scene": [{
+                "image":  "images/conflict/kumar/kumar-working.png"
+              }, {
+                "type": "avatar",
+                "position": [824, 125],
+                "pose": "angle"
+              }]
+            }]
+          }
         }
       },
       "finder": {
