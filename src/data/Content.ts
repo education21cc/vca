@@ -32,6 +32,7 @@ export interface Situation {
 export interface Scenario {
   location: number[];
   title: string;
+  imageBaseUrl: string;
   description: string;
   sequence: SequenceItem[];
   scene: SceneElement[];

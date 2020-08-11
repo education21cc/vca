@@ -4,19 +4,20 @@ import Map from "./components/pixi/Map";
 import Modal from 'components/Modal';
 import PlayerBridge from 'components/playerBridge';
 import { GameData } from 'components/playerBridge/GameData';
-import { Content, Situation, ContentConfig } from 'data/Content';
+import { Content, Situation, ContentConfig, Scenario } from 'data/Content';
 import { PixiPlugin } from 'gsap/all';
 import { gsap } from 'gsap'
 import FinderBox from 'components/FinderBox';
 import IFrameModal from 'components/IFrameModal';
 import ScenarioBox from 'components/ScenariosBox';
+import ScenarioScreen from 'components/ScenarioScreen';
 
 PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
 
 
 function App() {
-  const [situation, setSituation] = useState<Situation>();
+  const [scenario, setScenario] = useState<Scenario>();
   const [content, setContent] = useState<Content>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
   const [iframe, setIframe] = useState<ContentConfig>();
@@ -66,16 +67,19 @@ function App() {
   }
 
   const handleScenarioClick = (scenario: string) => {
-    console.log(scenario)
+    setScenario(content?.scenarios[scenario]);
     // if (foundSituations.indexOf(situation) === -1){
     //   setFoundSituations([...foundSituations, situation]);
     // }
   }
 
+  const exitScenario = () => {
+    setScenario(undefined);
+  }
 
   return (
     <div className="App" >
-      <PlayerBridge gameDataReceived={handleGameDataReceived} disableBackButton={!!iframe}/>
+      <PlayerBridge gameDataReceived={handleGameDataReceived} disableBackButton={!!iframe || !!scenario}/>
       {/* {situation && <Modal onClose={handleClose} situation={situation}/>  } */}
       {content && (
         <Map 
@@ -89,6 +93,13 @@ function App() {
       {content?.finder && <FinderBox content={content.finder} foundSituations={foundSituations} />}
       {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />}
       {iframe && <IFrameModal content={iframe} onClose={handleClose} />}
+      {scenario && (
+        <ScenarioScreen 
+          content={scenario}
+          setCorrectAnswer={() => {}}
+          onClose={exitScenario}
+        />
+      )}
     </div>
   );
 }
