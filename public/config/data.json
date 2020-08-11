@@ -15,7 +15,7 @@
       "scenarios": {
         "test": {
           "location": [10, 10],
-          "title": "The Trouble with Kumar",
+          "title": "The Trouble with Kumar (embedded)",
           "imageBaseUrl": "https://21cceducation.nl/content/games/images/vcaWarehouse/kumar/image.php?image=",
           "scene": [{
             "image":  "background.png"

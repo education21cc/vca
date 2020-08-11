@@ -19,7 +19,6 @@ interface Props {
 
 const ScenarioScreen = (props: Props) => {
   const {content, selectedAnswer = null} = props;
-  console.log(content)
   const {imageBaseUrl} = content;
   const [selectedOption, selectOption] = useState<number | null>(selectedAnswer);
   // Reaction based on current selection
@@ -304,43 +303,45 @@ const ScenarioScreen = (props: Props) => {
 
   return (
     <div className="scenario-screen" ref={ref}>
-      <div className="title">
-        <div className="close">
-            <CloseIcon onClick={exit} />
+      <div className="content">
+        <div className="title">
+          <div className="close">
+              <CloseIcon onClick={exit} />
+          </div>
+          {content.title}
         </div>
-        {content.title}
-      </div>
-      <div className="situation" onClick={handleSkipSequenceStep}>
-        { props.content.scene && (
-          <SituationScene 
-            sceneConfig={sceneConfig} 
-            imageBaseUrl={imageBaseUrl}
-          />
+        <div className="situation" onClick={handleSkipSequenceStep}>
+          { props.content.scene && (
+            <SituationScene 
+              sceneConfig={sceneConfig} 
+              imageBaseUrl={imageBaseUrl}
+            />
+          )}
+          <div className="inset" ref={insetRef} >
+            <p>
+              {content.description}
+            </p>
+            <ul className="options">
+              {content.options.map((option, index) => renderOption(option, index))}
+            </ul>
+            { renderReaction() }
+          </div> 
+          <div className={`balloon`} ref={balloonRef}>
+            <span ref={balloonTextRef}></span>
+          </div>
+          <div className="balloon-arrow" ref={balloonArrowRef} style={{visibility: 'hidden'}}/>
+        </div>
+        { !selectedOption && (
+          <div className="controls-bottomright">
+            <button className="button-replay" onClick={handleReplay}>
+              replay
+            </button>
+            <button className="button-next" ref={nextButtonRef} onClick={handleSkipSequenceStep}>
+              {">"}
+            </button>
+          </div>
         )}
-        <div className="inset" ref={insetRef} >
-          <p>
-            {content.description}
-          </p>
-          <ul className="options">
-            {content.options.map((option, index) => renderOption(option, index))}
-          </ul>
-          { renderReaction() }
-        </div> 
-        <div className={`balloon`} ref={balloonRef}>
-          <span ref={balloonTextRef}></span>
-        </div>
-        <div className="balloon-arrow" ref={balloonArrowRef} style={{visibility: 'hidden'}}/>
       </div>
-      { !selectedOption && (
-        <div className="controls-bottomright">
-          <button className="button-replay" onClick={handleReplay}>
-            replay
-          </button>
-          <button className="button-next" ref={nextButtonRef} onClick={handleSkipSequenceStep}>
-            {">"}
-          </button>
-        </div>
-      )}
     </div>
   )
 }
