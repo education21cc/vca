@@ -19,6 +19,14 @@ object-assign
  */
 
 /*!
+ * @pixi/constants - v5.3.0
+ * Compiled Thu, 18 Jun 2020 23:27:40 UTC
+ *
+ * @pixi/constants is licensed under the MIT License.
+ * http://www.opensource.org/licenses/mit-license
+ */
+
+/*!
  * @pixi/core - v5.3.0
  * Compiled Thu, 18 Jun 2020 23:27:40 UTC
  *
@@ -91,14 +99,6 @@ object-assign
  */
 
 /*!
- * @pixi/particles - v5.3.0
- * Compiled Thu, 18 Jun 2020 23:27:40 UTC
- *
- * @pixi/particles is licensed under the MIT License.
- * http://www.opensource.org/licenses/mit-license
- */
-
-/*!
  * @pixi/polyfill - v5.3.0
  * Compiled Thu, 18 Jun 2020 23:27:40 UTC
  *
@@ -111,6 +111,14 @@ object-assign
  * Compiled Thu, 18 Jun 2020 23:27:40 UTC
  *
  * @pixi/prepare is licensed under the MIT License.
+ * http://www.opensource.org/licenses/mit-license
+ */
+
+/*!
+ * @pixi/runner - v5.3.0
+ * Compiled Thu, 18 Jun 2020 23:27:40 UTC
+ *
+ * @pixi/runner is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
  */
 
@@ -169,6 +177,16 @@ object-assign
 */
 
 /*!
+ * TextPlugin 3.4.2
+ * https://greensock.com
+ *
+ * @license Copyright 2008-2020, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
  * pixi-particles - v4.2.1
  * Compiled Sat, 02 May 2020 01:25:39 UTC
  *
@@ -192,6 +210,16 @@ object-assign
  * resource-loader is licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license
  */
+
+/*!
+ * strings: 3.4.2
+ * https://greensock.com
+ *
+ * Copyright 2008-2020, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
