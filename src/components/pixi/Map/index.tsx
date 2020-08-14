@@ -14,6 +14,7 @@ import Marker from 'components/pixi/Marker';
 import { Content, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
 import MapObject from '../MapObject';
+import Loading from 'components/playerBridge/Loading';
 
 const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
@@ -24,6 +25,7 @@ interface Props {
   onSituationClick: (situation: string) => void;
   solvedScenarios: string[];
   onScenarioClick: (scenario: string) => void;
+  onLoading: (complete: boolean) => void;
 }
 
 // // This stuff is needed for the pixi-js browser plugin
@@ -34,7 +36,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const Map = (props: Props) => {
-  const { content, foundSituations, onSituationClick} = props;
+  const { content, foundSituations, onSituationClick, onLoading } = props;
   const jsonPath = content.mapJson;
   const [mapData, setMapData] = useState<TiledMapData>();
   PIXI.settings.ROUND_PIXELS = true;
@@ -72,10 +74,12 @@ const Map = (props: Props) => {
   }, [mapData, mapHeight, mapWidth, tilesetsTextures]);
 
 
+  useEffect(() => {
+    onLoading(!loadComplete || !mapData);
+  }, [loadComplete, mapData, onLoading]);
+
   if (!loadComplete || !mapData) {
-    return (
-      <div>Loading...</div>
-    )
+    return null;
   }
 
   const renderFloor = (layer?: TiledLayerData) => {
