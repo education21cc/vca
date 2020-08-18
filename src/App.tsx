@@ -79,11 +79,6 @@ function App() {
     loadTilesets(mapData.tilesets);    
   }, [loadTilesets, mapData]);
 
-
-  // useEffect(() => {
-  //   onLoading(!loadComplete || !mapData);
-  // }, [loadComplete, mapData, onLoading]);
-
   useEffect(() => {
     // See if we are fed gamedata by 21ccplayer app, if not, go fetch it ourselves
     const timeout = setTimeout(() => {
@@ -92,7 +87,7 @@ function App() {
         console.log("no bridge found, fetching fallback")
         // @ts-ignore
         
-        fetch(`${process.env.PUBLIC_URL}/config/data.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
         .then((response) => {
           response.json().then((data) => {
             console.log(data)
@@ -119,6 +114,7 @@ function App() {
   }
   
   const handleSituationClick = (situation: string) => {
+    console.log(foundSituations)
     if (foundSituations.indexOf(situation) === -1){
       setFoundSituations([...foundSituations, situation]);
     }
@@ -126,9 +122,6 @@ function App() {
   
   const handleScenarioClick = (scenario: string) => {
     setScenario(content?.scenarios[scenario]);
-    // if (foundSituations.indexOf(situation) === -1){
-      //   setFoundSituations([...foundSituations, situation]);
-      // }
   }
     
   const exitScenario = () => {

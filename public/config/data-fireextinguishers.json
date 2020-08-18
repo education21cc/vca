@@ -1,0 +1,85 @@
+{
+  "userId": 2,
+  "settings": {
+    "muted": false
+
+  },
+  "content": {
+      "mapJson": "maps/testmap3.json",
+      "situations": {
+        "fire": {
+          "url": "https://21cceducation.nl/content/webgl_portfolio/games/ForkliftLabels/",
+          "title": "Fire in the garbage bin!"
+        }
+     },
+      "finder": {
+        "instruction": "Vind 5 brandbrussers",
+        "situations": ["extinguisher5", "extinguisher4", "extinguisher3", "extinguisher2", "extinguisher1"],
+        "final": {
+            "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
+            "data": {
+              "userId": 1,
+              "settings": {
+                  "muted": false
+              },
+              "content": {
+                  "stepsAmount": 5
+              },
+              "translations": [
+                {"key": "step_1",
+                  "value": "Stop onmiddellijk met werken (eigen veiligheid)"},
+                {"key": "step_2",
+                  "value": "Verwittig je opdrachtgever en volg zijn instructies"},
+                {"key": "step_3",
+                  "value": "Ga naar de evacuatieplaats en loop bovenwinds bij gevaarlijke dampen"},
+                {"key": "step_4",
+                  "value": "Meld je op de evacuatieplaats"},
+                {"key": "step_5",
+                  "value": "Pas de evacuatieplaats verlaten als daar toestemming voor is."},
+                {"key": "task",
+                  "value": "Zet in de juiste volgorde"},
+                {"key": "fail_message_short",
+                  "value": "Sorry,"},
+                {"key": "fail_message_long",
+                  "value": "De volgorde is niet juist. Probeer het nog eens!"},
+                {"key": "win_message_short",
+                  "value": "Goed!"},
+                {"key": "win_message_long",
+                  "value": "Dit is juiste volgorde. Je hebt 1 ster verdiend!"},
+                {"key": "introduction_short",
+                  "value": "Noodsituaties"},
+                {"key": "introduction_long",
+                  "value": "Deze game heeft z'n config van VCA game gekregen. omg wat cool!"}
+                ],
+              "levelsCompleted": [
+                  {
+                      "level": 1,
+                      "score": 2,
+                      "maxScore": 2
+                    }
+                ]
+            }          
+        }
+      }
+  },
+  "translations": [{
+      "key": "intro-header",
+      "value": "Brandblussers in het magazijn"
+  }, {
+    "key": "intro-description",
+    "value": "Een brandblusser is een apparaat om het vuur van een kleine brand te doven. Het bestaat uit een cilinder waarin een beperkte hoeveelheid blusmiddel onder druk staat. Er zijn ook blussers waarin zich een drukpatroon bevindt, die eerst geactiveerd (ingeslagen) moet worden via een rode inslagknop boven op de blusser. Door een opening kan het blusmiddel op het vuur gespoten worden.  "
+  }, {
+      "key": "intro-start",
+      "value": "START"
+  }, {
+      "key": "intro-stars-to-gain",
+      "value": "{0} stars to gain"
+  }],
+  "levelsCompleted": [{
+    "level": 0,
+    "score": 6,
+    "maxScore": 8
+
+  }]
+
+}

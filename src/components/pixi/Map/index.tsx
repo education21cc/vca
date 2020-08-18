@@ -225,7 +225,7 @@ const Map = (props: Props) => {
           {renderLayers(mapData.layers)}
         </Container>
         {renderObjectLayers(mapData.layers)}
-        {Object.entries(content.scenarios).map(([key, value], index) => renderScenarioMarker(key, value, index))}
+        {Object.entries(content.scenarios || []).map(([key, value], index) => renderScenarioMarker(key, value, index))}
       </Viewport>
     </Stage>
   );
