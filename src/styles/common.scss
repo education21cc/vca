@@ -23,6 +23,11 @@
   border-style: solid;
 }
 
+.button:disabled {
+  opacity: .2;
+  filter: grayscale(1);
+}
+
 .button.green {
   color: #FFFFFF;
   background: #2FB833 0% 0% no-repeat padding-box;

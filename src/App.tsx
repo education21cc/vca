@@ -99,23 +99,18 @@ function App() {
     return () => { clearTimeout(timeout)};
   }, []);
   
-  useEffect(() => {
-    let timeout: number;
-    if (content?.finder) {
-      if (foundSituations.length === content.finder.situations.length) {
-        timeout = setTimeout(setIframe, 1000, content.finder.final);
-      }
-    }
-    return () => { clearTimeout(timeout);}
-  }, [content, foundSituations]);
+  const handleOpenGame = () => {
+    setIframe(content?.finder?.final);
+  }
 
   const handleStart = () => {   
     setState(GameState.normal);
   }
   
   const handleSituationClick = (situation: string) => {
-    console.log(foundSituations)
-    if (foundSituations.indexOf(situation) === -1){
+    if (!content?.finder) return;
+
+    if (content.finder.situations.indexOf(situation) > -1 && foundSituations.indexOf(situation) === -1){
       setFoundSituations([...foundSituations, situation]);
     }
   }
@@ -156,7 +151,7 @@ function App() {
                   solvedScenarios={solvedScenarios}
                   onScenarioClick={handleScenarioClick}
                 />
-                {content?.finder && <FinderBox content={content.finder} foundSituations={foundSituations} />}
+                {content?.finder && <FinderBox content={content.finder} foundSituations={foundSituations} onOpenGame={handleOpenGame}/>}
                 {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />}
               </>
             )}
