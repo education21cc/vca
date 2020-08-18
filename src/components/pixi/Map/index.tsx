@@ -124,12 +124,12 @@ const Map = (props: Props) => {
       // the image is in the format "tiles/structure-wall/tile-structure-wall-gray-left.png"
       // the 'structure-wall' part refers to the spritesheet, the 'tile-structure-wall-gray-left' is the texture on the spriesheet
       const [
-,
+        ,
         spritesheet,
         textureName
       ] = texture.image.split("/");
       if (!tilesetsTextures[spritesheet]) {
-        console.warn(`Could not find spritesheet ${spritesheet} ${tilesetsTextures}`);
+        console.warn(`Could not find spritesheet ${textureName} ${spritesheet} ${tilesetsTextures}`);
       };
       if (!tilesetsTextures[spritesheet].textures![textureName]) {
         console.warn(`Could not find texture ${spritesheet} ${textureName}`);

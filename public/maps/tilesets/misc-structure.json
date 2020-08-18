@@ -1,0 +1,20 @@
+{"frames": {
+
+"tile-misc-structure-fireextinguisher.png":
+{
+	"frame": {"x":0,"y":0,"w":128,"h":224},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":224},
+	"sourceSize": {"w":128,"h":224}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "misc-structure.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":224},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1f7c57445ffae0121c23abe1689f1258:58abdf2d1a0633e375fd89aeec71f2d3:604b1fef0f7baa39165d900c9d8583ab$"
+}
+}
