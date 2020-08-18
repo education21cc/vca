@@ -55,6 +55,7 @@
     margin-top: 32px;
     color: white;
     font: 26px 'Open Sans', sans-serif;
+    font-weight: 300;
 }
 
 .subtext:after {

@@ -1,11 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { loadResource } from 'utils/pixiJs';
-import { Stage, Sprite, Container, Graphics } from '@inlet/react-pixi';
-import { TiledMapData, TiledTilesetData, TiledLayerData, TiledLayerType, TiledObjectData, TiledProperty } from 'utils/tiledMapData';
+import React, { useEffect, useRef } from 'react';
+import { Stage, Sprite, Container } from '@inlet/react-pixi';
+import { TiledMapData, TiledLayerData, TiledLayerType, TiledObjectData } from 'utils/tiledMapData';
 import * as PIXI from 'pixi.js';
-import useTilesetsLoader from 'hooks/useTilesetsLoader';
 import Viewport from '../Viewport';
-import { SCALE_MODES } from 'pixi.js';
+import { SCALE_MODES, LoaderResource } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
 import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
@@ -14,18 +12,18 @@ import Marker from 'components/pixi/Marker';
 import { Content, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
 import MapObject from '../MapObject';
-import Loading from 'components/playerBridge/Loading';
 
 const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
 
 interface Props { 
   content: Content;
+  mapData: TiledMapData;
+  tilesetsTextures: {[key: string]: LoaderResource};
   foundSituations: string[];
   onSituationClick: (situation: string) => void;
   solvedScenarios: string[];
   onScenarioClick: (scenario: string) => void;
-  onLoading: (complete: boolean) => void;
 }
 
 // // This stuff is needed for the pixi-js browser plugin
@@ -36,29 +34,11 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const Map = (props: Props) => {
-  const { content, foundSituations, onSituationClick, onLoading } = props;
-  const jsonPath = content.mapJson;
-  const [mapData, setMapData] = useState<TiledMapData>();
+  const { content, foundSituations, mapData, tilesetsTextures, onSituationClick } = props;
+
+
   PIXI.settings.ROUND_PIXELS = true;
-
-  const {
-    loadComplete,
-    loadTilesets,
-    tilesetsTextures
-  } = useTilesetsLoader(determineTilesetSpritesheetPath);
-
-  useEffect(() => {
-    PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
-    loadResource(`${process.env.PUBLIC_URL}/${jsonPath}`, (resource) => {
-      setMapData(resource.data);
-    });
-  }, [jsonPath]);
-
-  useEffect(() => {
-    if (mapData) {
-      loadTilesets(mapData.tilesets);
-    }
-  }, [loadTilesets, mapData]);
+  PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
 
   // https://stackoverflow.com/questions/4615116/how-to-calculate-the-height-and-width-of-an-isometric-rectangle-square
   const mapWidth = ((mapData?.width || 1) + (mapData?.height || 1)) * (TILE_WIDTH / 2);
@@ -73,14 +53,6 @@ const Map = (props: Props) => {
     }
   }, [mapData, mapHeight, mapWidth, tilesetsTextures]);
 
-
-  useEffect(() => {
-    onLoading(!loadComplete || !mapData);
-  }, [loadComplete, mapData, onLoading]);
-
-  if (!loadComplete || !mapData) {
-    return null;
-  }
 
   const renderFloor = (layer?: TiledLayerData) => {
     if (!layer) {
@@ -152,8 +124,7 @@ const Map = (props: Props) => {
       // the image is in the format "tiles/structure-wall/tile-structure-wall-gray-left.png"
       // the 'structure-wall' part refers to the spritesheet, the 'tile-structure-wall-gray-left' is the texture on the spriesheet
       const [
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        _,
+,
         spritesheet,
         textureName
       ] = texture.image.split("/");
@@ -203,8 +174,7 @@ const Map = (props: Props) => {
     })
   }
 
-
-  const handleMarkerClick = (name: string, scenario: Scenario) => {
+  const handleMarkerClick = (name: string) => {
     props.onScenarioClick(name);
   }
 
@@ -216,7 +186,7 @@ const Map = (props: Props) => {
     return (
       <Marker 
         position={position} 
-        pointertap={() => handleMarkerClick(name, scenario)}
+        pointertap={() => handleMarkerClick(name)}
         delay={delay}
         bounce={bounce}
         key={name}
@@ -262,8 +232,6 @@ const Map = (props: Props) => {
 }
 
 export default Map;
-// returns the path to the spritesheet for given tileset
-const determineTilesetSpritesheetPath = (tilesetData: TiledTilesetData) => `${process.env.PUBLIC_URL}/maps/tilesets/${tilesetData.name}.json`;
 
 
 const parseBackgroundColor = (asString: string | undefined) : number | undefined => {
@@ -273,7 +241,6 @@ const parseBackgroundColor = (asString: string | undefined) : number | undefined
 
 const getTiles = (layer: TiledLayerData): number[] => {
 
-    let data = null;
     let rawData = layer.data;
 
     if (typeof(rawData) !== 'string') {

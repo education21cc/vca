@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { TiledTilesetData } from "utils/tiledMapData";
 import { loadResource } from "utils/pixiJs";
 import { LoaderResource } from "pixi.js";
@@ -7,9 +7,9 @@ const useTilesetsLoader = (determineTilesetSpritesheetPath: (tileset: TiledTiles
     const [tilesetsTextures, setTilesets] = useState<{[key: string]: LoaderResource}>({});
     const [data, setData] = useState<TiledTilesetData[]>();
 
-    const loadTilesets = (value: TiledTilesetData[]) => {
+    const loadTilesets = useCallback((value: TiledTilesetData[]) => {
         setData(value);
-    };
+    }, []);
 
     useEffect(() => {
         if (!data) return;
