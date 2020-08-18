@@ -2,7 +2,7 @@
 
 "tile-structure-door-blue-left.png":
 {
-	"frame": {"x":0,"y":0,"w":128,"h":262},
+	"frame": {"x":2,"y":2,"w":128,"h":262},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":262},
@@ -10,15 +10,47 @@
 },
 "tile-structure-door-blue-right.png":
 {
-	"frame": {"x":0,"y":262,"w":128,"h":262},
+	"frame": {"x":2,"y":264,"w":128,"h":262},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":262},
 	"sourceSize": {"w":128,"h":262}
 },
+"tile-structure-door-emergency-b-left.png":
+{
+	"frame": {"x":2,"y":526,"w":128,"h":262},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":262},
+	"sourceSize": {"w":128,"h":262}
+},
+"tile-structure-door-emergency-b-right.png":
+{
+	"frame": {"x":2,"y":788,"w":128,"h":236},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":236},
+	"sourceSize": {"w":128,"h":236}
+},
+"tile-structure-door-emergency-c-left.png":
+{
+	"frame": {"x":2,"y":1024,"w":129,"h":224},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":224},
+	"sourceSize": {"w":129,"h":224}
+},
+"tile-structure-door-emergency-c-right.png":
+{
+	"frame": {"x":2,"y":1248,"w":128,"h":224},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":224},
+	"sourceSize": {"w":128,"h":224}
+},
 "tile-structure-door-emergency-left.png":
 {
-	"frame": {"x":0,"y":524,"w":128,"h":192},
+	"frame": {"x":2,"y":1472,"w":128,"h":192},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":192},
@@ -26,7 +58,7 @@
 },
 "tile-structure-door-emergency-right.png":
 {
-	"frame": {"x":0,"y":716,"w":128,"h":192},
+	"frame": {"x":2,"y":1664,"w":128,"h":192},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":192},
@@ -37,8 +69,8 @@
 	"version": "1.0",
 	"image": "structure-door.png",
 	"format": "RGBA8888",
-	"size": {"w":128,"h":908},
+	"size": {"w":133,"h":1858},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:1203a6ae7535fd6d0afae0d411ee4381:f79f7471572d5b1a037ad919fc6f62b0:9f9fb0116562c3d03c55fa92773391e5$"
+	"smartupdate": "$TexturePacker:SmartUpdate:bf839e2c0dd471ff92b7a3e665269c18:e41b5763e6d96fb9ee943df3706f5ceb:9f9fb0116562c3d03c55fa92773391e5$"
 }
 }
