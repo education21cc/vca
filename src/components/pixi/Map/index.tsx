@@ -37,8 +37,7 @@ const Map = (props: Props) => {
   const { content, foundSituations, mapData, tilesetsTextures, onSituationClick } = props;
 
 
-  PIXI.settings.ROUND_PIXELS = true;
-  PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
+  // PIXI.settings.ROUND_PIXELS = false;
 
   // https://stackoverflow.com/questions/4615116/how-to-calculate-the-height-and-width-of-an-isometric-rectangle-square
   const mapWidth = ((mapData?.width || 1) + (mapData?.height || 1)) * (TILE_WIDTH / 2);

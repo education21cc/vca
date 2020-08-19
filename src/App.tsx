@@ -16,6 +16,7 @@ import useTilesetsLoader from 'hooks/useTilesetsLoader';
 import { TiledTilesetData, TiledMapData } from 'utils/tiledMapData';
 import { loadResource } from 'utils/pixiJs';
 import './styles/common.scss'
+import { SCALE_MODES } from 'pixi.js';
 
 PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
@@ -46,6 +47,8 @@ function App() {
   }
 
   const handleGameDataReceived = (data: GameData<Content>) => {
+    PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
+
     setContent(data.content);
     
     if (data.translations){
@@ -87,10 +90,10 @@ function App() {
         console.log("no bridge found, fetching fallback")
         // @ts-ignore
         
-        fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         .then((response) => {
           response.json().then((data) => {
-            console.log(data)
             handleGameDataReceived(data);
           })
         })
@@ -151,7 +154,14 @@ function App() {
                   solvedScenarios={solvedScenarios}
                   onScenarioClick={handleScenarioClick}
                 />
-                {content?.finder && <FinderBox content={content.finder} foundSituations={foundSituations} onOpenGame={handleOpenGame}/>}
+                {content?.finder && (
+                  <FinderBox 
+                    content={content.finder} 
+                    foundSituations={foundSituations} 
+                    onOpenGame={handleOpenGame}
+                    nextText={translations["button-next"]}
+                  />
+                )}
                 {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />}
               </>
             )}

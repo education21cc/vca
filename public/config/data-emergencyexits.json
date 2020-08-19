@@ -5,7 +5,7 @@
 
   },
   "content": {
-      "mapJson": "maps/testmap3.json",
+      "mapJson": "maps/testmap6.json",
       "situations": {
         "fire": {
           "url": "https://21cceducation.nl/content/webgl_portfolio/games/ForkliftLabels/",
@@ -13,8 +13,8 @@
         }
      },
       "finder": {
-        "instruction": "Vind 5 brandbrussers",
-        "situations": ["extinguisher5", "extinguisher4", "extinguisher3", "extinguisher2", "extinguisher1"],
+        "instruction": "Vind 4 nooduitgangen",
+        "situations": ["door7", "door6", "door5", "door4", "door3", "door2", "door1"],
         "final": {
             "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
             "data": {
@@ -64,7 +64,7 @@
   },
   "translations": [{
       "key": "intro-header",
-      "value": "Brandblussers in het magazijn"
+      "value": "Nooduitgangen"
   }, {
     "key": "intro-description",
     "value": "Een brandblusser is een apparaat om het vuur van een kleine brand te doven. Het bestaat uit een cilinder waarin een beperkte hoeveelheid blusmiddel onder druk staat. Er zijn ook blussers waarin zich een drukpatroon bevindt, die eerst geactiveerd (ingeslagen) moet worden via een rode inslagknop boven op de blusser. Door een opening kan het blusmiddel op het vuur gespoten worden.  "
@@ -76,7 +76,7 @@
     "value": "{0} stars to gain"
   }, {
     "key": "button-next",
-    "value": "Next" 
+    "value": "Next"
   }],
   "levelsCompleted": [{
     "level": 0,
