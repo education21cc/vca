@@ -219,8 +219,17 @@
       }
   },
   "translations": [{
-      "key": "outro-description",
-      "value": "You did not remember {0} cards"
+      "key": "intro-header",
+      "value": "The warehouse"
+  }, {
+    "key": "intro-description",
+    "value": "In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents. In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents."
+  }, {
+      "key": "intro-start",
+      "value": "START"
+  }, {
+      "key": "intro-stars-to-gain",
+      "value": "{0} stars to gain"
   }],
   "levelsCompleted": [{
     "level": 0,

@@ -2,90 +2,90 @@
 
 "tile-pallet-boxes-dark-tall-01.png":
 {
-	"frame": {"x":4,"y":434,"w":114,"h":128},
+	"frame": {"x":2,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":7,"y":0,"w":114,"h":128},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-dark-tall-three-01.png":
 {
-	"frame": {"x":4,"y":566,"w":114,"h":128},
+	"frame": {"x":130,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":7,"y":0,"w":114,"h":128},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-flat-01.png":
 {
-	"frame": {"x":4,"y":334,"w":115,"h":96},
+	"frame": {"x":258,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":32,"w":115,"h":96},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-less-01.png":
 {
-	"frame": {"x":4,"y":110,"w":115,"h":108},
+	"frame": {"x":386,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":20,"w":115,"h":108},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-many-01.png":
 {
-	"frame": {"x":4,"y":222,"w":115,"h":108},
+	"frame": {"x":514,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":20,"w":115,"h":108},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-tall-01.png":
 {
-	"frame": {"x":4,"y":698,"w":114,"h":128},
+	"frame": {"x":642,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":7,"y":0,"w":114,"h":128},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-white-01.png":
 {
-	"frame": {"x":4,"y":938,"w":104,"h":124},
+	"frame": {"x":770,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":4,"w":104,"h":124},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-white-02.png":
 {
-	"frame": {"x":4,"y":1066,"w":104,"h":124},
+	"frame": {"x":898,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":4,"w":104,"h":124},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-white-03.png":
 {
-	"frame": {"x":4,"y":1194,"w":104,"h":102},
+	"frame": {"x":1026,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":26,"w":104,"h":102},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-white-04.png":
 {
-	"frame": {"x":4,"y":830,"w":104,"h":112},
-	"rotated": true,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":16,"w":104,"h":112},
+	"frame": {"x":1154,"y":2,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-boxes-white-05.png":
 {
-	"frame": {"x":4,"y":4,"w":116,"h":102},
+	"frame": {"x":1282,"y":2,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":26,"w":116,"h":102},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 }},
 "animations": {
@@ -96,8 +96,8 @@
 	"version": "1.0",
 	"image": "pallet-boxes.png",
 	"format": "RGBA8888",
-	"size": {"w":124,"h":1300},
+	"size": {"w":1412,"h":132},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d0c93d2d54488c79e1d6ba5474ef1888:f60de24d44e870ff008ac13d28528a1b:e832594e4d55a00038739e73728c7ed2$"
+	"smartupdate": "$TexturePacker:SmartUpdate:d71c78b794b23654df26e38afd5e13e1:f60de24d44e870ff008ac13d28528a1b:e832594e4d55a00038739e73728c7ed2$"
 }
 }
