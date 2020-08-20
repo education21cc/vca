@@ -2,7 +2,7 @@
   "name": "vca",
   "version": "0.1.0",
   "homepage": "https://spassvogel.github.io/vca",
-  "homepage-": "vca/",
+  "homepage-whenneedstouploadtoserver": ".",
   "private": true,
   "dependencies": {
     "@inlet/react-pixi": "^5.0.1",

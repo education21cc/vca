@@ -1,8 +1,24 @@
 {"frames": {
 
+"tile-misc-structure-aed-left.png":
+{
+	"frame": {"x":0,"y":0,"w":128,"h":192},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":192},
+	"sourceSize": {"w":128,"h":192}
+},
+"tile-misc-structure-aed-right.png":
+{
+	"frame": {"x":0,"y":192,"w":128,"h":192},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":192},
+	"sourceSize": {"w":128,"h":192}
+},
 "tile-misc-structure-fireextinguisher-1.png":
 {
-	"frame": {"x":0,"y":0,"w":128,"h":224},
+	"frame": {"x":0,"y":384,"w":128,"h":224},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":224},
@@ -10,7 +26,7 @@
 },
 "tile-misc-structure-fireextinguisher-2.png":
 {
-	"frame": {"x":0,"y":224,"w":128,"h":224},
+	"frame": {"x":0,"y":608,"w":128,"h":224},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":224},
@@ -18,7 +34,7 @@
 },
 "tile-misc-structure-fireextinguisher-3.png":
 {
-	"frame": {"x":0,"y":448,"w":128,"h":224},
+	"frame": {"x":0,"y":832,"w":128,"h":224},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":224},
@@ -32,8 +48,8 @@
 	"version": "1.0",
 	"image": "misc-structure.png",
 	"format": "RGBA8888",
-	"size": {"w":128,"h":672},
+	"size": {"w":128,"h":1056},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:df42a1ba5f71703d6cddfa3c7a122eeb:834272f294ad1d72bb22c2325c961754:604b1fef0f7baa39165d900c9d8583ab$"
+	"smartupdate": "$TexturePacker:SmartUpdate:03584e5cd265a094cd2f1b946b930867:d60aacd3f8279ebd334184342143a6e2:604b1fef0f7baa39165d900c9d8583ab$"
 }
 }

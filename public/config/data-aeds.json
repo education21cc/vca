@@ -1,0 +1,153 @@
+{
+  "userId": 2,
+  "settings": {
+    "muted": false
+
+  },
+  "content": {
+      "mapJson": "maps/testmap3.json",
+      "situations": {
+        "fire": {
+          "url": "https://21cceducation.nl/content/webgl_portfolio/games/ForkliftLabels/",
+          "title": "Fire in the garbage bin!"
+        }
+     },
+      "finder": {
+        "instruction": "Vind 3 aeds",
+        "situations": ["aed1", "aed2", "aed3"],
+        "final": {
+          "url": "https://spassvogel.github.io/spinner/",
+          "data": {
+            "userId": 1,
+            "settings": {
+                "muted": false
+            },
+            "content": [{
+                "ring1": "https://21cceducation.nl/content/games/images/spinner/image.php?image=aanraking.png",
+                "ring2": "event-aanraking",
+                "ring3": "effect-aanraking"
+            }, {
+                "ring1": "https://21cceducation.nl/content/games/images/spinner/image.php?image=giftige.png",
+                "ring2": "event-giftige",
+                "ring3": "effect-giftige"
+            }, {
+                "ring1": "https://21cceducation.nl/content/games/images/spinner/image.php?image=machine.png",
+                "ring2": "event-machine",
+                "ring3": "effect-verwonding"
+            }, {
+                "ring1": "https://21cceducation.nl/content/games/images/spinner/image.php?image=snijden.png",
+                "ring2": "event-snijden",
+                "ring3": "effect-snijden"
+            }, {
+                "ring1": "https://21cceducation.nl/content/games/images/spinner/image.php?image=spanning.png",
+                "ring2": "event-spanning",
+                "ring3": "effect-spanning"
+            }, {
+                "ring1": "https://21cceducation.nl/content/games/images/spinner/image.php?image=vallen.png",
+                "ring2": "event-vallen",
+                "ring3": "effect-verwonding"
+            }, {
+                "ring1": "https://21cceducation.nl/content/games/images/spinner/image.php?image=zuurstof.png",
+                "ring2": "event-zuurstof",
+                "ring3": "effect-zuurstof"
+            }],
+            "translations": [{
+                "key": "intro-header",
+                "value": "Spinner game"
+            }, {
+                "key": "intro-start",
+                "value": "Start"
+            }, {
+                "key": "intro-description",
+                "value": "In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents. In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents."
+            }, {
+                "key": "intro-stars-to-gain",
+                "value": "{0} stars to gain"
+            }, {
+                "key": "stars-to-gain",
+                "value": "{0} stars to gain"
+            }, {
+                "key": "complete-header",
+                "value": "Congratulations"
+            }, {
+                "key": "complete-score",
+                "value": "Total score {0} / {1}"
+            }, {
+                "key": "complete-try-again",
+                "value": "Try again"
+            }, {
+                "key": "complete-exit",
+                "value": "Exit"
+            }, {
+                "key": "event-aanraking",
+                "value": "Aanraking koude of hete goederen"
+            }, {
+                "key": "effect-aanraking",
+                "value": "Brand&shy;wonden of bevriezing"
+            }, {
+                "key": "event-giftige",
+                "value": "Vergiftiging"
+            }, {
+                "key": "effect-giftige",
+                "value": "Inademing giftige stof"
+            }, {
+                "key": "event-machine",
+                "value": "Werken met gevaarlijke machines"
+            }, {
+                "key": "effect-verwonding",
+                "value": "Ernstige verwon&shy;dingen"
+            }, {
+                "key": "event-snijden",
+                "value": "Jezelf snijden"
+            }, {
+                "key": "effect-snijden",
+                "value": "Snijwonden"
+            }, {
+                "key": "event-spanning",
+                "value": "Aanraking geleiders onder spannnig"
+            }, {
+                "key": "effect-spanning",
+                "value": "Brand&shy;wonden en electrocutie"
+            }, {
+                "key": "event-vallen",
+                "value": "Vallen van grote hoogte"
+            }, {
+                "key": "event-zuurstof",
+                "value": "Zuurstof&shy;tekort"
+            }, {
+                "key": "effect-zuurstof",
+                "value": "Verstikking"
+            }],
+            "levelsCompleted": [{
+                "level": 1,
+                "score": 2,
+                "maxScore": 2
+            }]
+          }
+        }      
+      }
+  },
+  "translations": [{
+      "key": "intro-header",
+      "value": "Automatische externe defibrillator"
+  }, {
+    "key": "intro-description",
+    "value": "Een automatische externe defibrillator (AED) of hartstarter is een draagbaar toestel dat wordt gebruikt bij de reanimatie van een persoon met een hartstilstand (circulatiestilstand). Indien de hartstilstand het gevolg is van bepaalde levensbedreigende ritmestoornissen (ventrikelfibrilleren of polsloze ventrikeltachycardie) kan een elektrische schok van een AED het gestoorde hartritme doen stoppen."
+  }, {
+    "key": "intro-start",
+    "value": "START"
+  }, {
+    "key": "intro-stars-to-gain",
+    "value": "3 stars to gain"
+  }, {
+    "key": "button-next",
+    "value": "Next" 
+  }],
+  "levelsCompleted": [{
+    "level": 0,
+    "score": 6,
+    "maxScore": 8
+
+  }]
+
+}

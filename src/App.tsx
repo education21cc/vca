@@ -86,12 +86,13 @@ function App() {
     // See if we are fed gamedata by 21ccplayer app, if not, go fetch it ourselves
     const timeout = setTimeout(() => {
       // @ts-ignore
-      if(!window.GAMEDATA || !process.env.REACT_APP_PLAYER_MODE) {
+      if(!content) {
         console.log("no bridge found, fetching fallback")
         // @ts-ignore
         
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
         .then((response) => {
           response.json().then((data) => {
             handleGameDataReceived(data);
@@ -100,7 +101,7 @@ function App() {
       }
     }, 1300); // todo: maybe a less hacky way
     return () => { clearTimeout(timeout)};
-  }, []);
+  }, [content]);
   
   const handleOpenGame = () => {
     setIframe(content?.finder?.final);
