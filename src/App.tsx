@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import Map from "./components/pixi/Map";
 import PlayerBridge from 'components/playerBridge';
@@ -42,11 +42,11 @@ function App() {
   const [iframe, setIframe] = useState<ContentConfig>();
   const solvedScenarios: string[] = [];
 
-  const handleClose = () => {
+  const handleBack = useCallback(()=> {
     setIframe(undefined);
-  }
+  }, []);
 
-  const handleGameDataReceived = (data: GameData<Content>) => {
+  const handleGameDataReceived = useCallback((data: GameData<Content>) => {
     PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
 
     setContent(data.content);
@@ -58,7 +58,7 @@ function App() {
       }, {});
       setTranslations(t);
     }
-  }
+  }, []);
 
   const {
     loadComplete,
@@ -83,8 +83,10 @@ function App() {
   }, [loadTilesets, mapData]);
 
   useEffect(() => {
+    // @ts-ignore
+
     // See if we are fed gamedata by 21ccplayer app, if not, go fetch it ourselves
-    const timeout = setTimeout(() => {
+    if (!process.env.REACT_APP_PLAYER_MODE) {
       // @ts-ignore
       if(!content) {
         console.log("no bridge found, fetching fallback")
@@ -99,9 +101,8 @@ function App() {
           })
         })
       }
-    }, 1300); // todo: maybe a less hacky way
-    return () => { clearTimeout(timeout)};
-  }, [content]);
+    };
+  }, [content, handleGameDataReceived]);
   
   const handleOpenGame = () => {
     setIframe(content?.finder?.final);
@@ -133,7 +134,11 @@ function App() {
         <Loading />
       )}
       <div className="background" >
-        <PlayerBridge gameDataReceived={handleGameDataReceived} disableBackButton={!!iframe || !!scenario}/>
+        <PlayerBridge 
+          gameDataReceived={handleGameDataReceived}
+          disableBackButton={!!iframe || !!scenario}
+
+        />
         {loadComplete && (
           <>
             {(state === GameState.intro) &&
@@ -166,7 +171,7 @@ function App() {
                 {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />}
               </>
             )}
-            {iframe && <IFrameModal content={iframe} onClose={handleClose} />}
+            {iframe && <IFrameModal content={iframe} onBack={handleBack} />}
             {scenario && (
               <ScenarioScreen 
                 content={scenario}

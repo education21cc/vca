@@ -6,18 +6,18 @@ import { GameData } from 'components/playerBridge/GameData';
 
 interface GameDataEvent {
   data: {
-    type: 'exit' | 'setGameData',
+    type: 'exit' | 'setGameData' | 'back',
     data: GameData<any>;
   };
 }
 
 interface Props {
   content: ContentConfig;
-  onClose?: () => void;
+  onBack?: () => void;
 }
 
 const IFrameModal = (props: Props) => {
-  const { onClose, content} = props;
+  const { onBack, content} = props;
   const ref = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -31,15 +31,34 @@ const IFrameModal = (props: Props) => {
         case 'setGameData':
           // The iframe is sending a GameData to be stored
           break;
+        case 'back':
+          if (onBack) { onBack(); }
+          break;
         case 'exit':
-          if (onClose) { onClose(); }
+          send({
+            type: 'exit'
+          });
           break;
       }
     };
     ref?.current?.addEventListener('load', handleLoad, true);
     window.addEventListener('message', handleMessage, true);
 
-  }, [content.data, onClose]);
+  }, [content.data, onBack]);
+
+  const send = (payload: any) => {
+    // @ts-ignore
+    if (window.hasOwnProperty("webkit") && window.webkit.hasOwnProperty("messageHandlers")){
+        var stringifiedMessageObj = JSON.stringify(payload);
+        // Send to In App Browser context
+        // @ts-ignore
+        webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);
+    }
+    else {
+        // @ts-ignore
+        window.top.postMessage(payload, '*');
+    }
+  }
 
   return (
       <iframe src={content.url} ref={ref} title={content.url} className="iframe-content"></iframe>

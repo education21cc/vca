@@ -26,6 +26,12 @@ const PlayerBridge = (props: Props) => {
         }
     }
 
+    const back = () => {       
+        send({
+            type: 'back'
+        });
+    }
+
     const exit = () => {       
         send({
             type: 'exit'
@@ -36,8 +42,25 @@ const PlayerBridge = (props: Props) => {
         if (!process.env.REACT_APP_PLAYER_MODE) {
             return;
         }
+        let interval: NodeJS.Timeout;
+        
+        const check = () => {
+            // @ts-ignore
+            // @ts-ignore
+            if (window.GAMEDATA) {
+                clearInterval(interval);
+                // @ts-ignore
+                // @ts-ignore
+                gameDataReceived(window.GAMEDATA);
+            }
+        }
+        // cordova iab just sets window.GAMEDATA
+        interval = setInterval(check, 250);
+
         const receiveMessage = (msg: any) => {
-            if (!msg.data.hasOwnProperty('userId')){
+            clearInterval(interval);
+
+            if (!msg.data.hasOwnProperty('content')){
                 return;
             }
             // @ts-ignore
@@ -52,16 +75,17 @@ const PlayerBridge = (props: Props) => {
                 data: gameData
             });
         }
-       
-        // @ts-ignore
-        window.GAMEDATA = null; 
-        
+               
         // @ts-ignore
         window.getGameData = () => {
             // @ts-ignore
             return window.GAMEDATA;
         }   
         window.addEventListener("message", receiveMessage, false);
+
+        return () => {
+            clearInterval(interval);
+        }
     }, [gameDataReceived]);
 
     if (!process.env.REACT_APP_PLAYER_MODE) {
@@ -73,7 +97,7 @@ const PlayerBridge = (props: Props) => {
     }
     return (
         <div className="close">
-            <CloseIcon onClick={exit} />
+            <CloseIcon onClick={back} />
         </div>
     )
 }
