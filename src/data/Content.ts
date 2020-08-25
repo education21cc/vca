@@ -13,7 +13,6 @@ export enum Mode {
 }
 
 export interface FinderContent {
-    instruction: string;
     situations: string[];
     final: ContentConfig;
 }

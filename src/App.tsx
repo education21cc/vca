@@ -58,6 +58,9 @@ function App() {
       }, {});
       setTranslations(t);
     }
+
+    console.log(data.translations.map(t => `${t.key}`).join('\n'))
+    console.log(data.translations.map(t => t.value).join('\n'))
   }, []);
 
   const {
@@ -68,7 +71,6 @@ function App() {
   
   useEffect(() => {
     if (!content) return;
-
     // Content loaded, load map json
     const jsonPath = content.mapJson;
     loadResource(`${process.env.PUBLIC_URL}/${jsonPath}`, (resource) => {
@@ -93,8 +95,9 @@ function App() {
         // @ts-ignore
         
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
-        // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
         .then((response) => {
           response.json().then((data) => {
             handleGameDataReceived(data);
@@ -163,6 +166,7 @@ function App() {
                 {content?.finder && (
                   <FinderBox 
                     content={content.finder} 
+                    instruction={translations["finder-instruction"]}
                     foundSituations={foundSituations} 
                     onOpenGame={handleOpenGame}
                     nextText={translations["button-next"]}

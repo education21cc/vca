@@ -5,15 +5,10 @@
 
   },
   "content": {
-      "mapJson": "maps/testmap6.json",
-      "situations": {
-        "fire": {
-          "url": "https://21cceducation.nl/content/webgl_portfolio/games/ForkliftLabels/",
-          "title": "Fire in the garbage bin!"
-        }
-     },
+      "mapJson": "maps/testmap5.json",
       "finder": {
-        "situations": ["door7", "door6", "door5", "door4", "door3", "door2", "door1"],
+        "instruction": "Vind 5 brandbrussers",
+        "situations": ["trash1", "trash2", "trash3", "burningBin"],
         "final": {
             "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
             "data": {
@@ -48,37 +43,32 @@
                 {"key": "introduction_short",
                   "value": "Noodsituaties"},
                 {"key": "introduction_long",
-                  "value": "Deze game heeft z'n config van VCA game gekregen. omg wat cool!"}
-                ],
-              "levelsCompleted": [
-                  {
-                      "level": 1,
-                      "score": 2,
-                      "maxScore": 2
-                    }
-                ]
+                  "value": "Deze game heeft z'n config van VCA game gekregen. omg wat cool!"}                
+              ],
+              "levelsCompleted": [{
+                  "level": 1,
+                  "score": 2,
+                  "maxScore": 2
+                }]
             }          
-        }
+        }      
       }
   },
   "translations": [{
       "key": "intro-header",
-      "value": "Nooduitgangen"
+      "value": "Gevaarlijke situaties"
   }, {
     "key": "intro-description",
-    "value": "<<INTRO MISSING>>"
+    "value": "<<DESCRIPTION MISSING>> "
   }, {
     "key": "intro-start",
-    "value": "Start"
+    "value": "START"
   }, {
     "key": "intro-stars-to-gain",
-    "value": "{0} sterren om te winnen"
+    "value": "{0} stars to gain"
   }, {
     "key": "button-next",
-    "value": "Volgende"
-  }, {
-    "key": "finder-instruction",
-    "value": "Vind 4 nooduitgangen"
+    "value": "Next" 
   }],
   "levelsCompleted": [{
     "level": 0,

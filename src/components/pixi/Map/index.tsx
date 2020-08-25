@@ -223,7 +223,9 @@ const Map = (props: Props) => {
         <Container sortableChildren={true}>
           {renderLayers(mapData.layers)}
         </Container>
-        {renderObjectLayers(mapData.layers)}
+        <Container sortableChildren={true}>
+          {renderObjectLayers(mapData.layers)}
+        </Container>
         {Object.entries(content.scenarios || []).map(([key, value], index) => renderScenarioMarker(key, value, index))}
       </Viewport>
     </Stage>

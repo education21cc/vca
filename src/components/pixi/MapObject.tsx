@@ -129,16 +129,22 @@ export default MapObject;
 
 const renderEffects = (properties?: TiledProperty[]) => {
     if (!properties) return null;
+
+
     let x, y;
     const offset = properties.find(p => p.name === 'offset');
     if (offset) {
       [x, y] = offset.value.split(',');
     }
     
-    return (
-      <Smoke1 
-        x={x}
-        y={y}
-      />
-    )
+    const effect = properties.find(p => p.name === 'effect');
+    if (effect?.value === 'smoke') {
+      return (
+        <Smoke1 
+          x={x}
+          y={y}
+        />
+      )
+    }
+    return null;
   }
