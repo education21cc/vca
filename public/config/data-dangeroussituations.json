@@ -55,20 +55,23 @@
       }
   },
   "translations": [{
-      "key": "intro-header",
-      "value": "Gevaarlijke situaties"
+    "key": "intro-header",
+    "value": "Gevaarlijke situaties"
   }, {
     "key": "intro-description",
-    "value": "<<DESCRIPTION MISSING>> "
+    "value": "<<INTRO MISSING>>"
   }, {
     "key": "intro-start",
-    "value": "START"
+    "value": "Start"
   }, {
     "key": "intro-stars-to-gain",
-    "value": "{0} stars to gain"
+    "value": "Veel succes!"
   }, {
     "key": "button-next",
-    "value": "Next" 
+    "value": "Volgende"
+  }, {
+    "key": "finder-instruction",
+    "value": "Vind alle gevaarlijke situaties"
   }],
   "levelsCompleted": [{
     "level": 0,

@@ -6,14 +6,7 @@
   },
   "content": {
       "mapJson": "maps/testmap3.json",
-      "situations": {
-        "fire": {
-          "url": "https://21cceducation.nl/content/webgl_portfolio/games/ForkliftLabels/",
-          "title": "Fire in the garbage bin!"
-        }
-     },
       "finder": {
-        "instruction": "Vind 5 brandbrussers",
         "situations": ["extinguisher5", "extinguisher4", "extinguisher3", "extinguisher2", "extinguisher1"],
         "final": {
             "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
@@ -70,13 +63,16 @@
     "value": "Een brandblusser is een apparaat om het vuur van een kleine brand te doven. Het bestaat uit een cilinder waarin een beperkte hoeveelheid blusmiddel onder druk staat. Er zijn ook blussers waarin zich een drukpatroon bevindt, die eerst geactiveerd (ingeslagen) moet worden via een rode inslagknop boven op de blusser. Door een opening kan het blusmiddel op het vuur gespoten worden.  "
   }, {
     "key": "intro-start",
-    "value": "START"
+    "value": "Start"
   }, {
     "key": "intro-stars-to-gain",
-    "value": "{0} stars to gain"
+    "value": "Veel succes!"
   }, {
     "key": "button-next",
     "value": "Next" 
+  }, {
+    "key": "finder-instruction",
+    "value": "Vind 5 brandbrussers"
   }],
   "levelsCompleted": [{
     "level": 0,

@@ -95,9 +95,9 @@ function App() {
         // @ts-ignore
         
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
-        // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
         .then((response) => {
           response.json().then((data) => {
             handleGameDataReceived(data);
