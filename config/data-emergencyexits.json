@@ -13,7 +13,6 @@
         }
      },
       "finder": {
-        "instruction": "Vind 4 nooduitgangen",
         "situations": ["door7", "door6", "door5", "door4", "door3", "door2", "door1"],
         "final": {
             "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
@@ -67,16 +66,19 @@
       "value": "Nooduitgangen"
   }, {
     "key": "intro-description",
-    "value": "Een brandblusser is een apparaat om het vuur van een kleine brand te doven. Het bestaat uit een cilinder waarin een beperkte hoeveelheid blusmiddel onder druk staat. Er zijn ook blussers waarin zich een drukpatroon bevindt, die eerst geactiveerd (ingeslagen) moet worden via een rode inslagknop boven op de blusser. Door een opening kan het blusmiddel op het vuur gespoten worden.  "
+    "value": "<<INTRO MISSING>>"
   }, {
     "key": "intro-start",
-    "value": "START"
+    "value": "Start"
   }, {
     "key": "intro-stars-to-gain",
-    "value": "{0} stars to gain"
+    "value": "{0} sterren om te winnen"
   }, {
     "key": "button-next",
-    "value": "Next"
+    "value": "Volgende"
+  }, {
+    "key": "finder-instruction",
+    "value": "Vind 4 nooduitgangen"
   }],
   "levelsCompleted": [{
     "level": 0,

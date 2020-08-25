@@ -5,9 +5,10 @@
 
   },
   "content": {
-      "mapJson": "maps/testmap3.json",
+      "mapJson": "maps/testmap5.json",
       "finder": {
-        "situations": ["extinguisher5", "extinguisher4", "extinguisher3", "extinguisher2", "extinguisher1"],
+        "instruction": "Vind 5 brandbrussers",
+        "situations": ["trash1", "trash2", "trash3", "burningBin", "blockingContainer", "blockingBox", "stackOfBoxes"],
         "final": {
             "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
             "data": {
@@ -42,25 +43,23 @@
                 {"key": "introduction_short",
                   "value": "Noodsituaties"},
                 {"key": "introduction_long",
-                  "value": "Deze game heeft z'n config van VCA game gekregen. omg wat cool!"}
-                ],
-              "levelsCompleted": [
-                  {
-                      "level": 1,
-                      "score": 2,
-                      "maxScore": 2
-                    }
-                ]
+                  "value": "Deze game heeft z'n config van VCA game gekregen. omg wat cool!"}                
+              ],
+              "levelsCompleted": [{
+                  "level": 1,
+                  "score": 2,
+                  "maxScore": 2
+                }]
             }          
-        }
+        }      
       }
   },
   "translations": [{
-      "key": "intro-header",
-      "value": "Brandblussers in het magazijn"
+    "key": "intro-header",
+    "value": "Gevaarlijke situaties"
   }, {
     "key": "intro-description",
-    "value": "Een brandblusser is een apparaat om het vuur van een kleine brand te doven. Het bestaat uit een cilinder waarin een beperkte hoeveelheid blusmiddel onder druk staat. Er zijn ook blussers waarin zich een drukpatroon bevindt, die eerst geactiveerd (ingeslagen) moet worden via een rode inslagknop boven op de blusser. Door een opening kan het blusmiddel op het vuur gespoten worden.  "
+    "value": "<<INTRO MISSING>>"
   }, {
     "key": "intro-start",
     "value": "Start"
@@ -69,10 +68,10 @@
     "value": "Veel succes!"
   }, {
     "key": "button-next",
-    "value": "Next" 
+    "value": "Volgende"
   }, {
     "key": "finder-instruction",
-    "value": "Vind 5 brandbrussers"
+    "value": "Vind alle gevaarlijke situaties"
   }],
   "levelsCompleted": [{
     "level": 0,

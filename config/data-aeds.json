@@ -6,14 +6,8 @@
   },
   "content": {
       "mapJson": "maps/testmap3.json",
-      "situations": {
-        "fire": {
-          "url": "https://21cceducation.nl/content/webgl_portfolio/games/ForkliftLabels/",
-          "title": "Fire in the garbage bin!"
-        }
-     },
+
       "finder": {
-        "instruction": "Vind 3 aeds",
         "situations": ["aed1", "aed2", "aed3"],
         "final": {
             "url-": "https://21cceducation.nl/content/webgl_portfolio/games/ConveyorGame/",
@@ -78,13 +72,16 @@
     "value": "Een automatische externe defibrillator (AED) of hartstarter is een draagbaar toestel dat wordt gebruikt bij de reanimatie van een persoon met een hartstilstand (circulatiestilstand). Indien de hartstilstand het gevolg is van bepaalde levensbedreigende ritmestoornissen (ventrikelfibrilleren of polsloze ventrikeltachycardie) kan een elektrische schok van een AED het gestoorde hartritme doen stoppen."
   }, {
     "key": "intro-start",
-    "value": "START"
+    "value": "Start"
   }, {
     "key": "intro-stars-to-gain",
-    "value": "3 stars to gain"
+    "value": "Veel succes!"
   }, {
     "key": "button-next",
     "value": "Next" 
+  }, {
+    "key": "finder-instruction",
+    "value": "Vind 3 aeds"
   }],
   "levelsCompleted": [{
     "level": 0,
