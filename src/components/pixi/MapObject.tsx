@@ -5,7 +5,7 @@ import { Sprite, Graphics } from '@inlet/react-pixi';
 import { findTileset } from 'utils/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
 import Smoke1 from './effects/smoke1';
-import { gsap } from 'gsap'
+import { gsap, Linear } from 'gsap'
 
 
 interface Props {
@@ -22,6 +22,8 @@ const MapObject = (props: Props) => {
 
   const popInDuration = 1;
   const checkRef = useRef(null);
+  const ref = useRef(null);
+
   useEffect(() => {
     // Pop in animation!
     if (!checkRef.current) return;
@@ -34,6 +36,39 @@ const MapObject = (props: Props) => {
       }
     });
   }, [found]);
+
+  useEffect(() => {
+    if (!ref.current) return; 
+
+    const animation = o.properties?.find(p => p.name === 'animation');
+    if (!animation) return;
+
+    // Pass a string like "[[0, 22], [5, 22], [5,25], [11, 25], [11, 18]]" with coordinates
+    const steps = JSON.parse(animation.value);
+    const delay = parseFloat(o.properties?.find(p => p.name === 'delay')?.value || 0);
+    const tl = gsap.timeline({
+      repeat: -1,
+      delay
+    });
+    console.log(delay)
+    for(let i = 1; i < steps.length; i++) {
+      const lastStep = steps[i - 1];
+      const currentStep = steps[i];
+      const distance = Math.sqrt(Math.pow(currentStep[0] - lastStep[0], 2) + Math.pow(currentStep[1] - lastStep[1], 2));
+
+      const position = tileLocationToPosition(currentStep, mapData.width, mapData.height);
+      const speed = 0.25;
+      tl.to(ref.current, {
+        duration: speed * distance,
+        pixi: { 
+          x: position.x,
+          y: position.y,
+        },
+        ease: Linear.easeNone,
+      });
+      console.log(`distance: ${distance}, ${position.x}`)
+    }
+  }, [mapData.height, mapData.width, o.properties]);
 
   if (o.polygon) {
     const {x, y } = o;
@@ -101,25 +136,26 @@ const MapObject = (props: Props) => {
     }
 
     return (
-        <Sprite
-          name={`${o.name}: ${x},${y} (${textureName})`}
-          scale={scale}
-          texture={tilesetsTextures[spritesheet].textures![textureName]}
-          anchor={[0, 1]}
+      <Sprite
+        name={`${o.name}: ${x},${y} (${textureName})`}
+        ref={ref}
+        scale={scale}
+        texture={tilesetsTextures[spritesheet].textures![textureName]}
+        anchor={[0, 1]}
+        pivot={[TILE_WIDTH / 2, 0]}
+        position={tileLocationToPosition(location, mapData.width, mapData.height)}
+        pointerdown={() => onClick(o.name)}
+        interactive={!!o.name}
+      >
+        {renderEffects(o.properties)}
+        {found && <Sprite
+          ref={checkRef}
+          image={`${process.env.PUBLIC_URL}/images/ui/check.svg`}
+          scale={.8}
+          anchor={[-.1, 1]}
           pivot={[TILE_WIDTH / 2, 0]}
-          position={tileLocationToPosition(location, mapData.width, mapData.height)}
-          pointerdown={() => onClick(o.name)}
-          interactive={!!o.name}
-        >
-          {renderEffects(o.properties)}
-          {found && <Sprite
-            ref={checkRef}
-            image={`${process.env.PUBLIC_URL}/images/ui/check.svg`}
-            scale={.8}
-            anchor={[-.1, 1]}
-            pivot={[TILE_WIDTH / 2, 0]}
-          />}
-        </Sprite> 
+        />}
+      </Sprite> 
     );  
   }
   return null;
@@ -138,7 +174,7 @@ const renderEffects = (properties?: TiledProperty[]) => {
     }
     
     const effect = properties.find(p => p.name === 'effect');
-    if (effect?.value === 'smoke') {
+    if (effect?.value === 'smoke1') {
       return (
         <Smoke1 
           x={x}

@@ -59,8 +59,8 @@ function App() {
       setTranslations(t);
     }
 
-    console.log(data.translations.map(t => `${t.key}`).join('\n'))
-    console.log(data.translations.map(t => t.value).join('\n'))
+    // console.log(data.translations.map(t => `${t.key}`).join('\n'))
+    // console.log(data.translations.map(t => t.value).join('\n'))
   }, []);
 
   const {
