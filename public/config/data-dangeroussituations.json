@@ -8,7 +8,7 @@
       "mapJson": "maps/testmap5.json",
       "finder": {
         "instruction": "Vind 5 brandbrussers",
-        "situations": ["trash1", "trash2", "trash3", "burningBin"],
+        "situations": ["trash1", "trash2", "trash3", "burningBin", "blockingContainer", "blockingBox", "stackOfBoxes"],
         "final": {
             "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
             "data": {
