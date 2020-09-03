@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import Map from "./components/pixi/Map";
 import PlayerBridge from 'components/playerBridge';
-import { GameData } from 'components/playerBridge/GameData';
+import { GameData, Level } from 'components/playerBridge/GameData';
 import { Content, ContentConfig, Scenario } from 'data/Content';
 import { PixiPlugin } from 'gsap/all';
 import { gsap } from 'gsap'
@@ -34,7 +34,7 @@ function App() {
   const [state, setState] = useState(GameState.intro);
   const [translations, setTranslations] = useState<{[key: string]: string}>({});
   const [mapData, setMapData] = useState<TiledMapData>();
-
+  const [levelsCompleted, setLevelsCompleted] = useState<Level[]>();
 
   const [scenario, setScenario] = useState<Scenario>();
   const [content, setContent] = useState<Content>();
@@ -49,6 +49,7 @@ function App() {
   const handleGameDataReceived = useCallback((data: GameData<Content>) => {
     PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
 
+    setLevelsCompleted(data.levelsCompleted);    
     setContent(data.content);
     
     if (data.translations){
@@ -71,6 +72,7 @@ function App() {
   
   useEffect(() => {
     if (!content) return;
+
     // Content loaded, load map json
     const jsonPath = content.mapJson;
     loadResource(`${process.env.PUBLIC_URL}/${jsonPath}`, (resource) => {
@@ -108,7 +110,16 @@ function App() {
   }, [content, handleGameDataReceived]);
   
   const handleOpenGame = () => {
-    setIframe(content?.finder?.final);
+    if (!levelsCompleted) return;
+    // Copy the levelsCompleted of VCA game into minigame
+    const final: ContentConfig = {
+      ...content?.finder?.final!,
+      data: {
+        ...content?.finder?.final.data!,
+        levelsCompleted
+      }
+    }
+    setIframe(final);
   }
 
   const handleStart = () => {   
