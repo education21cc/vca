@@ -42,8 +42,13 @@ function App() {
   const [iframe, setIframe] = useState<ContentConfig>();
   const solvedScenarios: string[] = [];
 
-  const handleBack = useCallback(()=> {
+  const handleBack = useCallback(() => {
     setIframe(undefined);
+  }, []);
+
+  const handleSetGameData = useCallback((data: GameData<any>) => {
+    // @ts-ignore
+    window.setGameData(data);
   }, []);
 
   const handleGameDataReceived = useCallback((data: GameData<Content>) => {
@@ -186,7 +191,13 @@ function App() {
                 {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />}
               </>
             )}
-            {iframe && <IFrameModal content={iframe} onBack={handleBack} />}
+            {iframe && (
+              <IFrameModal 
+                content={iframe} 
+                onBack={handleBack} 
+                onSetGameData={handleSetGameData} 
+              />
+            )}
             {scenario && (
               <ScenarioScreen 
                 content={scenario}

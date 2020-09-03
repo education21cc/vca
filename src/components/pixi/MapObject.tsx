@@ -50,7 +50,6 @@ const MapObject = (props: Props) => {
       repeat: -1,
       delay
     });
-    console.log(delay)
     for(let i = 1; i < steps.length; i++) {
       const lastStep = steps[i - 1];
       const currentStep = steps[i];
@@ -66,7 +65,6 @@ const MapObject = (props: Props) => {
         },
         ease: Linear.easeNone,
       });
-      console.log(`distance: ${distance}, ${position.x}`)
     }
   }, [mapData.height, mapData.width, o.properties]);
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import ReactModal from 'react-modal';
 import './styles/modal.css';
-import { Situation, ContentConfig } from 'data/Content';
+import { ContentConfig } from 'data/Content';
 import { GameData } from 'components/playerBridge/GameData';
 
 interface GameDataEvent {
@@ -14,10 +13,11 @@ interface GameDataEvent {
 interface Props {
   content: ContentConfig;
   onBack?: () => void;
+  onSetGameData: (data: GameData<any>) => void
 }
 
 const IFrameModal = (props: Props) => {
-  const { onBack, content} = props;
+  const { onBack, onSetGameData, content} = props;
   const ref = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -30,6 +30,7 @@ const IFrameModal = (props: Props) => {
       switch (event.data.type) {
         case 'setGameData':
           // The iframe is sending a GameData to be stored
+          onSetGameData(event.data.data);
           break;
         case 'back':
           if (onBack) { onBack(); }
@@ -44,7 +45,7 @@ const IFrameModal = (props: Props) => {
     ref?.current?.addEventListener('load', handleLoad, true);
     window.addEventListener('message', handleMessage, true);
 
-  }, [content.data, onBack]);
+  }, [content.data, onBack, onSetGameData]);
 
   const send = (payload: any) => {
     // @ts-ignore
