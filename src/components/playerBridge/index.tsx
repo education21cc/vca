@@ -14,7 +14,7 @@ const PlayerBridge = (props: Props) => {
 
     const send = (payload: any) => {
         // @ts-ignore
-        if (window.hasOwnProperty("webkit") && window.webkit.hasOwnProperty("messageHandlers")){
+        if (window.webkit){
             var stringifiedMessageObj = JSON.stringify(payload);
             // Send to In App Browser context
             // @ts-ignore
@@ -32,7 +32,7 @@ const PlayerBridge = (props: Props) => {
         });
     }
 
-    const exit = () => {       
+    const exit = () => {      
         send({
             type: 'exit'
         });

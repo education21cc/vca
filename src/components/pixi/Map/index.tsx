@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Stage, Sprite, Container } from '@inlet/react-pixi';
 import { TiledMapData, TiledLayerData, TiledLayerType, TiledObjectData } from 'utils/tiledMapData';
 import * as PIXI from 'pixi.js';
@@ -13,8 +13,7 @@ import { Content, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
 import MapObject from '../MapObject';
 
-const screenWidth = window.innerWidth;
-const screenHeight = window.innerHeight;
+
 
 interface Props { 
   content: Content;
@@ -36,7 +35,8 @@ if (process.env.NODE_ENV === "development") {
 const Map = (props: Props) => {
   const { content, foundSituations, mapData, tilesetsTextures, onSituationClick } = props;
 
-
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
   // PIXI.settings.ROUND_PIXELS = false;
 
   // https://stackoverflow.com/questions/4615116/how-to-calculate-the-height-and-width-of-an-isometric-rectangle-square
@@ -52,6 +52,22 @@ const Map = (props: Props) => {
     }
   }, [mapData, mapHeight, mapWidth, tilesetsTextures]);
 
+
+
+  useEffect(() => {
+    const resize = () => {
+      setScreenWidth(window.innerWidth);
+      setScreenHeight(window.innerHeight);
+    }
+    window.addEventListener('resize', resize);
+    window.addEventListener('orientationchange', resize);
+ 
+    return () => {
+      window.removeEventListener('resize', resize);
+      window.removeEventListener('orientationchange', resize);
+    }
+  }, []);
+  
 
   const renderFloor = (layer?: TiledLayerData) => {
     if (!layer) {

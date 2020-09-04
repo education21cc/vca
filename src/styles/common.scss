@@ -1,3 +1,14 @@
+// @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) { 
+//   html { 
+//     transform: rotate(90deg);
+//     transform-origin: right top;
+//     width: 100vh; 
+//     overflow-x: hidden; 
+//     position: absolute; 
+//     top: 100%; 
+//     left: 0; 
+//   }
+// }
 
 .background {
   background: transparent linear-gradient(220deg, #6CD3FF 0%, #09E93E 100%) 0% 0% no-repeat padding-box;
