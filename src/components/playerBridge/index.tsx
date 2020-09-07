@@ -46,27 +46,14 @@ const PlayerBridge = (props: Props) => {
         
         const check = () => {
             // @ts-ignore
-            // @ts-ignore
             if (window.GAMEDATA) {
                 clearInterval(interval);
-                // @ts-ignore
                 // @ts-ignore
                 gameDataReceived(window.GAMEDATA);
             }
         }
         // cordova iab just sets window.GAMEDATA
         interval = setInterval(check, 250);
-
-        const receiveMessage = (msg: any) => {
-            clearInterval(interval);
-
-            if (!msg.data.hasOwnProperty('content')){
-                return;
-            }
-            // @ts-ignore
-            window.GAMEDATA = msg.data;
-            gameDataReceived(msg.data);
-        }
 
         // @ts-ignore
         window.setGameData = (gameData) => {
@@ -81,7 +68,6 @@ const PlayerBridge = (props: Props) => {
             // @ts-ignore
             return window.GAMEDATA;
         }   
-        window.addEventListener("message", receiveMessage, false);
 
         return () => {
             clearInterval(interval);
