@@ -229,8 +229,8 @@
       "value": "START"
   }, {
       "key": "intro-stars-to-gain",
-      "value": "{0} stars to gain"
-  }],
+      "value": "{0}/{1} verdiend"
+    }],
   "levelsCompleted": [{
     "level": 0,
     "score": 6,

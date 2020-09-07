@@ -65,7 +65,7 @@
     "value": "Start"
   }, {
     "key": "intro-stars-to-gain",
-    "value": "{0} sterren om te winnen"
+    "value": "{0}/{1} verdiend"
   }, {
     "key": "button-next",
     "value": "Volgende"
