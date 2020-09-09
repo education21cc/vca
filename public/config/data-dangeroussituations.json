@@ -65,7 +65,7 @@
     "value": "Start"
   }, {
     "key": "intro-stars-to-gain",
-    "value": "Veel succes!"
+    "value": "{0}/{1} verdiend"
   }, {
     "key": "button-next",
     "value": "Volgende"
@@ -75,9 +75,8 @@
   }],
   "levelsCompleted": [{
     "level": 0,
-    "score": 6,
+    "score": 0,
     "maxScore": 8
-
   }]
 
 }

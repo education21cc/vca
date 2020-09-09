@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './App.css';
 import Map from "./components/pixi/Map";
 import PlayerBridge from 'components/playerBridge';
@@ -147,6 +147,15 @@ function App() {
     setScenario(undefined);
   }
 
+  const starsToGainText = useMemo<string>(() => {
+    const currentScore = levelsCompleted?.[0]?.score || 0;
+    // const maxScore = content?.finder?.situations.length || 0;
+    const maxScore = 1; // hard coded for now :( 
+    return ("" + translations["intro-stars-to-gain"])
+      .replace("{0}", ""+currentScore)
+      .replace("{1}", ""+maxScore);
+  }, [levelsCompleted, translations]);
+
   return (
     <>
       {(!loadComplete) && (          
@@ -165,7 +174,7 @@ function App() {
               onStart={handleStart}
               headerText={translations["intro-header"]}
               descriptionText={translations["intro-description"]}
-              starsToGainText={translations["intro-stars-to-gain"]}
+              starsToGainText={starsToGainText}
               startText={translations["intro-start"]}
             />)}
             {(state === GameState.normal) && mapData && content && (
