@@ -53,7 +53,6 @@ function App() {
 
   const handleGameDataReceived = useCallback((data: GameData<Content>) => {
     PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
-
     setLevelsCompleted(data.levelsCompleted);    
     setContent(data.content);
     

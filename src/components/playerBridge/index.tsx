@@ -14,7 +14,7 @@ const PlayerBridge = (props: Props) => {
 
     const send = (payload: any) => {
         // @ts-ignore
-        if (window.webkit){
+        if (webkit?.messageHandlers?.cordova_iab) {
             var stringifiedMessageObj = JSON.stringify(payload);
             // Send to In App Browser context
             // @ts-ignore
@@ -29,12 +29,6 @@ const PlayerBridge = (props: Props) => {
     const back = () => {       
         send({
             type: 'back'
-        });
-    }
-
-    const exit = () => {      
-        send({
-            type: 'exit'
         });
     }
 

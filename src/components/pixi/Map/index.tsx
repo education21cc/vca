@@ -3,7 +3,7 @@ import { Stage, Sprite, Container } from '@inlet/react-pixi';
 import { TiledMapData, TiledLayerData, TiledLayerType, TiledObjectData } from 'utils/tiledMapData';
 import * as PIXI from 'pixi.js';
 import Viewport from '../Viewport';
-import { SCALE_MODES, LoaderResource } from 'pixi.js';
+import { LoaderResource } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
 import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
