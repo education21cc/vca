@@ -149,11 +149,11 @@ function App() {
   const starsToGainText = useMemo<string>(() => {
     const currentScore = levelsCompleted?.[0]?.score || 0;
     // const maxScore = content?.finder?.situations.length || 0;
-    const maxScore = 1; // hard coded for now :( 
+    const maxScore = content?.stars || 1;
     return ("" + translations["intro-stars-to-gain"])
       .replace("{0}", ""+currentScore)
       .replace("{1}", ""+maxScore);
-  }, [levelsCompleted, translations]);
+  }, [content, levelsCompleted, translations]);
 
   return (
     <>

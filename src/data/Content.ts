@@ -4,7 +4,8 @@ export interface Content {
   mapJson: string,
   situations: { [key: string]: Situation }
   scenarios: { [key: string]: Scenario }
-  finder?: FinderContent
+  finder?: FinderContent,
+  stars?: number,
 }
 
 export enum Mode {
