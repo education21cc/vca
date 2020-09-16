@@ -10,6 +10,7 @@ const Loading = () => {
             </div>
             <div className="subtext">
                 Stay curious
+                <span className='dots'><span className='dot1'>.</span><span className='dot2'>.</span><span className='dot3'>.</span></span>
             </div>
         </div>
     )

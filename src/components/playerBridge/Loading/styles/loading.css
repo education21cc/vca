@@ -57,23 +57,84 @@
     font: 26px 'Open Sans', sans-serif;
     font-weight: 300;
 }
-
-.subtext:after {
-    content: '.';
-    width: 33px;
-    display: inline-block;
-    animation: dots 3.5s steps(5, end) infinite;
-    position: absolute;
+.dot1 {
+    animation: visibility 3s linear infinite;
 }
 
+@keyframes visibility {
+    0% {
+        opacity: 1;
+    }
 
-@keyframes dots {
-    0% { content: '.' }
-    15% { content: '..' }
-    25% { content: '..' }
-    40% { content: '...' }
-    50% { content: '...' }
-    60% { content: ''}
-    70% { content: '' }
-    90% { content: '.' }
-}        
+    65% {
+        opacity: 1;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.dot2 {
+    animation: visibility2 3s linear infinite;
+}
+
+@keyframes visibility2 {
+    0% {
+        opacity: 0;
+    }
+
+    21% {
+        opacity: 0;
+    }
+
+    22% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.dot3 {
+    animation: visibility3 3s linear infinite;
+}
+
+@keyframes visibility3 {
+    0% {
+        opacity: 0;
+    }
+
+    43% {
+        opacity: 0;
+    }
+
+    44% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
