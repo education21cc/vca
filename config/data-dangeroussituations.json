@@ -6,6 +6,7 @@
   },
   "content": {
       "mapJson": "maps/testmap5.json",
+      "stars": 6,
       "finder": {
         "instruction": "Vind 5 brandbrussers",
         "situations": ["trash1", "trash2", "trash3", "burningBin", "blockingContainer", "blockingBox", "stackOfBoxes"],
@@ -17,7 +18,8 @@
                   "muted": false
               },
               "content": {
-                  "stepsAmount": 5
+                  "stepsAmount": 5,
+                  "stars": 6
               },
               "translations": [
                 {"key": "step_1",
@@ -59,7 +61,7 @@
     "value": "Gevaarlijke situaties"
   }, {
     "key": "intro-description",
-    "value": "<<INTRO MISSING>>"
+    "value": "Voorkomen van incidenten kan alleen als je alert bent op het voorkomen van onveilige situaties. De werkplek moet goed zijn opgeruimd en goed te overzien zijn, zonder onnodige blokkades. In dit spel is het de uitdaging om alle onveilige situaties te vinden en als het dan toch fout gaat goed te weten wat je moet doen. Je kunt hier 2 sterren mee verdienen. Succes!"
   }, {
     "key": "intro-start",
     "value": "Start"
