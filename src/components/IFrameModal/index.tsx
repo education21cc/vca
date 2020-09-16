@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './styles/modal.css';
 import { ContentConfig } from 'data/Content';
 import { GameData } from 'components/playerBridge/GameData';
+import { send } from 'components/playerBridge';
 
 interface GameDataEvent {
   data: {
@@ -46,20 +47,6 @@ const IFrameModal = (props: Props) => {
     window.addEventListener('message', handleMessage, true);
 
   }, [content.data, onBack, onSetGameData]);
-
-  const send = (payload: any) => {
-    // @ts-ignore
-    if (window.hasOwnProperty("webkit") && window.webkit.hasOwnProperty("messageHandlers")){
-        var stringifiedMessageObj = JSON.stringify(payload);
-        // Send to In App Browser context
-        // @ts-ignore
-        webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);
-    }
-    else {
-        // @ts-ignore
-        window.top.postMessage(payload, '*');
-    }
-  }
 
   return (
       <iframe src={content.url} ref={ref} title={content.url} className="iframe-content"></iframe>

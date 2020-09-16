@@ -11,21 +11,7 @@ interface Props {
 
 const PlayerBridge = (props: Props) => {   
     const {gameDataReceived, disableBackButton} = props;
-
-    const send = (payload: any) => {
-        // @ts-ignore
-        if (webkit?.messageHandlers?.cordova_iab) {
-            var stringifiedMessageObj = JSON.stringify(payload);
-            // Send to In App Browser context
-            // @ts-ignore
-            webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);
-        }
-        else {
-            // @ts-ignore
-            window.parent.postMessage(payload, '*');
-        }
-    }
-
+    
     const back = () => {       
         send({
             type: 'back'
@@ -83,3 +69,17 @@ const PlayerBridge = (props: Props) => {
 }
 
 export default PlayerBridge;
+
+export const send = (payload: any) => {
+    // @ts-ignore
+    if (window.hasOwnProperty("webkit") && window.webkit.hasOwnProperty("messageHandlers")){
+        var stringifiedMessageObj = JSON.stringify(payload);
+        // Send to In App Browser context
+        // @ts-ignore
+        webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);
+    }
+    else {
+        // @ts-ignore
+        window.parent.postMessage(payload, '*');
+    }
+}

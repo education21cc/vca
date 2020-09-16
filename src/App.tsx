@@ -126,9 +126,9 @@ function App() {
     setIframe(final);
   }
 
-  const handleStart = () => {   
-    setState(GameState.normal);
-  }
+  const handleStart = useCallback(() => {   
+    setState(GameState.normal); 
+  }, []);
   
   const handleSituationClick = (situation: string) => {
     if (!content?.finder) return;
