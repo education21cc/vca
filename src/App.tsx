@@ -39,11 +39,12 @@ function App() {
   const [scenario, setScenario] = useState<Scenario>();
   const [content, setContent] = useState<Content>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
-  const [iframe, setIframe] = useState<ContentConfig>();
+  // const [iframe, setIframe] = useState<ContentConfig>();
+  const [iframeOpen, setIframeOpen] = useState(false);
   const solvedScenarios: string[] = [];
 
   const handleBack = useCallback(() => {
-    setIframe(undefined);
+    setIframeOpen(false);
   }, []);
 
   const handleSetGameData = useCallback((data: GameData<any>) => {
@@ -102,8 +103,8 @@ function App() {
         
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
-        // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
         .then((response) => {
           response.json().then((data) => {
             handleGameDataReceived(data);
@@ -113,7 +114,7 @@ function App() {
     };
   }, [content, handleGameDataReceived]);
   
-  const handleOpenGame = () => {
+  const iframe = useMemo(() => {
     if (!levelsCompleted) return;
     // Copy the levelsCompleted of VCA game into minigame
     const final: ContentConfig = {
@@ -123,7 +124,11 @@ function App() {
         levelsCompleted
       }
     }
-    setIframe(final);
+    return final;
+  }, [content, levelsCompleted]);
+
+  const handleOpenGame = () => {
+    setIframeOpen(true);
   }
 
   const handleStart = useCallback(() => {   
@@ -163,7 +168,7 @@ function App() {
       <div className="background" >
         <PlayerBridge 
           gameDataReceived={handleGameDataReceived}
-          disableBackButton={!!iframe || !!scenario}
+          disableBackButton={!!iframeOpen || !!scenario}
 
         />
         {loadComplete && (
@@ -201,7 +206,8 @@ function App() {
             )}
             {iframe && (
               <IFrameModal 
-                content={iframe} 
+                content={iframe}
+                open={iframeOpen}
                 onBack={handleBack} 
                 onSetGameData={handleSetGameData} 
               />

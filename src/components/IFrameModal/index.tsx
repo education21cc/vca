@@ -8,11 +8,12 @@ interface GameDataEvent {
   data: {
     type: 'exit' | 'setGameData' | 'back',
     data: GameData<any>;
-  };
+  }
 }
 
 interface Props {
   content: ContentConfig;
+  open: boolean;
   onBack?: () => void;
   onSetGameData: (data: GameData<any>) => void
 }
@@ -23,6 +24,7 @@ const IFrameModal = (props: Props) => {
 
   useEffect(() => {
     const handleLoad = () => {
+      console.log("loaded iframe....")
       // Send gamedata to iframe. Iframe needs to pick this up and serve it to the game when needed
       ref?.current?.contentWindow?.postMessage(content.data, '*');
     };
@@ -49,7 +51,13 @@ const IFrameModal = (props: Props) => {
   }, [content.data, onBack, onSetGameData]);
 
   return (
-      <iframe src={content.url} ref={ref} title={content.url} className="iframe-content"></iframe>
+      <iframe 
+        src={content.url} 
+        ref={ref} 
+        title={content.url} 
+        className={`iframe-content ${props.open ? "visible" : "hidden"}`}
+      >
+      </iframe>
   )
 }
 

@@ -42,7 +42,14 @@ const PlayerBridge = (props: Props) => {
                 data: gameData
             });
         }
-               
+             
+        // @ts-ignore
+        window.exit = () => {
+            send({
+                type: 'exit'
+            });
+        }
+
         // @ts-ignore
         window.getGameData = () => {
             // @ts-ignore
