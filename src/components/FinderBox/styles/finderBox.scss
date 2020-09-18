@@ -7,6 +7,11 @@
   font-size: larger;
   border-radius: 8px;
 
+
+  @media (max-width: 768px) {
+    padding: 8px;  
+  }
+
   button {
     margin-left: 16px;
   }
