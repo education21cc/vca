@@ -6,6 +6,7 @@
   },
   "content": {
       "mapJson": "maps/testmap3.json",
+      "stars": 3,
       "scenarios": {
         "test": {
           "location": [10, 10],
@@ -90,6 +91,18 @@
   }, {
     "key": "feedback-wrong",
     "value": "Wrong"
+  }, {
+      "key": "complete-header",
+      "value": "Gefeliciteerd"
+  }, {
+      "key": "complete-score",
+      "value": "Totale score {0} / {1}"
+  }, {
+      "key": "complete-try-again",
+      "value": "Opnieuw"
+  }, {
+      "key": "complete-exit",
+      "value": "Afsluiten"
   }, {
     "key": "description-test",
     "value": "# Introduction \n\nJe komt aan bij een bijna lege stelling. Er staat nog maar een doos met het product dat je moet hebben. De doos ziet er aan een kant nat uit. Waarschijnlijk is een product in de doos gaan lekken.\n\nHet etiket op de doos kan je daardoor niet goed meer lezen. Je ziet wel dat er twee stickers met een ruit met een rode rand op geplakt zijn. Maar ook die zijn doorweekt geweest en het plaatje binnenin de rode rand is een zwarte vlek geworden. Het is de laatste doos in deze stelling, je kunt dus geen andere doos pakken. In het magazijn waar je werkt worden drogisterij spullen opgeslagen. Wat doe je?"

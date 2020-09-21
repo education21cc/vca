@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './App.css';
 import Map from "./components/pixi/Map";
-import PlayerBridge from 'components/playerBridge';
+import PlayerBridge, { send } from 'components/playerBridge';
 import { GameData, Level } from 'components/playerBridge/GameData';
 import { Content, ContentConfig, Scenario } from 'data/Content';
 import { PixiPlugin } from 'gsap/all';
@@ -17,6 +17,7 @@ import { TiledTilesetData, TiledMapData } from 'utils/tiledMapData';
 import { loadResource } from 'utils/pixiJs';
 import './styles/common.scss'
 import { SCALE_MODES } from 'pixi.js';
+import CompleteDialog from 'components/dialogs/CompleteDialog';
 
 PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
@@ -133,6 +134,10 @@ function App() {
     setIframeOpen(true);
   }
 
+  const handleComplete = () => {
+    setState(GameState.complete);
+  }
+
   const handleStart = useCallback(() => {   
     setState(GameState.normal); 
   }, []);
@@ -165,6 +170,17 @@ function App() {
 
   const exitScenario = () => {
     setScenario(undefined);
+  }
+
+  const handleExit = () => {
+    send({
+      type: 'exit'
+    });
+  }
+
+  const handleReset = () => { 
+    setState(GameState.normal);
+    setScenarioReactions({});
   }
 
   const starsToGainText = useMemo<string>(() => {
@@ -228,7 +244,7 @@ function App() {
                     solvedScenarios={solvedScenarios} 
                     instructionText={translations["finder-instruction"]}
                     nextText={translations["button-next"]}
-                    onOpenGame={() => {}}
+                    onComplete={handleComplete}
                   />
                 )}
               </>
@@ -251,6 +267,17 @@ function App() {
                 onClose={exitScenario}
               />
             )}
+            {(state === GameState.complete) &&
+              (<CompleteDialog
+                onTryAgain={handleReset}
+                onExit={handleExit}
+                total={Object.keys(content?.scenarios!).length || 0}
+                mistakes={0}
+                headerText={translations["complete-header"]}
+                scoreText={translations["complete-score"]}
+                tryAgainText={translations["complete-try-again"]}
+                exitText={translations["complete-exit"]}
+              />)}
           </>
         )}
       </div>

@@ -7,7 +7,7 @@ interface Props {
     solvedScenarios: string[];
     nextText: string;
     instructionText: string;
-    onOpenGame: () => void;
+    onComplete: () => void;
 }
 
 const ScenarioBox = (props: Props) => {
@@ -18,7 +18,7 @@ const ScenarioBox = (props: Props) => {
     return (
         <div className="scenarios-box">
             {`(${solvedScenarios.length}/${scenariosNames.length})`} 
-            <button className="green button" disabled={disabled} onClick={props.onOpenGame}>                
+            <button className="green button" disabled={disabled} onClick={props.onComplete}>                
                 {props.nextText}
             </button>
         </div>
