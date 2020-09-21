@@ -1,0 +1,125 @@
+.scenario-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  
+  display: flex;
+  justify-content: center;
+
+
+  .illustration {
+    flex: 1;
+    background: transparent linear-gradient(220deg, #6cd3ff50 0%, #09e93d50 100%) 0% 0% no-repeat padding-box;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .content {
+    flex: 1;
+    font-size: large;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+
+    img {
+      width: 100%;
+    }
+    
+    div {
+      flex: 0 0 auto;
+      padding: 16px;
+      width: 100%;
+      box-sizing: border-box;
+      transition: margin 500ms ease-in-out;
+
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+
+    &.state-description .description {
+      margin-left: 0;
+    }
+
+    &.state-reactions .description {
+      margin-left: -100%;
+    }
+
+    &.state-feedback .description {
+      margin-left: -200%;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 16px;
+    }
+
+    .reactions {
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          background: #FFFFFF 0% 0% no-repeat padding-box;
+          border: 1px solid #00A7E3;
+          border-radius: 5px;
+          margin-bottom: 8px;
+          padding: 8px;
+        }
+
+        li.selected {
+          background: #B4EEFF 0% 0% no-repeat padding-box;
+          border: 2px solid #00A7E3;
+          padding: 7px;
+        }
+      }
+    }
+
+    .feedback {
+      
+      h1.correct {
+        color: #49C14E;
+        padding-left: 52px;
+        background: url(./images/feedback-correct.png) no-repeat;
+      }
+      
+      h1.wrong {
+        color: #F54A4A;
+        background: url(./images/feedback-wrong.png) no-repeat left 10px;
+        padding-left: 52px;
+        padding-bottom: 6px;
+      }
+
+      h1.title {
+        background: url(./images/speech.png) no-repeat left 5px;
+        padding-left: 52px;
+      }
+
+      .reaction {
+        /** The selected reaction in the previous screen */
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border-radius: 5px;
+        margin-bottom: 8px;
+        padding: 8px;
+      }
+
+      .reaction.wrong {
+        border: 2px solid #F54A4A;
+        background: #FFE1E1 0% 0% no-repeat padding-box;
+      }
+
+      .reaction.correct {
+        border: 2px solid #49C14E;
+        background: #D7F9DA 0% 0% no-repeat padding-box;
+      }
+    }
+  }
+}
+

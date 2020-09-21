@@ -36,12 +36,11 @@ function App() {
   const [mapData, setMapData] = useState<TiledMapData>();
   const [levelsCompleted, setLevelsCompleted] = useState<Level[]>();
 
-  const [scenario, setScenario] = useState<Scenario>();
+  const [scenario, setScenario] = useState<string|undefined>();
   const [content, setContent] = useState<Content>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
-  // const [iframe, setIframe] = useState<ContentConfig>();
+  const [scenarioReactions, setScenarioReactions] = useState<{[key: string]: string}>(); // key = scenario, value = reaction id
   const [iframeOpen, setIframeOpen] = useState(false);
-  const solvedScenarios: string[] = [];
 
   const handleBack = useCallback(() => {
     setIframeOpen(false);
@@ -103,8 +102,9 @@ function App() {
         
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data.json`)
         .then((response) => {
           response.json().then((data) => {
             handleGameDataReceived(data);
@@ -116,6 +116,8 @@ function App() {
   
   const iframe = useMemo(() => {
     if (!levelsCompleted) return;
+    if (!content?.finder?.final) return;
+
     // Copy the levelsCompleted of VCA game into minigame
     const final: ContentConfig = {
       ...content?.finder?.final!,
@@ -144,9 +146,23 @@ function App() {
   }
   
   const handleScenarioClick = (scenario: string) => {
-    setScenario(content?.scenarios[scenario]);
+    setScenario(scenario);
   }
+
+  // useEffect(() => {
+  //   // todo: just for testing remove!
+  //   setScenario("test");
+  // }, [content]);
     
+  const handleCorrectReaction = (reaction: string) => {
+    // gets called from within modal once the correct answer is selected
+
+    setScenarioReactions({
+      ...scenarioReactions,
+      [scenario!]: reaction
+    });
+  }
+
   const exitScenario = () => {
     setScenario(undefined);
   }
@@ -159,6 +175,11 @@ function App() {
       .replace("{0}", ""+currentScore)
       .replace("{1}", ""+maxScore);
   }, [content, levelsCompleted, translations]);
+
+  const solvedScenarios = useMemo(() => {
+    return Object.keys(scenarioReactions || {});
+  }, [scenarioReactions]);
+
 
   return (
     <>
@@ -201,7 +222,7 @@ function App() {
                     nextText={translations["button-next"]}
                   />
                 )}
-                {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />}
+                {/* {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />} */}
               </>
             )}
             {iframe && (
@@ -214,8 +235,10 @@ function App() {
             )}
             {scenario && (
               <ScenarioScreen 
-                content={scenario}
-                setCorrectAnswer={() => {}}
+                scenario={scenario}
+                content={content?.scenarios[scenario]!}
+                setCorrectReaction={handleCorrectReaction}
+                texts={translations}
                 onClose={exitScenario}
               />
             )}

@@ -6,215 +6,54 @@
   },
   "content": {
       "mapJson": "maps/testmap3.json",
-      "situations": {
-          "fire": {
-            "url": "https://21cceducation.nl/content/webgl_portfolio/games/ForkliftLabels/",
-            "title": "Fire in the garbage bin!"
-          }
-      },
       "scenarios": {
         "test": {
           "location": [10, 10],
-          "title": "The Trouble with Kumar (embedded)",
-          "imageBaseUrl": "https://21cceducation.nl/content/games/images/vcaWarehouse/kumar/image.php?image=",
-          "scene": [{
-            "image":  "background.png"
-          }, {
-            "image":  "dev.png",
-            "position": [784, 175]
-          }],
-          "sequence": [{
-            "type": "caption",
-            "text": "As you’re taking a round in the warehouse in the morning, Dev approaches you with a complaint against his team mate, Kumar"
-          }, {
-            "type": "speech",
-            "text": "Kumar and I are scheduled for the same warehouse shift.",
-            "balloonArrowPos": 33
-          }, {
-            "type": "speech",
-            "text": "He regularly plays games on his cell phone while I pick the orders.",
-            "scene": [{
-              "image":  "background.png"
-            }, {
-              "image":  "dev.png",
-              "position": [784, 175]
-            }, {
-              "image":  "kumar-playing.png",
-              "position": [112, 77]
-            }]
-          }, {
-            "type": "speech",
-            "text": "I have to do the bulk of the work while he plays."
-          }, {
-            "type": "speech",
-            "text": "I've asked him on four different occasions to help me, but he doesn't listen to me.",
-            "scene": [{
-              "image":  "background.png"
-            }, {
-              "image":  "dev-handsup.png",
-              "position": [758, 175]
-            }]
-          }],
-          "description": "You’ve already reprimanded Kumar in the past about his slack behaviour. What kind of disciplinary action should you take against him now?",
-          "options": [
-            "Send Kumar a notification of termination",
-            "Scold Kumar in front of his team mates",
-            "Set strict productivity targets for Kumar"
-          ],
+          "image": "http://lorempixel.com/output/animals-q-c-640-480-6.jpg",
           "reactions": [{
-            "confirmText": "Are you sure you want to terminate Kumar without giving him a chance to take responsibility?",
-            "yesText": "he’s hampering warehouse productivity",
-            "noText": "I’m a softie; I can’t fire anyone really",
-            "correct": false,
-            "text": "You’ve fired Kumar without allowing him a chance to take responsibility. This has negatively affected the morale of the employees. \nWorkers feel that your response was disproportionate to Kumar’s offence and now feel discouraged and worried about their own job security.",
-            "scene": [{
-              "image":  "kumar-fired.png"
-            }]
+            "id": "reaction1"
           }, {
-            "confirmText": "Are you sure you want to embarrass Kumar like that?",
-            "yesText": "I want to discourage others from this kind of behaviour",
-            "noText": "perhaps that won’t let me cultivate a trusting relationship",
-            "correct": false,
-            "text": "You gave Kumar a dressing down in front of others. He resents you now as he has become a laughing stock for a group of warehouse workers. \nHe wants to quit and his friends are not happy about how things panned out either.",
-            "scene": [{
-              "image":  "kumar-humiliated.png"
-            }]
+            "id": "reaction2",
+            "correct": true
           }, {
-            "confirmText": "Are you sure you want to give Kumar a second chance?",
-            "yesText": "it’s the only way I’ll be able to build trust in the team",
-            "noText": "he lacks discipline and won’t change his behaviour",
-            "correct": true,
-            "text": "You did the right thing by giving Kumar a chance to take responsibility and become more professional. You made him and—by extension—others in the team feel supported and laid the ground for cultivating a more trusting relationship with the employees.",
-            "scene": [{
-              "image":  "kumar-working.png"
-            }]
-          }]
+            "id": "reaction3"
+          }, {
+            "id": "reaction4"
+          }, {
+            "id": "reaction5"
+          }]          
         },
         "test2": {
-          "location": [20, 10],
-          "title": "The Trouble with Kumar2",
-          "imageBaseUrl": "https://21cceducation.nl/content/games/images/vcaWarehouse/kumar/image.php?image=",
-          "scene": [{
-            "image":  "background.png"
-          }, {
-            "image":  "dev.png",
-            "position": [784, 175]
-          }],
-          "sequence": [{
-            "type": "caption",
-            "text": "As you’re taking a round in the warehouse in the morning, Dev approaches you with a complaint against his team mate, Kumar"
-          }, {
-            "type": "speech",
-            "text": "Kumar and I are scheduled for the same warehouse shift.",
-            "balloonArrowPos": 33
-          }, {
-            "type": "speech",
-            "text": "He regularly plays games on his cell phone while I pick the orders.",
-            "scene": [{
-              "image":  "background.png"
-            }, {
-              "image":  "dev.png",
-              "position": [784, 175]
-            }, {
-              "image":  "kumar-playing.png",
-              "position": [112, 77]
-            }]
-          }, {
-            "type": "speech",
-            "text": "I have to do the bulk of the work while he plays."
-          }, {
-            "type": "speech",
-            "text": "I've asked him on four different occasions to help me, but he doesn't listen to me.",
-            "scene": [{
-              "image":  "background.png"
-            }, {
-              "image":  "dev-handsup.png",
-              "position": [758, 175]
-            }]
-          }],
-          "description": "You’ve already reprimanded Kumar in the past about his slack behaviour. What kind of disciplinary action should you take against him now?",
-          "options": [
-            "Send Kumar a notification of termination",
-            "Scold Kumar in front of his team mates",
-            "Set strict productivity targets for Kumar"
-          ],
+          "location": [12, 21],
+          "image": "http://lorempixel.com/output/sports-q-c-640-480-5.jpg",
           "reactions": [{
-            "confirmText": "Are you sure you want to terminate Kumar without giving him a chance to take responsibility?",
-            "yesText": "he’s hampering warehouse productivity",
-            "noText": "I’m a softie; I can’t fire anyone really",
-            "correct": false,
-            "text": "You’ve fired Kumar without allowing him a chance to take responsibility. This has negatively affected the morale of the employees. \nWorkers feel that your response was disproportionate to Kumar’s offence and now feel discouraged and worried about their own job security.",
-            "scene": [{
-              "image":  "kumar-fired.png"
-            }]
+            "id": "reaction1"
           }, {
-            "confirmText": "Are you sure you want to embarrass Kumar like that?",
-            "yesText": "I want to discourage others from this kind of behaviour",
-            "noText": "perhaps that won’t let me cultivate a trusting relationship",
-            "correct": false,
-            "text": "You gave Kumar a dressing down in front of others. He resents you now as he has become a laughing stock for a group of warehouse workers. \nHe wants to quit and his friends are not happy about how things panned out either.",
-            "scene": [{
-              "image":  "kumar-humiliated.png"
-            }]
+            "id": "reaction2",
+            "correct": true
           }, {
-            "confirmText": "Are you sure you want to give Kumar a second chance?",
-            "yesText": "it’s the only way I’ll be able to build trust in the team",
-            "noText": "he lacks discipline and won’t change his behaviour",
-            "correct": true,
-            "text": "You did the right thing by giving Kumar a chance to take responsibility and become more professional. You made him and—by extension—others in the team feel supported and laid the ground for cultivating a more trusting relationship with the employees.",
-            "scene": [{
-              "image":  "kumar-working.png"
-            }]
-          }]
-        }
-      },
-      "finder": {
-        "instruction": "Vind drie gevaarlijke situaties",
-        "situations": ["burningBin", "tallBoxes", "tallBoxes2"],
-        "final": {
-            "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
-            "data": {
-              "userId": 1,
-              "settings": {
-                  "muted": false
-              },
-              "content": {
-                  "stepsAmount": 5
-              },
-              "translations": [
-                {"key": "step_1",
-                  "value": "Stop onmiddellijk met werken (eigen veiligheid)"},
-                {"key": "step_2",
-                  "value": "Verwittig je opdrachtgever en volg zijn instructies"},
-                {"key": "step_3",
-                  "value": "Ga naar de evacuatieplaats en loop bovenwinds bij gevaarlijke dampen"},
-                {"key": "step_4",
-                  "value": "Meld je op de evacuatieplaats"},
-                {"key": "step_5",
-                  "value": "Pas de evacuatieplaats verlaten als daar toestemming voor is."},
-                {"key": "task",
-                  "value": "Zet in de juiste volgorde"},
-                {"key": "fail_message_short",
-                  "value": "Sorry,"},
-                {"key": "fail_message_long",
-                  "value": "De volgorde is niet juist. Probeer het nog eens!"},
-                {"key": "win_message_short",
-                  "value": "Goed!"},
-                {"key": "win_message_long",
-                  "value": "Dit is juiste volgorde. Je hebt 1 ster verdiend!"},
-                {"key": "introduction_short",
-                  "value": "Noodsituaties"},
-                {"key": "introduction_long",
-                  "value": "Deze game heeft z'n config van VCA game gekregen. omg wat cool!"}
-                ],
-              "levelsCompleted": [
-                  {
-                      "level": 1,
-                      "score": 2,
-                      "maxScore": 2
-                    }
-                ]
-            }          
+            "id": "reaction3"
+          }, {
+            "id": "reaction4"
+          }, {
+            "id": "reaction5"
+          }]          
+        },
+        "test3": {
+          "location": [21, 11],
+          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "reactions": [{
+            "id": "reaction1"
+          }, {
+            "id": "reaction2",
+            "correct": true
+          }, {
+            "id": "reaction3"
+          }, {
+            "id": "reaction4"
+          }, {
+            "id": "reaction5"
+          }]          
         }
       }
   },
@@ -222,15 +61,99 @@
       "key": "intro-header",
       "value": "The warehouse"
   }, {
-    "key": "intro-description",
-    "value": "In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents. In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents."
+  "key": "intro-description",
+  "value": "In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents. In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents."
   }, {
-      "key": "intro-start",
-      "value": "START"
+    "key": "intro-start",
+    "value": "Start"
   }, {
-      "key": "intro-stars-to-gain",
-      "value": "{0}/{1} verdiend"
-    }],
+    "key": "intro-stars-to-gain",
+    "value": "{0}/{1} verdiend"
+  }, {
+    "key": "button-next",
+    "value": "Volgende" 
+  }, {
+    "key": "button-prev",
+    "value": "Terug" 
+  }, {
+    "key": "button-check",
+    "value": "Check" 
+  }, {
+    "key": "button-continue",
+    "value": "Doorgaan" 
+  }, {
+    "key": "reactions",
+    "value": "Acties"
+  }, {
+    "key": "feedback-correct",
+    "value": "Correct"
+  }, {
+    "key": "feedback-wrong",
+    "value": "Wrong"
+  }, {
+    "key": "description-test",
+    "value": "# Introduction \n\nJe komt aan bij een bijna lege stelling. Er staat nog maar een doos met het product dat je moet hebben. De doos ziet er aan een kant nat uit. Waarschijnlijk is een product in de doos gaan lekken.\n\nHet etiket op de doos kan je daardoor niet goed meer lezen. Je ziet wel dat er twee stickers met een ruit met een rode rand op geplakt zijn. Maar ook die zijn doorweekt geweest en het plaatje binnenin de rode rand is een zwarte vlek geworden. Het is de laatste doos in deze stelling, je kunt dus geen andere doos pakken. In het magazijn waar je werkt worden drogisterij spullen opgeslagen. Wat doe je?"
+  }, {
+    "key": "reaction-test-reaction1",
+    "value": "1. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test-reaction2",
+    "value": "2. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test-reaction3",
+    "value": "3. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test-reaction4",
+    "value": "4. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test-reaction5",
+    "value": "5. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "feedback-test",
+    "value": "Het is belangrijk om te weten met wat voor je spullen je werkt. \nEr kunnen gevaarlijke stoffen tussen zitten. Om je daarvoor te waarschuwen zijn zogenaamde gevaarsetiketten gemaakt. Is of bevat een product een gevaarlijke stof dan moeten er op de verpakking een of meerdere gevaarsetiketten staan. Het gevaarsetiket voor een buitende stof ziet er bijvoorbeeld zo uit:\n ![img](https://i.imgur.com/Wvl58cx.png) \n\nAls een doos beschadigd is en er iets gelekt is en een gevaarsetiket heeft moet je dus oppassen. Zeker als je niet kunt zien welk etiket het is of niet weet wat de betekenis ervan is. Laat de doos staan en laat iemand komen die opgeleid en gecertificeerd is om met gevaarlijke stoffen om te gaan. Voordat je aan een taak begint moet je een LMRA (Laatste Minuut Risico Analyse) doen. Je ziet de risico’s (gelekte gevaarlijke stoffen), je stopt met werken en je neemt maatregelen (je haalt hulp) om te zorgen dat de gevaarlijke stoffen veilig kunnen worden opborgen. Daarna kun je weer aan verder met je werk. VCA 2.3: Laatste Minuut Risico Analyse VCA 8.2: omgaan met gevaarlijke stoffen"
+  }, {
+    "key": "description-test2",
+    "value": "# Introduction222 \n\nJe komt aan bij een bijna lege stelling. Er staat nog maar een doos met het product dat je moet hebben. De doos ziet er aan een kant nat uit. Waarschijnlijk is een product in de doos gaan lekken.\n\nHet etiket op de doos kan je daardoor niet goed meer lezen. Je ziet wel dat er twee stickers met een ruit met een rode rand op geplakt zijn. Maar ook die zijn doorweekt geweest en het plaatje binnenin de rode rand is een zwarte vlek geworden. Het is de laatste doos in deze stelling, je kunt dus geen andere doos pakken. In het magazijn waar je werkt worden drogisterij spullen opgeslagen. Wat doe je?"
+  }, {
+    "key": "reaction-test2-reaction1",
+    "value": "1. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test2-reaction2",
+    "value": "2. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test2-reaction3",
+    "value": "3. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test2-reaction4",
+    "value": "4. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test2-reaction5",
+    "value": "5. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "feedback-test2",
+    "value": "Het is belangrijk om te weten met wat voor je spullen je werkt. \nEr kunnen gevaarlijke stoffen tussen zitten. Om je daarvoor te waarschuwen zijn zogenaamde gevaarsetiketten gemaakt. Is of bevat een product een gevaarlijke stof dan moeten er op de verpakking een of meerdere gevaarsetiketten staan. Het gevaarsetiket voor een buitende stof ziet er bijvoorbeeld zo uit:\n ![img](https://i.imgur.com/Wvl58cx.png) \n\nAls een doos beschadigd is en er iets gelekt is en een gevaarsetiket heeft moet je dus oppassen. Zeker als je niet kunt zien welk etiket het is of niet weet wat de betekenis ervan is. Laat de doos staan en laat iemand komen die opgeleid en gecertificeerd is om met gevaarlijke stoffen om te gaan. Voordat je aan een taak begint moet je een LMRA (Laatste Minuut Risico Analyse) doen. Je ziet de risico’s (gelekte gevaarlijke stoffen), je stopt met werken en je neemt maatregelen (je haalt hulp) om te zorgen dat de gevaarlijke stoffen veilig kunnen worden opborgen. Daarna kun je weer aan verder met je werk. VCA 2.3: Laatste Minuut Risico Analyse VCA 8.2: omgaan met gevaarlijke stoffen"
+  }, {
+    "key": "description-test3",
+    "value": "# Introduction3 \n\nJe komt aan bij een bijna lege stelling. Er staat nog maar een doos met het product dat je moet hebben. De doos ziet er aan een kant nat uit. Waarschijnlijk is een product in de doos gaan lekken.\n\nHet etiket op de doos kan je daardoor niet goed meer lezen. Je ziet wel dat er twee stickers met een ruit met een rode rand op geplakt zijn. Maar ook die zijn doorweekt geweest en het plaatje binnenin de rode rand is een zwarte vlek geworden. Het is de laatste doos in deze stelling, je kunt dus geen andere doos pakken. In het magazijn waar je werkt worden drogisterij spullen opgeslagen. Wat doe je?"
+  }, {
+    "key": "reaction-test3-reaction1",
+    "value": "1. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test3-reaction2",
+    "value": "2. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test3-reaction3",
+    "value": "3. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test3-reaction4",
+    "value": "4. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "reaction-test3-reaction5",
+    "value": "5. Je neemt de doos mee om te kijken of wat erin zit nog goed is en verstuurd kan worden in een nieuwe doos."
+  }, {
+    "key": "feedback-test3",
+    "value": "Het is belangrijk om te weten met wat voor je spullen je werkt. \nEr kunnen gevaarlijke stoffen tussen zitten. Om je daarvoor te waarschuwen zijn zogenaamde gevaarsetiketten gemaakt. Is of bevat een product een gevaarlijke stof dan moeten er op de verpakking een of meerdere gevaarsetiketten staan. Het gevaarsetiket voor een buitende stof ziet er bijvoorbeeld zo uit:\n ![img](https://i.imgur.com/Wvl58cx.png) \n\nAls een doos beschadigd is en er iets gelekt is en een gevaarsetiket heeft moet je dus oppassen. Zeker als je niet kunt zien welk etiket het is of niet weet wat de betekenis ervan is. Laat de doos staan en laat iemand komen die opgeleid en gecertificeerd is om met gevaarlijke stoffen om te gaan. Voordat je aan een taak begint moet je een LMRA (Laatste Minuut Risico Analyse) doen. Je ziet de risico’s (gelekte gevaarlijke stoffen), je stopt met werken en je neemt maatregelen (je haalt hulp) om te zorgen dat de gevaarlijke stoffen veilig kunnen worden opborgen. Daarna kun je weer aan verder met je werk. VCA 2.3: Laatste Minuut Risico Analyse VCA 8.2: omgaan met gevaarlijke stoffen"
+  }],
   "levelsCompleted": [{
     "level": 0,
     "score": 6,

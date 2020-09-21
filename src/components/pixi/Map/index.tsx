@@ -44,6 +44,7 @@ const Map = (props: Props) => {
   const mapHeight = ((mapData?.width || 1) + (mapData?.height || 1)) * (TILE_HEIGHT / 2) + MARGIN_TOP;
 
   const viewportRef = useRef<PixiViewport>(null);
+
   useEffect(() => {
     // focus on center of the map
     if (viewportRef.current) {
@@ -194,10 +195,9 @@ const Map = (props: Props) => {
   }
 
   const renderScenarioMarker = (name: string, scenario: Scenario, index: number) => {
-    const delay = index * 0.5;
+    const delay = index * 0.25;
     const position = tileLocationToPosition(scenario.location as [number, number], mapData.width, mapData.height);
-    // const bounce = answers[index] === undefined;
-    const bounce = true;
+    const bounce = props.solvedScenarios.indexOf(name) === -1;
     return (
       <Marker 
         position={position} 

@@ -23,7 +23,7 @@ const ScenarioBox = (props: Props) => {
         if (completed) {
             return (
                 <li className="" onClick={handleClick} key={scenarioName}>
-                    {scenario.title}
+                    {/* {scenario.title} */}
                 </li>
             )
         }
@@ -31,7 +31,7 @@ const ScenarioBox = (props: Props) => {
         return (
             <li className="completed" key={scenarioName}>
                 <CheckSvg className="check" />
-                {scenario.title}
+                {/* {scenario.title} */}
             </li>
         )
     }

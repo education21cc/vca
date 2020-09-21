@@ -30,14 +30,14 @@ export interface Situation {
 
 export interface Scenario {
   location: number[];
-  title: string;
-  imageBaseUrl: string;
-  description: string;
-  sequence: SequenceItem[];
-  scene: SceneElement[];
-  situationSpeech: string;
-  options: string[];
-  reactions: ConflictReaction[];
+  description: string | string[];
+  image?: string;
+  // imageBaseUrl: string;
+  // sequence: SequenceItem[];
+  // scene: SceneElement[];
+  // situationSpeech: string;
+  // options: string[];
+  reactions: ScenarioReaction[];
 }
 
 // Something on the scene
@@ -48,14 +48,15 @@ export interface SceneElement {
   flipped: boolean;
 }
 
-export interface ConflictReaction { 
+export interface ScenarioReaction { 
   correct: boolean, 
-  text: string, 
-  scene: SceneElement[]; 
-  confirmText: string,
-  yesText: string;
-  noText: string;
-  confirmImage?: string 
+  id: string, 
+
+  // scene: SceneElement[]; 
+  // confirmText: string,
+  // yesText: string;
+  // noText: string;
+  // confirmImage?: string 
 }
 
 export enum SequenceItemType {
