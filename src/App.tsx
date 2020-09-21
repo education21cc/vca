@@ -216,13 +216,21 @@ function App() {
                 {content?.finder && (
                   <FinderBox 
                     content={content.finder} 
-                    instruction={translations["finder-instruction"]}
+                    instructionText={translations["finder-instruction"]}
+                    nextText={translations["button-next"]}
                     foundSituations={foundSituations} 
                     onOpenGame={handleOpenGame}
-                    nextText={translations["button-next"]}
                   />
                 )}
-                {/* {content?.scenarios && <ScenarioBox scenarios={content.scenarios} solvedScenarios={solvedScenarios} />} */}
+                {content?.scenarios && (
+                  <ScenarioBox 
+                    scenarios={content.scenarios}
+                    solvedScenarios={solvedScenarios} 
+                    instructionText={translations["finder-instruction"]}
+                    nextText={translations["button-next"]}
+                    onOpenGame={() => {}}
+                  />
+                )}
               </>
             )}
             {iframe && (

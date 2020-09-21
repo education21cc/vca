@@ -4,7 +4,7 @@ import { FinderContent } from 'data/Content';
 
 interface Props {
     content: FinderContent;
-    instruction: string;
+    instructionText: string;
     foundSituations: string[];
     nextText: string;
     onOpenGame: () => void;
@@ -14,7 +14,7 @@ const FinderBox = (props: Props) => {
     const disabled = props.foundSituations.length < props.content.situations.length;
     return (
         <div className="finder-box">
-            {`${props.instruction} (${props.foundSituations.length}/${props.content.situations.length})`} 
+            {`${props.instructionText} (${props.foundSituations.length}/${props.content.situations.length})`} 
             <button className="green button" disabled={disabled} onClick={props.onOpenGame}>                
                 {props.nextText}
             </button>
