@@ -39,7 +39,7 @@ function App() {
   const [scenario, setScenario] = useState<string|undefined>();
   const [content, setContent] = useState<Content>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
-  const [scenarioReactions, setScenarioReactions] = useState<{[key: string]: string}>(); // key = scenario, value = reaction id
+  const [scenarioReactions, setScenarioReactions] = useState<{[key: string]: string}>({}); // key = scenario, value = reaction id
   const [iframeOpen, setIframeOpen] = useState(false);
 
   const handleBack = useCallback(() => {
@@ -237,6 +237,7 @@ function App() {
               <ScenarioScreen 
                 scenario={scenario}
                 content={content?.scenarios[scenario]!}
+                selectedReaction={scenarioReactions[scenario]}
                 setCorrectReaction={handleCorrectReaction}
                 texts={translations}
                 onClose={exitScenario}

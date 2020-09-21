@@ -23,6 +23,7 @@
     flex: 1;
     font-size: large;
     overflow-x: hidden;
+    overflow-y: scroll;
     display: flex;
     flex-wrap: nowrap;
 
@@ -52,6 +53,10 @@
 
     &.state-feedback .description {
       margin-left: -200%;
+    }
+
+    &.reopening .reactions {
+      display: none;
     }
 
     .buttons {

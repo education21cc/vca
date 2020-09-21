@@ -24,7 +24,6 @@ const IFrameModal = (props: Props) => {
 
   useEffect(() => {
     const handleLoad = () => {
-      console.log("loaded iframe....")
       // Send gamedata to iframe. Iframe needs to pick this up and serve it to the game when needed
       ref?.current?.contentWindow?.postMessage(content.data, '*');
     };
