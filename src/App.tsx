@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import './App.css';
 import Map from "./components/pixi/Map";
 import PlayerBridge, { send } from 'components/playerBridge';
 import { GameData, Level } from 'components/playerBridge/GameData';
@@ -15,9 +14,10 @@ import IntroDialog from 'components/dialogs/IntroDialog';
 import useTilesetsLoader from 'hooks/useTilesetsLoader';
 import { TiledTilesetData, TiledMapData } from 'utils/tiledMapData';
 import { loadResource } from 'utils/pixiJs';
-import './styles/common.scss'
 import { SCALE_MODES } from 'pixi.js';
 import CompleteDialog from 'components/dialogs/CompleteDialog';
+import './styles/common.scss'
+import './App.css';
 
 PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
@@ -35,10 +35,9 @@ function App() {
   const [state, setState] = useState(GameState.intro);
   const [translations, setTranslations] = useState<{[key: string]: string}>({});
   const [mapData, setMapData] = useState<TiledMapData>();
-  const [levelsCompleted, setLevelsCompleted] = useState<Level[]>();
+  const [data, setData] = useState<GameData<Content>>();
 
   const [scenario, setScenario] = useState<string|undefined>();
-  const [content, setContent] = useState<Content>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
   const [scenarioReactions, setScenarioReactions] = useState<{[key: string]: string}>({}); // key = scenario, value = reaction id
   const [iframeOpen, setIframeOpen] = useState(false);
@@ -54,8 +53,7 @@ function App() {
 
   const handleGameDataReceived = useCallback((data: GameData<Content>) => {
     PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
-    setLevelsCompleted(data.levelsCompleted);    
-    setContent(data.content);
+    setData(data);
     
     if (data.translations){
       const t = data.translations.reduce<{[key: string]: string}>((acc, translation) => {
@@ -68,6 +66,9 @@ function App() {
     // console.log(data.translations.map(t => `${t.key}`).join('\n'))
     // console.log(data.translations.map(t => t.value).join('\n'))
   }, []);
+
+  const content = useMemo(() => data?.content, [data]);
+  const levelsCompleted = useMemo(() => data?.levelsCompleted, [data]);
 
   const {
     loadComplete,
@@ -136,6 +137,15 @@ function App() {
 
   const handleComplete = () => {
     setState(GameState.complete);
+
+    handleSetGameData({
+      ...data!,
+      levelsCompleted: [{
+        level: 1,
+        score: solvedScenarios.length,
+        maxScore: solvedScenarios.length
+      }]
+    });
   }
 
   const handleStart = useCallback(() => {   
