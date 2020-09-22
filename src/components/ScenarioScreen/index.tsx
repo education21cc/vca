@@ -74,6 +74,7 @@ const ScenarioScreen = (props: Props) => {
   }, [content.reactions, selectedReaction]);
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    // Zoom in on image
     if((event.target as HTMLElement).tagName === "IMG") {
       setImage((event.target as HTMLImageElement)?.src);
     }

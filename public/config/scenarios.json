@@ -160,6 +160,18 @@
           }, {
             "id": "reaction3"
           }]          
+        },
+        "emergency-door": {
+          "location": [25, 18],
+          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "reactions": [{
+            "id": "reaction1",
+            "correct": true
+          }, {
+            "id": "reaction2"
+          }, {
+            "id": "reaction3"
+          }]          
         }
       }
   },
@@ -168,7 +180,7 @@
       "value": "The warehouse"
   }, {
   "key": "intro-description",
-  "value": "In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents. In warehouse there are areas where it is not allowed to walk without helmet, because of danger and accidents."
+  "value": "Dit is een tijdelijk warehouse met alle scenarios tot nu toe"
   }, {
     "key": "intro-start",
     "value": "Start"
@@ -400,6 +412,21 @@
   }, {
     "key": "feedback-store-cargo",
     "value": "Op je orderformulier staat dat de pallets 2750 kilo wegen. Op je palletwagen staat dat het laadvermogen (capacity) 2500 kilo is.\n\nVoor alle arbeidsmiddelen geldt dat je ze alleen mag gebruiken binnen de aangeven grenzen. Met deze palletwagen mag je ladingen verplaatsen die 2500 kilo of minder wegen (zie afbeelding X).\n\nMet deze palletwagen toch pallets van 2750 kilo gaan verplaatsen gaat wellicht wel, maar het is officieel niet toegestaan omdat het voor gevaarlijke situaties kan zorgen.\n\nGevaar voor jezelf, voor collega’s, voor de spullen op de pallet en/of voor constructies (o.a. de stellingen) waar de spullen tegenaan vallen als de palletwagen de last niet meer kan dragen en kapot gaat. Geef je teamleider dus aan dat deze palletwagen niet geschikt is omdat de pallets te zwaar zijn.\n\nMet een heftruck mag je deze pallets waarschijnlijk wel verplaatsen. Maar je teamleider vraagt je waarschijnlijk niet voor niets om het met een palletwagen te doen. Wellicht mag de heftruck wel niet op dit dock komen. Informeer dus eerst je teamleider dat de palletwagen hiervoor niet geschikt is.\n\n_VCA 10.1: Algemene veiligheidsmaatregelen arbeidsmiddelen_\n\n_VCA 10.5.4: Palletwagen_"
+  }, {
+    "key": "description-emergency-door",
+    "value": "Dit lijkt een goede plaats om snel even naar buiten te gaan voor een kopje koffie. Mag dat?"
+  }, {
+    "key": "reaction-emergency-door-reaction1",
+    "value": "1. Ja, hoor. Een nooddeur mag zelfs open blijven staan zodat je na je koffie weer makkelijk naar binnen kan. "
+  }, {
+    "key": "reaction-emergency-door-reaction2",
+    "value": "2. Ja, maar de nooddeur moet wel weer zo snel mogelijk goed gesloten worden en kan je dus niet meer van buiten openen."
+  }, {
+    "key": "reaction-emergency-door-reaction3",
+    "value": "3. Nee, een nooddeur is er alleen voor noodgevallen.    "
+  }, {
+    "key": "feedback-emergency-door",
+    "value": "Een nooddeur wordt aangegeven met het onderstaande groene pictogram. Een nooddeur mag vanuit veiligheidsoogpunt open blijven staan.![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png) \n\nEen branddeur heeft een brandwerende functie en mag meestal best geopend worden, maar niet open blijven staan. Dan werkt de brandwerende functie niet. Een branddeur is te herkennen aan het onderstaande rode pictogram of het staat in letters op de deur. ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.pn  g) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur2.jpg)\n\nEr zijn situaties wanneer het niet gewenst is dat je zomaar een nooddeur of branddeur gebruikt. Bijvoorbeeld wanneer er een alarm op zit."
   }],
   "levelsCompleted": [{
     "level": 0,
@@ -409,3 +436,4 @@
   }]
 
 }
+

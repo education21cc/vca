@@ -37,7 +37,7 @@ function App() {
   const [mapData, setMapData] = useState<TiledMapData>();
   const [data, setData] = useState<GameData<Content>>();
 
-  const [scenario, setScenario] = useState<string|undefined>("store-cargo");
+  const [scenario, setScenario] = useState<string|undefined>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
   const [scenarioReactions, setScenarioReactions] = useState<{[key: string]: string}>({}); // key = scenario, value = reaction id
   const [iframeOpen, setIframeOpen] = useState(false);
