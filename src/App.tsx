@@ -37,7 +37,7 @@ function App() {
   const [mapData, setMapData] = useState<TiledMapData>();
   const [data, setData] = useState<GameData<Content>>();
 
-  const [scenario, setScenario] = useState<string|undefined>();
+  const [scenario, setScenario] = useState<string|undefined>("store-cargo");
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
   const [scenarioReactions, setScenarioReactions] = useState<{[key: string]: string}>({}); // key = scenario, value = reaction id
   const [iframeOpen, setIframeOpen] = useState(false);
@@ -106,7 +106,7 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/data.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/scenarios.json`)
         .then((response) => {
           response.json().then((data) => {
             handleGameDataReceived(data);
@@ -274,7 +274,7 @@ function App() {
                 selectedReaction={scenarioReactions[scenario]}
                 setCorrectReaction={handleCorrectReaction}
                 texts={translations}
-                onClose={exitScenario}
+                onBack={exitScenario}
               />
             )}
             {(state === GameState.complete) &&

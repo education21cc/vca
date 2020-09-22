@@ -6,6 +6,7 @@ import { Scenario } from 'data/Content';
 import ReactMarkdown from 'react-markdown';
 import Reactions from './Reactions';
 import FeedbackTitle from './FeedbackTitle';
+import { ReactComponent as BackIcon } from './styles/back.svg';
 import { ReactComponent as CloseIcon } from './styles/close.svg';
 
 import "./styles/scenarioScreen.scss";
@@ -18,7 +19,7 @@ interface Props {
   texts: {[key: string]: string};
   selectedReaction?: string; // When reaction has been set correctly before
   setCorrectReaction: (index: string) => void;
-  onClose: () => void;
+  onBack: () => void;
 }
 
 enum State {
@@ -32,6 +33,7 @@ const ScenarioScreen = (props: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const reopeningCorrectScenario = useRef<boolean>(!!props.selectedReaction);
   const [state, setState] = useState(State.description);
+  const [image, setImage] = useState<string>(); // zoomed in image
   const [selectedReaction, setSelectedReaction] = useState<string|undefined>(props.selectedReaction);
 
   const handleClickNextDescription = () => {
@@ -71,6 +73,16 @@ const ScenarioScreen = (props: Props) => {
     return content.reactions.find(r => r.id === selectedReaction)?.correct === true;
   }, [content.reactions, selectedReaction]);
 
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if((event.target as HTMLElement).tagName === "IMG") {
+      setImage((event.target as HTMLImageElement)?.src);
+    }
+  };
+
+  const handleCloseImage = () => {
+    setImage(undefined);
+  }
+
   return (
     <>
     <div className={`scenario-screen`} ref={ref}>
@@ -78,7 +90,7 @@ const ScenarioScreen = (props: Props) => {
         { content.image && <img src={content.image} alt=""></img>}
       </div>
       <div className={`content state-${State[state]} ${reopeningCorrectScenario.current && "reopening"}`}>
-        <div className="description">
+        <div className="description" onClick={handleClick} >
           <ReactMarkdown source={props.texts[`description-${props.scenario}`]} />
           <div className="buttons">
             <button className="button right-align white" onClick={handleClickNextDescription}>
@@ -126,7 +138,7 @@ const ScenarioScreen = (props: Props) => {
             )}
             <button 
               className={`button green right-align`} 
-              onClick={props.onClose}
+              onClick={props.onBack}
             >
               {props.texts["button-continue"]}
             </button>
@@ -135,8 +147,14 @@ const ScenarioScreen = (props: Props) => {
       </div>
     </div>
     <div className="close">
-        <CloseIcon onClick={props.onClose} />
+        <BackIcon onClick={props.onBack} />
     </div>
+    { image && (<div className="image">
+      <img src={image} alt="img" />
+      <div className="close-image">
+        <CloseIcon onClick={handleCloseImage} />
+      </div>
+    </div>)}
     </>
   )
 }
