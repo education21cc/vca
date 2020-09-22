@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/vca/static/css/main.30928486.chunk.css",
-    "main.js": "/vca/static/js/main.c21eb210.chunk.js",
-    "main.js.map": "/vca/static/js/main.c21eb210.chunk.js.map",
+    "main.css": "/vca/static/css/main.92f43c4d.chunk.css",
+    "main.js": "/vca/static/js/main.8b014f4e.chunk.js",
+    "main.js.map": "/vca/static/js/main.8b014f4e.chunk.js.map",
     "runtime-main.js": "/vca/static/js/runtime-main.467ac139.js",
     "runtime-main.js.map": "/vca/static/js/runtime-main.467ac139.js.map",
-    "static/js/2.e3c4eb18.chunk.js": "/vca/static/js/2.e3c4eb18.chunk.js",
-    "static/js/2.e3c4eb18.chunk.js.map": "/vca/static/js/2.e3c4eb18.chunk.js.map",
+    "static/js/2.55819ecf.chunk.js": "/vca/static/js/2.55819ecf.chunk.js",
+    "static/js/2.55819ecf.chunk.js.map": "/vca/static/js/2.55819ecf.chunk.js.map",
     "index.html": "/vca/index.html",
-    "precache-manifest.bae52d1480037109fa88bce1972579da.js": "/vca/precache-manifest.bae52d1480037109fa88bce1972579da.js",
+    "precache-manifest.4806d5ed3ce1cb675bd055c25f20c74b.js": "/vca/precache-manifest.4806d5ed3ce1cb675bd055c25f20c74b.js",
     "service-worker.js": "/vca/service-worker.js",
-    "static/css/main.30928486.chunk.css.map": "/vca/static/css/main.30928486.chunk.css.map",
-    "static/js/2.e3c4eb18.chunk.js.LICENSE.txt": "/vca/static/js/2.e3c4eb18.chunk.js.LICENSE.txt",
-    "static/media/check.81786b3c.svg": "/vca/static/media/check.81786b3c.svg",
+    "static/css/main.92f43c4d.chunk.css.map": "/vca/static/css/main.92f43c4d.chunk.css.map",
+    "static/js/2.55819ecf.chunk.js.LICENSE.txt": "/vca/static/js/2.55819ecf.chunk.js.LICENSE.txt",
+    "static/media/back.7ec0d58f.svg": "/vca/static/media/back.7ec0d58f.svg",
+    "static/media/close.7b89ba13.svg": "/vca/static/media/close.7b89ba13.svg",
     "static/media/close.7ec0d58f.svg": "/vca/static/media/close.7ec0d58f.svg",
-    "static/media/star-empty.88e9156a.svg": "/vca/static/media/star-empty.88e9156a.svg"
+    "static/media/star-empty.88e9156a.svg": "/vca/static/media/star-empty.88e9156a.svg",
+    "static/media/star-full.78eaf5f9.svg": "/vca/static/media/star-full.78eaf5f9.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.467ac139.js",
-    "static/js/2.e3c4eb18.chunk.js",
-    "static/css/main.30928486.chunk.css",
-    "static/js/main.c21eb210.chunk.js"
+    "static/js/2.55819ecf.chunk.js",
+    "static/css/main.92f43c4d.chunk.css",
+    "static/js/main.8b014f4e.chunk.js"
   ]
 }
