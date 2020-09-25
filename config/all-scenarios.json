@@ -383,7 +383,7 @@
     "key": "description-forklift-hole",
     "value": "Een collega rijdt tijdens het werk op een heftruck langs je heen. Je ziet dat hij schuin op een kuil in het pad afrijdt. Je roept nog net op tijd naar hem dat hij moet stoppen en helpt hem om de gevaarlijke plek heen te navigeren. Samen bellen jullie de leidinggevende en je collega geeft aan vanuit zijn positie op de heftruck niet duidelijk te kunnen zien dat er een gevaarlijk stuk in het pad zit. Je leidinggevende vraagt jou om de juiste markering rondom de kuil aan te brengen, terwijl hij zelf een bedrijf belt om het pad te laten repareren.\n\nWat voor markering moet je in dit geval aanbrengen?"
   }, {
-    "key": "reaction-store-cargo-reaction1",
+    "key": "reaction-forklift-hole-reaction1",
     "value": "1. Een geel driehoekig bord met zwart uitroepteken erop."
   }, {
     "key": "reaction-forklift-hole-reaction2",

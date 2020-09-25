@@ -1,0 +1,185 @@
+{
+  "userId": 2,
+  "settings": {
+    "muted": false
+
+  },
+  "content": {
+      "mapJson": "maps/scenarios-1.json",
+      "stars": 3,
+      "scenarios": {
+        "together-cantina": {
+          "location": [8, 14],
+          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "reactions": [{
+            "id": "reaction1"
+          }, {
+            "id": "reaction2"
+          }, {
+            "id": "reaction3",
+            "correct": true
+          }, {
+            "id": "reaction4"
+          }]          
+        },
+        "agv-walk": {
+          "location": [49, 18],
+          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "reactions": [{
+            "id": "reaction1"
+          }, {
+            "id": "reaction2"
+          }, {
+            "id": "reaction3",
+            "correct": true
+          }, {
+            "id": "reaction4"
+          }]          
+        },
+        "store-cargo": {
+          "location": [45, 25],
+          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "reactions": [{
+            "id": "reaction1"
+          }, {
+            "id": "reaction2",
+            "correct": true
+          }, {
+            "id": "reaction3"
+          }]          
+        },
+        "emergency-door": {
+          "location": [23, -2],
+          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "reactions": [{
+            "id": "reaction1",
+            "correct": true
+          }, {
+            "id": "reaction2"
+          }, {
+            "id": "reaction3"
+          }]          
+        }
+      }
+  },
+  "translations": [{
+      "key": "intro-header",
+      "value": "The warehouse"
+  }, {
+  "key": "intro-description",
+  "value": "Eerste warehouse met 4 scenarios"
+  }, {
+    "key": "intro-start",
+    "value": "Start"
+  }, {
+    "key": "intro-stars-to-gain",
+    "value": "{0}/{1} verdiend"
+  }, {
+    "key": "button-next",
+    "value": "Volgende" 
+  }, {
+    "key": "button-prev",
+    "value": "Terug" 
+  }, {
+    "key": "button-check",
+    "value": "Check" 
+  }, {
+    "key": "button-continue",
+    "value": "Doorgaan" 
+  }, {
+    "key": "reactions",
+    "value": "Acties"
+  }, {
+    "key": "feedback-correct",
+    "value": "Goed!"
+  }, {
+    "key": "feedback-wrong",
+    "value": "Fout!"
+  }, {
+      "key": "complete-header",
+      "value": "Gefeliciteerd"
+  }, {
+      "key": "complete-score",
+      "value": "Totale score {0} / {1}"
+  }, {
+      "key": "complete-try-again",
+      "value": "Opnieuw"
+  }, {
+      "key": "complete-exit",
+      "value": "Afsluiten"
+  }, {
+    "key": "description-together-cantina",
+    "value": "Je loopt gezellig samen met je collega naar de kantine. Je loopt naast elkaar aan de linkerkant van het pad in de bovenstaande tekening. Mag dat?"
+  }, {
+    "key": "reaction-together-cantina-reaction1",
+    "value": "1. Ja, aan de linkerkant is het pad voor voetgangers die richting de kantine gaan."
+  }, {
+    "key": "reaction-together-cantina-reaction2",
+    "value": "2. Nee, jullie moeten aan de rechterkant van het pad gaan lopen. Altijd zoveel mogelijk rechts aanhouden. "
+  }, {
+    "key": "reaction-together-cantina-reaction3",
+    "value": "3. Nee, het pad is te smal om naast elkaar te lopen."
+  }, {
+    "key": "reaction-together-cantina-reaction4",
+    "value": "4. Nee, je mag op dit pad niet lopen. Dit hele pad is voor AGV’s."
+  }, {
+    "key": "feedback-together-cantina",
+    "value": "Looproutes zijn belangrijk omdat ze bijvoorbeeld botsingen tussen mensen en machines kunnen voorkomen.\n\nLooproutes worden niet voor niets aangegeven. Hou je er aan en wees je steeds bewust van de mogelijke gevaren om je heen.\n\nIn bovenstaande situatie is er een duidelijke looproute aangegeven om naar de kantine te lopen aan de linkerkant van het pad. Dit pad is echter niet breed genoeg om naast elkaar te lopen. Loop dus achter elkaar, aan de linkerkant van het pad naar de kantine.\n\nAGV's kunnen heel stil zijn en zware lasten vervoeren. Het is daarom veiliger om met gescheiden banen te werken waar het kan.\n\n\n\n_VCA 6.4.6: Markeren en afzetten._"
+  }, {
+    "key": "description-agv-walk",
+    "value": "Je moet naar de uitgang. Mag je de kortste weg nemen en over de verschillende AGV paden (de rode en zwarte lijnen op de vloer) lopen naar de uitgang?"
+  }, {
+    "key": "reaction-agv-walk-reaction1",
+    "value": "1. Nee, je mag als voetganger niet over AGV lijnen lopen. Je moet in zo’n situatie altijd op zoek naar een duidelijk aangegeven looproute. "
+  }, {
+    "key": "reaction-agv-walk-reaction2",
+    "value": "2. Ja, maar je moet dan wel werkschoenen en een veiligheidshelm dragen. "
+  }, {
+    "key": "reaction-agv-walk-reaction3",
+    "value": "3. Ja, dat mag als je maar goed uitkijkt."
+  }, {
+    "key": "reaction-agv-walk-reaction4",
+    "value": "4. Nee, dat mag alleen als je zelf in een heftruck zit en dus goed beschermd bent. "
+  }, {
+    "key": "feedback-agv-walk",
+    "value": "Looproutes zijn belangrijk om botsingen en opstoppingen te voorkomen. Helaas zijn er niet altijd duidelijke looproutes aangegeven en/of zijn er plekken waarbij verschillende routes elkaar kruisen. Het hebben van looproutes is volgens de VCA ook niet verplicht.\n\nAls er geen duidelijke looproutes zijn mag je meestal wel over AGV-paden lopen of ze oversteken.\n\nVraag direct aan je teamleider wat de regels hierover zijn op jouw werkplek. Dit zou in het veiligheidsplan of de veiligheidsinstructie van je werkgever moeten staan.\n\nDe Arbowet verplicht de werkgever dat hij je voorlicht en leert hoe het zit. Jij bent volgens de Arbowet verplicht die plannen en instructies te kennen."
+  }, {
+    "key": "description-store-cargo",
+    "value": "De chauffeur van de vrachtwagen is net vertrokken en op het dock staan zes pallets met grote dozen erop. \n\n ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/image11.jpg) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/image13.jpg) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/image12.jpg)Je teamleider vraagt je om ze met de palletwagen op de juiste plek te zetten wat verderop in het magazijn. Het bijbehorende orderformulier kun je hierboven zien. Ook zie je hierboven meer informatie over de palletwagen die je kunt gebruiken. Wat doe je?"
+  }, {
+    "key": "reaction-store-cargo-reaction1",
+    "value": "1. Je pakt de palletwagen en zet ze een voor een op de juiste plek."
+  }, {
+    "key": "reaction-store-cargo-reaction2",
+    "value": "2. Je geeft je teamleider aan dat de palletwagen niet geschikt is om deze pallets mee te vervoeren. "
+  }, {
+    "key": "reaction-store-cargo-reaction3",
+    "value": "3. Je vraagt aan je collega de pallets met de heftruck te verplaatsen."
+  }, {
+    "key": "feedback-store-cargo",
+    "value": "Op je orderformulier staat dat de pallets 2750 kilo wegen. Op je palletwagen staat dat het laadvermogen (capacity) 2500 kilo is.\n\nVoor alle arbeidsmiddelen geldt dat je ze alleen mag gebruiken binnen de aangeven grenzen. Met deze palletwagen mag je ladingen verplaatsen die 2500 kilo of minder wegen (zie afbeelding X).\n\nMet deze palletwagen toch pallets van 2750 kilo gaan verplaatsen gaat wellicht wel, maar het is officieel niet toegestaan omdat het voor gevaarlijke situaties kan zorgen.\n\nGevaar voor jezelf, voor collega’s, voor de spullen op de pallet en/of voor constructies (o.a. de stellingen) waar de spullen tegenaan vallen als de palletwagen de last niet meer kan dragen en kapot gaat. Geef je teamleider dus aan dat deze palletwagen niet geschikt is omdat de pallets te zwaar zijn.\n\nMet een heftruck mag je deze pallets waarschijnlijk wel verplaatsen. Maar je teamleider vraagt je waarschijnlijk niet voor niets om het met een palletwagen te doen. Wellicht mag de heftruck wel niet op dit dock komen. Informeer dus eerst je teamleider dat de palletwagen hiervoor niet geschikt is.\n\n_VCA 10.1: Algemene veiligheidsmaatregelen arbeidsmiddelen_\n\n_VCA 10.5.4: Palletwagen_"
+  }, {
+    "key": "description-emergency-door",
+    "value": "Dit lijkt een goede plaats om snel even naar buiten te gaan voor een kopje koffie. Mag dat?"
+  }, {
+    "key": "reaction-emergency-door-reaction1",
+    "value": "1. Ja, hoor. Een nooddeur mag zelfs open blijven staan zodat je na je koffie weer makkelijk naar binnen kan. "
+  }, {
+    "key": "reaction-emergency-door-reaction2",
+    "value": "2. Ja, maar de nooddeur moet wel weer zo snel mogelijk goed gesloten worden en kan je dus niet meer van buiten openen."
+  }, {
+    "key": "reaction-emergency-door-reaction3",
+    "value": "3. Nee, een nooddeur is er alleen voor noodgevallen.    "
+  }, {
+    "key": "feedback-emergency-door",
+    "value": "Een nooddeur wordt aangegeven met het onderstaande groene pictogram. Een nooddeur mag vanuit veiligheidsoogpunt open blijven staan.![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png) \n\nEen branddeur heeft een brandwerende functie en mag meestal best geopend worden, maar niet open blijven staan. Dan werkt de brandwerende functie niet. Een branddeur is te herkennen aan het onderstaande rode pictogram of het staat in letters op de deur. ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.png) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur2.jpg)\n\nEr zijn situaties wanneer het niet gewenst is dat je zomaar een nooddeur of branddeur gebruikt. Bijvoorbeeld wanneer er een alarm op zit."
+  }],
+  "levelsCompleted": [{
+    "level": 0,
+    "score": 6,
+    "maxScore": 8
+
+  }]
+
+}
+
