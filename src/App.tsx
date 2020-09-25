@@ -106,9 +106,11 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
         .then((response) => {
           response.json().then((data) => {
+            console.log(data)
+
             handleGameDataReceived(data);
           })
         })
