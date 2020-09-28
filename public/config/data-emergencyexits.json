@@ -59,7 +59,7 @@
       "value": "Nooduitgangen"
   }, {
     "key": "intro-description",
-    "value": "<<INTRO MISSING>>"
+    "value": "Ben je bewust waar alle nooduitgangen zich in dit warehouse bevinden. Klik op alle nooduitgangen en beantwoord de vraag goed om een ster te verdienen. Succes!"
   }, {
     "key": "intro-start",
     "value": "Start"
@@ -75,9 +75,8 @@
   }],
   "levelsCompleted": [{
     "level": 0,
-    "score": 6,
+    "score": 1,
     "maxScore": 8
-
   }]
 
 }
