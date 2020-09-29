@@ -14,7 +14,7 @@ const PixiComponentSpriteAnimated = PixiComponent<React.ComponentProps<typeof An
   applyProps: (instance, oldProps, newProps) => {
     if(oldProps.textures !== newProps.textures){
       applyDefaultProps(instance, oldProps, newProps);
-      instance.gotoAndPlay(0);
+      instance.gotoAndStop(instance.currentFrame);
     }
   },
 });
