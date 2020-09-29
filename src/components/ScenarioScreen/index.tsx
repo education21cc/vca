@@ -55,6 +55,17 @@ const ScenarioScreen = (props: Props) => {
       }
     }, 500);
   }
+
+  useEffect(() => {
+    console.log('scroll', ref.current?.querySelector('.content'))
+    const slideTransitionTime = 500;
+    const timeout = setTimeout(() => {
+      ref.current?.querySelector('.content')?.scroll({top: 0, left: 0, behavior: 'smooth' });
+    }, slideTransitionTime);
+    return () => {
+      clearTimeout(timeout);
+    }
+  }, [state]);
   
   useEffect(() => {
     sound.add('correct', `${process.env.PUBLIC_URL}/sound/correct.mp3`);    
@@ -90,7 +101,7 @@ const ScenarioScreen = (props: Props) => {
       <div className="illustration">
         { content.image && <img src={content.image} alt=""></img>}
       </div>
-      <div className={`content state-${State[state]} ${reopeningCorrectScenario.current && "reopening"}`}>
+      <div className={`content state-${State[state]} ${reopeningCorrectScenario.current ? "reopening" : ""}`}>
         <div className="description" onClick={handleClick} >
           <ReactMarkdown source={props.texts[`description-${props.scenario}`]} />
           <div className="buttons">
