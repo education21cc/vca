@@ -2,18 +2,26 @@
 
 "truck-green.png":
 {
-	"frame": {"x":2,"y":2,"w":510,"h":407},
+	"frame": {"x":0,"y":0,"w":513,"h":407},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":1,"y":0,"w":510,"h":407},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":513,"h":407},
 	"sourceSize": {"w":513,"h":407}
+},
+"truck-whitered-open.png":
+{
+	"frame": {"x":513,"y":0,"w":609,"h":406},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":609,"h":406},
+	"sourceSize": {"w":609,"h":406}
 },
 "truck-whitered.png":
 {
-	"frame": {"x":2,"y":413,"w":509,"h":406},
+	"frame": {"x":1122,"y":0,"w":512,"h":406},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":0,"w":509,"h":406},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":406},
 	"sourceSize": {"w":512,"h":406}
 }},
 "meta": {
@@ -21,8 +29,8 @@
 	"version": "1.0",
 	"image": "trucks.png",
 	"format": "RGBA8888",
-	"size": {"w":514,"h":821},
+	"size": {"w":1634,"h":407},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:2fd33d5632b569b912b9f29f1ed35665:6c0c37743e3ce8c62f2a145e992f91e5:e7371f666a1e0f8b76e6aef0ff52ad4b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:f64b317c9cd4e77d636eb9e686d0700c:d437c3bbf7224464ccc0474ac2b9c04d:e7371f666a1e0f8b76e6aef0ff52ad4b$"
 }
 }

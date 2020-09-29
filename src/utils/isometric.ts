@@ -7,6 +7,12 @@ export const tileLocationToPosition = (location: [number, number], horizontalTil
   return new PIXI.Point(x, y);
 }
 
+/** x coordinate (pixel space) of the top of the tile with location [0, 0] */
 export const getOriginX = (horizontalTiles: number, verticalTiles: number) => {
   return (verticalTiles - horizontalTiles) * (TILE_HEIGHT / 2) + ((verticalTiles + horizontalTiles) * TILE_WIDTH / 2) / 2;
+}
+
+/** returns the tile index if the tiles were numbered going right-down */
+export const getTileIndex = (location: [number, number], horizontalTiles: number) => {
+  return  horizontalTiles * location[1] + location[0];
 }

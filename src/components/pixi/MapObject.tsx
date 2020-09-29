@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { TiledObjectData, TiledProperty, TiledMapData } from 'utils/tiledMapData';
+import { TiledObjectData, TiledProperty, TiledMapData, TiledTilesetData } from 'utils/tiledMapData';
 import { TILE_HEIGHT, TILE_WIDTH } from 'constants/tiles';
 import { Sprite, Graphics } from '@inlet/react-pixi';
 import { findTileset } from 'utils/tiles';
-import { tileLocationToPosition } from 'utils/isometric';
+import { getTileIndex, tileLocationToPosition } from 'utils/isometric';
 import Smoke1 from './effects/smoke1';
 import { gsap, Linear } from 'gsap'
+import SpriteAnimated from './SpriteAnimated';
 
 
 interface Props {
@@ -22,7 +23,9 @@ const MapObject = (props: Props) => {
 
   const popInDuration = 1;
   const checkRef = useRef(null);
-  const ref = useRef(null);
+  const ref = useRef<PIXI.AnimatedSprite>(null);
+  const tileset = useRef<TiledTilesetData>();
+  const spritesheetTextures = useRef<PIXI.ITextureDictionary>();
 
   useEffect(() => {
     // Pop in animation!
@@ -43,8 +46,20 @@ const MapObject = (props: Props) => {
     const animation = o.properties?.find(p => p.name === 'animation');
     if (!animation) return;
 
+    
     // Pass a string like "[[0, 22], [5, 22], [5,25], [11, 25], [11, 18]]" with coordinates
-    const steps = JSON.parse(animation.value);
+    let steps;
+    try {
+      steps = JSON.parse(animation.value);
+    }
+    catch (e){
+      throw new Error(`Couldn't parse animation steps: "${animation.value}"`);
+    }
+    // the spritheet is to show different frames for different angles. 
+    // it looks for sprites with the given type in the tileset. 
+    // first frame is southeast, second frame is northeasth
+    const animSpritesheet = o.properties?.find(p => p.name === 'spritesheet')?.value;
+
     const delay = parseFloat(o.properties?.find(p => p.name === 'delay')?.value || 0);
     const tl = gsap.timeline({
       repeat: -1,
@@ -55,9 +70,37 @@ const MapObject = (props: Props) => {
       const currentStep = steps[i];
       const distance = Math.sqrt(Math.pow(currentStep[0] - lastStep[0], 2) + Math.pow(currentStep[1] - lastStep[1], 2));
 
+      ref.current.gotoAndStop(0);
       const position = tileLocationToPosition(currentStep, mapData.width, mapData.height);
       const speed = 0.25;
       tl.to(ref.current, {
+        onStart: () => {
+          if (animSpritesheet) {
+            console.log('last step', lastStep)
+            console.log('currentStep', currentStep)
+            if (lastStep[0] === currentStep[0] && lastStep[1] > currentStep[1]) {
+              console.log('ne');
+              ref.current!.gotoAndStop(1);
+              ref.current!.scale.set(1, 1);
+            } else if (lastStep[0] > currentStep[0] && lastStep[1] === currentStep[1]){
+              console.log('nw')
+              ref.current!.gotoAndStop(1);
+              ref.current!.scale.set(-1, 1);
+              
+            } else if (lastStep[0] === currentStep[0] && lastStep[1] < currentStep[1]){
+              console.log('sw')
+              ref.current!.gotoAndStop(0);
+              ref.current!.scale.set(-1, 1);
+            } else {
+              console.log('se')
+              ref.current!.gotoAndStop(0);
+              ref.current!.scale.set(1, 1);
+            }
+          }
+        },
+        onUpdate: () => {
+          ref.current!.zIndex = getTileIndex(currentStep, mapData.width);
+        },
         duration: speed * distance,
         pixi: { 
           x: position.x,
@@ -66,7 +109,7 @@ const MapObject = (props: Props) => {
         ease: Linear.easeNone,
       });
     }
-  }, [mapData.height, mapData.width, o.properties]);
+  }, [mapData, o.properties]);
 
   if (o.polygon) {
     const {x, y } = o;
@@ -101,9 +144,11 @@ const MapObject = (props: Props) => {
       x / TILE_HEIGHT - 1,
       y / TILE_HEIGHT - 1
     ];
+
     const actualGid = gid & 0x1FFFFFFF;
-    const tileset = findTileset(actualGid, mapData!.tilesets);
-    if (!tileset || !tileset.tiles || gid === 0) return null;
+    tileset.current = findTileset(actualGid, mapData!.tilesets);
+
+    if (!tileset || !tileset.current!.tiles || gid === 0) return null;
       
     // See https://discourse.mapeditor.org/t/data-field-in-the-tmx-format-json/3633
     const flipHor = (gid & 0x80000000) !== 0;
@@ -115,11 +160,11 @@ const MapObject = (props: Props) => {
     if (flipVert) {
       scale[1] *= -1;
     }
-    const texture = tileset.tiles.find((t) => t.id === actualGid - tileset.firstgid);
+    const texture = tileset.current!.tiles.find((t) => t.id === actualGid - tileset.current!.firstgid);
     if (!texture) return null;
 
     // the image is in the format "tiles/structure-wall/tile-structure-wall-gray-left.png"
-    // the 'structure-wall' part refers to the spritesheet, the 'tile-structure-wall-gray-left' is the texture on the spriesheet
+    // the 'structure-wall' part refers to the spritesheet, the 'tile-structure-wall-gray-left' is the texture on the spritesheet
     const [
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       _,
@@ -129,21 +174,49 @@ const MapObject = (props: Props) => {
     if (!tilesetsTextures[spritesheet]) {
       console.warn(`Could not find spritesheet ${spritesheet} ${tilesetsTextures}`);
     };
-    if (!tilesetsTextures[spritesheet].textures![textureName]) {
+    spritesheetTextures.current = tilesetsTextures[spritesheet].textures;
+    if (!spritesheetTextures.current![textureName]) {
       console.warn(`Could not find texture ${spritesheet} ${textureName}`);
     }
 
+    // the spritheet is to show different frames for different angles. 
+    // it looks for sprites with the given type in the tileset. 
+    // first frame is southeast, second frame is northeast
+    const animSpritesheet = o.properties?.find(p => p.name === 'spritesheet')?.value;
+    let textures;
+    if (animSpritesheet) {
+      const spritesheetTiles = tileset.current?.tiles?.filter(t => t.type === animSpritesheet).map(td => td.image);
+
+
+      console.log(spritesheetTiles)
+      // texture={spritesheetTextures.current![textureName]}
+      textures = spritesheetTiles!.map((image) => {
+        const str = image.substr(image.lastIndexOf('/') + 1);
+        return tilesetsTextures[spritesheet].textures?.[str];
+      });
+      // textures = [spritesheetTextures.current![textureName]];
+      console.log(tilesetsTextures[spritesheet].textures)
+      // console.log('xx', textures)
+    }
+    else {
+      textures = [spritesheetTextures.current![textureName]];
+    }
+    //const textures = spritesheetTiles!.map(t => console.log(t));
+    // (spritesheetTextures.current);
+
     return (
-      <Sprite
+      <SpriteAnimated
         name={`${o.name}: ${x},${y} (${textureName})`}
         ref={ref}
         scale={scale}
-        texture={tilesetsTextures[spritesheet].textures![textureName]}
+        textures={textures}
+        // texture={spritesheetTextures.current![textureName]}
         anchor={[0, 1]}
         pivot={[TILE_WIDTH / 2, 0]}
         position={tileLocationToPosition(location, mapData.width, mapData.height)}
         pointerdown={() => onClick(o.name)}
         interactive={!!o.name}
+        zIndex={getTileIndex(location, mapData.width)}
       >
         {renderEffects(o.properties)}
         {found && <Sprite
@@ -153,7 +226,7 @@ const MapObject = (props: Props) => {
           anchor={[-.1, 1]}
           pivot={[TILE_WIDTH / 2, 0]}
         />}
-      </Sprite> 
+      </SpriteAnimated> 
     );  
   }
   return null;

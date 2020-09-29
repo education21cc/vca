@@ -177,6 +177,7 @@ const Map = (props: Props) => {
   const renderObjects = (objects: TiledObjectData[]) => {
     return objects.filter(o => o.visible).map((o, index) => {
       const found = foundSituations.indexOf(o.name) > -1;
+
       return (
         <MapObject
           data={o}

@@ -21,7 +21,7 @@ const Viewport = forwardRef<PixiViewport, any>((props, ref) => {
   window.PIXI = PIXI;
 
   return <PixiComponentViewport app={app} {...props} ref={ref} />;
-})
+});
 
 interface PixiComponentProps {
     app: PIXI.Application;
