@@ -2,50 +2,58 @@
 
 "tile-pallet-assortment-large-01.png":
 {
-	"frame": {"x":2,"y":82,"w":117,"h":127},
+	"frame": {"x":0,"y":0,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":5,"y":1,"w":117,"h":127},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-assortment-medium-01.png":
 {
-	"frame": {"x":2,"y":213,"w":117,"h":101},
+	"frame": {"x":0,"y":128,"w":128,"h":101},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":5,"y":0,"w":117,"h":101},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":101},
 	"sourceSize": {"w":128,"h":101}
+},
+"tile-pallet-assortment-messy.png":
+{
+	"frame": {"x":0,"y":229,"w":128,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":96},
+	"sourceSize": {"w":128,"h":96}
 },
 "tile-pallet-assortment-red-01.png":
 {
-	"frame": {"x":2,"y":2,"w":118,"h":76},
+	"frame": {"x":0,"y":325,"w":128,"h":76},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":5,"y":0,"w":118,"h":76},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":76},
 	"sourceSize": {"w":128,"h":76}
 },
 "tile-pallet-assortment-small-01.png":
 {
-	"frame": {"x":2,"y":318,"w":117,"h":76},
+	"frame": {"x":0,"y":401,"w":128,"h":76},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":5,"y":0,"w":117,"h":76},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":76},
 	"sourceSize": {"w":128,"h":76}
 },
 "tile-pallet-assortment-smallwhite-01.png":
 {
-	"frame": {"x":2,"y":505,"w":116,"h":94},
+	"frame": {"x":0,"y":477,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":34,"w":116,"h":94},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
 "tile-pallet-assortment-white-01.png":
 {
-	"frame": {"x":2,"y":398,"w":116,"h":103},
+	"frame": {"x":0,"y":605,"w":128,"h":128},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":25,"w":116,"h":103},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 }},
 "animations": {
@@ -55,8 +63,8 @@
 	"version": "1.0",
 	"image": "pallet-assortment.png",
 	"format": "RGBA8888",
-	"size": {"w":122,"h":601},
+	"size": {"w":128,"h":733},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:b382e400bf7defea366528d76a5a5ee5:f718025601e357cca5e785cc04b7868d:acafcf07e3e0c41ec8d666babfaabb97$"
+	"smartupdate": "$TexturePacker:SmartUpdate:7a8e3dbab3c42392732819737c6c7c0d:c1e615f599374e122c3c774d78308319:acafcf07e3e0c41ec8d666babfaabb97$"
 }
 }

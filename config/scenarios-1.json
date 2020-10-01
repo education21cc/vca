@@ -91,8 +91,8 @@
       }
   },
   "translations": [{
-      "key": "intro-header",
-      "value": "The warehouse"
+    "key": "intro-header",
+    "value": "The warehouse"
   }, {
   "key": "intro-description",
   "value": "Eerste warehouse met 6 scenarios"
@@ -135,27 +135,27 @@
   }, {
     "key": "complete-exit",
     "value": "Afsluiten"
-    }, {
-      "key": "description-agv-path",
-      "value": "Je bent op weg naar de kantine voor je lunch. Toevallig kijk je links een pad in. Je ziet dat er iets voorbij het midden van het pad wat rommel ligt. Waarschijnlijk is er iets uitgevallen toen er van de andere kant wat in is gezet. Dit pad wordt ook gebruikt door een AGV (Automated Guided Vehicle). Wat doe je?"
-    }, {
-      "key": "reaction-agv-path-reaction1",
-      "value": "1. Je haalt de rommel weg en meldt het bij je teamleider. "
-    }, {
-      "key": "reaction-agv-path-reaction2",
-      "value": "2. Je meldt het direct bij je teamleider en gaat lunchen. "
-    }, {
-      "key": "reaction-agv-path-reaction3",
-      "value": "3. Je ruimt de rommel op en gaat lunchen."
-    }, {
-      "key": "reaction-agv-path-reaction4",
-      "value": "4. Je belt je teamleider om te vragen wat je het beste kunt doen. "
-    }, {
-      "key": "feedback-agv-path",
-      "value": "Aanrijdingen met en struikelen over rommel op het pad kan zorgen voor onveilige situaties. Daarnaast kan het zorgen voor onnodige reparatiekosten door verstrengeling van bijvoorbeeld pallethout in de wielen van een AGV, heftruck etc.\n\nIedereen is verantwoordelijk voor veiligheid. De rommel direct opruimen en het melden is het beste wat je kunt doen. \n\nAls je het alleen meldt en dan gaat lunchen blijft de gevaarlijke situatie op zijn minst toch bestaan totdat je teamleider actie heeft ondernomen. \n\nHet alleen zelf direct opruimen is heel goed, maar je moet het toch ook melden. Hiermee kan je teamleider stappen ondernemen om het in de toekomst te voorkomen.\n\nNatuurlijk kun je eerst je teamleider bellen om te vragen wat je moet doen. Maar waarschijnlijk mag er best wat eigen initiatief van je verwacht worden in dit soort gevallen.\n\n _ VCA 4.3: Orde en netheid op de werkplek._"
-    }, {
-    "key": "description-together-cantina",
-    "value": "Je loopt gezellig samen met je collega naar de kantine. Je loopt naast elkaar aan de linkerkant van het pad in de bovenstaande tekening. Mag dat?"
+  }, {
+    "key": "description-agv-path",
+    "value": "Je bent op weg naar de kantine voor je lunch. Toevallig kijk je links een pad in. Je ziet dat er iets voorbij het midden van het pad wat rommel ligt. Waarschijnlijk is er iets uitgevallen toen er van de andere kant wat in is gezet. Dit pad wordt ook gebruikt door een AGV (Automated Guided Vehicle). Wat doe je?"
+  }, {
+    "key": "reaction-agv-path-reaction1",
+    "value": "1. Je haalt de rommel weg en meldt het bij je teamleider. "
+  }, {
+    "key": "reaction-agv-path-reaction2",
+    "value": "2. Je meldt het direct bij je teamleider en gaat lunchen. "
+  }, {
+    "key": "reaction-agv-path-reaction3",
+    "value": "3. Je ruimt de rommel op en gaat lunchen."
+  }, {
+    "key": "reaction-agv-path-reaction4",
+    "value": "4. Je belt je teamleider om te vragen wat je het beste kunt doen. "
+  }, {
+    "key": "feedback-agv-path",
+    "value": "Aanrijdingen met en struikelen over rommel op het pad kan zorgen voor onveilige situaties. Daarnaast kan het zorgen voor onnodige reparatiekosten door verstrengeling van bijvoorbeeld pallethout in de wielen van een AGV, heftruck etc.\n\nIedereen is verantwoordelijk voor veiligheid. De rommel direct opruimen en het melden is het beste wat je kunt doen. \n\nAls je het alleen meldt en dan gaat lunchen blijft de gevaarlijke situatie op zijn minst toch bestaan totdat je teamleider actie heeft ondernomen. \n\nHet alleen zelf direct opruimen is heel goed, maar je moet het toch ook melden. Hiermee kan je teamleider stappen ondernemen om het in de toekomst te voorkomen.\n\nNatuurlijk kun je eerst je teamleider bellen om te vragen wat je moet doen. Maar waarschijnlijk mag er best wat eigen initiatief van je verwacht worden in dit soort gevallen.\n\n _ VCA 4.3: Orde en netheid op de werkplek._"
+  }, {
+  "key": "description-together-cantina",
+  "value": "Je loopt gezellig samen met je collega naar de kantine. Je loopt naast elkaar aan de linkerkant van het pad in de bovenstaande tekening. Mag dat?"
   }, {
     "key": "reaction-together-cantina-reaction1",
     "value": "1. Ja, aan de linkerkant is het pad voor voetgangers die richting de kantine gaan."
