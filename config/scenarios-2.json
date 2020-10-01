@@ -5,7 +5,7 @@
 
   },
   "content": {
-      "mapJson": "maps/scenarios-1.json",
+      "mapJson": "maps/scenarios-2.json",
       "stars": 3,
       "scenarios": {
         "agv-path": {
@@ -95,7 +95,7 @@
       "value": "The warehouse"
   }, {
   "key": "intro-description",
-  "value": "Eerste warehouse met 6 scenarios"
+  "value": "Tweede warehouse met 6 scenarios"
   }, {
     "key": "intro-start",
     "value": "Start"

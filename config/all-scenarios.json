@@ -136,7 +136,7 @@
           }]          
         },
         "forklift-hole": {
-          "location": [20, 5],
+          "location": [27, 13],
           "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
           "reactions": [{
             "id": "reaction1"
