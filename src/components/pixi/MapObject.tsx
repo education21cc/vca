@@ -41,73 +41,92 @@ const MapObject = (props: Props) => {
   }, [found]);
 
   useEffect(() => {
+    let timeout: NodeJS.Timeout;
     if (!ref.current) return; 
 
     const animation = o.properties?.find(p => p.name === 'animation');
     if (!animation) return;
-
     
-    // Pass a string like "[[0, 22], [5, 22], [5,25], [11, 25], [11, 18]]" with coordinates
-    let steps;
-    try {
-      steps = JSON.parse(animation.value);
-    }
-    catch (e){
-      throw new Error(`Couldn't parse animation steps: "${animation.value}"`);
-    }
-    // the spritheet is to show different frames for different angles. 
-    // it looks for sprites with the given type in the tileset. 
-    // first frame is southeast, second frame is northeasth
-    const animSpritesheet = o.properties?.find(p => p.name === 'spritesheet')?.value;
+    const type = o.properties?.find(p => p.name === 'type')?.value;
+    
+    if (type === 'move') {
+      // Pass a string like "[[0, 22], [5, 22], [5,25], [11, 25], [11, 18]]" with coordinates
+      let steps;
+      try {
+        steps = JSON.parse(animation.value);
+      }
+      catch (e){
+        throw new Error(`Couldn't parse animation steps: "${animation.value}"`);
+      }
+      // the spritheet is to show different frames for different angles. 
+      // it looks for sprites with the given type in the tileset. 
+      // first frame is southeast, second frame is northeasth
+      const animSpritesheet = o.properties?.find(p => p.name === 'spritesheet')?.value;
 
-    const delay = parseFloat(o.properties?.find(p => p.name === 'delay')?.value || 0);
-    const tl = gsap.timeline({
-      repeat: -1,
-      delay
-    });
-    for(let i = 1; i < steps.length; i++) {
-      const lastStep = steps[i - 1];
-      const currentStep = steps[i];
-      const distance = Math.sqrt(Math.pow(currentStep[0] - lastStep[0], 2) + Math.pow(currentStep[1] - lastStep[1], 2));
-
-      ref.current.gotoAndStop(0);
-      const position = tileLocationToPosition(currentStep, mapData.width, mapData.height);
-      const speed = 0.25;
-      tl.to(ref.current, {
-        onStart: () => {
-          if (animSpritesheet) {
-            console.log('last step', lastStep)
-            console.log('currentStep', currentStep)
-            if (lastStep[0] === currentStep[0] && lastStep[1] > currentStep[1]) {
-              console.log('ne');
-              ref.current!.gotoAndStop(1);
-              ref.current!.scale.set(1, 1);
-            } else if (lastStep[0] > currentStep[0] && lastStep[1] === currentStep[1]){
-              console.log('nw')
-              ref.current!.gotoAndStop(1);
-              ref.current!.scale.set(-1, 1);
-              
-            } else if (lastStep[0] === currentStep[0] && lastStep[1] < currentStep[1]){
-              console.log('sw')
-              ref.current!.gotoAndStop(0);
-              ref.current!.scale.set(-1, 1);
-            } else {
-              console.log('se')
-              ref.current!.gotoAndStop(0);
-              ref.current!.scale.set(1, 1);
-            }
-          }
-        },
-        onUpdate: () => {
-          ref.current!.zIndex = getTileIndex(currentStep, mapData.width);
-        },
-        duration: speed * distance,
-        pixi: { 
-          x: position.x,
-          y: position.y,
-        },
-        ease: Linear.easeNone,
+      const delay = parseFloat(o.properties?.find(p => p.name === 'delay')?.value || 0);
+      const tl = gsap.timeline({
+        repeat: -1,
+        delay
       });
+      for(let i = 1; i < steps.length; i++) {
+        const lastStep = steps[i - 1];
+        const currentStep = steps[i];
+        const distance = Math.sqrt(Math.pow(currentStep[0] - lastStep[0], 2) + Math.pow(currentStep[1] - lastStep[1], 2));
+
+        ref.current.gotoAndStop(0);
+        const position = tileLocationToPosition(currentStep, mapData.width, mapData.height);
+        const speed = parseFloat(o.properties?.find(p => p.name === 'speed')?.value || 0.25);
+        console.log(parseFloat(o.properties?.find(p => p.name === 'speed')?.value));
+        tl.to(ref.current, {
+          onStart: () => {
+            if (animSpritesheet) {
+              // console.log('last step', lastStep)
+              // console.log('currentStep', currentStep)
+              if (lastStep[0] === currentStep[0] && lastStep[1] > currentStep[1]) {
+                // console.log('ne');
+                ref.current!.gotoAndStop(1);
+                ref.current!.scale.set(1, 1);
+              } else if (lastStep[0] > currentStep[0] && lastStep[1] === currentStep[1]){
+                // console.log('nw')
+                ref.current!.gotoAndStop(1);
+                ref.current!.scale.set(-1, 1);
+                
+              } else if (lastStep[0] === currentStep[0] && lastStep[1] < currentStep[1]){
+                // console.log('sw')
+                ref.current!.gotoAndStop(0);
+                ref.current!.scale.set(-1, 1);
+              } else {
+                // console.log('se')
+                ref.current!.gotoAndStop(0);
+                ref.current!.scale.set(1, 1);
+              }
+            }
+          },
+          onUpdate: () => {
+            ref.current!.zIndex = getTileIndex(currentStep, mapData.width);
+          },
+          duration: speed * distance,
+          pixi: { 
+            x: position.x,
+            y: position.y,
+          },
+          ease: Linear.easeNone,
+        });
+      }
+    }
+    else if (type === 'flicker') {
+      console.log('flikker')
+      console.log('flikker')
+      const flash = () => {
+        console.log('flash!')
+        ref.current!.visible = Math.random() < .5;
+        timeout = setTimeout(flash, Math.random() * 250);
+      }
+      timeout = setTimeout(flash, Math.random() * 250);
+    }
+
+    return () => {
+      clearTimeout(timeout);
     }
   }, [mapData, o.properties]);
 
@@ -187,16 +206,10 @@ const MapObject = (props: Props) => {
     if (animSpritesheet) {
       const spritesheetTiles = tileset.current?.tiles?.filter(t => t.type === animSpritesheet).map(td => td.image);
 
-
-      console.log(spritesheetTiles)
-      // texture={spritesheetTextures.current![textureName]}
       textures = spritesheetTiles!.map((image) => {
         const str = image.substr(image.lastIndexOf('/') + 1);
         return tilesetsTextures[spritesheet].textures?.[str];
       });
-      // textures = [spritesheetTextures.current![textureName]];
-      console.log(tilesetsTextures[spritesheet].textures)
-      // console.log('xx', textures)
     }
     else {
       textures = [spritesheetTextures.current![textureName]];
