@@ -15,7 +15,9 @@ $slide-transition-time: 500ms;
   .illustration {
     flex: 1;
     background: transparent linear-gradient(220deg, #6cd3ff50 0%, #09e93d50 100%) 0% 0% no-repeat padding-box;
-
+    align-items: center;
+    display: flex;
+    
     img {
       width: 100%;
     }
