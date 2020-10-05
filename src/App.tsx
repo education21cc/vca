@@ -107,7 +107,8 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios-2.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-2.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/scenarios-3.json`)
         .then((response) => {
           response.json().then((data) => {
             console.log(data)
