@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { gsap } from 'gsap'
 import { TextPlugin } from 'gsap/all';
 import sound from 'pixi-sound';
-import { Scenario } from 'data/Content';
+import { Hotspot, Scenario } from 'data/Content';
 import ReactMarkdown from 'react-markdown';
 import Reactions from './Reactions';
 import FeedbackTitle from './FeedbackTitle';
@@ -83,10 +83,13 @@ const ScenarioScreen = (props: Props) => {
     return content.reactions.find(r => r.id === selectedReaction)?.correct === true;
   }, [content.reactions, selectedReaction]);
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleHotspotClick = (event: React.MouseEvent<HTMLDivElement>) => {
     // Zoom in on image
     if((event.target as HTMLElement).tagName === "IMG") {
-      setImage((event.target as HTMLImageElement)?.src);
+      const path = (event.target as HTMLImageElement)?.getAttribute("data-img");
+      if (path) {
+        setImage(path);
+      }
     }
   };
 
@@ -108,10 +111,32 @@ const ScenarioScreen = (props: Props) => {
     <>
     <div className={`scenario-screen`} ref={ref}>
       <div className="illustration">
-        { imageUrl && <img src={imageUrl} alt=""></img> }
+        <div 
+          className="scaler" 
+          // style={{ backgroundImage: `url(${imageUrl})`}}
+        >
+          { imageUrl && <img src={imageUrl} alt="" ></img> }
+          { content.hotspots && content.hotspots.map((h: Hotspot) => {
+            return (
+              <img 
+                className="hotspot"
+                key={h.image}
+                style={{
+                  left: `${h.left}%`,
+                  top: `${h.top}%`,
+                  width: `${h.width}%`,
+                }}
+                alt=""
+                data-img={h.image}
+                onClick={handleHotspotClick}
+                src={h.hotspot}
+              />
+            )
+          })}
+        </div>
       </div>
       <div className={`content state-${State[state]} ${reopeningCorrectScenario.current ? "reopening" : ""}`}>
-        <div className="description" onClick={handleClick} >
+        <div className="description" >
           <ReactMarkdown source={props.texts[`description-${props.scenario}`]} />
           <div className="buttons">
             <button className="button right-align white" onClick={handleClickNextDescription}>

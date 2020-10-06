@@ -1,4 +1,5 @@
 import { GameData } from "components/playerBridge/GameData";
+import { NineSlicePlane } from "pixi.js";
 
 export interface Content {
   mapJson: string,
@@ -33,8 +34,16 @@ export interface Scenario {
   description: string | string[];
   image?: string;
   imageFeedback?: string;
-
+  hotspots?: Hotspot[];
   reactions: ScenarioReaction[];
+}
+
+export interface Hotspot {
+  left: number; 
+  top: number; 
+  width: number;
+  image: string;
+  hotspot: string;
 }
 
 // Something on the scene

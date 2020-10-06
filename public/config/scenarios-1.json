@@ -41,7 +41,15 @@
         },
         "store-cargo": {
           "location": [45, 25],
-          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome.png",
+          "hotspots": [{
+            "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert.png",
+            "hotspot": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png",
+            "left": 51.8,
+            "top": 80.7,
+            "width": 14.6
+          }],
           "reactions": [{
             "id": "reaction1"
           }, {
@@ -149,7 +157,7 @@
     "value": "Looproutes zijn belangrijk om botsingen en opstoppingen te voorkomen. Helaas zijn er niet altijd duidelijke looproutes aangegeven en/of zijn er plekken waarbij verschillende routes elkaar kruisen. Het hebben van looproutes is volgens de VCA ook niet verplicht.\n\nAls er geen duidelijke looproutes zijn mag je meestal wel over AGV-paden lopen of ze oversteken.\n\nVraag direct aan je teamleider wat de regels hierover zijn op jouw werkplek. Dit zou in het veiligheidsplan of de veiligheidsinstructie van je werkgever moeten staan.\n\nDe Arbowet verplicht de werkgever dat hij je voorlicht en leert hoe het zit. Jij bent volgens de Arbowet verplicht die plannen en instructies te kennen."
   }, {
     "key": "description-store-cargo",
-    "value": "De chauffeur van de vrachtwagen is net vertrokken en op het dock staan zes pallets met grote dozen erop. \n\n ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/image11.jpg) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/image13.jpg) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/image12.jpg)Je teamleider vraagt je om ze met de palletwagen op de juiste plek te zetten wat verderop in het magazijn. Het bijbehorende orderformulier kun je hierboven zien. Ook zie je hierboven meer informatie over de palletwagen die je kunt gebruiken. Wat doe je?"
+    "value": "De chauffeur van de vrachtwagen is net vertrokken en op het dock staan zes pallets met grote dozen erop. \n\n Je teamleider vraagt je om ze met de palletwagen op de juiste plek te zetten wat verderop in het magazijn. Het bijbehorende orderformulier kun je hierboven zien. Ook zie je hierboven meer informatie over de palletwagen die je kunt gebruiken. Wat doe je?"
   }, {
     "key": "reaction-store-cargo-reaction1",
     "value": "1. Je pakt de palletwagen en zet ze een voor een op de juiste plek."
