@@ -54,7 +54,7 @@
         }]          
       },
       "misplaced-boxes": {
-        "location": [21, 15],
+        "location": [2, 24],
         "image": "http://lorempixel.com/output/sports-q-c-640-480-5.jpg",
         "reactions": [{
           "id": "reaction1"

@@ -11,7 +11,8 @@
 
         "together-cantina": {
           "location": [8, 14],
-          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome.png",
           "reactions": [{
             "id": "reaction1"
           }, {
@@ -25,7 +26,8 @@
         },
         "agv-walk": {
           "location": [49, 18],
-          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome.png",
           "reactions": [{
             "id": "reaction1"
           }, {
@@ -51,7 +53,8 @@
         },
         "emergency-door": {
           "location": [23, -2],
-          "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome.png",
           "reactions": [{
             "id": "reaction1",
             "correct": true
