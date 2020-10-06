@@ -57,7 +57,6 @@ const ScenarioScreen = (props: Props) => {
   }
 
   useEffect(() => {
-    console.log('scroll', ref.current?.querySelector('.content'))
     const slideTransitionTime = 500;
     const timeout = setTimeout(() => {
       ref.current?.querySelector('.content')?.scroll({top: 0, left: 0, behavior: 'smooth' });
@@ -95,11 +94,21 @@ const ScenarioScreen = (props: Props) => {
     setImage(undefined);
   }
 
+  const imageUrl = useMemo(() => {
+    if (content.image && state !== State.feedback) {
+      return content.image;
+    }
+    if (content.imageFeedback && state === State.feedback) {
+      return content.imageFeedback;
+    }
+    return null;
+  }, [content, state]);
+
   return (
     <>
     <div className={`scenario-screen`} ref={ref}>
       <div className="illustration">
-        { content.image && <img src={content.image} alt=""></img>}
+        { imageUrl && <img src={imageUrl} alt=""></img> }
       </div>
       <div className={`content state-${State[state]} ${reopeningCorrectScenario.current ? "reopening" : ""}`}>
         <div className="description" onClick={handleClick} >

@@ -32,11 +32,8 @@ export interface Scenario {
   location: number[];
   description: string | string[];
   image?: string;
-  // imageBaseUrl: string;
-  // sequence: SequenceItem[];
-  // scene: SceneElement[];
-  // situationSpeech: string;
-  // options: string[];
+  imageFeedback?: string;
+
   reactions: ScenarioReaction[];
 }
 
@@ -51,25 +48,5 @@ export interface SceneElement {
 export interface ScenarioReaction { 
   correct: boolean, 
   id: string, 
-
-  // scene: SceneElement[]; 
-  // confirmText: string,
-  // yesText: string;
-  // noText: string;
-  // confirmImage?: string 
-}
-
-export enum SequenceItemType {
-  caption = 'caption',
-  speech = 'speech',
-  image = 'image',  // image, no speech
-}
-
-export interface SequenceItem {
-  type: SequenceItemType,
-  text: string,
-  balloonArrowPos?: number;
-  
-  scene?: SceneElement[]; // optional override
 }
 
