@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Stage, Sprite, Container } from '@inlet/react-pixi';
 import { TiledMapData, TiledLayerData, TiledLayerType, TiledObjectData } from 'utils/tiledMapData';
 import * as PIXI from 'pixi.js';
+import sound from 'pixi-sound';
 import Viewport from '../Viewport';
 import { LoaderResource } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
@@ -53,7 +54,13 @@ const Map = (props: Props) => {
     }
   }, [mapData, mapHeight, mapWidth, tilesetsTextures]);
 
-
+  
+  useEffect(() => {
+    sound.add('plops', {
+      url: `${process.env.PUBLIC_URL}/sound/plops.mp3`,
+      autoPlay: true,
+    });    
+  }, []);
 
   useEffect(() => {
     const resize = () => {

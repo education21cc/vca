@@ -4,7 +4,7 @@ import PlayerBridge, { send } from 'components/playerBridge';
 import { GameData, Level } from 'components/playerBridge/GameData';
 import { Content, ContentConfig, Scenario } from 'data/Content';
 import { PixiPlugin } from 'gsap/all';
-import { gsap } from 'gsap'
+import { gsap } from 'gsap';
 import FinderBox from 'components/FinderBox';
 import IFrameModal from 'components/IFrameModal';
 import ScenarioBox from 'components/ScenariosBox';
@@ -119,7 +119,8 @@ function App() {
       }
     };
   }, [content, handleGameDataReceived]);
-  
+
+
   const iframe = useMemo(() => {
     if (!levelsCompleted) return;
     if (!content?.finder?.final) return;
