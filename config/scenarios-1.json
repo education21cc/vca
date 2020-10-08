@@ -8,7 +8,6 @@
       "mapJson": "maps/scenarios-1.json",
       "stars": 3,
       "scenarios": {
-
         "together-cantina": {
           "location": [8, 14],
           "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description.png",
