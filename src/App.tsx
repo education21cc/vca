@@ -111,7 +111,6 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-3.json`)
         .then((response) => {
           response.json().then((data) => {
-            console.log(data)
 
             handleGameDataReceived(data);
           })
