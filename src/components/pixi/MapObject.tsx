@@ -76,7 +76,7 @@ const MapObject = (props: Props) => {
         ref.current.gotoAndStop(0);
         const position = tileLocationToPosition(currentStep, mapData.width, mapData.height);
         const speed = parseFloat(o.properties?.find(p => p.name === 'speed')?.value || 0.25);
-        console.log(parseFloat(o.properties?.find(p => p.name === 'speed')?.value));
+
         tl.to(ref.current, {
           onStart: () => {
             if (animSpritesheet) {
