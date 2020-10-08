@@ -111,12 +111,10 @@ const ScenarioScreen = (props: Props) => {
     <>
     <div className={`scenario-screen`} ref={ref}>
       <div className="illustration">
-        <div 
-          className="scaler" 
-          // style={{ backgroundImage: `url(${imageUrl})`}}
-        >
+        <div className="scaler" >
           { imageUrl && <img src={imageUrl} alt="" ></img> }
-          { content.hotspots && content.hotspots.map((h: Hotspot) => {
+          { ( content.hotspots && state !== State.feedback
+            ) && content.hotspots.map((h: Hotspot) => {
             return (
               <img 
                 className="hotspot"
