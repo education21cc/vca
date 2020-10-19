@@ -1,7 +1,7 @@
 {
   "name": "vca",
   "version": "0.1.0",
-  "homepage": "https://spassvogel.github.io/vca",
+  "homepage": "https://education21cc.github.io/vca",
   "homepage-whenneedstouploadtoserver": ".",
   "private": true,
   "dependencies": {

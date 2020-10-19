@@ -42,6 +42,7 @@ const MapObject = (props: Props) => {
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
+    let tl: gsap.core.Timeline;
     if (!ref.current) return; 
 
     const animation = o.properties?.find(p => p.name === 'animation');
@@ -64,7 +65,7 @@ const MapObject = (props: Props) => {
       const animSpritesheet = o.properties?.find(p => p.name === 'spritesheet')?.value;
 
       const delay = parseFloat(o.properties?.find(p => p.name === 'delay')?.value || 0);
-      const tl = gsap.timeline({
+      tl = gsap.timeline({
         repeat: -1,
         delay
       });
@@ -103,7 +104,9 @@ const MapObject = (props: Props) => {
             }
           },
           onUpdate: () => {
-            ref.current!.zIndex = getTileIndex(currentStep, mapData.width);
+            if (ref.current) {
+              ref.current.zIndex = getTileIndex(currentStep, mapData.width);
+            }
           },
           duration: speed * distance,
           pixi: { 
@@ -115,10 +118,7 @@ const MapObject = (props: Props) => {
       }
     }
     else if (type === 'flicker') {
-      console.log('flikker')
-      console.log('flikker')
       const flash = () => {
-        console.log('flash!')
         ref.current!.visible = Math.random() < .5;
         timeout = setTimeout(flash, Math.random() * 250);
       }
@@ -127,6 +127,9 @@ const MapObject = (props: Props) => {
 
     return () => {
       clearTimeout(timeout);
+      if (tl) {
+        tl.clear();
+      }
     }
   }, [mapData, o.properties]);
 
