@@ -6,7 +6,7 @@
   },
   "content": {
       "mapJson": "maps/scenarios-1.json",
-      "stars": 3,
+      "stars": 4,
       "scenarios": {
         "together-cantina": {
           "location": [8, 14],
