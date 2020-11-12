@@ -41,7 +41,7 @@ const PixiComponentViewport = PixiComponent("Viewport", {
     viewport.on("clicked", (event) => { if(props.onClick) props.onClick(event) });
 
     const {
-      minScale = .1,
+      minScale = .15,
       maxScale = 1
     } = props;
 
@@ -50,7 +50,7 @@ const PixiComponentViewport = PixiComponent("Viewport", {
       .pinch()
       .wheel()
       .clamp({ direction: 'all' })
-      .setZoom(.1)
+      .setZoom(.15)
       .clampZoom({ minScale, maxScale })
       .decelerate();
 
