@@ -214,6 +214,7 @@ const Map = (props: Props) => {
         bounce={bounce}
         key={name}
         name={name}
+        scale={1.5}
       />
     ); 
   }
