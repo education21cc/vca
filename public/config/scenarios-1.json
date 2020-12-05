@@ -75,10 +75,10 @@
   },
   "translations": [{
     "key": "intro-header",
-    "value": "The warehouse"
+    "value": "Wat te doen in de volgende scenario’s"
   }, {
-  "key": "intro-description",
-  "value": "Eerste warehouse met 4 scenarios"
+    "key": "intro-description",
+    "value": "In dit spel krijg je vanuit het warehouse toegang tot de scenario’s door op de rode pijltjes te klikken. Per scenario wordt een situatie omschreven en mag je een vraag beantwoorden. Na het beantwoorden van de vraag krijg je uitleg over wat het juiste antwoord is. Per goed beantwoorde vraag verdien je 1 ster."
   }, {
     "key": "intro-start",
     "value": "Start"
