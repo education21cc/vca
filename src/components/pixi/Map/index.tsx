@@ -4,7 +4,6 @@ import { TiledMapData, TiledLayerData, TiledLayerType, TiledObjectData } from 'u
 import * as PIXI from 'pixi.js';
 import sound from 'pixi-sound';
 import Viewport from '../Viewport';
-import { LoaderResource } from 'pixi.js';
 import { Viewport as PixiViewport } from "pixi-viewport";
 import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
@@ -19,7 +18,7 @@ import MapObject from '../MapObject';
 interface Props { 
   content: Content;
   mapData: TiledMapData;
-  tilesetsTextures: {[key: string]: LoaderResource};
+  tilesetsTextures: {[key: string]: any};
   foundSituations: string[];
   onSituationClick: (situation: string) => void;
   solvedScenarios: string[];

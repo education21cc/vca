@@ -19,8 +19,8 @@ import CompleteDialog from 'components/dialogs/CompleteDialog';
 import './styles/common.scss'
 import './App.css';
 
-PixiPlugin.registerPIXI(PIXI);
-gsap.registerPlugin(PixiPlugin);
+// PixiPlugin.registerPIXI(PIXI);
+// gsap.registerPlugin(PixiPlugin);
 
 
 enum GameState {
@@ -52,7 +52,7 @@ function App() {
   }, []);
 
   const handleGameDataReceived = useCallback((data: GameData<Content>) => {
-    PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
+    // PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
     setData(data);
     
     if (data.translations){

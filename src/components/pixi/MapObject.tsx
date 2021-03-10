@@ -7,13 +7,14 @@ import { getTileIndex, tileLocationToPosition } from 'utils/isometric';
 import Smoke1 from './effects/smoke1';
 import { gsap, Linear } from 'gsap'
 import SpriteAnimated from './SpriteAnimated';
+import { AnimatedSprite } from 'pixi.js';
 
 
 interface Props {
     data: TiledObjectData;
     found?: boolean;
     mapData: TiledMapData;
-    tilesetsTextures: {[key: string]: PIXI.LoaderResource};
+    tilesetsTextures: {[key: string]: any};
     onClick: (name:string) => void; 
 }
 
@@ -23,9 +24,9 @@ const MapObject = (props: Props) => {
 
   const popInDuration = 1;
   const checkRef = useRef(null);
-  const ref = useRef<PIXI.AnimatedSprite>(null);
+  const ref = useRef<AnimatedSprite>(null);
   const tileset = useRef<TiledTilesetData>();
-  const spritesheetTextures = useRef<PIXI.ITextureDictionary>();
+  const spritesheetTextures = useRef<any>();
 
   useEffect(() => {
     // Pop in animation!

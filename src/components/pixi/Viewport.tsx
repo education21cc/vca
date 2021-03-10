@@ -2,9 +2,10 @@ import React, { forwardRef } from "react";
 import { Viewport as PixiViewport, ClickEventData } from "pixi-viewport";
 import { PixiComponent, useApp } from "@inlet/react-pixi";
 import * as PIXI  from 'pixi.js';
+import { InteractionEvent } from "pixi.js";
 
 interface Props {
-  onClick?(event: ClickEventData): void;
+  onClick?(event: InteractionEvent): void;
   screenWidth: number,
   screenHeight: number,
   worldWidth: number,
@@ -18,7 +19,6 @@ interface Props {
  */
 const Viewport = forwardRef<PixiViewport, any>((props, ref) => {
   const app = useApp();
-  window.PIXI = PIXI;
 
   return <PixiComponentViewport app={app} {...props} ref={ref} />;
 });
@@ -28,6 +28,7 @@ interface PixiComponentProps {
 }
 
 const PixiComponentViewport = PixiComponent("Viewport", {
+  // @ts-ignore
   create: (props: PixiComponentProps & Props) => {
     const viewport = new PixiViewport({
       screenWidth: props.screenWidth,
