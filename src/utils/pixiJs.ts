@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import { Loader } from "pixi.js";
 
 interface Location {
     x: number;
@@ -17,7 +17,7 @@ const lerp = (n1: number,  n2: number,  alpha: number) =>  {
 
 // Uses the shared pixi loader to load a resource
 export async function loadResourceAsync(path: string) { 
-    const loader = PIXI.Loader.shared;
+    const loader = Loader.shared;
     return new Promise<any>((resolve, reject) => {
     if (loader.resources[path]) {
             resolve(loader.resources[path]);
@@ -31,7 +31,7 @@ export async function loadResourceAsync(path: string) {
 }
 
 export const loadResource = (path: string, callback: (resource: any) => void) => { 
-    const loader = PIXI.Loader.shared;
+    const loader = Loader.shared;
     if (loader.resources[path]) {
         callback(loader.resources[path]);
         return;

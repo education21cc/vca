@@ -23,11 +23,11 @@ const useTilesetsLoader = (determineTilesetSpritesheetPath: (tileset: TiledTiles
             if (resource.error) {
                 throw new Error(`Loading ${path}\n${resource.error}`);
             }
-            const newTilesets = { 
-                ...tilesetsTextures,
-                [tilesetName]: resource
-            }
-            setTilesets(newTilesets);
+            // const newTilesets = { 
+            //     ...tilesetsTextures,
+            //     [tilesetName]: resource
+            // }
+            // setTilesets(newTilesets);
         });
     }, [data, determineTilesetSpritesheetPath, tilesetsTextures]);
     

@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "@inlet/react-pixi": "^6.2.1",
+    "@pixi/tilemap": "^3.0.0-rc.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -16,7 +17,6 @@
     "node-sass": "^5.0.0",
     "pixi-particles": "^4.2.1",
     "pixi-sound": "^3.0.5",
-    "pixi-tilemap": "^2.1.4",
     "pixi-viewport": "^4.12.0",
     "pixi.js": "^6.0.0",
     "react": "^17.0.1",
