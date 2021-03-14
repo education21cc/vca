@@ -3,8 +3,7 @@ import * as PIXI  from 'pixi.js';
 import { TiledLayerData, TiledTilesetData } from "utils/tiledMapData";
 import { tileLocationToPosition } from "utils/isometric";
 import { TILE_HEIGHT, TILE_WIDTH } from "constants/tiles";
-// window.PIXI = PIXI;
-// require('pixi-tilemap');
+import { CompositeRectTileLayer } from "@pixi/tilemap"
 
 interface Props  {
   texture: PIXI.Texture;
@@ -20,7 +19,7 @@ const FloorTileLayer = PixiComponent<Props, any>("FloorTileLayer", {
   create(props: Props) {
 
     // @ts-ignore
-    const tileLayer = new window.PIXI.tilemap.CompositeRectTileLayer(0, [props.texture]);
+    const tileLayer = new CompositeRectTileLayer(0, [props.texture]);
     return tileLayer;
   },
 

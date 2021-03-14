@@ -39,7 +39,7 @@ const PixiComponentViewport = PixiComponent("Viewport", {
       //interaction: props.app.renderer.plugins.interaction,
       // the interaction module is important for wheel to work properly when renderer.view is placed or scaled
     });
-    viewport.on("clicked", (event) => { if(props.onClick) props.onClick(event) });
+    // viewport.on("clicked", (event) => { if(props.onClick) props.onClick(event) });
 
     const {
       minScale = .15,

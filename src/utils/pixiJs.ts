@@ -36,6 +36,5 @@ export const loadResource = (path: string, callback: (resource: any) => void) =>
         callback(loader.resources[path]);
         return;
     }
-    console.log(path)
     loader.add(path).load((_, resources) => { callback(resources[path]!)});
 }

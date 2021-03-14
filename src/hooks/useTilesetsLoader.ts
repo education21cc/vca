@@ -17,17 +17,16 @@ const useTilesetsLoader = (determineTilesetSpritesheetPath: (tileset: TiledTiles
         if (!nextTileset) return;
         
         const tilesetName = nextTileset.name;
-        console.log('loading tilesets', data, tilesetName)
         const path = determineTilesetSpritesheetPath(nextTileset);
         loadResource(`${path}`, (resource) => {
             if (resource.error) {
                 throw new Error(`Loading ${path}\n${resource.error}`);
             }
-            // const newTilesets = { 
-            //     ...tilesetsTextures,
-            //     [tilesetName]: resource
-            // }
-            // setTilesets(newTilesets);
+            const newTilesets = { 
+                ...tilesetsTextures,
+                [tilesetName]: resource
+            }
+            setTilesets(newTilesets);
         });
     }, [data, determineTilesetSpritesheetPath, tilesetsTextures]);
     

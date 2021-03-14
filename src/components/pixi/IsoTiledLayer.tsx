@@ -1,7 +1,7 @@
 import { PixiComponent } from "@inlet/react-pixi";
 import * as PIXI  from 'pixi.js';
 import { TiledTilesetData, TiledLayerData } from "utils/tiledMapData";
-import CompositeRectTileLayer from "pixi-tilemap"
+import { CompositeRectTileLayer } from "@pixi/tilemap"
 
 interface Props  {
   texture: PIXI.Texture;
@@ -13,11 +13,7 @@ interface Props  {
 
 const IsoTiledLayer = PixiComponent<Props, any>("IsoTiledLayer", {
   create(props: Props) {
-    // window.PIXI = PIXI;
-    // require('pixi-tilemap');    
-
     // @ts-ignore
-    // const tileLayer = new window.PIXI.tilemap.CompositeRectTileLayer(0, [props.texture]);
     const tileLayer = new CompositeRectTileLayer(0, [props.texture]);
     return tileLayer;
   },

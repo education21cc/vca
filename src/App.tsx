@@ -14,13 +14,18 @@ import IntroDialog from 'components/dialogs/IntroDialog';
 import useTilesetsLoader from 'hooks/useTilesetsLoader';
 import { TiledTilesetData, TiledMapData } from 'utils/tiledMapData';
 import { loadResource } from 'utils/pixiJs';
-import { SCALE_MODES } from 'pixi.js';
 import CompleteDialog from 'components/dialogs/CompleteDialog';
 import './styles/common.scss'
 import './App.css';
+import * as PIXI from 'pixi.js';
 
-// PixiPlugin.registerPIXI(PIXI);
-// gsap.registerPlugin(PixiPlugin);
+declare global {
+  interface Window { PIXI: any; }
+}
+
+window.PIXI = PIXI;
+PixiPlugin.registerPIXI(PIXI);
+gsap.registerPlugin(PixiPlugin);
 
 
 enum GameState {
