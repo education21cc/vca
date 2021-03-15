@@ -10,7 +10,7 @@
     "scenarios": {
       "broken-forklift": {
         "location": [23, 0],
-        "image": "http://lorempixel.com/output/animals-q-c-640-480-6.jpg",
+        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/broken-forklift/broken-forklift-description.jpg",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -24,7 +24,7 @@
       },
       "dark-warehouse": {
         "location": [1, 25],
-        "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/dark-warehouse/dark-warehouse-description.jpg",
         "reactions": [{
           "id": "reaction1",
           "correct": true
@@ -37,10 +37,10 @@
           "id": "reaction4"
         }]          
       },
-
       "forklift-crash": {
         "location": [6, 18],
-        "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/forklift-crash/forklift-crash-description.jpg",
+        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/forklift-crash/forklift-crash-outcome.jpg",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -52,8 +52,9 @@
       },
       "loading-dock": {
         "location": [52, 13],
-        "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
-        "reactions": [{
+        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/loading-dock/loading-dock-description.png",
+        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/loading-dock/loading-dock-outcome.png",
+      "reactions": [{
           "id": "reaction1",
           "correct": true
         }, {

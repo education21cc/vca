@@ -10,7 +10,8 @@
     "scenarios": {
       "agv-path": {
         "location": [53, 2],
-        "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/avg-path/avg-path-description.jpg",
+        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/avg-path/avg-path-outcome.png",
         "reactions": [{
           "id": "reaction1",
           "correct": true
@@ -24,7 +25,7 @@
       },
       "forklift-hole": {
         "location": [26, 12],
-        "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/forklift-hole/forklift-hole-description.png",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -38,7 +39,7 @@
       },
       "wet-product": {
         "location": [25, 5],
-        "image": "http://lorempixel.com/output/transport-q-c-640-480-6.jpg",
+        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/wet-product/wet-product-description.png",
         "reactions": [{
           "id": "reaction1",
           "correct": true
@@ -55,7 +56,8 @@
       },
       "misplaced-boxes": {
         "location": [2, 24],
-        "image": "http://lorempixel.com/output/sports-q-c-640-480-5.jpg",
+        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-description.jpg",
+        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-outcome.png",
         "reactions": [{
           "id": "reaction1"
         }, {
