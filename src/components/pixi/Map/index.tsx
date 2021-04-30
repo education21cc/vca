@@ -55,11 +55,14 @@ const Map = (props: Props) => {
 
   
   useEffect(() => {
-    sound.add('plops', {
-      url: `${process.env.PUBLIC_URL}/sound/plops.mp3`,
-      autoPlay: true,
-    });    
-  }, []);
+    if (!content.finder) {
+      // Only plop in scenario mode
+      sound.add('plops', {
+        url: `${process.env.PUBLIC_URL}/sound/plops.mp3`,
+        autoPlay: true,
+      });    
+    }
+  }, [content.finder]);
 
   useEffect(() => {
     const resize = () => {
