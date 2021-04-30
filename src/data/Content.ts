@@ -1,5 +1,4 @@
 import { GameData } from "components/playerBridge/GameData";
-import { NineSlicePlane } from "pixi.js";
 
 export interface Content {
   mapJson: string,
