@@ -119,6 +119,9 @@
     "key": "complete-exit",
     "value": "Afsluiten"
   }, {
+    "key": "feedback",
+    "value": "Feedback"
+  }, {
     "key": "description-together-cantina",
     "value": "Je loopt gezellig samen met je collega naar de kantine. Je loopt naast elkaar aan de linkerkant van het pad in de bovenstaande tekening. Mag dat?"
   }, {
