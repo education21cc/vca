@@ -56,8 +56,8 @@
       },
       "misplaced-boxes": {
         "location": [2, 24],
-        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-description.jpg",
-        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-outcome.png",
+        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-description.png",
+        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-outcome.jpg",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -73,8 +73,8 @@
     "key": "intro-header",
     "value": "The warehouse"
   }, {
-  "key": "intro-description",
-  "value": "Derde warehouse met 4 scenarios"
+    "key": "intro-description",
+    "value": "Derde warehouse met 4 scenarios"
   }, {
     "key": "intro-start",
     "value": "Start"
@@ -103,14 +103,14 @@
     "key": "feedback-wrong",
     "value": "Fout!"
   }, {
-      "key": "complete-header",
-      "value": "Gefeliciteerd"
+    "key": "complete-header",
+    "value": "Gefeliciteerd"
   }, {
-      "key": "complete-score",
-      "value": "Totale score {0} / {1}"
+    "key": "complete-score",
+    "value": "Totale score {0} / {1}"
   }, {
-      "key": "complete-try-again",
-      "value": "Opnieuw"
+    "key": "complete-try-again",
+    "value": "Opnieuw"
   }, {
     "key": "complete-exit",
     "value": "Afsluiten"
