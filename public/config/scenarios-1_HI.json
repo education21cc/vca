@@ -133,6 +133,9 @@
     {
         "key": "complete-exit",
         "value": "निकास"
+    }, {
+        "key": "feedback",
+        "value": "स्पष्टीकरण"    
     },
     {
         "key": "description-together-cantina",

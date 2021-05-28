@@ -172,7 +172,7 @@ const ScenarioScreen = (props: Props) => {
           <p className={`reaction ${selectedReactionCorrect ? "correct" : "wrong"}`}>
            {selectedReactionText}
           </p>
-          <h1 className="title">Feedback</h1>
+          <h1 className="title">{props.texts["feedback"]}</h1>
           <ReactMarkdown source={props.texts[`feedback-${props.scenario}`]} />
           <div className="buttons">
             {reopeningCorrectScenario.current && 

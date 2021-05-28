@@ -115,6 +115,9 @@
     "key": "complete-exit",
     "value": "Afsluiten"
   }, {
+    "key": "feedback",
+    "value": "Feedback"
+  }, {
     "key": "description-agv-path",
     "value": "Je bent op weg naar de kantine voor je lunch. Toevallig kijk je links een pad in. Je ziet dat er iets voorbij het midden van het pad wat rommel ligt. Waarschijnlijk is er iets uitgevallen toen er van de andere kant wat in is gezet. Dit pad wordt ook gebruikt door een AGV (Automated Guided Vehicle). Wat doe je?"
   }, {
