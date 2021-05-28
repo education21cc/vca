@@ -111,6 +111,9 @@
     "key": "complete-try-again",
     "value": "Opnieuw" 
   }, {
+    "key": "feedback",
+    "value": "Feedback"
+  }, {
     "key": "description-broken-forklift",
     "value": "Het is ontzettend druk. Je bent nog wel een paar uur bezig met de heftruck om alles op de juiste plek te krijgen. Je maakt je wel wat zorgen. \n\nDe heftruck waar je mee werkt maakt opeens een raar geluid op het moment dat de vork in de hoogste stand staat. Wat doe je?"
   }, {
