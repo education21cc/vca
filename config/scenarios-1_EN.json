@@ -12,11 +12,10 @@
       "mapJson": "maps/scenarios-1.json",
       "stars": 4,
       "scenarios": {
-
         "together-cantina": {
           "location": [8, 14],
-          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description.png",
-          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome.png",
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description-en.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-en.png",
           "reactions": [{
             "id": "reaction1"
           }, {
@@ -26,12 +25,12 @@
             "correct": true
           }, {
             "id": "reaction4"
-          }]
+          }]          
         },
         "agv-walk": {
           "location": [49, 18],
-          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description.png",
-          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome.png",
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description-en.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-en.png",
           "reactions": [{
             "id": "reaction1"
           }, {
@@ -41,15 +40,15 @@
             "correct": true
           }, {
             "id": "reaction4"
-          }]
+          }]          
         },
         "store-cargo": {
           "location": [45, 25],
-          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description.png",
-          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome.png",
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description-en.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-en.png",
           "hotspots": [{
-            "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert.png",
-            "hotspot": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png",
+            "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert-en.png",
+            "hotspot": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot-en.png",
             "left": 51.8,
             "top": 80.7,
             "width": 14.6
@@ -61,12 +60,12 @@
             "correct": true
           }, {
             "id": "reaction3"
-          }]
+          }]          
         },
         "emergency-door": {
           "location": [23, -2],
-          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description.png",
-          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome.png",
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description-en.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-en.png",
           "reactions": [{
             "id": "reaction1",
             "correct": true
@@ -74,8 +73,8 @@
             "id": "reaction2"
           }, {
             "id": "reaction3"
-          }]
-        }
+          }]          
+        }       
       }
     },
     "translations": [
