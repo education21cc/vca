@@ -1,0 +1,268 @@
+{
+    "userId": 2,
+    "settings": {
+      "muted": false
+
+    },
+    "content": {
+      "userId": 2,
+      "settings": {
+        "muted": false
+      },
+      "mapJson": "maps/scenarios-1.json",
+      "stars": 4,
+      "scenarios": {
+
+        "together-cantina": {
+          "location": [8, 14],
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome.png",
+          "reactions": [{
+            "id": "reaction1"
+          }, {
+            "id": "reaction2"
+          }, {
+            "id": "reaction3",
+            "correct": true
+          }, {
+            "id": "reaction4"
+          }]
+        },
+        "agv-walk": {
+          "location": [49, 18],
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome.png",
+          "reactions": [{
+            "id": "reaction1"
+          }, {
+            "id": "reaction2"
+          }, {
+            "id": "reaction3",
+            "correct": true
+          }, {
+            "id": "reaction4"
+          }]
+        },
+        "store-cargo": {
+          "location": [45, 25],
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome.png",
+          "hotspots": [{
+            "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert.png",
+            "hotspot": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png",
+            "left": 51.8,
+            "top": 80.7,
+            "width": 14.6
+          }],
+          "reactions": [{
+            "id": "reaction1"
+          }, {
+            "id": "reaction2",
+            "correct": true
+          }, {
+            "id": "reaction3"
+          }]
+        },
+        "emergency-door": {
+          "location": [23, -2],
+          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description.png",
+          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome.png",
+          "reactions": [{
+            "id": "reaction1",
+            "correct": true
+          }, {
+            "id": "reaction2"
+          }, {
+            "id": "reaction3"
+          }]
+        }
+      }
+    },
+    "translations": [
+      {
+          "key": "intro-header",
+          "value": "What to do in the following scenarios"
+      },
+      {
+          "key": "intro-description",
+          "value": "In this game you can access the scenarios from the warehouse by clicking the red markers. For each scenario, a situation is described and you are allowed to answer a question. After answering the question you will receive an explanation of what the correct answer is. You earn 1 star per correctly answered question."
+      },
+      {
+          "key": "intro-start",
+          "value": "Start"
+      },
+      {
+          "key": "intro-stars-to-gain",
+          "value": "{0}/{1} earned"
+      },
+      {
+          "key": "button-next",
+          "value": "Next"
+      },
+      {
+          "key": "button-prev",
+          "value": "Back"
+      },
+      {
+          "key": "button-check",
+          "value": "Check"
+      },
+      {
+          "key": "button-continue",
+          "value": "Continue"
+      },
+      {
+          "key": "reactions",
+          "value": "Actions"
+      },
+      {
+          "key": "feedback-correct",
+          "value": "Correct!"
+      },
+      {
+          "key": "feedback-wrong",
+          "value": "Wrong!"
+      },
+      {
+          "key": "complete-header",
+          "value": "Congratulations"
+      },
+      {
+          "key": "complete-score",
+          "value": "Total score {0}/{1}"
+      },
+      {
+          "key": "complete-try-again",
+          "value": "Again"
+      },
+      {
+          "key": "complete-exit",
+          "value": "Exit"
+      },
+      {
+          "key": "feedback",
+          "value": "Feedback"
+      },
+      {
+          "key": "description-together-cantina",
+          "value": "You walk to the canteen with your colleague. You walk side by side on the left side of the path in the drawing above. Is that allowed?"
+      },
+      {
+          "key": "reaction-together-cantina-reaction1",
+          "value": "1. Yes, on the left is the path for pedestrians heading towards the cafeteria."
+      },
+      {
+          "key": "reaction-together-cantina-reaction2",
+          "value": "2. No, you have to walk on the right side of the path. Always keep to the right as much as possible."
+      },
+      {
+          "key": "reaction-together-cantina-reaction3",
+          "value": "3. No, the path is too narrow to walk side by side."
+      },
+      {
+          "key": "reaction-together-cantina-reaction4",
+          "value": "4. No, you are not allowed to walk on this path. This whole path is for AGVs."
+      },
+      {
+          "key": "feedback-together-cantina",
+          "value": "Walking routes are important because they can, for example, prevent collisions between people and machines. \n\nWalking routes are indicated for a reason. Stick to it and always be aware of the possible dangers around you. \n\nIn the above situation, there is a clear walking route to walk to the canteen on the left side of the path. However, this path is not wide enough to walk side by side. So walk one after the other, on the left side of the path to the cantina. \n\nAGVs can be very quiet and transport heavy loads. It is therefore safer to work with separate lanes where possible. \n\n \n\n_VCA 6.4.6: Mark and drop off ._"
+      },
+      {
+          "key": "description-agv-walk",
+          "value": "You have to go to the exit. Are you allowed to take the shortest route and walk on the different AGV paths (the red and black lines on the floor) to the exit?"
+      },
+      {
+          "key": "reaction-agv-walk-reaction1",
+          "value": "1. No, as a pedestrian you are not allowed to walk on AGV lines. In such a situation you always have to look for a clearly indicated walking route."
+      },
+      {
+          "key": "reaction-agv-walk-reaction2",
+          "value": "2. Yes, but you must wear work shoes and a safety helmet."
+      },
+      {
+          "key": "reaction-agv-walk-reaction3",
+          "value": "3. Yes, you can, as long as you watch out."
+      },
+      {
+          "key": "reaction-agv-walk-reaction4",
+          "value": "4. No, this is only allowed if you yourself are in a forklift and are therefore well protected."
+      },
+      {
+          "key": "feedback-agv-walk",
+          "value": "Walkways are important to avoid collisions and congestion. Unfortunately, clear walking routes are not always indicated and / or there are places where different routes intersect. It is also not mandatory to have walking routes according to the VCA.\n\nIf there are no clear walking routes, you are usually allowed to walk or cross AGV paths.\n\nAsk your team leader directly about the rules about this at your workplace . This should be stated in your employer's safety plan or safety instructions.\n\nThe Working Conditions Act obliges the employer to inform you and to teach you how it works. According to the Working Conditions Act you are obliged to know those plans and instructions."
+      },
+      {
+          "key": "description-store-cargo",
+          "value": "The driver of the truck has just left and there are six pallets with large boxes on the dock.\n\nYour team leader asks you to put them in the right place with the pallet truck a little further in the warehouse. You can see the corresponding order form above. You can also see more information about the pallet truck that you can use above. What are you doing?"
+      },
+      {
+          "key": "reaction-store-cargo-reaction1",
+          "value": "1. You take the pallet truck and put them one by one in the right place."
+      },
+      {
+          "key": "reaction-store-cargo-reaction2",
+          "value": "2. You indicate to your team leader that the pallet truck is not suitable for transporting these pallets."
+      },
+      {
+          "key": "reaction-store-cargo-reaction3",
+          "value": "3. You ask your colleague to move the pallets with the forklift."
+      },
+      {
+          "key": "feedback-store-cargo",
+          "value": "Your order form states that the pallets weigh 2750 kilos. Your pallet truck states that the load capacity (capacity) is 2500 kilos.\n\nAll work equipment may only be used within the specified limits. With this pallet truck you can move loads weighing 2500 kilos or less (see image X).\n\nIt may be possible to move pallets of 2750 kilos with this pallet truck, but it is officially not allowed because it can cause dangerous situations.\n\nDanger for yourself, for colleagues, for the items on the pallet and / or for constructions (including the racks) against which the items fall if the pallet truck can no longer carry the load and breaks. So tell your team leader that this pallet truck is not suitable because the pallets are too heavy.\n\nYou can probably move these pallets with a forklift. But your team leader probably asks you to do it with a pallet truck for a reason. The forklift may not be allowed on this dock. So first inform your team leader that the pallet truck is not suitable for this.\n\n_VCA 10.1: General safety measures for work equipment_\n\n_VCA 10.5.4: Pallet truck_"
+      },
+      {
+          "key": "description-emergency-door",
+          "value": "This seems like a good place to pop out for a quick coffee. Is that allowed?"
+      },
+      {
+          "key": "reaction-emergency-door-reaction1",
+          "value": "1. Yep. An emergency door can even remain open so that you can easily enter again after your coffee."
+      },
+      {
+          "key": "reaction-emergency-door-reaction2",
+          "value": "2. Yes, but the emergency door must be closed properly as soon as possible and you can therefore no longer open it from the outside."
+      },
+      {
+          "key": "reaction-emergency-door-reaction3",
+          "value": "3. No, an emergency door is only for emergencies."
+      },
+      {
+          "key": "feedback-emergency-door",
+          "value": "An emergency door is indicated by the green icon below.\n\nAn emergency door may remain open from a safety point of view. ![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n\nA fire door has a fire-resistant function and should usually be opened, but not left open. Then the fire-resistant function will not work. A fire door can be recognised by the red icon below or it is written on the door in letters. ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.png) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur2.jpg)\n\nThere are situations when it is not desirable that you just use an emergency door or fire door. For example when there is an alarm on it."
+      },
+      {
+          "key": "description-forklift-hole",
+          "value": "A colleague drives past you on a forklift during work. You can see that he drives diagonally towards a hole in the path. You call out to him just in time to stop and help him navigate the dangerous place. Together you call the supervisor and your colleague indicates that he cannot clearly see from his position on the forklift that there is a dangerous part in the path. Your supervisor asks you to put the correct markings around the pit, while he himself calls a company to have the path repaired.\n\nWhat mark should you apply in this case?"
+      },
+      {
+          "key": "reaction-forklift-hole-reaction1",
+          "value": "1. A yellow triangular sign with a black exclamation mark on it."
+      },
+      {
+          "key": "reaction-forklift-hole-reaction2",
+          "value": "2. A fence in front of and behind the hole."
+      },
+      {
+          "key": "reaction-forklift-hole-reaction3",
+          "value": "3. Red / white ribbon or tape."
+      },
+      {
+          "key": "reaction-forklift-hole-reaction4",
+          "value": "4. Yellow / black ribbon or tape."
+      },
+      {
+          "key": "feedback-forklift-hole",
+          "value": "Yellow / black ribbon or tape is used for dismounting, underpasses, in situations where people can bump, and for marking dangerous areas."
+      },
+      {
+          "key": "",
+          "value": "The latter is the case here. You use red / white ribbon or tape for other situations. You may never pass a ribbon (VCA 6.4.6: Marking and cordoning off)."
+      },
+      {
+          "key": "",
+          "value": "In itself it is good to place a \"general danger\" sign. However, that alone is not enough."
+      }]
+  ,
+  "levelsCompleted": []
+}
