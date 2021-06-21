@@ -55,8 +55,8 @@ function App() {
     // @ts-ignore
     window.setGameData(data);
   }, []);
-
   const handleGameDataReceived = useCallback((data: GameData<Content>) => {
+
     // PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
     setData(data);
     
@@ -113,7 +113,9 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_HI.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_EN.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_EN.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_EN.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-2.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-3.json`)
         .then((response) => {
