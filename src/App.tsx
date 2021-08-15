@@ -114,8 +114,8 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_EN.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_CH.json`)
-        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_MS.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_CH.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_MS.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-2.json`)
@@ -128,8 +128,7 @@ function App() {
         })
       }
     };
-  }, [content, handleGameDataReceived]);
-55 
+  }, [content, handleGameDataReceived]); 
 
   const iframe = useMemo(() => {
     if (!levelsCompleted) return;
