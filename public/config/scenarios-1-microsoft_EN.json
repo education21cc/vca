@@ -14,7 +14,7 @@
       "scenarios": {
         "together-cantina": {
           "location": [8, 14],
-          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description-en.png",
+          "image": "image-together-cantina-description",
           "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-en.png",
           "reactions": [{
             "id": "reaction1"
@@ -117,6 +117,10 @@
       {
           "key": "description-together-cantina",
           "value": "You are going to the canteen with your colleague. You are walking side by side on the left side of the path in this picture. Are you allowed to do this?"
+      },
+      {
+          "key": "image-together-cantina-description",
+          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description-en.png"
       },
       {
           "key": "reaction-together-cantina-reaction1",

@@ -29,7 +29,7 @@ enum State {
 }
 
 const ScenarioScreen = (props: Props) => {
-  const {content} = props;
+  const {content, texts} = props;
   const ref = useRef<HTMLDivElement>(null);
   const reopeningCorrectScenario = useRef<boolean>(!!props.selectedReaction);
   const [state, setState] = useState(State.description);
@@ -75,8 +75,8 @@ const ScenarioScreen = (props: Props) => {
   const selectedReactionText = useMemo(() => {
     if (!selectedReaction) return "";
     const id = content.reactions.find(r => r.id === selectedReaction)?.id;
-    return props.texts[`reaction-${props.scenario}-${id}`];
-  }, [content.reactions, props.scenario, props.texts, selectedReaction]); 
+    return texts[`reaction-${props.scenario}-${id}`];
+  }, [content.reactions, props.scenario, texts, selectedReaction]); 
   
   const selectedReactionCorrect = useMemo(() => {
     if (!selectedReaction) return false;
@@ -98,14 +98,21 @@ const ScenarioScreen = (props: Props) => {
   }
 
   const imageUrl = useMemo(() => {
+    const parseUrl = (url: string) => {
+      // url can be either a direct path or a key in the translation section
+      if (url.startsWith('http')){
+        return url;
+      }
+      return texts[url];
+    }
     if (content.image && state !== State.feedback) {
-      return content.image;
+      return parseUrl(content.image);
     }
     if (content.imageFeedback && state === State.feedback) {
-      return content.imageFeedback;
+      return parseUrl(content.imageFeedback);
     }
     return null;
-  }, [content, state]);
+  }, [content.image, content.imageFeedback, state, texts]);
 
   return (
     <>
@@ -135,56 +142,56 @@ const ScenarioScreen = (props: Props) => {
       </div>
       <div className={`content state-${State[state]} ${reopeningCorrectScenario.current ? "reopening" : ""}`}>
         <div className="description" >
-          <ReactMarkdown source={props.texts[`description-${props.scenario}`]} />
+          <ReactMarkdown source={texts[`description-${props.scenario}`]} />
           <div className="buttons">
             <button className="button right-align white" onClick={handleClickNextDescription}>
-              {props.texts["button-next"]}
+              {texts["button-next"]}
             </button>
           </div>
         </div>
         <div className="reactions">
-          <h1>{props.texts["reactions"]}</h1>
+          <h1>{texts["reactions"]}</h1>
           <Reactions
             scenario={props.scenario}
-            texts={props.texts}
+            texts={texts}
             selected={selectedReaction}
             onSelect={setSelectedReaction}
             reactions={content.reactions} 
           />
           <div className="buttons">
             <button className="button white" onClick={handleGoToDescription}>
-              {props.texts["button-prev"]}
+              {texts["button-prev"]}
             </button>
             <button 
               className={`button ${selectedReaction ? "green" : ""}`} 
               onClick={handleGoToFeedback}
               disabled={!selectedReaction}
             >
-             {props.texts["button-check"]}
+             {texts["button-check"]}
             </button>
           </div>
         </div>
         <div className="feedback">
           <FeedbackTitle 
-            texts={props.texts}
+            texts={texts}
             correct={selectedReactionCorrect}
           />
           <p className={`reaction ${selectedReactionCorrect ? "correct" : "wrong"}`}>
            {selectedReactionText}
           </p>
-          <h1 className="title">{props.texts["feedback"]}</h1>
-          <ReactMarkdown source={props.texts[`feedback-${props.scenario}`]} />
+          <h1 className="title">{texts["feedback"]}</h1>
+          <ReactMarkdown source={texts[`feedback-${props.scenario}`]} />
           <div className="buttons">
             {reopeningCorrectScenario.current && 
               (<button className="button white" onClick={handleGoToDescription}>
-                {props.texts["button-prev"]}
+                {texts["button-prev"]}
               </button>
             )}
             <button 
               className={`button green right-align`} 
               onClick={props.onBack}
             >
-              {props.texts["button-continue"]}
+              {texts["button-continue"]}
             </button>
           </div>
         </div>
