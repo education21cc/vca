@@ -28,6 +28,14 @@ enum State {
   feedback,
 }
 
+const parseUrl = (url: string, texts: {[key: string]: string}) => {
+  // url can be either a direct path or a key in the translation section
+  if (url.startsWith('http')){
+    return url;
+  }
+  return texts[url];
+}
+
 const ScenarioScreen = (props: Props) => {
   const {content, texts} = props;
   const ref = useRef<HTMLDivElement>(null);
@@ -98,18 +106,12 @@ const ScenarioScreen = (props: Props) => {
   }
 
   const imageUrl = useMemo(() => {
-    const parseUrl = (url: string) => {
-      // url can be either a direct path or a key in the translation section
-      if (url.startsWith('http')){
-        return url;
-      }
-      return texts[url];
-    }
+
     if (content.image && state !== State.feedback) {
-      return parseUrl(content.image);
+      return parseUrl(content.image, texts);
     }
     if (content.imageFeedback && state === State.feedback) {
-      return parseUrl(content.imageFeedback);
+      return parseUrl(content.imageFeedback, texts);
     }
     return null;
   }, [content.image, content.imageFeedback, state, texts]);
@@ -125,16 +127,16 @@ const ScenarioScreen = (props: Props) => {
             return (
               <img 
                 className="hotspot"
-                key={h.image}
+                key={parseUrl(h.image, texts)}
                 style={{
                   left: `${h.left}%`,
                   top: `${h.top}%`,
                   width: `${h.width}%`,
                 }}
                 alt=""
-                data-img={h.image}
+                data-img={parseUrl(h.image, texts)}
                 onClick={handleHotspotClick}
-                src={h.hotspot}
+                src={parseUrl(h.hotspot, texts)}
               />
             )
           })}

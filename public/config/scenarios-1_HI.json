@@ -10,8 +10,8 @@
       "scenarios": {
         "together-cantina": {
           "location": [8, 14],
-          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description-hi.png",
-          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-hi.png",
+          "image": "description-together-cantina-image",
+          "imageFeedback": "description-together-cantina-image-feedback",
           "reactions": [{
             "id": "reaction1"
           }, {
@@ -25,8 +25,8 @@
         },
         "agv-walk": {
           "location": [49, 18],
-          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description-hi.png",
-          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-hi.png",
+          "image": "",
+          "imageFeedback": "",
           "reactions": [{
             "id": "reaction1"
           }, {
@@ -40,11 +40,11 @@
         },
         "store-cargo": {
           "location": [45, 25],
-          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description-hi.png",
-          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-hi.png",
+          "image": "description-store-cargo-image",
+          "imageFeedback": "description-store-cargo-image-feedback",
           "hotspots": [{
-            "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert-hi.png",
-            "hotspot": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot-hi.png",
+            "image": "description-store-cargo-hotspot-image",
+            "hotspot": "description-store-cargo-hotspot-hotspot",
             "left": 51.8,
             "top": 80.7,
             "width": 14.6
@@ -60,8 +60,8 @@
         },
         "emergency-door": {
           "location": [23, -2],
-          "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description-hi.png",
-          "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-hi.png",
+          "image": "",
+          "imageFeedback": "",
           "reactions": [{
             "id": "reaction1",
             "correct": true
@@ -143,6 +143,14 @@
         "value": "आप अपने सहकर्मी के साथ कैंटीन जा रहे हैं। आप इस चित्र में पथ के बाईं ओर कंधे से कंधा मिलाकर चल रहे हैं। क्या आपको ऐसा करने की अनुमति है?"
     },
     {
+        "key": "description-together-cantina-image",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description-hi.png"
+    },
+    {
+        "key": "description-together-cantina-image-feedback",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-hi.png"
+    },
+    {
         "key": "reaction-together-cantina-reaction1",
         "value": "1. हां, बाईं ओर का रास्ता कैंटीन की ओर जाने वाले पैदल यात्रिओं के लिए है।"
     },
@@ -165,6 +173,14 @@
     {
         "key": "description-agv-walk",
         "value": "आपको वेयरहाउस से बाहर निकलना है। क्या आपको सबसे छोटा रास्ता अपनाने और बाहर निकलने के लिए अलग-अलग स्वचालित निर्देशित वाहन (एजीवी) रास्तों (फर्श पर लाल और काली रेखाएं) पर चलने की अनुमति है?"
+    },
+    {
+        "key": "description-agv-walk-image",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description-hi.png"
+    },
+    {
+        "key": "description-agv-walk-image-feedback",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-hi.png"
     },
     {
         "key": "reaction-agv-walk-reaction1",
@@ -191,6 +207,22 @@
         "value": "ट्रक ड्राइवर ने डॉक पर बड़े बक्सों के छह पैलेट छोड़े हुए हैं।\n\nआपका टीम लीडर आपको वेयरहाउस में पैलेट ट्रक के साथ उन्हें सही जगह पर रखने के लिए कहते है। आप इससे संबंधित ऑर्डर फॉर्म देख सकते हैं। आप उस पैलेट ट्रक के बारे में अधिक जानकारी भी देख सकते हैं जिसका आप उपयोग कर सकते हैं। आपको क्या करना चाहिए?"
     },
     {
+        "key": "description-store-cargo-image",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description-hi.png"
+    },
+    {
+        "key": "description-store-cargo-image-feedback",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-hi.png"
+    },
+    {
+        "key": "description-store-cargo-hotspot-image",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert-hi.png"
+    },
+    {
+        "key": "description-store-cargo-hotspot-hotspot",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png"
+    },
+    {
         "key": "reaction-store-cargo-reaction1",
         "value": "1. आपको पैलेट ट्रक लेना चाहिए और पैलेटों को एक-एक करके सही जगह पर रखना चाहिए।"
     },
@@ -204,11 +236,19 @@
     },
     {
         "key": "feedback-store-cargo",
-        "value": "ऑर्डर फॉर्म में कहा गया है कि पैलेट का वजन 2750 किलो है। आपका पैलेट ट्रक बताता है कि इसकी भार क्षमता 2500 किलो है।\n\nसभी कार्य उपकरण केवल निर्दिष्ट सीमाओं के भीतर ही उपयोग किए जाने चाहिए। इस पैलेट ट्रक से आप 2500 किलो या उससे कम वजन का भार ले जा सकते हैं।\n\nइस पैलेट ट्रक के साथ 2750 किलो के पैलेट को स्थानांतरित करना संभव हो सकता है, लेकिन आधिकारिक तौर पर इसकी अनुमति नहीं है क्योंकि यह खतरनाक स्थिति पैदा कर सकता है।\n\nअपने टीम लीडर को बताएं कि पैलेट बहुत भारी होने के कारण यह पैलेट ट्रक उपयुक्त नहीं है।\n\nआप शायद इन पैलेटों को फोर्कलिफ्ट के साथ स्थानांतरित कर सकते हैं लेकिन इस डॉक पर ऐसा हो सकता है \nकि फोर्कलिफ्ट डॉक पर इस्तमाल करने की अनुमति न हो। तो पहले अपने टीम लीडर को सूचित करें कि इस कार्य के लिए पैलेट ट्रक उपयुक्त नही है।"
+        "value": "ऑर्डर फॉर्म में कहा गया है कि पैलेट का वजन 2750 किलो है। आपका पैलेट ट्रक बताता है कि इसकी भार क्षमता 2500 किलो है।\n\nसभी कार्य उपकरण केवल निर्दिष्ट सीमाओं के भीतर ही उपयोग किए जाने चाहिए। इस पैलेट ट्रक से आप 2500 किलो या उससे कम वजन का भार ले जा सकते हैं।\n\nइस पैलेट ट्रक के साथ 2750 किलो के पैलेट को स्थानांतरित करना संभव हो सकता है, लेकिन आधिकारिक तौर पर इसकी अनुमति नहीं है क्योंकि यह खतरनाक स्थिति पैदा कर सकता है।\n\nअपने टीम लीडर को बताएं कि पैलेट बहुत भारी होने के कारण यह पैलेट ट्रक उपयुक्त नहीं है।\n\nआप शायद इन पैलेटों को फोर्कलिफ्ट के साथ स्थानांतरित कर सकते हैं लेकिन इस डॉक पर ऐसा हो सकता है कि फोर्कलिफ्ट डॉक पर इस्तमाल करने की अनुमति न हो। तो पहले अपने टीम लीडर को सूचित करें कि इस कार्य के लिए पैलेट ट्रक उपयुक्त नही है।"
     },
     {
         "key": "description-emergency-door",
         "value": "यह एक चाय पीने के लिए बाहर निकलने के लिए एक अच्छी जगह लग रही है। क्या आपको यहाँ से बहार निकलने की अनुमति है?"
+    },
+    {
+        "key": "description-emergency-door-image",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description-hi.png"
+    },
+    {
+        "key": "description-emergency-door-image-feedback",
+        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-hi.png"
     },
     {
         "key": "reaction-emergency-door-reaction1",
@@ -248,17 +288,9 @@
     },
     {
         "key": "feedback-forklift-hole",
-        "value": "पीले और काले रिबन या टेप का उपयोग उन स्थितियों में किया जाता है जहां लोग टकरा सकते हैं, झुकाव और अंडरपास के लिए, और खतरनाक क्षेत्रों को चिह्नित करने के लिए।"
-    },
-    {
-        "key": "",
-        "value": "आप अन्य स्थितियों के लिए लाल और सफेद रिबन या टेप का उपयोग कर सकते हैं। आपको कभी भी रिबन से घिरे हुए क्षेत्र में प्रवेश नहीं करना चाहिए।"
-    },
-    {
-        "key": "",
-        "value": "अपने आप में \"सामान्य खतरे\" का चिन्ह लगाना अच्छा है। हालाँकि, केवल इतना ही पर्याप्त नहीं है।"
+        "value": "पीले और काले रिबन या टेप का उपयोग उन स्थितियों में किया जाता है जहां लोग टकरा सकते हैं, झुकाव और अंडरपास के लिए, और खतरनाक क्षेत्रों को चिह्नित करने के लिए।\n\nआप अन्य स्थितियों के लिए लाल और सफेद रिबन या टेप का उपयोग कर सकते हैं। आपको कभी भी रिबन से घिरे हुए क्षेत्र में प्रवेश नहीं करना चाहिए।\n\nअपने आप में \"सामान्य खतरे\" का चिन्ह लगाना अच्छा है। हालाँकि, केवल इतना ही पर्याप्त नहीं है।"
     }
-],
+  ],
   "levelsCompleted": [{
     "level": 0,
     "score": 2,
