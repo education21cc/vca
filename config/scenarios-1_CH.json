@@ -76,7 +76,7 @@
   "translations": [
     {
         "key": "intro-header",
-        "value": "在以下场景中您应该怎么办？"
+        "value": "在以下场景中你应该怎么办？"
     },
     {
         "key": "intro-description",
@@ -140,7 +140,7 @@
     },
     {
         "key": "description-together-cantina",
-        "value": "你要和你的同事去食堂。 在这张照片中，您并肩走在路径的左侧。 你被允许这样做吗？"
+        "value": "你要和你的同事去食堂。 在这张照片中，你并肩走在路径的左侧。 你被允许这样做吗？"
     },
     {
         "key": "description-together-cantina-image",
@@ -184,7 +184,7 @@
     },
     {
         "key": "reaction-agv-walk-reaction1",
-        "value": "1. 不可以，作为行人不得在AGV线上行走。 在这种情况下，您必须始终寻找明确指示的步行路线。"
+        "value": "1. 不可以，作为行人不得在AGV线上行走。 在这种情况下，你必须始终寻找明确指示的步行路线。"
     },
     {
         "key": "reaction-agv-walk-reaction2",
@@ -196,15 +196,15 @@
     },
     {
         "key": "reaction-agv-walk-reaction4",
-        "value": "4. 不可以，只有当您自己在叉车上并因此受到良好保护时才允许这样做。"
+        "value": "4. 不可以，只有当你自己在叉车上并因此受到良好保护时才允许这样做。"
     },
     {
         "key": "feedback-agv-walk",
-        "value": "人行道对于避免碰撞和拥堵很重要。 不幸的是，并不总是指示清晰的步行路线，或者可能存在不同路线交叉的地方。 根据 VCA，步行路线也不是强制性的。\n \n\n  如果没有明确的步行路线，通常允许您步行或穿越 AGV 路径。\n \n\n  直接向您的团队领导询问您工作场所的相关规定。 这应该在您雇主的安全计划或安全说明中说明。\n \n\n  《工作条件法》要求雇主通知你并教你它是如何工作的。 根据《工作条件法》，您有义务了解这些计划和指示。"
+        "value": "人行道对于避免碰撞和拥堵很重要。 不幸的是，并不总是指示清晰的步行路线，或者可能存在不同路线交叉的地方。 根据 VCA，步行路线也不是强制性的。\n \n\n 如果没有明确的步行路线，通常允许你步行或穿越 AGV 路径。\n \n\n 直接向你的团队领导询问你工作场所的相关规定。 这应该在你雇主的安全计划或安全说明中说明。\n \n\n 《工作条件法》要求雇主通知你并教你它是如何工作的。 根据《工作条件法》，你有义务了解这些计划和指示。"
     },
     {
         "key": "description-store-cargo",
-        "value": "卡车司机在码头上留下了六个托盘的大箱子。\n \n\n  您的团队负责人要求您将它们与仓库中的托盘车一起放在正确的位置。 您可以查看相关的订购单。 您还可以查看有关您可以使用的托盘搬运车的更多详细信息。 你应该怎么做？"
+        "value": "卡车司机在码头上留下了六个托盘的大箱子。\n \n\n 你的团队负责人要求你将它们与仓库中的托盘车一起放在正确的位置。 你可以查看相关的订购单。 你还可以查看有关你可以使用的托盘搬运车的更多详细信息。 你应该怎么做？"
     },
     {
         "key": "description-store-cargo-image",
@@ -224,11 +224,11 @@
     },
     {
         "key": "reaction-store-cargo-reaction1",
-        "value": "1、您应乘坐托盘车，将托盘一个一个地放在正确的位置。"
+        "value": "1、你应乘坐托盘车，将托盘一个一个地放在正确的位置。"
     },
     {
         "key": "reaction-store-cargo-reaction2",
-        "value": "2. 您应该告诉您的团队领导，托盘车不适合运输这些托盘。"
+        "value": "2. 你应该告诉你的团队领导，托盘车不适合运输这些托盘。"
     },
     {
         "key": "reaction-store-cargo-reaction3",
@@ -236,7 +236,7 @@
     },
     {
         "key": "feedback-store-cargo",
-        "value": "订单上说明托盘的重量为 2750 公斤。 你的托盘搬运车显示它的负载能力为 2500 公斤。\n \n\n  所有工作设备只能在规定的范围内使用。 使用这款托盘搬运车，你可以搬运重量不超过 2500 公斤的货物。\n \n\n  这辆托盘车可以搬运 2750 公斤的托盘，但官方不允许这样做，因为这会造成危险。\n \n\n  告诉你的团队领导这辆托盘车不合适，因为托盘太重。\n \n\n  你可能可以使用叉车移动这些托盘，但该码头可能不允许在其上使用叉车。 所以首先通知你的团队领导，托盘车不适合这项工作。"
+        "value": "订单上说明托盘的重量为 2750 公斤。 你的托盘搬运车显示它的负载能力为 2500 公斤。\n \n\n 所有工作设备只能在规定的范围内使用。 使用这款托盘搬运车，你可以搬运重量不超过 2500 公斤的货物。\n \n\n 这辆托盘车可以搬运 2750 公斤的托盘，但官方不允许这样做，因为这会造成危险。\n \n\n 告诉你的团队领导这辆托盘车不合适，因为托盘太重。\n \n\n  你可能可以使用叉车移动这些托盘，但该码头可能不允许在其上使用叉车。 所以首先通知你的团队领导，托盘车不适合这项工作。"
     },
     {
         "key": "description-emergency-door",
@@ -264,11 +264,11 @@
     },
     {
         "key": "feedback-emergency-door",
-        "value": "紧急门由下面的绿色图标指示。\n \n\n  从安全的角度来看，应急门可以保持打开状态。 ![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n \n\n  消防应急门具有防火系统，通常可以打开，但不应保持打开状态，因为如果门保持打开状态，系统将无法工作。 防火门可以通过底部的红色标志来识别，也可以用字母写在门上。 ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.png) ![](https://21cceducation.nl/content/ games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/fire-sign-ch.png)\n \n\n  在某些情况下，您不希望只使用应急门或防火门。 例如，当上面有警报时。"
+        "value": "紧急门由下面的绿色图标指示。\n \n\n应急门可以保持打开状态。 \n![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n \n\n 消防应急门具有防火系统，通常可以打开，但不应保持打开状态，因为如果门保持打开状态，系统将无法工作。 防火门可以通过底部的红色标志来识别，也可以用字母写在门上。 \n\n![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.png) \n\n![](https://21cceducation.nl/content/ games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/fire-sign-ch.png) \n\n  在某些情况下，你不希望只使用应急门或防火门。 例如，当上面有警报时。"
     },
     {
         "key": "description-forklift-hole",
-        "value": "一位同事在工作期间用叉车从您身边驶过。 你可以看到他正斜着驶向小路上的一个洞。 你及时呼叫他停下来和帮助他在危险的地方导航。 你叫来主管，向你的同事指示他不能从他在叉车上的位置清楚地看到的路径上危险部分。 您的主管要求您在洞周围做正确的标记，而他本人则致电公司修复路径。\n \n\n  你应该在洞周围做哪个标记？"
+        "value": "一位同事在工作期间用叉车从你身边驶过。 你可以看到他正斜着驶向小路上的一个洞。 你及时呼叫他停下来和帮助他在危险的地方导航。 你叫来主管，向你的同事指示他不能从他在叉车上的位置清楚地看到的路径上危险部分。 你的主管要求你在洞周围做正确的标记，而他本人则致电公司修复路径。\n \n\n  你应该在洞周围做哪个标记？"
     },
     {
         "key": "reaction-forklift-hole-reaction1",
@@ -288,7 +288,7 @@
     },
     {
         "key": "feedback-forklift-hole",
-        "value": "黄色和黑色丝带或胶带用于人们可能发生碰撞的情况，或用于侧翼和地下通道，以及用于标记危险区域。\n \n\n  在其他情况下，你可以使用红白丝带或胶带。 你们切勿进入被丝带包围的区域。\n \n\n  就其本身而言，最好放置一个“一般危险”标志。 然而，仅此是不够的。"
+        "value": "黄色和黑色丝带或胶带用于人们可能发生碰撞的情况，或用于侧翼和地下通道，以及用于标记危险区域。\n \n\n 在其他情况下，你可以使用红白丝带或胶带。 你们切勿进入被丝带包围的区域。\n \n\n 就其本身而言，最好放置一个“一般危险”标志。 然而，仅此是不够的。"
     },
     {
         "key": "",
