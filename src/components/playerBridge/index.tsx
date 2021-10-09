@@ -1,92 +1,97 @@
+
 import React, {  useEffect } from 'react';
 import './style/styles.css';
 import { ReactComponent as CloseIcon } from './style/close.svg';
 
 interface Props {
-    disableBackButton?: boolean;
-    gameDataReceived: (gameData: any) => void;
+  gameDataReceived: (gameData: any) => void;
 }
 
-// start w  REACT_APP_PLAYER_MODE=true npm start
+export type GameEvent = {
+  code: string,
+  level?: number,
+  additionalInfo?: string
+}
 
-const PlayerBridge = (props: Props) => {   
-    const {gameDataReceived, disableBackButton} = props;
-    
-    const back = () => {       
-        send({
-            type: 'back'
-        });
-    }
+declare global {
+  interface Window {
+    setGameData: (gameData: any) => void;
+    storeGameEvent: (gameData: any) => void;
+    getGameData: () => any
+    GAMEDATA: any
+  }
+}
 
-    useEffect(() => {
-        if (!process.env.REACT_APP_PLAYER_MODE) {
-            return;
-        }
-        let interval: NodeJS.Timeout;
-        
-        const check = () => {
-            // @ts-ignore
-            if (window.GAMEDATA) {
-                clearInterval(interval);
-                // @ts-ignore
-                gameDataReceived(window.GAMEDATA);
-            }
-        }
-        // cordova iab just sets window.GAMEDATA
-        interval = setInterval(check, 250);
+const PlayerBridge = (props: Props) => {
+  const {gameDataReceived} = props;
 
-        // @ts-ignore
-        window.setGameData = (gameData) => {
-            send({
-                type: 'setGameData',
-                data: gameData
-            });
-        }
-             
-        // @ts-ignore
-        window.exit = () => {
-            send({
-                type: 'exit'
-            });
-        }
+  const exit = () => {
+    send({
+      type: 'exit'
+    });
+  }
 
-        // @ts-ignore
-        window.getGameData = () => {
-            // @ts-ignore
-            return window.GAMEDATA;
-        }   
 
-        return () => {
-            clearInterval(interval);
-        }
-    }, [gameDataReceived]);
-
+  useEffect(() => {
     if (!process.env.REACT_APP_PLAYER_MODE) {
-        return null;
+      return;
     }
 
-    if (disableBackButton === true) {
-        return null;
+    const receiveMessage = (msg: any) => {
+      if (!msg.data.hasOwnProperty('userId')){
+        return;
+      }
+      window.GAMEDATA = msg.data;
+      gameDataReceived(msg.data);
     }
-    return (
-        <div className="close">
-            <CloseIcon onClick={back} />
-        </div>
-    )
+
+    window.setGameData = (gameData: any) => {
+      send({
+        type: 'setGameData',
+        data: gameData
+      });
+    }
+
+    window.storeGameEvent = (gameEvent: GameEvent) => {
+      send({
+        type: 'gameEvent',
+        data: gameEvent
+      });
+    }
+
+    window.GAMEDATA = null;
+
+    window.getGameData = () => {
+      return window.GAMEDATA;
+    }
+    window.addEventListener("message", receiveMessage, false);
+  }, [gameDataReceived]);
+
+  if (!process.env.REACT_APP_PLAYER_MODE) {
+    return null;
+  }
+
+
+  return (
+    <div className="close">
+      <CloseIcon onClick={exit} />
+    </div>
+  )
 }
 
 export default PlayerBridge;
 
+
 export const send = (payload: any) => {
+  // @ts-ignore
+  if (window.hasOwnProperty("webkit") && window.webkit.hasOwnProperty("messageHandlers")){
+    var stringifiedMessageObj = JSON.stringify(payload);
+    // Send to In App Browser context
     // @ts-ignore
-    if (window.hasOwnProperty("webkit") && window.webkit.hasOwnProperty("messageHandlers")){
-        var stringifiedMessageObj = JSON.stringify(payload);
-        // Send to In App Browser context
-        // @ts-ignore
-        webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);
-    }
-    else {
-        // @ts-ignore
-        window.parent.postMessage(payload, '*');
-    }
+    webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);
+  }
+  else {
+    // @ts-ignore
+    window.parent.postMessage(payload, '*');
+  }
 }
