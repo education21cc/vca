@@ -26,32 +26,38 @@ declare global {
 const PlayerBridge = (props: Props) => {
   const {gameDataReceived, disableBackButton} = props;
 
-  const exit = () => {
-    send({
-      type: 'exit'
-    });
-  }
-
-
   useEffect(() => {
+    /* Add the following to index.html
+    <script>
+      const receiveMessage = (msg) => {
+        if (!msg.data.hasOwnProperty('content')){
+            return;
+        }
+        window.GAMEDATA = msg.data;
+      }
+      window.addEventListener("message", receiveMessage, false);
+    </script>
+    */
     if (!process.env.REACT_APP_PLAYER_MODE) {
       return;
     }
 
-    const receiveMessage = (msg: any) => {
-      if (!msg.data.hasOwnProperty('userId')){
-        return;
-      }
-      window.GAMEDATA = msg.data;
-      gameDataReceived(msg.data);
-    }
-
-    window.GAMEDATA = null;
-
     window.getGameData = () => {
       return window.GAMEDATA;
     }
-    window.addEventListener("message", receiveMessage, false);
+
+    const check = () => {
+      if (window.GAMEDATA) {
+        clearInterval(interval);
+        gameDataReceived(window.GAMEDATA);
+      }
+    }
+    // cordova iab just sets window.GAMEDATA
+    let interval = setInterval(check, 250);
+
+    return () => {
+      clearInterval(interval);
+    }
   }, [gameDataReceived]);
 
   if (!process.env.REACT_APP_PLAYER_MODE) {
@@ -70,6 +76,12 @@ const PlayerBridge = (props: Props) => {
 }
 
 export default PlayerBridge;
+
+const exit = () => {
+  send({
+    type: 'exit'
+  });
+}
 
 window.setGameData = (gameData: any) => {
   send({
