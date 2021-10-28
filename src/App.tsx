@@ -59,7 +59,7 @@ function App() {
 
     // PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
     setData(data);
-    
+
     if (data.translations){
       const t = data.translations.reduce<{[key: string]: string}>((acc, translation) => {
         acc[translation.key] = translation.value;
@@ -80,7 +80,7 @@ function App() {
     loadTilesets,
     tilesetsTextures
   } = useTilesetsLoader(determineTilesetSpritesheetPath);
-  
+
   useEffect(() => {
     if (!content) return;
 
@@ -88,13 +88,13 @@ function App() {
     const jsonPath = content.mapJson;
     loadResource(`${process.env.PUBLIC_URL}/${jsonPath}`, (resource) => {
       setMapData(resource.data);
-    });    
+    });
   }, [content]);
 
   useEffect(() => {
     if (!mapData) return;
 
-    loadTilesets(mapData.tilesets);    
+    loadTilesets(mapData.tilesets);
   }, [loadTilesets, mapData]);
 
   useEffect(() => {
@@ -106,7 +106,7 @@ function App() {
       if(!content) {
         console.log("no bridge found, fetching fallback")
         // @ts-ignore
-        
+
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
@@ -116,7 +116,8 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_CH.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_MS.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_EN.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_KN.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-2.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-3.json`)
@@ -128,7 +129,7 @@ function App() {
         })
       }
     };
-  }, [content, handleGameDataReceived]); 
+  }, [content, handleGameDataReceived]);
 
   const iframe = useMemo(() => {
     if (!levelsCompleted) return;
@@ -162,10 +163,10 @@ function App() {
     });
   }
 
-  const handleStart = useCallback(() => {   
-    setState(GameState.normal); 
+  const handleStart = useCallback(() => {
+    setState(GameState.normal);
   }, []);
-  
+
   const handleSituationClick = (situation: string) => {
     if (!content?.finder) return;
 
@@ -173,7 +174,7 @@ function App() {
       setFoundSituations([...foundSituations, situation]);
     }
   }
-  
+
   const handleScenarioClick = (scenario: string) => {
     setScenario(scenario);
   }
@@ -182,7 +183,7 @@ function App() {
   //   // todo: just for testing remove!
   //   setScenario("test");
   // }, [content]);
-    
+
   const handleCorrectReaction = (reaction: string) => {
     // gets called from within modal once the correct answer is selected
 
@@ -202,7 +203,7 @@ function App() {
     });
   }
 
-  const handleReset = () => { 
+  const handleReset = () => {
     setState(GameState.normal);
     setScenarioReactions({});
   }
@@ -223,11 +224,11 @@ function App() {
 
   return (
     <>
-      {(!loadComplete) && (          
+      {(!loadComplete) && (
         <Loading />
       )}
       <div className="background" >
-        <PlayerBridge 
+        <PlayerBridge
           gameDataReceived={handleGameDataReceived}
           disableBackButton={!!iframeOpen || !!scenario}
 
@@ -244,28 +245,28 @@ function App() {
             />)}
             {(state === GameState.normal) && mapData && content && (
               <>
-                <Map 
+                <Map
                   content={content}
                   mapData={mapData}
                   tilesetsTextures={tilesetsTextures}
-                  onSituationClick={handleSituationClick} 
+                  onSituationClick={handleSituationClick}
                   foundSituations={foundSituations}
                   solvedScenarios={solvedScenarios}
                   onScenarioClick={handleScenarioClick}
                 />
                 {content?.finder && (
-                  <FinderBox 
-                    content={content.finder} 
+                  <FinderBox
+                    content={content.finder}
                     instructionText={translations["finder-instruction"]}
                     nextText={translations["button-next"]}
-                    foundSituations={foundSituations} 
+                    foundSituations={foundSituations}
                     onOpenGame={handleOpenGame}
                   />
                 )}
                 {content?.scenarios && (
-                  <ScenarioBox 
+                  <ScenarioBox
                     scenarios={content.scenarios}
-                    solvedScenarios={solvedScenarios} 
+                    solvedScenarios={solvedScenarios}
                     instructionText={translations["finder-instruction"]}
                     nextText={translations["button-next"]}
                     onComplete={handleComplete}
@@ -274,15 +275,15 @@ function App() {
               </>
             )}
             {iframe && (
-              <IFrameModal 
+              <IFrameModal
                 content={iframe}
                 open={iframeOpen}
-                onBack={handleBack} 
-                onSetGameData={handleSetGameData} 
+                onBack={handleBack}
+                onSetGameData={handleSetGameData}
               />
             )}
             {scenario && (
-              <ScenarioScreen 
+              <ScenarioScreen
                 scenario={scenario}
                 content={content?.scenarios[scenario]!}
                 selectedReaction={scenarioReactions[scenario]}
