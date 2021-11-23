@@ -15,13 +15,14 @@ import MapObject from '../MapObject';
 
 
 
-interface Props { 
+interface Props {
   content: Content;
   mapData: TiledMapData;
   tilesetsTextures: {[key: string]: any};
   foundSituations: string[];
   onSituationClick: (situation: string) => void;
-  solvedScenarios: string[];
+  correctScenarios: string[];
+  wrongScenarios: string[];
   onScenarioClick: (scenario: string) => void;
 }
 
@@ -53,14 +54,14 @@ const Map = (props: Props) => {
     }
   }, [mapData, mapHeight, mapWidth, tilesetsTextures]);
 
-  
+
   useEffect(() => {
     if (!content.finder) {
       // Only plop in scenario mode
       sound.add('plops', {
         url: `${process.env.PUBLIC_URL}/sound/plops.mp3`,
         autoPlay: true,
-      });    
+      });
     }
   }, [content.finder]);
 
@@ -71,13 +72,13 @@ const Map = (props: Props) => {
     }
     window.addEventListener('resize', resize);
     window.addEventListener('orientationchange', resize);
- 
+
     return () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('orientationchange', resize);
     }
   }, []);
-  
+
 
   const renderFloor = (layer?: TiledLayerData) => {
     if (!layer) {
@@ -104,7 +105,7 @@ const Map = (props: Props) => {
       return null;
     }
     return (
-      <FloorTileLayer 
+      <FloorTileLayer
         texture={(resource.spritesheet as any)._texture}
         verticalTiles={mapData.height}
         horizontalTiles={mapData.width}
@@ -121,7 +122,7 @@ const Map = (props: Props) => {
       const data = getTiles(layer);
       return renderLayerTiles(data, layer, index)
     });
-  } 
+  }
 
   const renderLayerTiles = (tileData: number[], layer: TiledLayerData, layerIndex: number) => {
     return tileData.map((gid, i) => {
@@ -170,8 +171,8 @@ const Map = (props: Props) => {
           pivot={[TILE_WIDTH / 2, 0]}
           position={tileLocationToPosition([x, y], mapData.width, mapData.height)}
           zIndex={i * 100 + layerIndex}
-        /> 
-      );  
+        />
+      );
     })
   }
 
@@ -181,7 +182,7 @@ const Map = (props: Props) => {
       .map((layer: TiledLayerData) => {
         return renderObjects(layer.objects);
     });
-  } 
+  }
 
   const renderObjects = (objects: TiledObjectData[]) => {
     return objects.filter(o => o.visible).map((o, index) => {
@@ -205,12 +206,16 @@ const Map = (props: Props) => {
   }
 
   const renderScenarioMarker = (name: string, scenario: Scenario, index: number) => {
+    if (props.wrongScenarios.indexOf(name) !== -1) {
+      // if answered wrong (and mistakeMode === true) then hide the marker!
+      return null
+    }
     const delay = index * 0.25;
     const position = tileLocationToPosition(scenario.location as [number, number], mapData.width, mapData.height);
-    const bounce = props.solvedScenarios.indexOf(name) === -1;
+    const bounce = props.correctScenarios.indexOf(name) === -1;
     return (
-      <Marker 
-        position={position} 
+      <Marker
+        position={position}
         pointertap={() => handleMarkerClick(name)}
         delay={delay}
         bounce={bounce}
@@ -218,10 +223,10 @@ const Map = (props: Props) => {
         name={name}
         scale={1.5}
       />
-    ); 
+    );
   }
 
-  const options = { 
+  const options = {
     sharedLoader: true,
     backgroundColor: parseBackgroundColor(mapData?.backgroundcolor)
   }

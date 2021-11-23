@@ -5,6 +5,7 @@ export interface Content {
   situations: { [key: string]: Situation }
   scenarios: { [key: string]: Scenario }
   finder?: FinderContent,
+  mistakeMode?: boolean, // when true, answering the wrong scenario will make the the marker disappear and it will cost a star
   stars?: number,
 }
 
@@ -38,8 +39,8 @@ export interface Scenario {
 }
 
 export interface Hotspot {
-  left: number; 
-  top: number; 
+  left: number;
+  top: number;
   width: number;
   image: string;
   hotspot: string;
@@ -53,8 +54,8 @@ export interface SceneElement {
   flipped: boolean;
 }
 
-export interface ScenarioReaction { 
-  correct: boolean, 
-  id: string, 
+export interface ScenarioReaction {
+  correct: boolean,
+  id: string,
 }
 

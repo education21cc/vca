@@ -41,6 +41,7 @@ function App() {
   const [translations, setTranslations] = useState<{[key: string]: string}>({});
   const [mapData, setMapData] = useState<TiledMapData>();
   const [data, setData] = useState<GameData<Content>>();
+  const [mistakes, setMistakes] = useState(0)
 
   const [scenario, setScenario] = useState<string|undefined>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
@@ -111,12 +112,13 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/scenarios-basic-english-EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_CH.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_MS.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_KN.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_KN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-2.json`)
@@ -157,8 +159,8 @@ function App() {
       ...data!,
       levelsCompleted: [{
         level: 1,
-        score: solvedScenarios.length,
-        maxScore: solvedScenarios.length
+        score: correctScenarios.length,
+        maxScore: correctScenarios.length
       }]
     });
   }
@@ -179,11 +181,6 @@ function App() {
     setScenario(scenario);
   }
 
-  // useEffect(() => {
-  //   // todo: just for testing remove!
-  //   setScenario("test");
-  // }, [content]);
-
   const handleCorrectReaction = (reaction: string) => {
     // gets called from within modal once the correct answer is selected
 
@@ -191,6 +188,17 @@ function App() {
       ...scenarioReactions,
       [scenario!]: reaction
     });
+  }
+
+  const handleWrongScenario = (reaction: string) => {
+    // gets called from within modal once the correct answer is selected
+
+    if(content?.mistakeMode) {
+      setScenarioReactions({
+        ...scenarioReactions,
+        [scenario!]: reaction
+      });
+    }
   }
 
   const exitScenario = () => {
@@ -217,10 +225,24 @@ function App() {
       .replace("{1}", ""+maxScore);
   }, [content, levelsCompleted, translations]);
 
-  const solvedScenarios = useMemo(() => {
-    return Object.keys(scenarioReactions || {});
-  }, [scenarioReactions]);
-
+  const { correctScenarios, wrongScenarios } = useMemo(() => {
+    // make maps of correct and wrong answers
+    return Object.keys(scenarioReactions || {}).reduce<{ correctScenarios: string[], wrongScenarios: string[]}>((acc, value) => {
+      const scenario = data?.content.scenarios[value];
+      if (scenario) {
+        const isCorrect = !!scenario.reactions.find(r => r.id === scenarioReactions[value])?.correct
+        if (isCorrect) {
+          acc.correctScenarios.push(value)
+        } else {
+          acc.wrongScenarios.push(value)
+        }
+      }
+      return acc;
+    }, {
+      correctScenarios: [],
+      wrongScenarios: []
+    })
+  }, [data?.content.scenarios, scenarioReactions]);
 
   return (
     <>
@@ -251,7 +273,8 @@ function App() {
                   tilesetsTextures={tilesetsTextures}
                   onSituationClick={handleSituationClick}
                   foundSituations={foundSituations}
-                  solvedScenarios={solvedScenarios}
+                  correctScenarios={correctScenarios}
+                  wrongScenarios={wrongScenarios}
                   onScenarioClick={handleScenarioClick}
                 />
                 {content?.finder && (
@@ -266,7 +289,7 @@ function App() {
                 {content?.scenarios && (
                   <ScenarioBox
                     scenarios={content.scenarios}
-                    solvedScenarios={solvedScenarios}
+                    solvedScenarios={correctScenarios}
                     instructionText={translations["finder-instruction"]}
                     nextText={translations["button-next"]}
                     onComplete={handleComplete}
@@ -287,7 +310,8 @@ function App() {
                 scenario={scenario}
                 content={content?.scenarios[scenario]!}
                 selectedReaction={scenarioReactions[scenario]}
-                setCorrectReaction={handleCorrectReaction}
+                onCorrectReaction={handleCorrectReaction}
+                onWrongReaction={handleWrongScenario}
                 texts={translations}
                 onBack={exitScenario}
               />

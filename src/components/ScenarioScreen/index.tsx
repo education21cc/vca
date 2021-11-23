@@ -18,7 +18,8 @@ interface Props {
   content: Scenario;
   texts: {[key: string]: string};
   selectedReaction?: string; // When reaction has been set correctly before
-  setCorrectReaction: (index: string) => void;
+  onCorrectReaction: (index: string) => void;
+  onWrongReaction: (index: string) => void;
   onBack: () => void;
 }
 
@@ -51,15 +52,16 @@ const ScenarioScreen = (props: Props) => {
   const handleGoToDescription = () => {
     setState(State.description)
   }
-  
+
   const handleGoToFeedback = () => {
     setState(State.feedback);
     setTimeout(() => {
       if (selectedReactionCorrect) {
         sound.play('correct');
-        props.setCorrectReaction(selectedReaction!);
+        props.onCorrectReaction(selectedReaction!);
       } else {
         sound.play('wrong');
+        props.onWrongReaction(selectedReaction!);
       }
     }, 500);
   }
@@ -73,19 +75,19 @@ const ScenarioScreen = (props: Props) => {
       clearTimeout(timeout);
     }
   }, [state]);
-  
+
   useEffect(() => {
-    sound.add('correct', `${process.env.PUBLIC_URL}/sound/correct.mp3`);    
+    sound.add('correct', `${process.env.PUBLIC_URL}/sound/correct.mp3`);
     sound.add('wrong', `${process.env.PUBLIC_URL}/sound/wrong.mp3`);
   }, []);
-  
+
   // shown on the feedback page
   const selectedReactionText = useMemo(() => {
     if (!selectedReaction) return "";
     const id = content.reactions.find(r => r.id === selectedReaction)?.id;
     return texts[`reaction-${props.scenario}-${id}`];
-  }, [content.reactions, props.scenario, texts, selectedReaction]); 
-  
+  }, [content.reactions, props.scenario, texts, selectedReaction]);
+
   const selectedReactionCorrect = useMemo(() => {
     if (!selectedReaction) return false;
     return content.reactions.find(r => r.id === selectedReaction)?.correct === true;
@@ -125,7 +127,7 @@ const ScenarioScreen = (props: Props) => {
           { ( content.hotspots && state !== State.feedback
             ) && content.hotspots.map((h: Hotspot) => {
             return (
-              <img 
+              <img
                 className="hotspot"
                 key={parseUrl(h.image, texts)}
                 style={{
@@ -158,14 +160,14 @@ const ScenarioScreen = (props: Props) => {
             texts={texts}
             selected={selectedReaction}
             onSelect={setSelectedReaction}
-            reactions={content.reactions} 
+            reactions={content.reactions}
           />
           <div className="buttons">
             <button className="button white" onClick={handleGoToDescription}>
               {texts["button-prev"]}
             </button>
-            <button 
-              className={`button ${selectedReaction ? "green" : ""}`} 
+            <button
+              className={`button ${selectedReaction ? "green" : ""}`}
               onClick={handleGoToFeedback}
               disabled={!selectedReaction}
             >
@@ -174,7 +176,7 @@ const ScenarioScreen = (props: Props) => {
           </div>
         </div>
         <div className="feedback">
-          <FeedbackTitle 
+          <FeedbackTitle
             texts={texts}
             correct={selectedReactionCorrect}
           />
@@ -184,13 +186,13 @@ const ScenarioScreen = (props: Props) => {
           <h1 className="title">{texts["feedback"]}</h1>
           <ReactMarkdown source={texts[`feedback-${props.scenario}`]} />
           <div className="buttons">
-            {reopeningCorrectScenario.current && 
+            {reopeningCorrectScenario.current &&
               (<button className="button white" onClick={handleGoToDescription}>
                 {texts["button-prev"]}
               </button>
             )}
-            <button 
-              className={`button green right-align`} 
+            <button
+              className={`button green right-align`}
               onClick={props.onBack}
             >
               {texts["button-continue"]}
