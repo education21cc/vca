@@ -219,7 +219,7 @@ function App() {
   const starsToGainText = useMemo<string>(() => {
     const currentScore = levelsCompleted?.[0]?.score || 0;
     // const maxScore = content?.finder?.situations.length || 0;
-    const maxScore = content?.stars || 1;
+    const maxScore = content?.stars || content?.finder?.situations.length || Object.keys(content?.scenarios || {}).length || 1;
     return ("" + translations["intro-stars-to-gain"])
       .replace("{0}", ""+currentScore)
       .replace("{1}", ""+maxScore);
@@ -289,7 +289,8 @@ function App() {
                 {content?.scenarios && (
                   <ScenarioBox
                     scenarios={content.scenarios}
-                    solvedScenarios={correctScenarios}
+                    correctScenarios={correctScenarios}
+                    wrongScenarios={wrongScenarios}
                     instructionText={translations["finder-instruction"]}
                     nextText={translations["button-next"]}
                     onComplete={handleComplete}
@@ -321,7 +322,7 @@ function App() {
                 onTryAgain={handleReset}
                 onExit={handleExit}
                 total={Object.keys(content?.scenarios!).length || 0}
-                mistakes={0}
+                mistakes={wrongScenarios.length}
                 headerText={translations["complete-header"]}
                 scoreText={translations["complete-score"]}
                 tryAgainText={translations["complete-try-again"]}
