@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Map from "./components/pixi/Map";
 import PlayerBridge, { send } from 'components/playerBridge';
-import { GameData, Level } from 'components/playerBridge/GameData';
-import { Content, ContentConfig, Scenario } from 'data/Content';
+import { GameData } from 'components/playerBridge/GameData';
+import { Content, ContentConfig } from 'data/Content';
 import { PixiPlugin } from 'gsap/all';
 import { gsap } from 'gsap';
 import FinderBox from 'components/FinderBox';
@@ -41,7 +41,6 @@ function App() {
   const [translations, setTranslations] = useState<{[key: string]: string}>({});
   const [mapData, setMapData] = useState<TiledMapData>();
   const [data, setData] = useState<GameData<Content>>();
-  const [mistakes, setMistakes] = useState(0)
 
   const [scenario, setScenario] = useState<string|undefined>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
@@ -112,8 +111,8 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios-basic-english-EN.json`)
-        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-basic-english-EN.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_CH.json`)
@@ -273,6 +272,7 @@ function App() {
                   tilesetsTextures={tilesetsTextures}
                   onSituationClick={handleSituationClick}
                   foundSituations={foundSituations}
+                  mistakeMode={content?.mistakeMode ?? false}
                   correctScenarios={correctScenarios}
                   wrongScenarios={wrongScenarios}
                   onScenarioClick={handleScenarioClick}

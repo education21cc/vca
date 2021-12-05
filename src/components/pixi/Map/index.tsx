@@ -8,12 +8,10 @@ import { Viewport as PixiViewport } from "pixi-viewport";
 import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
 import FloorTileLayer from 'components/pixi/FloorTileLayer';
-import Marker from 'components/pixi/Marker';
+import Marker, { Color } from 'components/pixi/Marker';
 import { Content, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
 import MapObject from '../MapObject';
-
-
 
 interface Props {
   content: Content;
@@ -21,6 +19,7 @@ interface Props {
   tilesetsTextures: {[key: string]: any};
   foundSituations: string[];
   onSituationClick: (situation: string) => void;
+  mistakeMode: boolean;
   correctScenarios: string[];
   wrongScenarios: string[];
   onScenarioClick: (scenario: string) => void;
@@ -34,7 +33,14 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const Map = (props: Props) => {
-  const { content, foundSituations, mapData, tilesetsTextures, onSituationClick } = props;
+  const {
+    content,
+    mistakeMode,
+    foundSituations,
+    mapData,
+    tilesetsTextures,
+    onSituationClick
+  } = props;
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
@@ -206,19 +212,25 @@ const Map = (props: Props) => {
   }
 
   const renderScenarioMarker = (name: string, scenario: Scenario, index: number) => {
-    if (props.wrongScenarios.indexOf(name) !== -1) {
-      // if answered wrong (and mistakeMode === true) then hide the marker!
-      return null
-    }
+
     const delay = index * 0.25;
     const position = tileLocationToPosition(scenario.location as [number, number], mapData.width, mapData.height);
-    const bounce = props.correctScenarios.indexOf(name) === -1;
+    const correct = props.correctScenarios.indexOf(name) > -1;
+    const wrong = props.wrongScenarios.indexOf(name) > -1;
+    let color: Color = "red";
+    if (correct) {
+      color = "green";
+    }
+    else if (mistakeMode && !wrong) {
+      color = "yellow"
+    }
     return (
       <Marker
         position={position}
         pointertap={() => handleMarkerClick(name)}
         delay={delay}
-        bounce={bounce}
+        bounce={!correct && !wrong}
+        color={color}
         key={name}
         name={name}
         scale={1.5}
