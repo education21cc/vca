@@ -29,10 +29,10 @@
     "typescript": "^3.9.6"
   },
   "scripts": {
-    "start:player": "REACT_APP_PLAYER_MODE=true start",
+    "start:player": "REACT_APP_PLAYER_MODE=true npm run start",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "build:player": "REACT_APP_PLAYER_MODE=true build",
+    "build:player": "REACT_APP_PLAYER_MODE=true npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build:player",
