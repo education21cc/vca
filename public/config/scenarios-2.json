@@ -10,7 +10,7 @@
     "scenarios": {
       "broken-forklift": {
         "location": [23, 0],
-        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/broken-forklift/broken-forklift-description.jpg",
+        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/broken-forklift/broken-forklift-description.jpg",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -20,11 +20,11 @@
           "id": "reaction3"
         }, {
           "id": "reaction4"
-        }]          
+        }]
       },
       "dark-warehouse": {
         "location": [1, 25],
-        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/dark-warehouse/dark-warehouse-description.jpg",
+        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/dark-warehouse/dark-warehouse-description.jpg",
         "reactions": [{
           "id": "reaction1",
           "correct": true
@@ -35,12 +35,12 @@
           "id": "reaction3"
         }, {
           "id": "reaction4"
-        }]          
+        }]
       },
       "forklift-crash": {
         "location": [6, 18],
-        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/forklift-crash/forklift-crash-description.jpg",
-        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/forklift-crash/forklift-crash-outcome.jpg",
+        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-crash/forklift-crash-description.jpg",
+        "imageFeedback": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-crash/forklift-crash-outcome.jpg",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -48,12 +48,12 @@
           "correct": true
         }, {
           "id": "reaction3"
-        }]          
+        }]
       },
       "loading-dock": {
         "location": [52, 13],
-        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/loading-dock/loading-dock-description.png",
-        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/loading-dock/loading-dock-outcome.png",
+        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/loading-dock/loading-dock-description.png",
+        "imageFeedback": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/loading-dock/loading-dock-outcome.png",
       "reactions": [{
           "id": "reaction1",
           "correct": true
@@ -82,16 +82,16 @@
     "value": "{0}/{1} verdiend"
   }, {
     "key": "button-next",
-    "value": "Volgende" 
+    "value": "Volgende"
   }, {
     "key": "button-prev",
-    "value": "Terug" 
+    "value": "Terug"
   }, {
     "key": "button-check",
-    "value": "Check" 
+    "value": "Check"
   }, {
     "key": "button-continue",
-    "value": "Doorgaan" 
+    "value": "Doorgaan"
   }, {
     "key": "reactions",
     "value": "Acties"
@@ -109,7 +109,7 @@
     "value": "Totale score {0} / {1}"
   }, {
     "key": "complete-try-again",
-    "value": "Opnieuw" 
+    "value": "Opnieuw"
   }, {
     "key": "feedback",
     "value": "Feedback"
@@ -130,7 +130,7 @@
     "value": "4. Je zet hem direct stil en loopt zo snel mogelijk naar het kantoor van je teamleider om te vertellen dat de heftruck een raar geluid maakt."
   }, {
     "key": "feedback-broken-forklift",
-    "value": "De belangrijkste regel die je moet volgen wanneer je het idee hebt dat er iets mis is met de heftruck, of welk ander arbeidsmiddel dan ook, is zo snel mogelijk stoppen en zorgen dat er geen gevaar voor jezelf of anderen uit voortkomt.\n\nIn dit geval moet je de heftruck direct stilzetten en de lading naar beneden laten zakken. Lukt het niet de lading te laten zakken dan moet je de plek rondom de heftruck afzetten met bijvoorbeeld lint om aan te geven dat het een gevaarlijke situatie is. Daarna bel je met je teamleider of met de technische dienst om het probleem te melden en te horen wat er vervolgens moet gebeuren.\n\nJe moet dus niet door blijven rijden als er mogelijk iets mis is. Dat kan gevaarlijk zijn voor jezelf en voor je collega’s. Zelf proberen het op te lossen / iets te repareren is niet de bedoeling. Vaak mogen alleen gecertificeerde monteurs reparaties uitvoeren. De heftruck alleen laten met de lading omhoog zonder de plek af te zetten met lint is niet veilig.\n\n_VCA 10.1 (Algemene veiligheidsmaatregelen): ‘Ze (machines) mogen alleen gebruikt worden als ze in goede staat verkeren’. Als ze een vreemd geluid maken zou je daaraan kunnen twijfelen._"  
+    "value": "De belangrijkste regel die je moet volgen wanneer je het idee hebt dat er iets mis is met de heftruck, of welk ander arbeidsmiddel dan ook, is zo snel mogelijk stoppen en zorgen dat er geen gevaar voor jezelf of anderen uit voortkomt.\n\nIn dit geval moet je de heftruck direct stilzetten en de lading naar beneden laten zakken. Lukt het niet de lading te laten zakken dan moet je de plek rondom de heftruck afzetten met bijvoorbeeld lint om aan te geven dat het een gevaarlijke situatie is. Daarna bel je met je teamleider of met de technische dienst om het probleem te melden en te horen wat er vervolgens moet gebeuren.\n\nJe moet dus niet door blijven rijden als er mogelijk iets mis is. Dat kan gevaarlijk zijn voor jezelf en voor je collega’s. Zelf proberen het op te lossen / iets te repareren is niet de bedoeling. Vaak mogen alleen gecertificeerde monteurs reparaties uitvoeren. De heftruck alleen laten met de lading omhoog zonder de plek af te zetten met lint is niet veilig.\n\n_VCA 10.1 (Algemene veiligheidsmaatregelen): ‘Ze (machines) mogen alleen gebruikt worden als ze in goede staat verkeren’. Als ze een vreemd geluid maken zou je daaraan kunnen twijfelen._"
   }, {
     "key": "description-forklift-crash",
     "value": "Je bent net begonnen met werken. Het is je gelukkig nog nooit eerder gebeurd, maar je rijdt net met de achterkant van je heftruck tegen een stellage aan. Gelukkig ging je er maar heel zacht tegen aan. Je stapt uit om te kijken of de stellage en/of de heftruck schade hebben. Je ziet helemaal niets. Er is niets verbogen gedeukt, gekrast of wat dan ook. Pfff, dat is geluk hebben! Wat doe je?"

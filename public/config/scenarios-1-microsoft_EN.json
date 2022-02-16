@@ -25,7 +25,7 @@
             "correct": true
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "store-cargo": {
           "location": [45, 25],
@@ -45,7 +45,7 @@
             "correct": true
           }, {
             "id": "reaction3"
-          }]          
+          }]
         }
       }
     },
@@ -120,11 +120,11 @@
       },
       {
           "key": "description-together-cantina-image",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description-en.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-description-en.png"
       },
       {
           "key": "description-together-cantina-image-feedback",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-en.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-en.png"
       },
       {
           "key": "reaction-together-cantina-reaction1",
@@ -152,11 +152,11 @@
       },
       {
           "key": "description-agv-walk-image",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description-en.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-description-en.png"
       },
       {
           "key": "description-agv-walk-image-feedback",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-en.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-en.png"
       },
       {
           "key": "reaction-agv-walk-reaction1",
@@ -184,19 +184,19 @@
       },
       {
           "key": "description-store-cargo-image",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description-en.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-description-en.png"
       },
       {
           "key": "description-store-cargo-image-feedback",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-en.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-en.png"
       },
       {
           "key": "description-store-cargo-hotspot-image",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-insert.png"
       },
       {
           "key": "description-store-cargo-hotspot-hotspot",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png"
       },
       {
           "key": "reaction-store-cargo-reaction1",
@@ -220,11 +220,11 @@
       },
       {
           "key": "description-emergency-door-image",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description-en.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-description-en.png"
       },
       {
           "key": "description-emergency-door-image-feedback",
-          "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-en.png"
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-en.png"
       },
       {
           "key": "reaction-emergency-door-reaction1",
@@ -240,7 +240,7 @@
       },
       {
           "key": "feedback-emergency-door",
-          "value": "An emergency door is indicated by the green icon below.\n\nAn emergency door may remain open from a safety point of view. ![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n\nFire emergency doors have a fire resistant system and can usually be opened, but should not be left open because the system does not work if the door is left open. A fire door can be identified by the red sign at the bottom or it is written in letters on the door. ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.png) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur2.jpg)\n\nThere are situations when it is not desirable that you just use an emergency door or fire door. For example when there is an alarm on it."
+          "value": "An emergency door is indicated by the green icon below.\n\nAn emergency door may remain open from a safety point of view. ![](https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n\nFire emergency doors have a fire resistant system and can usually be opened, but should not be left open because the system does not work if the door is left open. A fire door can be identified by the red sign at the bottom or it is written in letters on the door. ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur.png) ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur2.jpg)\n\nThere are situations when it is not desirable that you just use an emergency door or fire door. For example when there is an alarm on it."
       },
       {
           "key": "description-forklift-hole",

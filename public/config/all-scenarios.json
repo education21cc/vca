@@ -20,7 +20,7 @@
             "id": "reaction3"
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "misplaced-boxes": {
           "location": [12, 21],
@@ -32,7 +32,7 @@
             }, {
               "id": "reaction3",
               "correct": true
-          }]          
+          }]
         },
         "forklift-crash": {
           "location": [21, 11],
@@ -44,7 +44,7 @@
             "correct": true
           }, {
             "id": "reaction3"
-          }]          
+          }]
         },
         "dark-warehouse": {
           "location": [31, 21],
@@ -59,7 +59,7 @@
             "id": "reaction3"
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "wet-product": {
           "location": [41, 21],
@@ -76,7 +76,7 @@
             "id": "reaction4"
           }, {
             "id": "reaction5"
-          }]          
+          }]
         },
         "loading-dock": {
           "location": [41, 11],
@@ -105,7 +105,7 @@
             "id": "reaction3"
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "together-cantina": {
           "location": [51, 5],
@@ -119,7 +119,7 @@
             "correct": true
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "agv-walk": {
           "location": [41, 5],
@@ -133,7 +133,7 @@
             "correct": true
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "forklift-hole": {
           "location": [27, 13],
@@ -147,7 +147,7 @@
           }, {
             "id": "reaction4",
             "correct": true
-          }]          
+          }]
         },
         "store-cargo": {
           "location": [10, 8],
@@ -159,7 +159,7 @@
             "correct": true
           }, {
             "id": "reaction3"
-          }]          
+          }]
         },
         "emergency-door": {
           "location": [25, 18],
@@ -171,7 +171,7 @@
             "id": "reaction2"
           }, {
             "id": "reaction3"
-          }]          
+          }]
         }
       }
   },
@@ -189,16 +189,16 @@
     "value": "{0}/{1} verdiend"
   }, {
     "key": "button-next",
-    "value": "Volgende" 
+    "value": "Volgende"
   }, {
     "key": "button-prev",
-    "value": "Terug" 
+    "value": "Terug"
   }, {
     "key": "button-check",
-    "value": "Check" 
+    "value": "Check"
   }, {
     "key": "button-continue",
-    "value": "Doorgaan" 
+    "value": "Doorgaan"
   }, {
     "key": "reactions",
     "value": "Acties"
@@ -288,7 +288,7 @@
     "value": "4. Je meldt dit aan de Inspectie (I-SZW)."
   }, {
     "key": "feedback-dark-warehouse",
-    "value": "Gevaarlijke situaties meld je direct bij je teamleider of bij de preventiemedewerker.\n\nSlecht zicht is erg gevaarlijk. Het risico op aanrijdingen van voetgangers en met kruisend verkeer wordt daardoor veel groter. En je mobiel (moeten) gebruiken tijdens het rijden op de heftruck is een no-go!\n\nNatuurlijk is het goed dat je rustig rijdt, maar als je een in jouw ogen gevaarlijke situatie nooit meldt, zal er wellicht niets veranderen. \n\nGevaarlijke situaties meld je niet direct aan de inspectie (de volledige naam is: Inspectiedienst van het Ministerie van Sociale Zaken en Werkgelegenheid). Pas wanneer het niet mogelijk blijkt de problemen binnen de organisatie in redelijk overleg op te lossen kun je besluiten het te melden bij de inspectie.\n\n _VCA 5.1: Werknemers moeten incidenten en bijna-incidenten, maar zelfs ook een mogelijk gevaar melden bij de werkgever._\n\n _VCA 1.3.1: Inspectiedienst SZW_ \n\n _VCA 13.5: Verlichting_"   
+    "value": "Gevaarlijke situaties meld je direct bij je teamleider of bij de preventiemedewerker.\n\nSlecht zicht is erg gevaarlijk. Het risico op aanrijdingen van voetgangers en met kruisend verkeer wordt daardoor veel groter. En je mobiel (moeten) gebruiken tijdens het rijden op de heftruck is een no-go!\n\nNatuurlijk is het goed dat je rustig rijdt, maar als je een in jouw ogen gevaarlijke situatie nooit meldt, zal er wellicht niets veranderen. \n\nGevaarlijke situaties meld je niet direct aan de inspectie (de volledige naam is: Inspectiedienst van het Ministerie van Sociale Zaken en Werkgelegenheid). Pas wanneer het niet mogelijk blijkt de problemen binnen de organisatie in redelijk overleg op te lossen kun je besluiten het te melden bij de inspectie.\n\n _VCA 5.1: Werknemers moeten incidenten en bijna-incidenten, maar zelfs ook een mogelijk gevaar melden bij de werkgever._\n\n _VCA 1.3.1: Inspectiedienst SZW_ \n\n _VCA 13.5: Verlichting_"
   }, {
     "key": "description-wet-product",
     "value": "Je komt aan bij een bijna lege stelling. Er staat nog maar een doos met het product dat je moet hebben. De doos ziet er aan een kant nat uit. Waarschijnlijk is een product in de doos gaan lekken. Het etiket op de doos kan je daardoor niet goed meer lezen. Je ziet wel dat er twee stickers met een ruit met een rode rand op \n\ngeplakt zijn. Maar ook die zijn doorweekt geweest en het plaatje binnenin de rode rand is een zwarte vlek geworden. Het is de laatste doos in deze stelling, je kunt dus geen andere doos pakken. In het magazijn waar je werkt worden drogisterij spullen opgeslagen. Wat doe je?"
@@ -309,7 +309,7 @@
     "value": "5. Je laat de doos staan en geeft op je orderformulier aan dat het product niet meer op voorraad is."
   }, {
     "key": "feedback-wet-product",
-    "value": "Het is belangrijk om te weten met wat voor je spullen je werkt. \nEr kunnen gevaarlijke stoffen tussen zitten. Om je daarvoor te waarschuwen zijn zogenaamde gevaarsetiketten gemaakt. Is of bevat een product een gevaarlijke stof dan moeten er op de verpakking een of meerdere gevaarsetiketten staan. Het gevaarsetiket voor een buitende stof ziet er bijvoorbeeld zo uit:\n ![Bijtend](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/gevaarlijke-stoffen-bijtend.png) \n\nAls een doos beschadigd is en er iets gelekt is en een gevaarsetiket heeft moet je dus oppassen. Zeker als je niet kunt zien welk etiket het is of niet weet wat de betekenis ervan is. Laat de doos staan en laat iemand komen die opgeleid en gecertificeerd is om met gevaarlijke stoffen om te gaan. \n\nVoordat je aan een taak begint moet je een LMRA (Laatste Minuut Risico Analyse) doen. Je ziet de risico’s (gelekte gevaarlijke stoffen), je stopt met werken en je neemt maatregelen (je haalt hulp) om te zorgen dat de gevaarlijke stoffen veilig kunnen worden opborgen. Daarna kun je weer aan verder met je werk. \n\n **Gevaarlijke stoffen in kleinverpakkingen, zoals bijvoorbeeld nagellakverwijderaar bij een drogist, worden wettelijk niet gezien als gevaarlijke stoffen. ** \n\n_VCA 2.3: Laatste Minuut Risico Analyse _ \n\n _VCA 8.2: omgaan met gevaarlijke stoffen_ \n\n _VCA 8.5: etiketten en informatie op producten_ "
+    "value": "Het is belangrijk om te weten met wat voor je spullen je werkt. \nEr kunnen gevaarlijke stoffen tussen zitten. Om je daarvoor te waarschuwen zijn zogenaamde gevaarsetiketten gemaakt. Is of bevat een product een gevaarlijke stof dan moeten er op de verpakking een of meerdere gevaarsetiketten staan. Het gevaarsetiket voor een buitende stof ziet er bijvoorbeeld zo uit:\n ![Bijtend](https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/gevaarlijke-stoffen-bijtend.png) \n\nAls een doos beschadigd is en er iets gelekt is en een gevaarsetiket heeft moet je dus oppassen. Zeker als je niet kunt zien welk etiket het is of niet weet wat de betekenis ervan is. Laat de doos staan en laat iemand komen die opgeleid en gecertificeerd is om met gevaarlijke stoffen om te gaan. \n\nVoordat je aan een taak begint moet je een LMRA (Laatste Minuut Risico Analyse) doen. Je ziet de risico’s (gelekte gevaarlijke stoffen), je stopt met werken en je neemt maatregelen (je haalt hulp) om te zorgen dat de gevaarlijke stoffen veilig kunnen worden opborgen. Daarna kun je weer aan verder met je werk. \n\n **Gevaarlijke stoffen in kleinverpakkingen, zoals bijvoorbeeld nagellakverwijderaar bij een drogist, worden wettelijk niet gezien als gevaarlijke stoffen. ** \n\n_VCA 2.3: Laatste Minuut Risico Analyse _ \n\n _VCA 8.2: omgaan met gevaarlijke stoffen_ \n\n _VCA 8.5: etiketten en informatie op producten_ "
   }, {
     "key": "description-loading-dock",
     "value": "Een van de laadplatforms waar de vrachtwagens kunnen laden en lossen is in slechte staat. De wieltjes van de karren die uit de vrachtwagens komen blijven vaak wat hangen in de scheuren en gaten in het betonnen laadplatform. Je moet dan flink duwen en trekken om de karren er overheen te krijgen. Wat doe je?"
@@ -402,7 +402,7 @@
     "value": "Geel/zwart lint of tape wordt gebruikt bij afstappen, onderdoorgangen, in situaties waarbij mensen zich kunnen stoten en voor het markeren van gevaarlijke gebieden.\n\nDat laatste is hier het geval. Rood/wit lint of tape gebruik je bij overige situaties. Je mag een lint nooit passeren (VCA 6.4.6: Markeren en afzetten).\n\nOp zich is het goed om een ‘algemeen gevaar’ bord te plaatsen. Echter dat alleen is niet voldoende."
   }, {
     "key": "description-store-cargo",
-    "value": "De chauffeur van de vrachtwagen is net vertrokken en op het dock staan zes pallets met grote dozen erop. \n\n ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/image11.jpg) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/image13.jpg) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/image12.jpg)Je teamleider vraagt je om ze met de palletwagen op de juiste plek te zetten wat verderop in het magazijn. Het bijbehorende orderformulier kun je hierboven zien. Ook zie je hierboven meer informatie over de palletwagen die je kunt gebruiken. Wat doe je?"
+    "value": "De chauffeur van de vrachtwagen is net vertrokken en op het dock staan zes pallets met grote dozen erop. \n\n ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/image11.jpg) ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/image13.jpg) ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/image12.jpg)Je teamleider vraagt je om ze met de palletwagen op de juiste plek te zetten wat verderop in het magazijn. Het bijbehorende orderformulier kun je hierboven zien. Ook zie je hierboven meer informatie over de palletwagen die je kunt gebruiken. Wat doe je?"
   }, {
     "key": "reaction-store-cargo-reaction1",
     "value": "1. Je pakt de palletwagen en zet ze een voor een op de juiste plek."
@@ -429,7 +429,7 @@
     "value": "3. Nee, een nooddeur is er alleen voor noodgevallen.    "
   }, {
     "key": "feedback-emergency-door",
-    "value": "Een nooddeur wordt aangegeven met het onderstaande groene pictogram. Een nooddeur mag vanuit veiligheidsoogpunt open blijven staan.![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png) \n\nEen branddeur heeft een brandwerende functie en mag meestal best geopend worden, maar niet open blijven staan. Dan werkt de brandwerende functie niet. Een branddeur is te herkennen aan het onderstaande rode pictogram of het staat in letters op de deur. ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.pn  g) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur2.jpg)\n\nEr zijn situaties wanneer het niet gewenst is dat je zomaar een nooddeur of branddeur gebruikt. Bijvoorbeeld wanneer er een alarm op zit."
+    "value": "Een nooddeur wordt aangegeven met het onderstaande groene pictogram. Een nooddeur mag vanuit veiligheidsoogpunt open blijven staan.![](https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png) \n\nEen branddeur heeft een brandwerende functie en mag meestal best geopend worden, maar niet open blijven staan. Dan werkt de brandwerende functie niet. Een branddeur is te herkennen aan het onderstaande rode pictogram of het staat in letters op de deur. ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur.pn  g) ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur2.jpg)\n\nEr zijn situaties wanneer het niet gewenst is dat je zomaar een nooddeur of branddeur gebruikt. Bijvoorbeeld wanneer er een alarm op zit."
   }],
   "levelsCompleted": [{
     "level": 0,

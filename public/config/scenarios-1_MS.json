@@ -21,7 +21,7 @@
             "correct": true
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "agv-walk": {
           "location": [49, 18],
@@ -36,7 +36,7 @@
             "correct": true
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "store-cargo": {
           "location": [45, 25],
@@ -56,7 +56,7 @@
             "correct": true
           }, {
             "id": "reaction3"
-          }]          
+          }]
         },
         "emergency-door": {
           "location": [23, -2],
@@ -69,8 +69,8 @@
             "id": "reaction2"
           }, {
             "id": "reaction3"
-          }]          
-        }       
+          }]
+        }
       }
   },
   "translations": [
@@ -144,11 +144,11 @@
     },
     {
         "key": "description-together-cantina-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description-ms.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-description-ms.png"
     },
     {
         "key": "description-together-cantina-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-ms.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-ms.png"
     },
     {
         "key": "reaction-together-cantina-reaction1",
@@ -176,11 +176,11 @@
     },
     {
         "key": "description-agv-walk-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description-ms.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-description-ms.png"
     },
     {
         "key": "description-agv-walk-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-ms.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-ms.png"
     },
     {
         "key": "reaction-agv-walk-reaction1",
@@ -208,19 +208,19 @@
     },
     {
         "key": "description-store-cargo-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description-ms.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-description-ms.png"
     },
     {
         "key": "description-store-cargo-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-ms.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-ms.png"
     },
     {
         "key": "description-store-cargo-hotspot-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert-ms.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-insert-ms.png"
     },
     {
         "key": "description-store-cargo-hotspot-hotspot",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png"
     },
     {
         "key": "reaction-store-cargo-reaction1",
@@ -244,11 +244,11 @@
     },
     {
         "key": "description-emergency-door-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description-ms.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-description-ms.png"
     },
     {
         "key": "description-emergency-door-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-ms.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-ms.png"
     },
     {
         "key": "reaction-emergency-door-reaction1",
@@ -264,7 +264,7 @@
     },
     {
         "key": "feedback-emergency-door",
-        "value": "Pintu kecemasan ditunjukkan oleh ikon hijau di bawah.\n \n\n Pintu kecemasan mungkin tetap terbuka. \n\n![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n \n\n Pintu kecemasan kebakaran mempunyai sistem tahan api dan biasanya boleh dibuka, tetapi tidak boleh dibiarkan terbuka kerana sistem tidak berfungsi jika pintu dibiarkan terbuka. Pintu api dapat dikenal pasti dengan tanda merah di bahagian bawah atau tertulis huruf di pintu. \n![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.png) \n![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/fire-sign-ms.png)\n \n\n Terdapat situasi di mana secara tidak diingini anda hanya boleh menggunakan pintu kecemasan atau pintu api. Contohnya apabila terdapat penggera di dalamnya."
+        "value": "Pintu kecemasan ditunjukkan oleh ikon hijau di bawah.\n \n\n Pintu kecemasan mungkin tetap terbuka. \n\n![](https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n \n\n Pintu kecemasan kebakaran mempunyai sistem tahan api dan biasanya boleh dibuka, tetapi tidak boleh dibiarkan terbuka kerana sistem tidak berfungsi jika pintu dibiarkan terbuka. Pintu api dapat dikenal pasti dengan tanda merah di bahagian bawah atau tertulis huruf di pintu. \n![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur.png) \n![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/fire-sign-ms.png)\n \n\n Terdapat situasi di mana secara tidak diingini anda hanya boleh menggunakan pintu kecemasan atau pintu api. Contohnya apabila terdapat penggera di dalamnya."
     },
     {
         "key": "description-forklift-hole",
