@@ -10,8 +10,8 @@
     "scenarios": {
       "agv-path": {
         "location": [53, 2],
-        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/avg-path/avg-path-description.jpg",
-        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/avg-path/avg-path-outcome.png",
+        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/avg-path/avg-path-description.jpg",
+        "imageFeedback": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/avg-path/avg-path-outcome.png",
         "reactions": [{
           "id": "reaction1",
           "correct": true
@@ -21,11 +21,11 @@
           "id": "reaction3"
         }, {
           "id": "reaction4"
-        }]          
+        }]
       },
       "forklift-hole": {
         "location": [26, 12],
-        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/forklift-hole/forklift-hole-description.png",
+        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-hole/forklift-hole-description.png",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -35,11 +35,11 @@
         }, {
           "id": "reaction4",
           "correct": true
-        }]          
+        }]
       },
       "wet-product": {
         "location": [25, 5],
-        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/wet-product/wet-product-description.png",
+        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/wet-product/wet-product-description.png",
         "reactions": [{
           "id": "reaction1",
           "correct": true
@@ -52,12 +52,12 @@
           "id": "reaction4"
         }, {
           "id": "reaction5"
-        }]          
+        }]
       },
       "misplaced-boxes": {
         "location": [2, 24],
-        "image": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-description.png",
-        "imageFeedback": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-outcome.jpg",
+        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-description.png",
+        "imageFeedback": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/misplaced-boxes/misplaced-boxes-outcome.jpg",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -65,7 +65,7 @@
           }, {
             "id": "reaction3",
             "correct": true
-        }]          
+        }]
       }
     }
   },
@@ -83,16 +83,16 @@
     "value": "{0}/{1} verdiend"
   }, {
     "key": "button-next",
-    "value": "Volgende" 
+    "value": "Volgende"
   }, {
     "key": "button-prev",
-    "value": "Terug" 
+    "value": "Terug"
   }, {
     "key": "button-check",
-    "value": "Check" 
+    "value": "Check"
   }, {
     "key": "button-continue",
-    "value": "Doorgaan" 
+    "value": "Doorgaan"
   }, {
     "key": "reactions",
     "value": "Acties"

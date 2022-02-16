@@ -21,7 +21,7 @@
             "correct": true
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "agv-walk": {
           "location": [49, 18],
@@ -36,7 +36,7 @@
             "correct": true
           }, {
             "id": "reaction4"
-          }]          
+          }]
         },
         "store-cargo": {
           "location": [45, 25],
@@ -56,7 +56,7 @@
             "correct": true
           }, {
             "id": "reaction3"
-          }]          
+          }]
         },
         "emergency-door": {
           "location": [23, -2],
@@ -69,8 +69,8 @@
             "id": "reaction2"
           }, {
             "id": "reaction3"
-          }]          
-        }       
+          }]
+        }
       }
   },
   "translations": [
@@ -144,11 +144,11 @@
     },
     {
         "key": "description-together-cantina-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description-ch.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-description-ch.png"
     },
     {
         "key": "description-together-cantina-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-ch.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-ch.png"
     },
     {
         "key": "reaction-together-cantina-reaction1",
@@ -176,11 +176,11 @@
     },
     {
         "key": "description-agv-walk-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description-ch.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-description-ch.png"
     },
     {
         "key": "description-agv-walk-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-ch.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-ch.png"
     },
     {
         "key": "reaction-agv-walk-reaction1",
@@ -208,19 +208,19 @@
     },
     {
         "key": "description-store-cargo-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description-ch.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-description-ch.png"
     },
     {
         "key": "description-store-cargo-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-ch.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-ch.png"
     },
     {
         "key": "description-store-cargo-hotspot-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert-ch.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-insert-ch.png"
     },
     {
         "key": "description-store-cargo-hotspot-hotspot",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png"
     },
     {
         "key": "reaction-store-cargo-reaction1",
@@ -244,11 +244,11 @@
     },
     {
         "key": "description-emergency-door-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description-ch.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-description-ch.png"
     },
     {
         "key": "description-emergency-door-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-ch.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-ch.png"
     },
     {
         "key": "reaction-emergency-door-reaction1",
@@ -264,7 +264,7 @@
     },
     {
         "key": "feedback-emergency-door",
-        "value": "紧急门由下面的绿色图标指示。\n \n\n应急门可以保持打开状态。 \n![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n \n\n 消防应急门具有防火系统，通常可以打开，但不应保持打开状态，因为如果门保持打开状态，系统将无法工作。 防火门可以通过底部的红色标志来识别，也可以用字母写在门上。 \n\n![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.png) \n\n![](https://21cceducation.nl/content/ games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/fire-sign-ch.png) \n\n  在某些情况下，你不希望只使用应急门或防火门。 例如，当上面有警报时。"
+        "value": "紧急门由下面的绿色图标指示。\n \n\n应急门可以保持打开状态。 \n![](https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n \n\n 消防应急门具有防火系统，通常可以打开，但不应保持打开状态，因为如果门保持打开状态，系统将无法工作。 防火门可以通过底部的红色标志来识别，也可以用字母写在门上。 \n\n![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur.png) \n\n![](https://21cceducation.nl/content/ games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/fire-sign-ch.png) \n\n  在某些情况下，你不希望只使用应急门或防火门。 例如，当上面有警报时。"
     },
     {
         "key": "description-forklift-hole",

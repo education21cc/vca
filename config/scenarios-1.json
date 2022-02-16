@@ -25,7 +25,7 @@
           "correct": true
         }, {
           "id": "reaction4"
-        }]          
+        }]
       },
       "agv-walk": {
         "location": [49, 18],
@@ -40,7 +40,7 @@
           "correct": true
         }, {
           "id": "reaction4"
-        }]          
+        }]
       },
       "store-cargo": {
         "location": [45, 25],
@@ -60,7 +60,7 @@
           "correct": true
         }, {
           "id": "reaction3"
-        }]          
+        }]
       },
       "emergency-door": {
         "location": [23, -2],
@@ -73,8 +73,8 @@
           "id": "reaction2"
         }, {
           "id": "reaction3"
-        }]          
-      }       
+        }]
+      }
     }
   },
   "translations": [
@@ -148,11 +148,11 @@
     },
     {
         "key": "description-together-cantina-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-description.png"
     },
     {
         "key": "description-together-cantina-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-outcome.png"
     },
     {
         "key": "reaction-together-cantina-reaction1",
@@ -180,11 +180,11 @@
     },
     {
         "key": "description-agv-walk-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-description.png"
     },
     {
         "key": "description-agv-walk-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-outcome.png"
     },
     {
         "key": "reaction-agv-walk-reaction1",
@@ -212,19 +212,19 @@
     },
     {
         "key": "description-store-cargo-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-description.png"
     },
     {
         "key": "description-store-cargo-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-outcome.png"
     },
     {
         "key": "description-store-cargo-hotspot-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-insert.png"
     },
     {
         "key": "description-store-cargo-hotspot-hotspot",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot.png"
     },
     {
         "key": "reaction-store-cargo-reaction1",
@@ -248,11 +248,11 @@
     },
     {
         "key": "description-emergency-door-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-description.png"
     },
     {
         "key": "description-emergency-door-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-outcome.png"
     },
     {
         "key": "reaction-emergency-door-reaction1",
@@ -268,7 +268,7 @@
     },
     {
         "key": "feedback-emergency-door",
-        "value": "Een nooddeur wordt aangegeven met het onderstaande groene pictogram. Een nooddeur mag vanuit veiligheidsoogpunt open blijven staan.![](https://21cceducation.nl/content/games/images/image.php?image=flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png) \n\nEen branddeur heeft een brandwerende functie en mag meestal best geopend worden, maar niet open blijven staan. Dan werkt de brandwerende functie niet. Een branddeur is te herkennen aan het onderstaande rode pictogram of het staat in letters op de deur. ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur.png) ![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/branddeur2.jpg)\n\nEr zijn situaties wanneer het niet gewenst is dat je zomaar een nooddeur of branddeur gebruikt. Bijvoorbeeld wanneer er een alarm op zit."
+        "value": "Een nooddeur wordt aangegeven met het onderstaande groene pictogram. Een nooddeur mag vanuit veiligheidsoogpunt open blijven staan.![](https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png) \n\nEen branddeur heeft een brandwerende functie en mag meestal best geopend worden, maar niet open blijven staan. Dan werkt de brandwerende functie niet. Een branddeur is te herkennen aan het onderstaande rode pictogram of het staat in letters op de deur. ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur.png) ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur2.jpg)\n\nEr zijn situaties wanneer het niet gewenst is dat je zomaar een nooddeur of branddeur gebruikt. Bijvoorbeeld wanneer er een alarm op zit."
     },
     {
         "key": "description-forklift-hole",

@@ -144,11 +144,11 @@
     },
     {
         "key": "description-together-cantina-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-description-kn.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-description-kn.png"
     },
     {
         "key": "description-together-cantina-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-kn.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-kn.png"
     },
     {
         "key": "reaction-together-cantina-reaction1",
@@ -176,11 +176,11 @@
     },
     {
         "key": "description-agv-walk-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-description-kn.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-description-kn.png"
     },
     {
         "key": "description-agv-walk-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-kn.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-kn.png"
     },
     {
         "key": "reaction-agv-walk-reaction1",
@@ -208,19 +208,19 @@
     },
     {
         "key": "description-store-cargo-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-description-kn.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-description-kn.png"
     },
     {
         "key": "description-store-cargo-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-kn.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-kn.png"
     },
     {
         "key": "description-store-cargo-hotspot-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-insert-kn.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-insert-kn.png"
     },
     {
         "key": "description-store-cargo-hotspot-hotspot",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot-kn.pngg"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-hotspot-kn.png"
     },
     {
         "key": "reaction-store-cargo-reaction1",
@@ -244,11 +244,11 @@
     },
     {
         "key": "description-emergency-door-image",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-description-kn.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-description-kn.png"
     },
     {
         "key": "description-emergency-door-image-feedback",
-        "value": "https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-kn.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-kn.png"
     },
     {
         "key": "reaction-emergency-door-reaction1",
@@ -264,7 +264,7 @@
     },
     {
         "key": "feedback-emergency-door",
-        "value": "ಕೆಳಗಿನ ಹಸಿರು ಗುರುತುನಿಂದ ತುರ್ತು ಬಾಗಿಲನ್ನು ಸೂಚಿಸಲಾಗುತ್ತದೆ.      ಸುರಕ್ಷತೆಯ ದೃಷ್ಟಿಯಿಂದ ತುರ್ತು ಬಾಗಿಲು ತೆರೆದಿರಬಹುದು. !\n\n![](https://21cceducation.nl/content/games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/fire-sign-kn.png)\n\nಅಗ್ನಿಶಾಮಕ ತುರ್ತು ಬಾಗಿಲುಗಳು ಬೆಂಕಿ ನಿರೋಧಕ ವ್ಯವಸ್ಥೆಯನ್ನು ಹೊಂದಿವೆ ಮತ್ತು ಸಾಮಾನ್ಯವಾಗಿ ತೆರೆಯಬಹುದು, ಆದರೆ ಬಾಗಿಲು ತೆರೆದಿದ್ದರೆ ವ್ಯವಸ್ಥೆಯು ಕಾರ್ಯನಿರ್ವಹಿಸದ ಕಾರಣ ತೆರೆದಿರಬಾರದು. ಬೆಂಕಿಯ ಬಾಗಿಲನ್ನು ಕೆಳಭಾಗದಲ್ಲಿರುವ ಕೆಂಪು ಚಿಹ್ನೆಯಿಂದ ಗುರುತಿಸಬಹುದು ಅಥವಾ ಅದನ್ನು ಬಾಗಿಲಿನ ಮೇಲೆ ಅಕ್ಷರಗಳಲ್ಲಿ ಬರೆಯಲಾಗುತ್ತದೆ.                                                                                              ನೀವು ತುರ್ತು ಬಾಗಿಲು ಅಥವಾ ಬೆಂಕಿಯ ಬಾಗಿಲನ್ನು ಬಳಸುವುದು ಅಪೇಕ್ಷಣೀಯವಲ್ಲದ ಸಂದರ್ಭಗಳಿವೆ. ಉದಾಹರಣೆಗೆ ಅದರ ಮೇಲೆ ಅಲಾರಾಂ ಇದ್ದಾಗ."
+        "value": "ಕೆಳಗಿನ ಹಸಿರು ಗುರುತುನಿಂದ ತುರ್ತು ಬಾಗಿಲನ್ನು ಸೂಚಿಸಲಾಗುತ್ತದೆ.      ಸುರಕ್ಷತೆಯ ದೃಷ್ಟಿಯಿಂದ ತುರ್ತು ಬಾಗಿಲು ತೆರೆದಿರಬಹುದು. !\n\n![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/fire-sign-kn.png)\n\nಅಗ್ನಿಶಾಮಕ ತುರ್ತು ಬಾಗಿಲುಗಳು ಬೆಂಕಿ ನಿರೋಧಕ ವ್ಯವಸ್ಥೆಯನ್ನು ಹೊಂದಿವೆ ಮತ್ತು ಸಾಮಾನ್ಯವಾಗಿ ತೆರೆಯಬಹುದು, ಆದರೆ ಬಾಗಿಲು ತೆರೆದಿದ್ದರೆ ವ್ಯವಸ್ಥೆಯು ಕಾರ್ಯನಿರ್ವಹಿಸದ ಕಾರಣ ತೆರೆದಿರಬಾರದು. ಬೆಂಕಿಯ ಬಾಗಿಲನ್ನು ಕೆಳಭಾಗದಲ್ಲಿರುವ ಕೆಂಪು ಚಿಹ್ನೆಯಿಂದ ಗುರುತಿಸಬಹುದು ಅಥವಾ ಅದನ್ನು ಬಾಗಿಲಿನ ಮೇಲೆ ಅಕ್ಷರಗಳಲ್ಲಿ ಬರೆಯಲಾಗುತ್ತದೆ.                                                                                              ನೀವು ತುರ್ತು ಬಾಗಿಲು ಅಥವಾ ಬೆಂಕಿಯ ಬಾಗಿಲನ್ನು ಬಳಸುವುದು ಅಪೇಕ್ಷಣೀಯವಲ್ಲದ ಸಂದರ್ಭಗಳಿವೆ. ಉದಾಹರಣೆಗೆ ಅದರ ಮೇಲೆ ಅಲಾರಾಂ ಇದ್ದಾಗ."
     },
     {
         "key": "description-forklift-hole",

@@ -1,25 +1,17 @@
 {
   "files": {
-    "main.css": "/vca/static/css/main.eed16bfc.chunk.css",
-    "main.js": "/vca/static/js/main.e0a9e503.chunk.js",
-    "main.js.map": "/vca/static/js/main.e0a9e503.chunk.js.map",
-    "runtime-main.js": "/vca/static/js/runtime-main.114f1db3.js",
-    "runtime-main.js.map": "/vca/static/js/runtime-main.114f1db3.js.map",
-    "static/js/2.0103d4e6.chunk.js": "/vca/static/js/2.0103d4e6.chunk.js",
-    "static/js/2.0103d4e6.chunk.js.map": "/vca/static/js/2.0103d4e6.chunk.js.map",
+    "main.css": "/vca/static/css/main.09963e97.css",
+    "main.js": "/vca/static/js/main.dbd52ffa.js",
+    "static/media/close.svg": "/vca/static/media/close.72346ed5ac25b39ac246f2ad1854ae49.svg",
     "index.html": "/vca/index.html",
-    "static/css/main.eed16bfc.chunk.css.map": "/vca/static/css/main.eed16bfc.chunk.css.map",
-    "static/js/2.0103d4e6.chunk.js.LICENSE.txt": "/vca/static/js/2.0103d4e6.chunk.js.LICENSE.txt",
-    "static/media/back.72346ed5.svg": "/vca/static/media/back.72346ed5.svg",
-    "static/media/close.72346ed5.svg": "/vca/static/media/close.72346ed5.svg",
-    "static/media/close.deade97f.svg": "/vca/static/media/close.deade97f.svg",
-    "static/media/star-empty.fb60bd87.svg": "/vca/static/media/star-empty.fb60bd87.svg",
-    "static/media/star-full.7791fa1a.svg": "/vca/static/media/star-full.7791fa1a.svg"
+    "static/media/back.svg": "/vca/static/media/back.72346ed5ac25b39ac246f2ad1854ae49.svg",
+    "static/media/star-empty.svg": "/vca/static/media/star-empty.fb60bd87257e44245c655eb43799a3ee.svg",
+    "static/media/star-full.svg": "/vca/static/media/star-full.7791fa1a011d9d37d317a3c09050d3c9.svg",
+    "main.09963e97.css.map": "/vca/static/css/main.09963e97.css.map",
+    "main.dbd52ffa.js.map": "/vca/static/js/main.dbd52ffa.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.114f1db3.js",
-    "static/js/2.0103d4e6.chunk.js",
-    "static/css/main.eed16bfc.chunk.css",
-    "static/js/main.e0a9e503.chunk.js"
+    "static/css/main.09963e97.css",
+    "static/js/main.dbd52ffa.js"
   ]
 }
