@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Map from "./components/pixi/Map";
 import PlayerBridge, { send } from 'components/playerBridge';
 import { GameData } from 'components/playerBridge/GameData';
-import { Content, ContentConfig } from 'data/Content';
+import { Content, ContentConfig, GameMode } from 'data/Content';
 import { PixiPlugin } from 'gsap/all';
 import { gsap } from 'gsap';
 import FinderBox from 'components/FinderBox';
@@ -18,6 +18,7 @@ import CompleteDialog from 'components/dialogs/CompleteDialog';
 import './styles/common.scss'
 import './App.css';
 import * as PIXI from 'pixi.js';
+import TimedFinderBox from 'components/TimedFinderBox';
 
 declare global {
   interface Window { PIXI: any; }
@@ -28,12 +29,10 @@ PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
 
 
-enum GameState {
+export enum GameState {
   intro = 0,
   normal = 1 << 1,
-  wrong = 1 << 2,
-  correct = 1 << 3,
-  complete = 1 << 4
+  complete = 1 << 2
 }
 
 function App() {
@@ -41,6 +40,14 @@ function App() {
   const [translations, setTranslations] = useState<{[key: string]: string}>({});
   const [mapData, setMapData] = useState<TiledMapData>();
   const [data, setData] = useState<GameData<Content>>();
+
+  const gameMode = useMemo(() => {
+    if (!data) return undefined;
+    if (data.content.gameMode) return data.content.gameMode;
+    // for backwards compatibility
+    if (data.content.finder) return GameMode.finder;
+    if (data.content.scenarios) return GameMode.scenarios;
+  }, [data])
 
   const [scenario, setScenario] = useState<string|undefined>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
@@ -52,7 +59,6 @@ function App() {
   }, []);
 
   const handleSetGameData = useCallback((data: GameData<any>) => {
-    // @ts-ignore
     window.setGameData(data);
   }, []);
   const handleGameDataReceived = useCallback((data: GameData<Content>) => {
@@ -108,11 +114,12 @@ function App() {
         // @ts-ignore
 
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-handling.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-basic-english-EN.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_CH.json`)
@@ -252,7 +259,6 @@ function App() {
         <PlayerBridge
           gameDataReceived={handleGameDataReceived}
           disableBackButton={!!iframeOpen || !!scenario}
-
         />
         {loadComplete && (
           <>
@@ -277,7 +283,7 @@ function App() {
                   wrongScenarios={wrongScenarios}
                   onScenarioClick={handleScenarioClick}
                 />
-                {content?.finder && (
+                {gameMode === GameMode.finder && content.finder && (
                   <FinderBox
                     content={content.finder}
                     instructionText={translations["finder-instruction"]}
@@ -286,7 +292,16 @@ function App() {
                     onOpenGame={handleOpenGame}
                   />
                 )}
-                {content?.scenarios && (
+                {gameMode === GameMode.timedFinder && content.finder && (
+                  <TimedFinderBox
+                    content={content.finder}
+                    instructionText={translations["finder-instruction"]}
+                    nextText={translations["button-next"]}
+                    foundSituations={foundSituations}
+                    onSetState={setState}
+                  />
+                )}
+                {gameMode === GameMode.scenarios && content?.scenarios && (
                   <ScenarioBox
                     scenarios={content.scenarios}
                     correctScenarios={correctScenarios}

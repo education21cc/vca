@@ -4,19 +4,22 @@ export interface Content {
   mapJson: string,
   situations: { [key: string]: Situation }
   scenarios: { [key: string]: Scenario }
+  gameMode?: GameMode,
   finder?: FinderContent,
   mistakeMode?: boolean, // when true, answering the wrong scenario will make the the marker disappear and it will cost a star
   stars?: number,
 }
 
-export enum Mode {
-  scenario = "scenario",
-  finder = "finder"
+export enum GameMode {
+  scenarios = "scenarios",
+  finder = "finder",
+  timedFinder = "timedFinder"
 }
 
 export interface FinderContent {
   situations: string[];
   final: ContentConfig;
+  time?: number;
 }
 
 export interface ContentConfig {

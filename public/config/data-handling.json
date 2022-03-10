@@ -1,0 +1,50 @@
+{
+  "userId": 2,
+  "settings": {
+    "muted": false
+  },
+  "content": {
+    "mapJson": "maps/testmap3.json",
+    "gameMode": "timedFinder",
+    "finder": {
+      "situations": [
+        "extinguisher5",
+        "extinguisher4",
+        "extinguisher3",
+        "extinguisher2",
+        "extinguisher1"
+      ],
+      "time": 120
+    }
+  },
+  "translations": [{
+      "key": "intro-header",
+      "value": "Brandblussers in het magazijn"
+    },
+    {
+      "key": "intro-description",
+      "value": "Klik op alle brandblussers en beantwoord daarna de vraag om 1 ster te verdienen. Succes! "
+    },
+    {
+      "key": "intro-start",
+      "value": "Start"
+    },
+    {
+      "key": "intro-stars-to-gain",
+      "value": "{0}/{1} verdiend"
+    },
+    {
+      "key": "button-next",
+      "value": "Next"
+    },
+    {
+      "key": "finder-instruction",
+      "value": "Vind 5 brandbrussers"
+    }
+  ],
+  "levelsCompleted": [{
+    "level": 0,
+    "score": 6,
+    "maxScore": 8
+  }]
+}
