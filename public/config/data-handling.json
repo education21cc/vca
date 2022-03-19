@@ -34,8 +34,8 @@
       "value": "{0}/{1} verdiend"
     },
     {
-      "key": "button-next",
-      "value": "Next"
+      "key": "items-remain",
+      "value": "{0} items remain"
     },
     {
       "key": "finder-instruction",

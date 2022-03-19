@@ -270,11 +270,12 @@ function App() {
               starsToGainText={starsToGainText}
               startText={translations["intro-start"]}
             />)}
-            {(state === GameState.normal) && mapData && content && (
+            {(state === GameState.normal) && mapData && content && gameMode && (
               <>
                 <Map
                   content={content}
                   mapData={mapData}
+                  gameMode={gameMode}
                   tilesetsTextures={tilesetsTextures}
                   onSituationClick={handleSituationClick}
                   foundSituations={foundSituations}
@@ -296,7 +297,7 @@ function App() {
                   <TimedFinderBox
                     content={content.finder}
                     instructionText={translations["finder-instruction"]}
-                    nextText={translations["button-next"]}
+                    itemsRemainText={translations["items-remain"]}
                     foundSituations={foundSituations}
                     onSetState={setState}
                   />

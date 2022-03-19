@@ -8,21 +8,23 @@ import Smoke1 from './effects/smoke1';
 import { gsap, Linear } from 'gsap'
 import SpriteAnimated from './SpriteAnimated';
 import { AnimatedSprite } from 'pixi.js';
+import { GameMode } from 'data/Content';
 
 
 interface Props {
-    data: TiledObjectData;
-    found?: boolean;
-    mapData: TiledMapData;
-    tilesetsTextures: {[key: string]: any};
-    onClick: (name:string) => void; 
+  data: TiledObjectData;
+  found?: boolean;
+  gameMode: GameMode;
+  mapData: TiledMapData;
+  tilesetsTextures: {[key: string]: any};
+  onClick: (name:string) => void;
 }
-
+const popInDuration = 1;
+const fadeOutDuration = 0.5;
 const MapObject = (props: Props) => {
   const o = props.data;
-  const {mapData, tilesetsTextures, found, onClick} = props;
+  const {mapData, tilesetsTextures, found, gameMode, onClick} = props;
 
-  const popInDuration = 1;
   const checkRef = useRef(null);
   const ref = useRef<AnimatedSprite>(null);
   const tileset = useRef<TiledTilesetData>();
@@ -31,26 +33,38 @@ const MapObject = (props: Props) => {
   useEffect(() => {
     // Pop in animation!
     if (!checkRef.current) return;
-    gsap.from(checkRef.current, { 
+    gsap.from(checkRef.current, {
       duration: popInDuration,
       ease: "elastic.out(2, 0.5)",
-      pixi: { 
+      pixi: {
         visible: false,
-        scale: .1, 
+        scale: .1,
       }
     });
-  }, [found]);
+    if (gameMode === GameMode.timedFinder) {
+      // fade the entire thing out in timedFinder mode
+      gsap.to(ref.current, {
+        duration: fadeOutDuration,
+        ease: Linear.easeNone,
+        delay: popInDuration,
+        pixi: {
+          visible: false,
+          alpha: 0,
+        }
+      });
+    }
+  }, [found, gameMode]);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     let tl: gsap.core.Timeline;
-    if (!ref.current) return; 
+    if (!ref.current) return;
 
     const animation = o.properties?.find(p => p.name === 'animation');
     if (!animation) return;
-    
+
     const type = o.properties?.find(p => p.name === 'type')?.value;
-    
+
     if (type === 'move') {
       // Pass a string like "[[0, 22], [5, 22], [5,25], [11, 25], [11, 18]]" with coordinates
       let steps;
@@ -60,8 +74,8 @@ const MapObject = (props: Props) => {
       catch (e){
         throw new Error(`Couldn't parse animation steps: "${animation.value}"`);
       }
-      // the spritheet is to show different frames for different angles. 
-      // it looks for sprites with the given type in the tileset. 
+      // the spritheet is to show different frames for different angles.
+      // it looks for sprites with the given type in the tileset.
       // first frame is southeast, second frame is northeasth
       const animSpritesheet = o.properties?.find(p => p.name === 'spritesheet')?.value;
 
@@ -92,7 +106,7 @@ const MapObject = (props: Props) => {
                 // console.log('nw')
                 ref.current!.gotoAndStop(1);
                 ref.current!.scale.set(-1, 1);
-                
+
               } else if (lastStep[0] === currentStep[0] && lastStep[1] < currentStep[1]){
                 // console.log('sw')
                 ref.current!.gotoAndStop(0);
@@ -110,7 +124,7 @@ const MapObject = (props: Props) => {
             }
           },
           duration: speed * distance,
-          pixi: { 
+          pixi: {
             x: position.x,
             y: position.y,
           },
@@ -172,7 +186,7 @@ const MapObject = (props: Props) => {
     tileset.current = findTileset(actualGid, mapData!.tilesets);
 
     if (!tileset || !tileset.current!.tiles || gid === 0) return null;
-      
+
     // See https://discourse.mapeditor.org/t/data-field-in-the-tmx-format-json/3633
     const flipHor = (gid & 0x80000000) !== 0;
     const flipVert = (gid & 0x40000000) !== 0;
@@ -202,8 +216,8 @@ const MapObject = (props: Props) => {
       console.warn(`Could not find texture ${spritesheet} ${textureName}`);
     }
 
-    // the spritheet is to show different frames for different angles. 
-    // it looks for sprites with the given type in the tileset. 
+    // the spritheet is to show different frames for different angles.
+    // it looks for sprites with the given type in the tileset.
     // first frame is southeast, second frame is northeast
     const animSpritesheet = o.properties?.find(p => p.name === 'spritesheet')?.value;
     let textures;
@@ -218,8 +232,6 @@ const MapObject = (props: Props) => {
     else {
       textures = [spritesheetTextures.current![textureName]];
     }
-    //const textures = spritesheetTiles!.map(t => console.log(t));
-    // (spritesheetTextures.current);
 
     return (
       <SpriteAnimated
@@ -243,8 +255,8 @@ const MapObject = (props: Props) => {
           anchor={[-.1, 1]}
           pivot={[TILE_WIDTH / 2, 0]}
         />}
-      </SpriteAnimated> 
-    );  
+      </SpriteAnimated>
+    );
   }
   return null;
 }
@@ -254,17 +266,16 @@ export default MapObject;
 const renderEffects = (properties?: TiledProperty[]) => {
     if (!properties) return null;
 
-
     let x, y;
     const offset = properties.find(p => p.name === 'offset');
     if (offset) {
       [x, y] = offset.value.split(',');
     }
-    
+
     const effect = properties.find(p => p.name === 'effect');
     if (effect?.value === 'smoke1') {
       return (
-        <Smoke1 
+        <Smoke1
           x={x}
           y={y}
         />

@@ -1,4 +1,3 @@
-import { ScenarioReaction } from 'data/Content';
 import React from 'react';
 
 interface Props {
@@ -11,13 +10,13 @@ const FeedbackTitle = (props: Props) => {
     return (
       <h1 className="correct">
         {props.texts["feedback-correct"]}
-      </h1>     
+      </h1>
     );
   }
   return (
     <h1 className="wrong">
       {props.texts["feedback-wrong"]}
-    </h1>     
+    </h1>
   );
 }
 

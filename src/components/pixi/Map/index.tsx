@@ -9,13 +9,14 @@ import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
 import FloorTileLayer from 'components/pixi/FloorTileLayer';
 import Marker, { Color } from 'components/pixi/Marker';
-import { Content, Scenario } from 'data/Content';
+import { Content, GameMode, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
 import MapObject from '../MapObject';
 
 interface Props {
   content: Content;
   mapData: TiledMapData;
+  gameMode: GameMode;
   tilesetsTextures: {[key: string]: any};
   foundSituations: string[];
   onSituationClick: (situation: string) => void;
@@ -39,6 +40,7 @@ const Map = (props: Props) => {
     foundSituations,
     mapData,
     tilesetsTextures,
+    gameMode,
     onSituationClick
   } = props;
 
@@ -199,6 +201,7 @@ const Map = (props: Props) => {
           data={o}
           key={`${o.type}${o.name}${index}`}
           found={found}
+          gameMode={gameMode}
           tilesetsTextures={tilesetsTextures}
           mapData={mapData}
           onClick={onSituationClick}
