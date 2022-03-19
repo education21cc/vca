@@ -38,9 +38,9 @@ export enum GameState {
 
 function App() {
   const [state, setState] = useState(GameState.intro);
-  const [translations, setTranslations] = useState<{[key: string]: string}>({});
   const [mapData, setMapData] = useState<TiledMapData>();
   const [data, setData] = useState<GameData<Content>>();
+  const { getText, getTextRaw } = useTranslationStore();
 
   const gameMode = useMemo(() => {
     if (!data) return undefined;
@@ -223,14 +223,6 @@ function App() {
     setScenarioReactions({});
   }
 
-  const starsToGainText = useMemo<string>(() => {
-    const currentScore = levelsCompleted?.[0]?.score || 0;
-    // const maxScore = content?.finder?.situations.length || 0;
-    const maxScore = content?.stars || content?.finder?.situations.length || Object.keys(content?.scenarios || {}).length || 1;
-    return ("" + translations["intro-stars-to-gain"])
-      .replace("{0}", ""+currentScore)
-      .replace("{1}", ""+maxScore);
-  }, [content, levelsCompleted, translations]);
 
   const { correctScenarios, wrongScenarios } = useMemo(() => {
     // make maps of correct and wrong answers
@@ -263,13 +255,10 @@ function App() {
         />
         {loadComplete && (
           <>
-            {(state === GameState.intro) &&
+            {(state === GameState.intro && data) &&
             (<IntroDialog
+              gameData={data}
               onStart={handleStart}
-              headerText={translations["intro-header"]}
-              descriptionText={translations["intro-description"]}
-              starsToGainText={starsToGainText}
-              startText={translations["intro-start"]}
             />)}
             {(state === GameState.normal) && mapData && content && gameMode && (
               <>
@@ -288,8 +277,6 @@ function App() {
                 {gameMode === GameMode.finder && content.finder && (
                   <FinderBox
                     content={content.finder}
-                    instructionText={translations["finder-instruction"]}
-                    nextText={translations["button-next"]}
                     foundSituations={foundSituations}
                     onOpenGame={handleOpenGame}
                   />
@@ -297,8 +284,6 @@ function App() {
                 {gameMode === GameMode.timedFinder && content.finder && (
                   <TimedFinderBox
                     content={content.finder}
-                    instructionText={translations["finder-instruction"]}
-                    itemsRemainText={translations["items-remain"]}
                     foundSituations={foundSituations}
                     onSetState={setState}
                   />
@@ -308,8 +293,6 @@ function App() {
                     scenarios={content.scenarios}
                     correctScenarios={correctScenarios}
                     wrongScenarios={wrongScenarios}
-                    instructionText={translations["finder-instruction"]}
-                    nextText={translations["button-next"]}
                     onComplete={handleComplete}
                   />
                 )}
@@ -330,7 +313,6 @@ function App() {
                 selectedReaction={scenarioReactions[scenario]}
                 onCorrectReaction={handleCorrectReaction}
                 onWrongReaction={handleWrongScenario}
-                texts={translations}
                 onBack={exitScenario}
               />
             )}
@@ -340,10 +322,6 @@ function App() {
                 onExit={handleExit}
                 total={Object.keys(content?.scenarios!).length || 0}
                 mistakes={wrongScenarios.length}
-                headerText={translations["complete-header"]}
-                scoreText={translations["complete-score"]}
-                tryAgainText={translations["complete-try-again"]}
-                exitText={translations["complete-exit"]}
               />)}
           </>
         )}

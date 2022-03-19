@@ -2,13 +2,10 @@ import React, { useEffect } from 'react';
 import BaseDialog from './BaseDialog';
 import { ReactComponent as StarEmpty } from './../../common/images/star-empty.svg';
 import { ReactComponent as StarFull } from './../../common/images/star-full.svg';
+import { useTranslationStore } from 'stores/translations';
 import './styles/completeDialog.scss';
 
 interface Props {
-  headerText: string;
-  scoreText: string;
-  tryAgainText: string;
-  exitText: string;
   total: number;
   mistakes: number;
   onTryAgain: () => void;
@@ -16,12 +13,13 @@ interface Props {
 }
 
 const CompleteDialog = (props: Props) => {
+  const { getText, getTextRaw } = useTranslationStore();
   const { total, mistakes } = props;
   const score = Math.max(total - mistakes, 0);
 
   useEffect(() => {
     // @ts-ignore
-    if (window.setLevelScore) window.setLevelScore(1, score, total); 
+    if (window.setLevelScore) window.setLevelScore(1, score, total);
   }, [score, total]);
 
   const renderStars = () => {
@@ -46,10 +44,10 @@ const CompleteDialog = (props: Props) => {
         <section>{props.descriptionText}</section>
     </div>*/}
       <div className="block">
-        <h1>{props.headerText}</h1>
+        <h1>{getText("complete-header")}</h1>
       </div>
       <div className="block score">
-        {props.scoreText
+        {getTextRaw("complete-score")
           .replace("{0}", score.toString())
           .replace("{1}", total.toString())
         }
@@ -60,10 +58,10 @@ const CompleteDialog = (props: Props) => {
       <div className="bottom">
         {/* <StarEmpty className="star"/> */}
         <button className="green button" onClick={props.onTryAgain}>
-          {props.tryAgainText}
+          {getText("complete-try-again")}
         </button>
         <button className="red button" onClick={props.onExit}>
-          {props.exitText}
+          {getText("complete-exit")}
         </button>
       </div>
     </BaseDialog>

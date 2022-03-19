@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { FinderContent } from 'data/Content';
 import ProgressBar from 'components/ProgressBar';
 import { GameState } from 'App';
+import { useTranslationStore } from 'stores/translations';
 import './styles/timedFinderBox.scss';
 
 interface Props {
   content: FinderContent;
-  instructionText: string;
   foundSituations: string[];
-  itemsRemainText: string;
   onSetState: (gameState: GameState) => void;
 }
 
@@ -25,9 +24,11 @@ const formatTime = (seconds: number) => {
 }
 
 const TimedFinderBox = (props: Props) => {
-  const { content, itemsRemainText, foundSituations, onSetState } = props;
+  const { getTextRaw } = useTranslationStore();
+  const { content, foundSituations, onSetState } = props;
   const { time = 120 } = content;
   const [timePassed, setTime] = useState(0)
+
   // const disabled = props.foundSituations.length < props.content.situations.length;
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,7 +42,7 @@ const TimedFinderBox = (props: Props) => {
   return (
     <div className="timed-finder-box">
       <div className="items-remain">
-       {itemsRemainText.replace('{0}', (content.situations.length - foundSituations.length).toString())}
+       {getTextRaw("items-remain").replace('{0}', (content.situations.length - foundSituations.length).toString())}
       </div>
       <ProgressBar value={(time - timePassed) / time}>
         Time left: {formatTime(time - timePassed)}

@@ -1,21 +1,22 @@
 import React from 'react';
+import { useTranslationStore } from 'stores/translations';
 
 interface Props {
   correct: boolean;
-  texts: {[key: string]: string};
 }
 
 const FeedbackTitle = (props: Props) => {
+  const { getText } = useTranslationStore();
   if (props.correct) {
     return (
       <h1 className="correct">
-        {props.texts["feedback-correct"]}
+        {getText("feedback-correct")}
       </h1>
     );
   }
   return (
     <h1 className="wrong">
-      {props.texts["feedback-wrong"]}
+      {getText("feedback-wrong")}
     </h1>
   );
 }

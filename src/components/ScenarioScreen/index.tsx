@@ -10,13 +10,13 @@ import { ReactComponent as BackIcon } from './styles/back.svg';
 import { ReactComponent as CloseIcon } from './styles/close.svg';
 
 import "./styles/scenarioScreen.scss";
+import { useTranslationStore } from 'stores/translations';
 
 gsap.registerPlugin(TextPlugin);
 
 interface Props {
   scenario: string;
   content: Scenario;
-  texts: {[key: string]: string};
   selectedReaction?: string; // When reaction has been set correctly before
   onCorrectReaction: (index: string) => void;
   onWrongReaction: (index: string) => void;
@@ -29,16 +29,17 @@ enum State {
   feedback,
 }
 
-const parseUrl = (url: string, texts: {[key: string]: string}) => {
+const parseUrl = (url: string, getTextRaw: (key: string) => string) => {
   // url can be either a direct path or a key in the translation section
   if (url.startsWith('http')){
     return url;
   }
-  return texts[url];
+  return getTextRaw(url);
 }
 
 const ScenarioScreen = (props: Props) => {
-  const {content, texts} = props;
+  const {content, scenario } = props;
+  const { getText, getTextRaw } = useTranslationStore();
   const ref = useRef<HTMLDivElement>(null);
   const reopeningCorrectScenario = useRef<boolean>(!!props.selectedReaction);
   const [state, setState] = useState(State.description);
@@ -85,8 +86,8 @@ const ScenarioScreen = (props: Props) => {
   const selectedReactionText = useMemo(() => {
     if (!selectedReaction) return "";
     const id = content.reactions.find(r => r.id === selectedReaction)?.id;
-    return texts[`reaction-${props.scenario}-${id}`];
-  }, [content.reactions, props.scenario, texts, selectedReaction]);
+    return getText(`reaction-${scenario}-${id}`);
+  }, [content.reactions, getText, scenario, selectedReaction]);
 
   const selectedReactionCorrect = useMemo(() => {
     if (!selectedReaction) return false;
@@ -108,15 +109,14 @@ const ScenarioScreen = (props: Props) => {
   }
 
   const imageUrl = useMemo(() => {
-
     if (content.image && state !== State.feedback) {
-      return parseUrl(content.image, texts);
+      return parseUrl(content.image, getTextRaw);
     }
     if (content.imageFeedback && state === State.feedback) {
-      return parseUrl(content.imageFeedback, texts);
+      return parseUrl(content.imageFeedback, getTextRaw);
     }
     return null;
-  }, [content.image, content.imageFeedback, state, texts]);
+  }, [content.image, content.imageFeedback, state, getTextRaw]);
 
   return (
     <>
@@ -129,16 +129,16 @@ const ScenarioScreen = (props: Props) => {
             return (
               <img
                 className="hotspot"
-                key={parseUrl(h.image, texts)}
+                key={parseUrl(h.image, getTextRaw)}
                 style={{
                   left: `${h.left}%`,
                   top: `${h.top}%`,
                   width: `${h.width}%`,
                 }}
                 alt=""
-                data-img={parseUrl(h.image, texts)}
+                data-img={parseUrl(h.image, getTextRaw)}
                 onClick={handleHotspotClick}
-                src={parseUrl(h.hotspot, texts)}
+                src={parseUrl(h.hotspot, getTextRaw)}
               />
             )
           })}
@@ -146,56 +146,54 @@ const ScenarioScreen = (props: Props) => {
       </div>
       <div className={`content state-${State[state]} ${reopeningCorrectScenario.current ? "reopening" : ""}`}>
         <div className="description" >
-          <ReactMarkdown source={texts[`description-${props.scenario}`]} />
+          <ReactMarkdown source={getTextRaw(`description-${scenario}`)} />
           <div className="buttons">
             <button className="button right-align white" onClick={handleClickNextDescription}>
-              {texts["button-next"]}
+              {getText("button-next")}
             </button>
           </div>
         </div>
         <div className="reactions">
-          <h1>{texts["reactions"]}</h1>
+          <h1>{getText("reactions")}</h1>
           <Reactions
-            scenario={props.scenario}
-            texts={texts}
+            scenario={scenario}
             selected={selectedReaction}
             onSelect={setSelectedReaction}
             reactions={content.reactions}
           />
           <div className="buttons">
             <button className="button white" onClick={handleGoToDescription}>
-              {texts["button-prev"]}
+              {getText("button-prev")}
             </button>
             <button
               className={`button ${selectedReaction ? "green" : ""}`}
               onClick={handleGoToFeedback}
               disabled={!selectedReaction}
             >
-             {texts["button-check"]}
+             {getText("button-check")}
             </button>
           </div>
         </div>
         <div className="feedback">
           <FeedbackTitle
-            texts={texts}
             correct={selectedReactionCorrect}
           />
           <p className={`reaction ${selectedReactionCorrect ? "correct" : "wrong"}`}>
            {selectedReactionText}
           </p>
-          <h1 className="title">{texts["feedback"]}</h1>
-          <ReactMarkdown source={texts[`feedback-${props.scenario}`]} />
+          <h1 className="title">{getText("feedback")}</h1>
+          <ReactMarkdown source={getTextRaw(`feedback-${scenario}`)} />
           <div className="buttons">
             {reopeningCorrectScenario.current &&
               (<button className="button white" onClick={handleGoToDescription}>
-                {texts["button-prev"]}
+                {getText("button-prev")}
               </button>
             )}
             <button
               className={`button green right-align`}
               onClick={props.onBack}
             >
-              {texts["button-continue"]}
+              {getText("button-continue")}
             </button>
           </div>
         </div>
