@@ -19,6 +19,7 @@ import './styles/common.scss'
 import './App.css';
 import * as PIXI from 'pixi.js';
 import TimedFinderBox from 'components/TimedFinderBox';
+import { useTranslationStore } from 'stores/translations';
 
 declare global {
   interface Window { PIXI: any; }
@@ -71,7 +72,7 @@ function App() {
         acc[translation.key] = translation.value;
         return acc;
       }, {});
-      setTranslations(t);
+      useTranslationStore.setState({ texts: t });
     }
 
     // console.log(data.translations.map(t => `${t.key}`).join('\n'))
