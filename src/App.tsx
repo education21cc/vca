@@ -14,12 +14,12 @@ import IntroDialog from 'components/dialogs/IntroDialog';
 import useTilesetsLoader from 'hooks/useTilesetsLoader';
 import { TiledTilesetData, TiledMapData } from 'utils/tiledMapData';
 import { loadResource } from 'utils/pixiJs';
-import CompleteDialog from 'components/dialogs/CompleteDialog';
-import './styles/common.scss'
-import './App.css';
+import CompleteDialogScenarios from 'components/dialogs/CompleteDialogScenarios';
 import * as PIXI from 'pixi.js';
 import TimedFinderBox from 'components/TimedFinderBox';
 import { useTranslationStore } from 'stores/translations';
+import './styles/common.scss'
+import './App.css';
 
 declare global {
   interface Window { PIXI: any; }
@@ -40,7 +40,6 @@ function App() {
   const [state, setState] = useState(GameState.intro);
   const [mapData, setMapData] = useState<TiledMapData>();
   const [data, setData] = useState<GameData<Content>>();
-  const { getText, getTextRaw } = useTranslationStore();
 
   const gameMode = useMemo(() => {
     if (!data) return undefined;
@@ -316,13 +315,24 @@ function App() {
                 onBack={exitScenario}
               />
             )}
-            {(state === GameState.complete) &&
-              (<CompleteDialog
-                onTryAgain={handleReset}
-                onExit={handleExit}
-                total={Object.keys(content?.scenarios!).length || 0}
-                mistakes={wrongScenarios.length}
-              />)}
+            {(state === GameState.complete) && (
+              ((gameMode === GameMode.scenarios &&
+                (<CompleteDialogScenarios
+                  onTryAgain={handleReset}
+                  onExit={handleExit}
+                  total={Object.keys(content?.scenarios!).length || 0}
+                  mistakes={wrongScenarios.length}
+                />)
+              )
+              // ((gameMode === GameMode.scenarios &&
+              //   (<CompleteDialog
+              //     onTryAgain={handleReset}
+              //     onExit={handleExit}
+              //     total={Object.keys(content?.scenarios!).length || 0}
+              //     mistakes={wrongScenarios.length}
+              //   />)
+              // )
+            ))}
           </>
         )}
       </div>

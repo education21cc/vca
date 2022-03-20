@@ -3,8 +3,8 @@ import { Sprite } from '@inlet/react-pixi';
 import * as PIXI from 'pixi.js';
 import { gsap } from 'gsap'
 
-
 const CAN_DRAG = false;
+
 export type Color = "red" | "green" | "yellow";
 interface Props {
   position?: PIXI.Point;

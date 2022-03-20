@@ -3,7 +3,7 @@ import BaseDialog from './BaseDialog';
 import { ReactComponent as StarEmpty } from './../../common/images/star-empty.svg';
 import { ReactComponent as StarFull } from './../../common/images/star-full.svg';
 import { useTranslationStore } from 'stores/translations';
-import './styles/completeDialog.scss';
+import './styles/completeDialogScenarios.scss';
 
 interface Props {
   total: number;
@@ -12,7 +12,7 @@ interface Props {
   onExit: () => void;
 }
 
-const CompleteDialog = (props: Props) => {
+const CompleteDialogScenarios = (props: Props) => {
   const { getText, getTextRaw } = useTranslationStore();
   const { total, mistakes } = props;
   const score = Math.max(total - mistakes, 0);
@@ -68,4 +68,4 @@ const CompleteDialog = (props: Props) => {
   );
 }
 
-export default CompleteDialog;
+export default CompleteDialogScenarios;

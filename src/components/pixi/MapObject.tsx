@@ -10,7 +10,6 @@ import SpriteAnimated from './SpriteAnimated';
 import { AnimatedSprite } from 'pixi.js';
 import { GameMode } from 'data/Content';
 
-
 interface Props {
   data: TiledObjectData;
   found?: boolean;
@@ -19,6 +18,7 @@ interface Props {
   tilesetsTextures: {[key: string]: any};
   onClick: (name:string) => void;
 }
+
 const popInDuration = 1;
 const fadeOutDuration = 0.5;
 const MapObject = (props: Props) => {
