@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { FinderContent } from 'data/Content';
 import ProgressBar from 'components/ProgressBar';
 import { useTranslationStore } from 'stores/translations';
-import './styles/timedFinderBox.scss';
 import { GameState } from 'hooks/useGameLogic';
+import { useTimerStore } from 'stores/timer';
+import './styles/timedFinderBox.scss';
 
 interface Props {
   content: FinderContent;
@@ -26,13 +27,12 @@ const formatTime = (seconds: number) => {
 const TimedFinderBox = (props: Props) => {
   const { getTextRaw } = useTranslationStore();
   const { content, foundSituations, onSetState } = props;
+  const { timePassed } = useTimerStore()
   const { time = 120 } = content;
-  const [timePassed, setTime] = useState(0)
 
-  // const disabled = props.foundSituations.length < props.content.situations.length;
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(timePassed + 1);
+      useTimerStore.setState({ timePassed: timePassed + 1 });
       if (timePassed >= time) {
         onSetState(GameState.complete);
       }

@@ -19,6 +19,9 @@ import * as PIXI from 'pixi.js';
 import Map from "./components/pixi/Map";
 import TimedFinderBox from 'components/TimedFinderBox';
 import { send } from 'components/playerBridge';
+import useGameMode from "hooks/useGameMode";
+import CompleteDialogTimedFinder from "components/dialogs/CompleteDialogTimedFinder";
+import { useTimerStore } from "stores/timer";
 
 interface Props {
   data: GameData<Content>
@@ -35,13 +38,7 @@ gsap.registerPlugin(PixiPlugin);
 const Game = (props: Props) => {
   const { data } = props;
   const [mapData, setMapData] = useState<TiledMapData>();
-  const gameMode = useMemo(() => {
-    if (!data) return undefined;
-    if (data.content.gameMode) return data.content.gameMode;
-    // for backwards compatibility
-    if (data.content.finder) return GameMode.finder;
-    if (data.content.scenarios) return GameMode.scenarios;
-  }, [data])
+  const gameMode = useGameMode(data.content)
 
   const [scenario, setScenario] = useState<string|undefined>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
@@ -79,15 +76,16 @@ const Game = (props: Props) => {
 
     loadTilesets(mapData.tilesets);
   }, [loadTilesets, mapData]);
+
   const iframe = useMemo(() => {
     if (!levelsCompleted) return;
-    if (!content?.finder?.final) return;
+    if (!content.finder?.final) return;
 
     // Copy the levelsCompleted of VCA game into minigame
     const final: ContentConfig = {
-      ...content?.finder?.final!,
+      ...content.finder?.final,
       data: {
-        ...content?.finder?.final.data!,
+        ...content.finder.final.data,
         levelsCompleted
       }
     }
@@ -121,7 +119,7 @@ const Game = (props: Props) => {
   }, [setState]);
 
   const handleSituationClick = (situation: string) => {
-    if (!content?.finder) return;
+    if (!content.finder) return;
 
     if (content.finder.situations.indexOf(situation) > -1 && foundSituations.indexOf(situation) === -1){
       setFoundSituations([...foundSituations, situation]);
@@ -144,7 +142,7 @@ const Game = (props: Props) => {
   const handleWrongScenario = (reaction: string) => {
     // gets called from within modal once the correct answer is selected
 
-    if(content?.mistakeMode) {
+    if(content.mistakeMode) {
       setScenarioReactions({
         ...scenarioReactions,
         [scenario!]: reaction
@@ -165,6 +163,8 @@ const Game = (props: Props) => {
   const handleReset = () => {
     setState(GameState.normal);
     setScenarioReactions({});
+    setFoundSituations([]);
+    useTimerStore.setState({ timePassed: 0})
   }
 
   const { correctScenarios, wrongScenarios } = useMemo(() => {
@@ -207,7 +207,7 @@ const Game = (props: Props) => {
                   tilesetsTextures={tilesetsTextures}
                   onSituationClick={handleSituationClick}
                   foundSituations={foundSituations}
-                  mistakeMode={content?.mistakeMode ?? false}
+                  mistakeMode={content.mistakeMode ?? false}
                   correctScenarios={correctScenarios}
                   wrongScenarios={wrongScenarios}
                   onScenarioClick={handleScenarioClick}
@@ -226,7 +226,7 @@ const Game = (props: Props) => {
                     onSetState={setState}
                   />
                 )}
-                {gameMode === GameMode.scenarios && content?.scenarios && (
+                {gameMode === GameMode.scenarios && content.scenarios && (
                   <ScenarioBox
                     scenarios={content.scenarios}
                     correctScenarios={correctScenarios}
@@ -247,7 +247,7 @@ const Game = (props: Props) => {
             {scenario && (
               <ScenarioScreen
                 scenario={scenario}
-                content={content?.scenarios[scenario]!}
+                content={content.scenarios[scenario]}
                 selectedReaction={scenarioReactions[scenario]}
                 onCorrectReaction={handleCorrectReaction}
                 onWrongReaction={handleWrongScenario}
@@ -255,14 +255,24 @@ const Game = (props: Props) => {
               />
             )}
             {(state === GameState.complete) && (
-              ((gameMode === GameMode.scenarios &&
-                (<CompleteDialogScenarios
-                  onTryAgain={handleReset}
-                  onExit={handleExit}
-                  total={Object.keys(content?.scenarios!).length || 0}
-                  mistakes={wrongScenarios.length}
-                />)
-              )
+              <>
+                {((gameMode === GameMode.scenarios &&
+                  (<CompleteDialogScenarios
+                    onTryAgain={handleReset}
+                    onExit={handleExit}
+                    total={Object.keys(content.scenarios!).length || 0}
+                    mistakes={wrongScenarios.length}
+                  />)
+                ))}
+                {((gameMode === GameMode.timedFinder && content.finder &&
+                  (<CompleteDialogTimedFinder
+                    content={content.finder}
+                    foundSituations={foundSituations}
+                    onTryAgain={handleReset}
+                    onExit={handleExit}
+                  />)
+                ))}
+              </>
               // ((gameMode === GameMode.scenarios &&
               //   (<CompleteDialog
               //     onTryAgain={handleReset}
@@ -271,7 +281,7 @@ const Game = (props: Props) => {
               //     mistakes={wrongScenarios.length}
               //   />)
               // )
-            ))}
+            )}
           </>
         )}
     </>

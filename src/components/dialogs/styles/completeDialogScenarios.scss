@@ -2,37 +2,60 @@
   display: flex;
   flex-direction: column;
   font-size: large;
+
+
+  .block {
+    flex: 1;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .score {
+    ul {
+      // score list
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        text-align: center;
+      }
+    }
+
+    &.fade-out {
+      animation-fill-mode: forwards;
+      animation: fade-out 400ms 2000ms forwards;
+    }
+  }
+
+  .block.stars {
+    display: flex;
+    justify-content: center;
+
+    div {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      margin: 8px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+
+        &.full {
+          transform: scale(0.0);
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
 }
 
-.complete-dialog .block {
-  flex: 1;
-  text-align: center;
-  padding: 16px;
-}
 
-.complete-dialog .block.stars {
-  display: flex;
-  justify-content: center;
-}
 
-.complete-dialog .block.stars div {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  margin: 8px;
-}
 
-.complete-dialog .block.stars div svg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-}
-
-.complete-dialog .block.stars div svg.full {
-  transform: scale(0.0); 
-  animation-fill-mode: forwards;
-}
 
 @for $i from 1 through 20 {
   .complete-dialog .block.stars div:nth-child(#{$i}) svg.full {
@@ -45,6 +68,9 @@
   100% { transform: scale(1); }
 }
 
+@keyframes fade-out {
+  100% { opacity: 0 }
+}
 
 .complete-dialog .center {
   text-align: center;
@@ -53,7 +79,7 @@
 }
 
 .complete-dialog .bottom {
-  height: 128px;  
+  height: 128px;
   background: #EBEBEB;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
