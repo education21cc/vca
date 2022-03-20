@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { FinderContent } from 'data/Content';
 import ProgressBar from 'components/ProgressBar';
-import { GameState } from 'App';
 import { useTranslationStore } from 'stores/translations';
 import './styles/timedFinderBox.scss';
+import { GameState } from 'hooks/useGameLogic';
 
 interface Props {
   content: FinderContent;
