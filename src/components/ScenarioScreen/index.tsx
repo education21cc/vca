@@ -8,9 +8,8 @@ import Reactions from './Reactions';
 import FeedbackTitle from './FeedbackTitle';
 import { ReactComponent as BackIcon } from './styles/back.svg';
 import { ReactComponent as CloseIcon } from './styles/close.svg';
-
-import "./styles/scenarioScreen.scss";
 import { useTranslationStore } from 'stores/translations';
+import "./styles/scenarioScreen.scss";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -146,7 +145,9 @@ const ScenarioScreen = (props: Props) => {
       </div>
       <div className={`content state-${State[state]} ${reopeningCorrectScenario.current ? "reopening" : ""}`}>
         <div className="description" >
-          <ReactMarkdown source={getTextRaw(`description-${scenario}`)} />
+          <ReactMarkdown>
+            {getTextRaw(`description-${scenario}`)}
+          </ReactMarkdown>
           <div className="buttons">
             <button className="button right-align white" onClick={handleClickNextDescription}>
               {getText("button-next")}
@@ -182,7 +183,9 @@ const ScenarioScreen = (props: Props) => {
            {selectedReactionText}
           </p>
           <h1 className="title">{getText("feedback")}</h1>
-          <ReactMarkdown source={getTextRaw(`feedback-${scenario}`)} />
+          <ReactMarkdown>
+            {getTextRaw(`feedback-${scenario}`)}
+          </ReactMarkdown>
           <div className="buttons">
             {reopeningCorrectScenario.current &&
               (<button className="button white" onClick={handleGoToDescription}>
