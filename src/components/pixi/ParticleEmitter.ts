@@ -1,7 +1,6 @@
 import { PixiComponent, applyDefaultProps, Container } from "@inlet/react-pixi";
-import * as PIXI  from 'pixi.js';
 import * as particles from 'pixi-particles';
-import { ParticleContainer } from "pixi.js";
+import { ParticleContainer, Texture } from "pixi.js";
 
 interface Props  {
     image: string;
@@ -23,7 +22,7 @@ const ParticleEmitter = PixiComponent<Props & React.ComponentProps<typeof Contai
       if (!emitter) {
         emitter = new particles.Emitter(
           instance,
-          [PIXI.Texture.from(image)],
+          [Texture.from(image)],
           config
         );
 

@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState, ComponentProps } from 'react';
 import { Sprite } from '@inlet/react-pixi';
-import * as PIXI from 'pixi.js';
+import { InteractionData, InteractionEvent, Point, Sprite as PixiSprite}  from 'pixi.js';
 import { gsap } from 'gsap'
 
 const CAN_DRAG = false;
 
 export type Color = "red" | "green" | "yellow";
 interface Props {
-  position?: PIXI.Point;
+  position?: Point;
   delay?: number; // Wait this long before showing
   bounce?: boolean;
   color?: Color;
@@ -16,9 +16,9 @@ interface Props {
 /* A map marker (the red or green arrow thimg) */
 const Marker = (props: Props & ComponentProps<typeof Sprite>) => {
   const { color = "red" } = props;
-  const ref = useRef<PIXI.Sprite>(null);
-  const data = useRef<PIXI.InteractionData>();
-  const [position, setPosition] = useState<PIXI.Point>(props.position || new PIXI.Point());
+  const ref = useRef<PixiSprite>(null);
+  const data = useRef<InteractionData>();
+  const [position, setPosition] = useState<Point>(props.position || new Point());
   const popInDuration = 1;
   const image = `${process.env.PUBLIC_URL}/images/ui/marker-${color}.svg`;
 
@@ -53,7 +53,7 @@ const Marker = (props: Props & ComponentProps<typeof Sprite>) => {
     }
   }, [props.bounce]);
 
-  const onDragStart = (event: PIXI.InteractionEvent) => {
+  const onDragStart = (event: InteractionEvent) => {
     if (!CAN_DRAG) return;
     // store a reference to the data
     // the reason for this is because of multitouch

@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { Viewport as PixiViewport, ClickEventData } from "pixi-viewport";
+import { Viewport as PixiViewport } from "pixi-viewport";
 import { PixiComponent, useApp } from "@inlet/react-pixi";
 import * as PIXI  from 'pixi.js';
 import { InteractionEvent } from "pixi.js";
