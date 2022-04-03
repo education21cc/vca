@@ -8,7 +8,7 @@
       "finder": {
         "situations": ["door7", "door6", "door5", "door4", "door3", "door2", "door1"],
         "final": {
-          "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
+          "url": "https://21cccdn.blob.core.windows.net/21cc/webgl_portfolio/games/OrderGame/",
           "data": {
             "userId": 1,
             "settings": {

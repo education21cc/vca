@@ -11,7 +11,7 @@
         "mapJson": "maps/testmap3.json",
         "situations": {
             "fire": {
-              "url": "https://21cceducation.nl/content/webgl_portfolio/games/ForkliftLabels/",
+              "url": "https://21cccdn.blob.core.windows.net/21cc/webgl_portfolio/games/ForkliftLabels/",
               "title": "Fire in the garbage bin!"
             }
         },
@@ -43,7 +43,7 @@
                 "position": [784, 175]
               }, {
                 "image":  "kumar-playing.png",
-                "position": [112, 77]              
+                "position": [112, 77]
               }]
             }, {
               "type": "speech",
@@ -98,7 +98,7 @@
           "instruction": "Vind drie gevaarlijke situaties..",
           "situations": ["burningBin", "tallBoxes", "tallBoxes2"],
           "final": {
-              "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
+              "url": "https://21cccdn.blob.core.windows.net/21cc/webgl_portfolio/games/OrderGame/",
               "data": {
                 "userId": 1,
                 "settings": {
@@ -140,7 +140,7 @@
                         "maxScore": 2
                       }
                   ]
-              }          
+              }
           }
         }
     },

@@ -10,18 +10,18 @@
       "finder": {
         "situations": ["aed1", "aed2", "aed3"],
         "final": {
-            "url-": "https://21cceducation.nl/content/webgl_portfolio/games/ConveyorGame/",
+            "url-": "https://21cccdn.blob.core.windows.net/21cc/webgl_portfolio/games/ConveyorGame/",
             "url": "http://localhost:61703/",
             "data": {
-                "userId": 7, 
+                "userId": 7,
                 "settings": {
                     "muted": false
-                }, 
+                },
                 "content": {
                     "increase": ["Raindrops on roses", "Whiskers on kittens", "Bright copper kettles", "warm woolen mittens"],
                     "reduce": ["The dog bites", "The bee stings", "I'm feeling sad"],
                     "winCondition": 2
-                }, 
+                },
                 "translations": [{
                 "key": "intro-header",
                 "value": "Intro"
@@ -61,7 +61,7 @@
                 "maxScore": 2
                 }]
             }
-        }      
+        }
       }
   },
   "translations": [{
@@ -78,7 +78,7 @@
     "value": "{0}/{1} verdiend"
   }, {
     "key": "button-next",
-    "value": "Next" 
+    "value": "Next"
   }, {
     "key": "finder-instruction",
     "value": "Vind 3 AED's"
