@@ -11,7 +11,7 @@
         "instruction": "Vind 5 brandbrussers",
         "situations": ["trash1", "trash2", "trash3", "burningBin", "blockingContainer", "blockingBox", "stackOfBoxes"],
         "final": {
-            "url": "https://21cceducation.nl/content/webgl_portfolio/games/OrderGame/",
+            "url": "https://21cccdn.blob.core.windows.net/21cc/webgl_portfolio/games/OrderGame/",
             "data": {
               "userId": 1,
               "settings": {
@@ -45,15 +45,15 @@
                 {"key": "introduction_short",
                   "value": "Noodsituaties"},
                 {"key": "introduction_long",
-                  "value": "Deze game heeft z'n config van VCA game gekregen. omg wat cool!"}                
+                  "value": "Deze game heeft z'n config van VCA game gekregen. omg wat cool!"}
               ],
               "levelsCompleted": [{
                   "level": 1,
                   "score": 2,
                   "maxScore": 2
                 }]
-            }          
-        }      
+            }
+        }
       }
   },
   "translations": [{
