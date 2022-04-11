@@ -16,7 +16,7 @@ export const useGameLogic = (content: Content, foundSituations: string[]) => {
   useEffect(() => {
     if (gameMode === GameMode.timedFinder) {
       if (foundSituations.length === content.finder?.situations.length) {
-        setState(GameState.complete)
+        setTimeout(() => { setState(GameState.complete) }, 1000)
       }
     }
   }, [content.finder?.situations.length, foundSituations.length, gameMode]);

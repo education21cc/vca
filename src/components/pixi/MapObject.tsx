@@ -56,6 +56,15 @@ const MapObject = (props: Props) => {
   }, [found, gameMode]);
 
   useEffect(() => {
+    const checkRefEffect = checkRef.current;
+    const refEffect = ref.current;
+    return () => {
+      gsap.killTweensOf(checkRefEffect);
+      gsap.killTweensOf(refEffect);
+    }
+  }, []);
+
+  useEffect(() => {
     let timeout: NodeJS.Timeout;
     let tl: gsap.core.Timeline;
     if (!ref.current) return;
