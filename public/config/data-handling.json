@@ -4,15 +4,16 @@
     "muted": false
   },
   "content": {
-    "mapJson": "maps/testmap3.json",
+    "mapJson": "maps/manual-handling-level1.json",
     "gameMode": "timedFinder",
     "finder": {
       "situations": [
-        "extinguisher5",
-        "extinguisher4",
-        "extinguisher3",
-        "extinguisher2",
-        "extinguisher1"
+        "junk6",
+        "junk5",
+        "junk4",
+        "junk3",
+        "junk2",
+        "junk1"
       ],
       "time": 120,
       "time-original": 120
