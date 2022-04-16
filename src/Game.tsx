@@ -23,6 +23,7 @@ import useGameMode from "hooks/useGameMode";
 import CompleteDialogTimedFinder from "components/dialogs/CompleteDialogTimedFinder";
 import { useTimerStore } from "stores/timer";
 import { GameState, useGameStateStore } from "stores/gameState";
+import { useContentStore } from "stores/content";
 
 interface Props {
   data: GameData<Content>
@@ -39,19 +40,19 @@ gsap.registerPlugin(PixiPlugin);
 const Game = (props: Props) => {
   const { data } = props;
   const [mapData, setMapData] = useState<TiledMapData>();
-  const gameMode = useGameMode(data.content)
 
   const [scenario, setScenario] = useState<string|undefined>();
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
   const [scenarioReactions, setScenarioReactions] = useState<{[key: string]: string}>({}); // key = scenario, value = reaction id
   const [iframeOpen, setIframeOpen] = useState(false);
-  useGameLogic(data?.content, foundSituations);
+  const { content } = useContentStore();
+  useGameLogic(content, foundSituations);
+  const gameMode = useGameMode(content)
   const { state, setState } = useGameStateStore()
 
   const handleBack = useCallback(() => {
     setIframeOpen(false);
   }, []);
-  const content = useMemo(() => data?.content, [data]);
   const levelsCompleted = useMemo(() => data?.levelsCompleted, [data]);
 
   const {
@@ -169,7 +170,7 @@ const Game = (props: Props) => {
   const { correctScenarios, wrongScenarios } = useMemo(() => {
     // make maps of correct and wrong answers
     return Object.keys(scenarioReactions || {}).reduce<{ correctScenarios: string[], wrongScenarios: string[]}>((acc, value) => {
-      const scenario = data?.content.scenarios[value];
+      const scenario = content.scenarios[value];
       if (scenario) {
         const isCorrect = !!scenario.reactions.find(r => r.id === scenarioReactions[value])?.correct
         if (isCorrect) {
@@ -183,7 +184,7 @@ const Game = (props: Props) => {
       correctScenarios: [],
       wrongScenarios: []
     })
-  }, [data?.content.scenarios, scenarioReactions]);
+  }, [content.scenarios, scenarioReactions]);
 
   return (
     <>
@@ -200,7 +201,6 @@ const Game = (props: Props) => {
             {(state === GameState.normal || state === GameState.preComplete) && mapData && gameMode && (
               <>
                 <Map
-                  content={content}
                   mapData={mapData}
                   gameMode={gameMode}
                   tilesetsTextures={tilesetsTextures}
@@ -213,14 +213,12 @@ const Game = (props: Props) => {
                 />
                 {gameMode === GameMode.finder && content.finder && (
                   <FinderBox
-                    content={content.finder}
                     foundSituations={foundSituations}
                     onOpenGame={handleOpenGame}
                   />
                 )}
                 {gameMode === GameMode.timedFinder && content.finder && (
                   <TimedFinderBox
-                    content={content.finder}
                     foundSituations={foundSituations}
                   />
                 )}
@@ -264,7 +262,6 @@ const Game = (props: Props) => {
                 ))}
                 {((gameMode === GameMode.timedFinder && content.finder &&
                   (<CompleteDialogTimedFinder
-                    content={content.finder}
                     foundSituations={foundSituations}
                     onTryAgain={handleReset}
                     onExit={handleExit}

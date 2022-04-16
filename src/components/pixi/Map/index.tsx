@@ -12,11 +12,11 @@ import Marker, { Color } from 'components/pixi/Marker';
 import { Content, GameMode, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
 import MapObject from '../MapObject';
-import { useGameLogic } from 'hooks/useGameLogic';
-import { useGameStateStore } from 'stores/gameState';
+import { GameState, useGameStateStore } from 'stores/gameState';
+import { useContentStore } from 'stores/content';
+import ShowFinderPath from '../ShowFinderPath';
 
 interface Props {
-  content: Content;
   mapData: TiledMapData;
   gameMode: GameMode;
   tilesetsTextures: {[key: string]: any};
@@ -37,7 +37,6 @@ if (process.env.NODE_ENV === "development") {
 
 const Map = (props: Props) => {
   const {
-    content,
     mistakeMode,
     foundSituations,
     mapData,
@@ -48,6 +47,7 @@ const Map = (props: Props) => {
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+  const { content } = useContentStore()
   const { state, setState } = useGameStateStore()
 
   // PIXI.settings.ROUND_PIXELS = false;
@@ -68,14 +68,14 @@ const Map = (props: Props) => {
 
 
   useEffect(() => {
-    if (!content.finder) {
+    if (!content?.finder) {
       // Only plop in scenario mode
       sound.add('plops', {
         url: `${process.env.PUBLIC_URL}/sound/plops.mp3`,
         autoPlay: true,
       });
     }
-  }, [content.finder]);
+  }, [content?.finder]);
 
   useEffect(() => {
     const resize = () => {
@@ -277,7 +277,10 @@ const Map = (props: Props) => {
         <Container sortableChildren={true}>
           {renderObjectLayers(mapData.layers)}
         </Container>
-        {Object.entries(content.scenarios || []).map(([key, value], index) => renderScenarioMarker(key, value, index))}
+        {Object.entries(content?.scenarios || []).map(([key, value], index) => renderScenarioMarker(key, value, index))}
+        {state === GameState.preComplete && (
+          <ShowFinderPath />
+        )}
       </Viewport>
     </Stage>
   );

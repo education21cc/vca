@@ -3,32 +3,39 @@ import BaseDialog from './BaseDialog';
 import { ReactComponent as StarEmpty } from './../../common/images/star-empty.svg';
 import { ReactComponent as StarFull } from './../../common/images/star-full.svg';
 import { useTranslationStore } from 'stores/translations';
-import { FinderContent } from 'data/Content';
 import { useTimerStore } from 'stores/timer';
+import { useContentStore } from 'stores/content';
 import './styles/completeDialogScenarios.scss';
 
 interface Props {
-  content: FinderContent;
   foundSituations: string[];
   onTryAgain: () => void;
   onExit: () => void;
 }
+const DEFAULT_TIME = 120
 
 const CompleteDialogTimedFinder = (props: Props) => {
-  const { content, foundSituations } = props;
+  const { foundSituations } = props;
   const { getText } = useTranslationStore();
   const totalStars = 4;
   const [animationScore, setAnimationScore] = useState(0)
   const { timePassed } = useTimerStore()
-  const { time = 120 } = content;
+  const { content } = useContentStore()
+  const finderContent = content?.finder ?? {
+    situations: [],
+    final: {},
+    time: DEFAULT_TIME
+  }
+  const { time = DEFAULT_TIME } = finderContent ?? { time: DEFAULT_TIME };
+
 
   const score = useMemo(() => {
     if (foundSituations.length === 0) return 0;
-    if (foundSituations.length < content.situations.length) return 1;
+    if (foundSituations.length < finderContent.situations.length) return 1;
     if ((time - timePassed) / time < .5) return 2;
     if ((time - timePassed) / time < .8) return 3;
     return 4
-  }, [content.situations.length, foundSituations.length, time, timePassed]);
+  }, []);
 
   useEffect(() => {
     // @ts-ignore
@@ -72,6 +79,8 @@ const CompleteDialogTimedFinder = (props: Props) => {
 
     return () => clearTimeout(timeout)
   }, [animationScore, score])
+
+
 
   return (
     <BaseDialog className="complete-dialog">

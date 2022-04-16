@@ -6,15 +6,19 @@ import Game from 'Game';
 import './styles/common.scss'
 import './App.css';
 import PlayerBridge from 'components/playerBridge';
+import { useContentStore } from 'stores/content';
 
 
 function App() {
   const [data, setData] = useState<GameData<Content>>();
+  const { loaded, setContent } = useContentStore();
 
   const handleGameDataReceived = useCallback((data: GameData<Content>) => {
 
     // PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
     setData(data);
+    const { content } = data
+    setContent(content);
 
     if (data.translations){
       const t = data.translations.reduce<{[key: string]: string}>((acc, translation) => {
@@ -26,7 +30,7 @@ function App() {
 
     // console.log(data.translations.map(t => `${t.key}`).join('\n'))
     // console.log(data.translations.map(t => t.value).join('\n'))
-  }, []);
+  }, [setContent]);
 
 
   useEffect(() => {
@@ -72,7 +76,7 @@ function App() {
         disableBackButton={false}
         // disableBackButton={!!iframeOpen || !!scenario}
       />
-      {data && (
+      {loaded && data && (
         <Game data={data} />
       )}
     </div>
