@@ -233,8 +233,32 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":2944,
-                 "y":1088
+                 "x":2880,
+                 "y":960
+                }, 
+                {
+                 "gid":132,
+                 "height":64,
+                 "id":40,
+                 "name":"start",
+                 "rotation":0,
+                 "type":"start",
+                 "visible":true,
+                 "width":128,
+                 "x":1152,
+                 "y":1408
+                }, 
+                {
+                 "gid":133,
+                 "height":64,
+                 "id":41,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":2880,
+                 "y":448
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -243,7 +267,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":40,
+ "nextobjectid":42,
  "orientation":"isometric",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
@@ -1303,7 +1327,7 @@
          "margin":0,
          "name":"misc-junk",
          "spacing":0,
-         "tilecount":11,
+         "tilecount":12,
          "tileheight":80,
          "tiles":[
                 {
@@ -1371,8 +1395,37 @@
                  "image":"tiles\/misc-junk\/tile-misc-junk-6.png",
                  "imageheight":64,
                  "imagewidth":128
+                }, 
+                {
+                 "id":11,
+                 "image":"tiles\/misc-junk\/tile-misc-junk-12.png",
+                 "imageheight":64,
+                 "imagewidth":128
                 }],
          "tilewidth":129
+        }, 
+        {
+         "columns":0,
+         "firstgid":133,
+         "grid":
+            {
+             "height":1,
+             "orientation":"orthogonal",
+             "width":1
+            },
+         "margin":0,
+         "name":"misc-mechanics",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":64,
+         "tiles":[
+                {
+                 "id":0,
+                 "image":"tiles\/misc-mechanics\/tile-misc-mechanics-01.png",
+                 "imageheight":64,
+                 "imagewidth":128
+                }],
+         "tilewidth":128
         }],
  "tilewidth":128,
  "type":"map",
