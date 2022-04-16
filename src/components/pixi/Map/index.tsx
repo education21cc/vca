@@ -12,6 +12,8 @@ import Marker, { Color } from 'components/pixi/Marker';
 import { Content, GameMode, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
 import MapObject from '../MapObject';
+import { useGameLogic } from 'hooks/useGameLogic';
+import { useGameStateStore } from 'stores/gameState';
 
 interface Props {
   content: Content;
@@ -46,6 +48,8 @@ const Map = (props: Props) => {
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+  const { state, setState } = useGameStateStore()
+
   // PIXI.settings.ROUND_PIXELS = false;
 
   // https://stackoverflow.com/questions/4615116/how-to-calculate-the-height-and-width-of-an-isometric-rectangle-square

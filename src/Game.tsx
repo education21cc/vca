@@ -2,7 +2,7 @@ import React from "react";
 import { GameData } from "components/playerBridge/GameData";
 import { Content, ContentConfig, GameMode } from "data/Content";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { GameState, useGameLogic } from 'hooks/useGameLogic';
+import { useGameLogic } from 'hooks/useGameLogic';
 import { PixiPlugin } from 'gsap/all';
 import { gsap } from 'gsap';
 import FinderBox from 'components/FinderBox';
@@ -22,6 +22,7 @@ import { send } from 'components/playerBridge';
 import useGameMode from "hooks/useGameMode";
 import CompleteDialogTimedFinder from "components/dialogs/CompleteDialogTimedFinder";
 import { useTimerStore } from "stores/timer";
+import { GameState, useGameStateStore } from "stores/gameState";
 
 interface Props {
   data: GameData<Content>
@@ -44,10 +45,8 @@ const Game = (props: Props) => {
   const [foundSituations, setFoundSituations] = useState<string[]>([]);
   const [scenarioReactions, setScenarioReactions] = useState<{[key: string]: string}>({}); // key = scenario, value = reaction id
   const [iframeOpen, setIframeOpen] = useState(false);
-  const {
-    state,
-    setState
-  } = useGameLogic(data?.content, foundSituations);
+  useGameLogic(data?.content, foundSituations);
+  const { state, setState } = useGameStateStore()
 
   const handleBack = useCallback(() => {
     setIframeOpen(false);
@@ -191,14 +190,14 @@ const Game = (props: Props) => {
       {(!loadComplete) && (
         <Loading />
       )}
- {loadComplete && (
+        {loadComplete && (
           <>
             {(state === GameState.intro) &&
             (<IntroDialog
               gameData={data}
               onStart={handleStart}
             />)}
-            {(state === GameState.normal) && mapData && gameMode && (
+            {(state === GameState.normal || state === GameState.preComplete) && mapData && gameMode && (
               <>
                 <Map
                   content={content}
@@ -223,7 +222,6 @@ const Game = (props: Props) => {
                   <TimedFinderBox
                     content={content.finder}
                     foundSituations={foundSituations}
-                    onSetState={setState}
                   />
                 )}
                 {gameMode === GameMode.scenarios && content.scenarios && (
