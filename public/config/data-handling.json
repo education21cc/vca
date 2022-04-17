@@ -8,12 +8,7 @@
     "gameMode": "timedFinder",
     "finder": {
       "situations": [
-        "junk6",
-        "junk5",
-        "junk4",
-        "junk3",
-        "junk2",
-        "junk1"
+        "junk6"
       ],
       "time": 25
     }

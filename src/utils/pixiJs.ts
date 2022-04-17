@@ -1,6 +1,6 @@
 import { Loader } from "pixi.js";
 
-interface Location {
+export interface Location {
     x: number;
     y: number;
 }

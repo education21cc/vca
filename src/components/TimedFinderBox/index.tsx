@@ -26,15 +26,18 @@ const formatTime = (seconds: number) => {
 
 const TimedFinderBox = (props: Props) => {
   const { getTextRaw } = useTranslationStore();
-  const { setState } = useGameStateStore()
+  const { state, setState } = useGameStateStore()
   const { foundSituations } = props;
   const { timePassed } = useTimerStore()
 
   useEffect(() => {
     const interval = setInterval(() => {
-      useTimerStore.setState({ timePassed: timePassed + 1 });
-      if (timePassed >= time) {
-        setState(GameState.complete);
+      if (state === GameState.normal) {
+
+        useTimerStore.setState({ timePassed: timePassed + 1 });
+        if (timePassed >= time) {
+          setState(GameState.complete);
+        }
       }
     }, 1000)
     return () => clearInterval(interval);

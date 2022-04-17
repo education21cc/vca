@@ -269,7 +269,6 @@ const Map = (props: Props) => {
                 graphics.endFill();
             }}
             position={tileLocationToPosition([0, 0], mapData.width, mapData.height)}
-
         /> */}
         <Container sortableChildren={true}>
           {renderLayers(mapData.layers)}
@@ -278,8 +277,14 @@ const Map = (props: Props) => {
           {renderObjectLayers(mapData.layers)}
         </Container>
         {Object.entries(content?.scenarios || []).map(([key, value], index) => renderScenarioMarker(key, value, index))}
-        {state === GameState.preComplete && (
-          <ShowFinderPath />
+        { viewportRef.current && state === GameState.preComplete && (
+          <ShowFinderPath
+            viewport={viewportRef.current}
+            mapWidth={mapWidth}
+            mapHeight={mapHeight}
+            verticalTiles={mapData.height}
+            horizontalTiles={mapData.width}
+          />
         )}
       </Viewport>
     </Stage>
