@@ -4,27 +4,27 @@
     "muted": false
   },
   "content": {
-    "mapJson": "maps/testmap3.json",
+    "mapJson": "maps/manual-handling-level1.json",
     "gameMode": "timedFinder",
     "finder": {
       "situations": [
-        "extinguisher5",
-        "extinguisher4",
-        "extinguisher3",
-        "extinguisher2",
-        "extinguisher1"
+        "junk6",
+        "junk5",
+        "junk4",
+        "junk3",
+        "junk2",
+        "junk1"
       ],
-      "time": 120,
-      "time-original": 120
+      "time": 25
     }
   },
   "translations": [{
       "key": "intro-header",
-      "value": "Brandblussers in het magazijn"
+      "value": "Manual handling"
     },
     {
       "key": "intro-description",
-      "value": "Klik op alle brandblussers en beantwoord daarna de vraag om 1 ster te verdienen. Succes! "
+      "value": "Clear all the objects between the box and the destination "
     },
     {
       "key": "intro-start",
@@ -41,6 +41,10 @@
     {
       "key": "complete-header",
       "value": "Complete"
+    },
+    {
+      "key": "timeup-header",
+      "value": "Time up!"
     },
     {
       "key": "score-list-1",
