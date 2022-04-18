@@ -35,7 +35,7 @@ const CompleteDialogTimedFinder = (props: Props) => {
     if ((time - timePassed) / time < .5) return 2;
     if ((time - timePassed) / time < .8) return 3;
     return 4
-  }, []);
+  }, [finderContent.situations.length, foundSituations.length, time, timePassed]);
 
   useEffect(() => {
     // @ts-ignore
@@ -78,14 +78,14 @@ const CompleteDialogTimedFinder = (props: Props) => {
     }
 
     return () => clearTimeout(timeout)
-  }, [animationScore, score])
+  }, [animationScore, score]);
 
-
+  const headerKey = (time - timePassed) <= 0 ? "timeup-header" : "complete-header";
 
   return (
     <BaseDialog className="complete-dialog">
       <div className="block">
-        <h1>{getText("complete-header")}</h1>
+        <h1>{getText(headerKey)}</h1>
       </div>
       <div className={`block score timed ${animationScore === score? "fade-out" : ''}`}>
         {/* {renderScoreList()} */}

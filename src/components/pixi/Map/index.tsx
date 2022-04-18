@@ -9,7 +9,7 @@ import { TILE_HEIGHT, TILE_WIDTH, MARGIN_TOP} from 'constants/tiles';
 import { tileLocationToPosition } from 'utils/isometric';
 import FloorTileLayer from 'components/pixi/FloorTileLayer';
 import Marker, { Color } from 'components/pixi/Marker';
-import { Content, GameMode, Scenario } from 'data/Content';
+import { GameMode, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
 import MapObject from '../MapObject';
 import { GameState, useGameStateStore } from 'stores/gameState';
