@@ -264,7 +264,7 @@
     },
     {
         "key": "feedback-emergency-door",
-        "value": "紧急门由下面的绿色图标指示。\n \n\n应急门可以保持打开状态。 \n![](https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n \n\n 消防应急门具有防火系统，通常可以打开，但不应保持打开状态，因为如果门保持打开状态，系统将无法工作。 防火门可以通过底部的红色标志来识别，也可以用字母写在门上。 \n\n![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur.png) \n\n![](https://21cceducation.nl/content/ games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/fire-sign-ch.png) \n\n  在某些情况下，你不希望只使用应急门或防火门。 例如，当上面有警报时。"
+        "value": "紧急门由下面的绿色图标指示。\n \n\n应急门可以保持打开状态。 \n![]https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\n \n\n 消防应急门具有防火系统，通常可以打开，但不应保持打开状态，因为如果门保持打开状态，系统将无法工作。 防火门可以通过底部的红色标志来识别，也可以用字母写在门上。 \n\n![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur.png) \n\n![](https://21cceducation.nl/content/ games/images/image.php?image=vcaWarehouse/scenarios/emergency-door/fire-sign-ch.png) \n\n  在某些情况下，你不希望只使用应急门或防火门。 例如，当上面有警报时。"
     },
     {
         "key": "description-forklift-hole",
