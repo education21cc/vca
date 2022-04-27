@@ -8,12 +8,19 @@ export interface Content {
   finder?: FinderContent,
   mistakeMode?: boolean, // when true, answering the wrong scenario will make the the marker disappear and it will cost a star
   stars?: number,
+  startMap?: MapInfo
 }
 
 export enum GameMode {
   scenarios = "scenarios",
   finder = "finder",
   timedFinder = "timedFinder"
+}
+
+export interface MapInfo {
+  x: number;
+  y: number;
+  zoom: number;
 }
 
 export interface FinderContent {

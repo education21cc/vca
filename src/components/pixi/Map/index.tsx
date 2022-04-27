@@ -59,12 +59,21 @@ const Map = (props: Props) => {
   const viewportRef = useRef<PixiViewport>(null);
 
   useEffect(() => {
-    // focus on center of the map
-    if (viewportRef.current) {
+    if (content.startMap) {
+      if (viewportRef.current) {
+        const viewport = viewportRef.current;
+        viewport.zoomPercent(content.startMap.zoom)
+        viewport.moveCenter(content.startMap.x, content.startMap.y);
+      }
+      
+    } else {
+      // focus on center of the map
+      if (viewportRef.current) {
         const viewport = viewportRef.current;
         viewport.moveCenter(mapWidth / 2, mapHeight / 2);
+      }
     }
-  }, [mapData, mapHeight, mapWidth, tilesetsTextures]);
+  }, [content.startMap, mapData, mapHeight, mapWidth, tilesetsTextures]);
 
 
   useEffect(() => {
