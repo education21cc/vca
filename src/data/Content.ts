@@ -20,6 +20,7 @@ export interface FinderContent {
   situations: string[];
   final: ContentConfig;
   time?: number;
+  path?: [number, number][]
 }
 
 export interface ContentConfig {

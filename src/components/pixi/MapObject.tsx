@@ -12,7 +12,7 @@ import { getTileIndex, tileLocationToPosition } from "utils/isometric";
 import Smoke1 from "./effects/smoke1";
 import { gsap, Linear } from "gsap";
 import SpriteAnimated from "./SpriteAnimated";
-import { AnimatedSprite, Point } from "pixi.js";
+import { AnimatedSprite } from "pixi.js";
 import { GameMode } from "data/Content";
 
 interface Props {
