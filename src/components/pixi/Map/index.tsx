@@ -11,10 +11,11 @@ import FloorTileLayer from 'components/pixi/FloorTileLayer';
 import Marker, { Color } from 'components/pixi/Marker';
 import { GameMode, Scenario } from 'data/Content';
 import { findTileset } from 'utils/tiles';
-import MapObject from '../MapObject';
+import MapObject, { YELLOW_HIGHLIGHT_FILTER } from '../MapObject';
 import { GameState, useGameStateStore } from 'stores/gameState';
 import { useContentStore } from 'stores/content';
 import ShowFinderPath from '../ShowFinderPath';
+import { gsap } from "gsap";
 
 interface Props {
   mapData: TiledMapData;
@@ -136,6 +137,20 @@ const Map = (props: Props) => {
       />
     )
   }
+
+  useEffect(() => {
+    const tween = gsap.to(YELLOW_HIGHLIGHT_FILTER, {
+      duration: .6,
+      thickness: 2,
+      yoyo: true,
+      repeat: -1,
+    });
+    return () => {
+      tween.pause(0);
+      tween.kill();
+    };
+  }, []);
+
 
   const renderLayers = (layers: TiledLayerData[]) => {
     return layers.filter(l => l.visible && l.name !== "floor" && l.type === TiledLayerType.tilelayer)

@@ -38,7 +38,7 @@ const TimedFinderBox = (props: Props) => {
 
         useTimerStore.setState({ timePassed: timePassed + 1 });
         if (timePassed >= time) {
-          setState(GameState.complete);
+          // setState(GameState.complete);
         }
       }
     }, 1000);
