@@ -1,16 +1,9 @@
 import { Viewport } from "pixi-viewport";
 import React, { useCallback, useEffect } from "react"
+import { useContentStore } from "stores/content";
 import { GameState, useGameStateStore } from "stores/gameState";
 import { tileLocationToPosition } from "utils/isometric";
 import DashedLine from "./DashedLine";
-
-const path = [
-  [17, 21],
-  [43, 21],
-  [43, 16],
-  [44, 15],
-  [44,  6]
-]
 
 export type Props = {
   verticalTiles: number;
@@ -22,6 +15,8 @@ export type Props = {
 
 const ShowFinderPath = (props: Props) => {
   const { verticalTiles, horizontalTiles, mapWidth, mapHeight, viewport } = props;
+  const { content } = useContentStore();
+  const path = content.finder?.path ?? []
   const { state, setState } = useGameStateStore()
 
   const convert = useCallback((location: [number, number]) => {

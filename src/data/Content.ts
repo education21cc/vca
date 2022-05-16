@@ -8,6 +8,7 @@ export interface Content {
   finder?: FinderContent,
   mistakeMode?: boolean, // when true, answering the wrong scenario will make the the marker disappear and it will cost a star
   stars?: number,
+  startMap?: MapInfo
 }
 
 export enum GameMode {
@@ -16,10 +17,17 @@ export enum GameMode {
   timedFinder = "timedFinder"
 }
 
+export interface MapInfo {
+  x: number;
+  y: number;
+  zoom: number;
+}
+
 export interface FinderContent {
   situations: string[];
   final: ContentConfig;
   time?: number;
+  path?: [number, number][]
 }
 
 export interface ContentConfig {

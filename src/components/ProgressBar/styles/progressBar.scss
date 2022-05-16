@@ -1,5 +1,5 @@
 .progressBar {
-  min-width: 120px;
+  min-width: 135px;
 	height: 2rem;
 	background: #292929;
 	border: 1px solid #111;
@@ -27,5 +27,6 @@
     width: 100%;
     transform: translateY(-50%);
     text-align: center;
+    white-space: nowrap;
   }
 }

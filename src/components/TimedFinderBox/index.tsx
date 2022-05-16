@@ -5,10 +5,12 @@ import { useTimerStore } from 'stores/timer';
 import { GameState, useGameStateStore } from 'stores/gameState';
 import { useContentStore } from 'stores/content';
 import './styles/timedFinderBox.scss';
+import sound from 'pixi-sound';
 
 interface Props {
   foundSituations: string[];
 }
+sound.add('clock', `${process.env.PUBLIC_URL}/sound/clock.ogg`);
 
 const DEFAULT_TIME = 120
 
@@ -39,9 +41,21 @@ const TimedFinderBox = (props: Props) => {
           setState(GameState.complete);
         }
       }
-    }, 1000)
+    }, 1000);
     return () => clearInterval(interval);
   })
+  
+  useEffect(() => {
+    let clockSound: sound.IMediaInstance;
+    (async () => {
+
+      clockSound = await sound.play('clock')
+    })()
+    return () => {
+      clockSound?.destroy()
+    }
+  }, [])
+
   const { content } = useContentStore()
   if (!content?.finder) return null
   const finderContent = content?.finder

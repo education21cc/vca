@@ -43,7 +43,7 @@ function App() {
         console.log("no bridge found, fetching fallback")
         // @ts-ignore
 
-        // fetch(`${process.env.PUBLIC_URL}/config/data-handling.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-handling.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
@@ -54,7 +54,7 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_CH.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_MS.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_MR.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_MR.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_KN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_HI.json`)

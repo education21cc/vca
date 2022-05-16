@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import {
   TiledObjectData,
   TiledProperty,
@@ -12,8 +12,9 @@ import { getTileIndex, tileLocationToPosition } from "utils/isometric";
 import Smoke1 from "./effects/smoke1";
 import { gsap, Linear } from "gsap";
 import SpriteAnimated from "./SpriteAnimated";
-import { AnimatedSprite, Point } from "pixi.js";
+import { AnimatedSprite } from "pixi.js";
 import { GameMode } from "data/Content";
+import { OutlineFilter } from '@pixi/filter-outline';
 
 interface Props {
   data: TiledObjectData;
@@ -23,6 +24,7 @@ interface Props {
   tilesetsTextures: { [key: string]: any };
   onClick: (name: string) => void;
 }
+export const YELLOW_HIGHLIGHT_FILTER = new OutlineFilter(8, 0xffcc00);
 
 const popInDuration = 1;
 const fadeOutDuration = 0.5;
@@ -35,6 +37,16 @@ const MapObject = (props: Props) => {
   const tileset = useRef<TiledTilesetData>();
   const spritesheetTextures = useRef<any>();
 
+  const filters = useMemo(() => {
+    const filter = o.properties?.find((p) => p.name === "filter")?.value
+    switch (filter) {
+      case 'yellow-highlight':
+        return [YELLOW_HIGHLIGHT_FILTER];
+      default:
+        return null
+    }
+  }, [o.properties]);
+  
   useEffect(() => {
     // Pop in animation!
     if (!checkRef.current) return;
@@ -308,13 +320,14 @@ const MapObject = (props: Props) => {
     } else {
       textures = [spritesheetTextures.current![textureName]];
     }
-
+    
     return (
       <SpriteAnimated
         name={`${o.name}: ${x},${y} (${textureName})`}
         ref={ref}
         scale={scale}
         textures={textures}
+        filters={filters}
         // texture={spritesheetTextures.current![textureName]}
         anchor={[0, 1]}
         pivot={[TILE_WIDTH / 2, 0]}

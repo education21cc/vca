@@ -4,7 +4,7 @@
     "muted": false
   },
   "content": {
-    "mapJson": "maps/manual-handling-level1.json",
+    "mapJson": "maps/plan-your-lift-level1.json",
     "gameMode": "timedFinder",
     "finder": {
       "situations": [
@@ -15,16 +15,28 @@
         "junk2",
         "junk1"
       ],
-      "time": 25
+      "time": 25,
+      "path": [
+        [17, 21],
+        [43, 21],
+        [43, 16],
+        [44, 15],
+        [44,  6]
+      ]
+    },
+    "startMap": {
+      "x": 2200,
+      "y": 1220,
+      "zoom": 2
     }
   },
   "translations": [{
       "key": "intro-header",
-      "value": "Manual handling"
+      "value": "Plan your lift"
     },
     {
       "key": "intro-description",
-      "value": "Clear all the objects between the box and the destination "
+      "value": "Before lifting or carrying, always make sure that there are no obstacles in your way.\n\n   Can you clear the lift route of all obstructions and slippery areas?"
     },
     {
       "key": "intro-start",
@@ -36,7 +48,7 @@
     },
     {
       "key": "items-remain",
-      "value": "{0} items remain"
+      "value": "{0} obstructions"
     },
     {
       "key": "complete-header",
