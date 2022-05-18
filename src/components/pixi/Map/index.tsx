@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Stage, Sprite, Container } from '@inlet/react-pixi';
-import { TiledMapData, TiledLayerData, TiledLayerType, TiledObjectData } from 'utils/tiledMapData';
+import {
+  TiledMapData,
+  TiledLayerData,
+  TiledLayerType,
+  TiledObjectData,
+} from "utils/tiledMapData";
 import * as PIXI from 'pixi.js';
 import sound from 'pixi-sound';
 import Viewport from '../Viewport';
