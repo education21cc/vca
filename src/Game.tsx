@@ -115,8 +115,19 @@ const Game = (props: Props) => {
   }
 
   const handleStart = useCallback(() => {
-    setState(GameState.normal);
-  }, [setState]);
+    if (content.instructions) {
+      setState(GameState.instructions);
+    } else {
+      setState(GameState.normal);
+    }
+  }, [content.instructions, setState]);
+
+  // useEffect(() => {
+  //   if (content.instructions && !instructionsShown) {
+  //     setState(GameState.instructions);
+  //     setInstructionsShown(true);
+  //   }
+  // }, [content.instructions, instructionsShown, setState])
 
   const handleSituationClick = (situation: string) => {
     if (!content.finder) return;
@@ -186,6 +197,7 @@ const Game = (props: Props) => {
     })
   }, [content.scenarios, scenarioReactions]);
 
+  const showMap = state === GameState.instructions || state === GameState.normal || state === GameState.preComplete
   return (
     <>
       {(!loadComplete) && (
@@ -198,7 +210,7 @@ const Game = (props: Props) => {
               gameData={data}
               onStart={handleStart}
             />)}
-            {(state === GameState.normal || state === GameState.preComplete) && mapData && gameMode && (
+            {(showMap) && mapData && gameMode && (
               <>
                 <Map
                   mapData={mapData}
@@ -217,7 +229,7 @@ const Game = (props: Props) => {
                     onOpenGame={handleOpenGame}
                   />
                 )}
-                {gameMode === GameMode.timedFinder && content.finder && (
+                { state === GameState.normal && gameMode === GameMode.timedFinder && content.finder && (
                   <TimedFinderBox
                     foundSituations={foundSituations}
                   />

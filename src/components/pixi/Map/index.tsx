@@ -16,6 +16,7 @@ import { GameState, useGameStateStore } from 'stores/gameState';
 import { useContentStore } from 'stores/content';
 import ShowFinderPath from '../ShowFinderPath';
 import { gsap } from "gsap";
+import InstructionsBox from 'components/InstructionsBox';
 
 interface Props {
   mapData: TiledMapData;
@@ -49,7 +50,8 @@ const Map = (props: Props) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
   const { content } = useContentStore()
-  const { state, setState } = useGameStateStore()
+  const { state } = useGameStateStore()
+  const [instructionsShown, setInstructionsShown] = useState(false);
 
   // PIXI.settings.ROUND_PIXELS = false;
 
@@ -60,22 +62,12 @@ const Map = (props: Props) => {
   const viewportRef = useRef<PixiViewport>(null);
 
   useEffect(() => {
-    if (content.startMap) {
-      if (viewportRef.current) {
-        const viewport = viewportRef.current;
-        viewport.zoomPercent(content.startMap.zoom)
-        viewport.moveCenter(content.startMap.x, content.startMap.y);
-      }
-      
-    } else {
-      // focus on center of the map
-      if (viewportRef.current) {
-        const viewport = viewportRef.current;
-        viewport.moveCenter(mapWidth / 2, mapHeight / 2);
-      }
+    // focus on center of the map
+    if (viewportRef.current) {
+      const viewport = viewportRef.current;
+      viewport.moveCenter(mapWidth / 2, mapHeight / 2);
     }
-  }, [content.startMap, mapData, mapHeight, mapWidth, tilesetsTextures]);
-
+  }, [mapData, mapHeight, mapWidth, tilesetsTextures]);
 
   useEffect(() => {
     if (!content?.finder) {
@@ -274,44 +266,59 @@ const Map = (props: Props) => {
     backgroundColor: parseBackgroundColor(mapData?.backgroundcolor)
   }
 
+  useEffect(() => {
+    // Ensure viewport ref is ready
+    console.log('state is ', state)
+    setInstructionsShown(state === GameState.instructions)
+  }, [state])
+
   return (
-    <Stage width={screenWidth} height={screenHeight} className="background" options={options}>
-      <Viewport
-        worldWidth={mapWidth}
-        worldHeight={mapHeight}
-        screenWidth={screenWidth}
-        screenHeight={screenHeight}
-        ref={viewportRef}
-      >
-        {renderFloor(mapData.layers.find(l => l.name === "floor"))}
-        {/* <Graphics
-            name="selectioncircle"
-            draw={graphics => {
-                const line = 3;
-                graphics.lineStyle(line, 0xFFFFFF);
-                graphics.drawCircle(0, 0, 5);
-                graphics.endFill();
-            }}
-            position={tileLocationToPosition([0, 0], mapData.width, mapData.height)}
-        /> */}
-        <Container sortableChildren={true}>
-          {renderLayers(mapData.layers)}
-        </Container>
-        <Container sortableChildren={true}>
-          {renderObjectLayers(mapData.layers)}
-        </Container>
-        {Object.entries(content?.scenarios || []).map(([key, value], index) => renderScenarioMarker(key, value, index))}
-        { viewportRef.current && state === GameState.preComplete && (
-          <ShowFinderPath
+    <>
+      {instructionsShown && content.instructions && (
+        <InstructionsBox
+          instructions={content.instructions}
+          viewport={viewportRef.current}
+        />
+      )}
+
+      <Stage width={screenWidth} height={screenHeight} className="background" options={options}>
+        <Viewport
+          worldWidth={mapWidth}
+          worldHeight={mapHeight}
+          screenWidth={screenWidth}
+          screenHeight={screenHeight}
+          ref={viewportRef}
+        >
+          {renderFloor(mapData.layers.find(l => l.name === "floor"))}
+          {/* <Graphics
+              name="selectioncircle"
+              draw={graphics => {
+                  const line = 3;
+                  graphics.lineStyle(line, 0xFFFFFF);
+                  graphics.drawCircle(0, 0, 5);
+                  graphics.endFill();
+                }}
+                position={tileLocationToPosition([0, 0], mapData.width, mapData.height)}
+              /> */}
+          <Container sortableChildren={true}>
+            {renderLayers(mapData.layers)}
+          </Container>
+          <Container sortableChildren={true}>
+            {renderObjectLayers(mapData.layers)}
+          </Container>
+          {Object.entries(content?.scenarios || []).map(([key, value], index) => renderScenarioMarker(key, value, index))}
+          { viewportRef.current && state === GameState.preComplete && (
+            <ShowFinderPath
             viewport={viewportRef.current}
-            mapWidth={mapWidth}
-            mapHeight={mapHeight}
-            verticalTiles={mapData.height}
-            horizontalTiles={mapData.width}
-          />
-        )}
-      </Viewport>
-    </Stage>
+              mapWidth={mapWidth}
+              mapHeight={mapHeight}
+              verticalTiles={mapData.height}
+              horizontalTiles={mapData.width}
+              />
+          )}
+        </Viewport>
+      </Stage>
+    </>
   );
 }
 

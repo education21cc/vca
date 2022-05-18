@@ -1,14 +1,14 @@
 import { GameData } from "components/playerBridge/GameData";
 
 export interface Content {
-  mapJson: string,
-  situations: { [key: string]: Situation }
-  scenarios: { [key: string]: Scenario }
-  gameMode?: GameMode,
-  finder?: FinderContent,
-  mistakeMode?: boolean, // when true, answering the wrong scenario will make the the marker disappear and it will cost a star
-  stars?: number,
-  startMap?: MapInfo
+  mapJson: string;
+  situations: { [key: string]: Situation };
+  scenarios: { [key: string]: Scenario };
+  gameMode?: GameMode;
+  finder?: FinderContent;
+  mistakeMode?: boolean; // when true, answering the wrong scenario will make the the marker disappear and it will cost a star
+  stars?: number;
+  instructions?: Instruction[];
 }
 
 export enum GameMode {
@@ -17,7 +17,10 @@ export enum GameMode {
   timedFinder = "timedFinder"
 }
 
-export interface MapInfo {
+export interface Instruction {
+  text: string;
+  time: number;
+  delay?: number;
   x: number;
   y: number;
   zoom: number;

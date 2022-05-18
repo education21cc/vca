@@ -2,9 +2,10 @@ import create from "zustand";
 
 export enum GameState {
   intro = 1 << 0,
-  normal = 1 << 1,
-  preComplete = 1 << 2, // show an animation
-  complete = 1 << 3
+  instructions = 1 << 1,
+  normal = 1 << 2,
+  preComplete = 1 << 3, // show an animation
+  complete = 1 << 4
 }
 
 type GameStateStore = {
