@@ -24,11 +24,27 @@
         [44,  6]
       ]
     },
-    "startMap": {
+    "instructions": [{
+      "text": "Take the stuff from here",
+      "time": 3000,
       "x": 2200,
       "y": 1220,
       "zoom": 2
-    }
+    }, {
+      "text": "Bring it here",
+      "time": 3000,
+      "delay": 1000,
+      "x": 4800,
+      "y": 1500,
+      "zoom": 2
+    }, {
+      "text": "Get ready!!",
+      "time": 3000,
+      "delay": 1000,
+      "x": 2200,
+      "y": 1220,
+      "zoom": 0.5
+    }]
   },
   "translations": [{
       "key": "intro-header",
@@ -36,7 +52,7 @@
     },
     {
       "key": "intro-description",
-      "value": "Before lifting or carrying, always make sure that there are no obstacles in your way.\n\n   Can you clear the lift route of all obstructions and slippery areas?"
+      "value": "Before lifting or carrying, always make sure that there are no obstacles in your way.\n  Can you clear the lift route of all obstructions and slippery areas?"
     },
     {
       "key": "intro-start",
