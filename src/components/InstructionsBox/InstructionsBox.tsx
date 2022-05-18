@@ -35,6 +35,7 @@ const InstructionsBox = (props: Props) => {
     setTimeout(() => {
       if (ref.current) {
         ref.current.style.opacity = '1';
+        ref.current.innerHTML = instructions[step]?.text;
       }
 
       viewport?.animate({
@@ -52,7 +53,6 @@ const InstructionsBox = (props: Props) => {
 
   return (
     <div className="instructions-box" ref={ref} style={{ opacity: 0}}>
-      { instructions[step]?.text}
     </div>
   )
 }
