@@ -20,7 +20,7 @@ const FinderBox = (props: Props) => {
   return (
     <div className="finder-box">
       {getText("finder-instruction")}
-      {`(${foundSituations.length}/${content?.situations.length})`}
+      {`(${foundSituations.length}/${content.finder.situations.length})`}
       <button className="green button" disabled={disabled} onClick={onOpenGame}>
         {getText("button-next")}
       </button>

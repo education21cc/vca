@@ -122,13 +122,6 @@ const Game = (props: Props) => {
     }
   }, [content.instructions, setState]);
 
-  // useEffect(() => {
-  //   if (content.instructions && !instructionsShown) {
-  //     setState(GameState.instructions);
-  //     setInstructionsShown(true);
-  //   }
-  // }, [content.instructions, instructionsShown, setState])
-
   const handleSituationClick = (situation: string) => {
     if (!content.finder) return;
 
