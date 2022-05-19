@@ -273,7 +273,6 @@ const Map = (props: Props) => {
 
   useEffect(() => {
     // Ensure viewport ref is ready
-    console.log('state is ', state)
     setInstructionsShown(state === GameState.instructions)
   }, [state])
 

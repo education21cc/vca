@@ -41,7 +41,7 @@ const PixiComponentViewport = PixiComponent("Viewport", {
     });
     // viewport.on("clicked", (event) => { if(props.onClick) props.onClick(event) });
     viewport.on('mousemove', (e) => {
-      console.log(viewport.toLocal(e.data.global))
+      // console.log(viewport.toLocal(e.data.global))
     })
     const {
       minScale = .15,
