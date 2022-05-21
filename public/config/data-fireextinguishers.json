@@ -5,6 +5,7 @@
   },
   "content": {
     "mapJson": "maps/testmap3.json",
+    "stars": 1,
     "finder": {
       "situations": [
         "extinguisher5",

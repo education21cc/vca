@@ -6,7 +6,7 @@
   },
   "content": {
       "mapJson": "maps/testmap3.json",
-
+      "stars": 1,
       "finder": {
         "situations": ["aed1", "aed2", "aed3"],
         "final": {

@@ -136,31 +136,25 @@ const MapObject = (props: Props) => {
           tl.to(ref.current, {
             onStart: () => {
               if (animSpritesheet) {
-                // console.log('last step', lastStep)
-                // console.log('currentStep', currentStep)
                 if (
                   lastStep[0] === currentStep[0] &&
                   lastStep[1] > currentStep[1]
                 ) {
-                  // console.log('ne');
                   ref.current!.gotoAndStop(1);
                   ref.current!.scale.set(1, 1);
                 } else if (
                   lastStep[0] > currentStep[0] &&
                   lastStep[1] === currentStep[1]
                 ) {
-                  // console.log('nw')
                   ref.current!.gotoAndStop(1);
                   ref.current!.scale.set(-1, 1);
                 } else if (
                   lastStep[0] === currentStep[0] &&
                   lastStep[1] < currentStep[1]
                 ) {
-                  // console.log('sw')
                   ref.current!.gotoAndStop(0);
                   ref.current!.scale.set(-1, 1);
                 } else {
-                  // console.log('se')
                   ref.current!.gotoAndStop(0);
                   ref.current!.scale.set(1, 1);
                 }
