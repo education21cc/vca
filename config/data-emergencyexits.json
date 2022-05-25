@@ -5,6 +5,7 @@
   },
   "content": {
       "mapJson": "maps/testmap6.json",
+      "stars": 1,
       "finder": {
         "situations": ["door7", "door6", "door5", "door4", "door3", "door2", "door1"],
         "final": {
