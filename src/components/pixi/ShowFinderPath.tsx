@@ -17,7 +17,7 @@ const ShowFinderPath = (props: Props) => {
   const { verticalTiles, horizontalTiles, mapWidth, mapHeight, viewport } = props;
   const { content } = useContentStore();
   const path = content.finder?.path ?? []
-  const { state, setState } = useGameStateStore()
+  const { setState } = useGameStateStore()
 
   const convert = useCallback((location: [number, number]) => {
     const point = tileLocationToPosition(location, horizontalTiles, verticalTiles);

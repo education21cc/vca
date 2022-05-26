@@ -22,7 +22,6 @@ const InstructionsBox = (props: Props) => {
       if (ref.current) {
         ref.current.style.opacity = '0';
       }
-      console.log(step, instructions.length)
       if (step < instructions.length - 1) {
         setStep(step + 1)
       } else {
