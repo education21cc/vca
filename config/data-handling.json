@@ -75,6 +75,10 @@
       "value": "Time up!"
     },
     {
+      "key": "score-list-0",
+      "value": "You found nothing 😞"
+    },
+    {
       "key": "score-list-1",
       "value": "Found some trash"
     },
