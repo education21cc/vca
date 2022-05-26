@@ -87,7 +87,7 @@ const CompleteDialogTimedFinder = (props: Props) => {
       <div className="block">
         <h1>{getText(headerKey)}</h1>
       </div>
-      <div className={`block score timed ${animationScore === score? "fade-out" : ''}`}>
+      <div className={`block score timed ${animationScore === score && animationScore > 0 ? "fade-out" : ''}`}>
         {/* {renderScoreList()} */}
         {getText(`score-list-${animationScore}`)}
       </div>

@@ -35,7 +35,7 @@ const InstructionsBox = (props: Props) => {
     setTimeout(() => {
       if (ref.current) {
         ref.current.style.opacity = '1';
-        ref.current.innerHTML = instructions[step]?.text;
+        ref.current.innerHTML = instructions[step]?.text.replace(/\n/g, '<br>');
       }
 
       viewport?.animate({

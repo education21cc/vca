@@ -25,20 +25,20 @@
       ]
     },
     "instructions": [{
-      "text": "Take the stuff from here",
+      "text": "The box at this location ...",
       "time": 3000,
       "x": 2200,
       "y": 1220,
       "zoom": 2
     }, {
-      "text": "Bring it here",
+      "text": "... needs to be transported to this location",
       "time": 3000,
       "delay": 1000,
       "x": 4800,
       "y": 1600,
       "zoom": 2
     }, {
-      "text": "Get ready!!",
+      "text": "Make sure the path is clear! \n\n Get ready!!",
       "time": 3000,
       "delay": 1000,
       "x": 2200,
