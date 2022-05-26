@@ -38,7 +38,7 @@
       "y": 1600,
       "zoom": 2
     }, {
-      "text": "Make sure the path is clear! \n\n Get ready!!",
+      "text": "Make sure the path is clear! \n\n You have {time}. Get ready!!",
       "time": 3000,
       "delay": 1000,
       "x": 2200,
@@ -73,6 +73,18 @@
     {
       "key": "timeup-header",
       "value": "Time up!"
+    },
+    {
+      "key": "time-component-minute",
+      "value": "minute"
+    },
+    {
+      "key": "time-component-minutes",
+      "value": "minutes"
+    },
+    {
+      "key": "time-component-seconds",
+      "value": "seconds"
     },
     {
       "key": "score-list-0",

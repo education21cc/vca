@@ -281,6 +281,7 @@ const Map = (props: Props) => {
       {instructionsShown && content.instructions && (
         <InstructionsBox
           instructions={content.instructions}
+          time={content?.finder?.time ?? 0}
           viewport={viewportRef.current}
         />
       )}
