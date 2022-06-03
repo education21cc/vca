@@ -45,7 +45,8 @@ function App() {
 
         // fetch(`${process.env.PUBLIC_URL}/config/data-handling.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-2.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-3.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-1.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-3.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)

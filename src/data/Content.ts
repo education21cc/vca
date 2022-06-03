@@ -30,7 +30,26 @@ export interface FinderContent {
   situations: string[];
   final: ContentConfig;
   time?: number;
-  path?: [number, number][]
+  path?: [number, number][]; // only used in timed finder
+  complete: CompleteConfig; // only used in timed finder atm
+}
+
+export interface CompleteConfig {
+  buttons: CompleteButtonsConfig[];
+}
+
+export interface CompleteButtonsConfig {
+  text: string;
+  action: 'again' | 'loadPage' | 'exit';
+  actionArgs?: unknown;
+  color?: 'red' | 'green' | 'white'
+  condition?: CompleteButtonConditionConfig;
+}
+
+export interface CompleteButtonConditionConfig {
+  type: "starsMinimum";
+  args: unknown;
+  text: string;
 }
 
 export interface ContentConfig {

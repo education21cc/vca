@@ -6,6 +6,7 @@ import { useTranslationStore } from 'stores/translations';
 import { useTimerStore } from 'stores/timer';
 import { useContentStore } from 'stores/content';
 import './styles/completeDialogScenarios.scss';
+import { CompleteButtonsConfig, CompleteConfig } from 'data/Content';
 
 interface Props {
   foundSituations: string[];
@@ -13,9 +14,20 @@ interface Props {
   onExit: () => void;
 }
 const DEFAULT_TIME = 120
+const DEFAULT_COMPLETE_CONFIG: CompleteConfig = {
+  "buttons": [{
+    "text": "complete-try-again",
+    "action": "again",
+    "color": "green"
+  }, {
+    "text": "complete-exit",
+    "action": "exit",
+    "color": "red"
+  }]
+}
 
 const CompleteDialogTimedFinder = (props: Props) => {
-  const { foundSituations } = props;
+  const { foundSituations, onTryAgain, onExit } = props;
   const { getText } = useTranslationStore();
   const totalStars = 4;
   const [animationScore, setAnimationScore] = useState(0)
@@ -24,10 +36,13 @@ const CompleteDialogTimedFinder = (props: Props) => {
   const finderContent = content?.finder ?? {
     situations: [],
     final: {},
-    time: DEFAULT_TIME
+    time: DEFAULT_TIME,
+    complete: DEFAULT_COMPLETE_CONFIG
   }
   const { time = DEFAULT_TIME } = finderContent ?? { time: DEFAULT_TIME };
-
+  const buttonConfig = finderContent.complete?.buttons ?? DEFAULT_COMPLETE_CONFIG.buttons;
+console.log(content.finder)
+console.log(finderContent)
 
   const score = useMemo(() => {
     if (foundSituations.length === 0) return 0;
@@ -80,6 +95,33 @@ const CompleteDialogTimedFinder = (props: Props) => {
     return () => clearTimeout(timeout)
   }, [animationScore, score]);
 
+  const handleButtonClick = (config: CompleteButtonsConfig) => {
+    const { action } = config;
+    switch (action) {
+      case 'again': {
+        onTryAgain();
+        break;
+      }
+      case 'exit': {
+        onExit();
+        break;
+      }
+      case 'loadPage': {
+        // eslint-disable-next-line no-restricted-globals
+        location.href = buttonConfig.find(bc => bc.action === action)?.actionArgs as string
+        break;
+      }
+    }
+  }
+
+  const buttonEnabled = (config: CompleteButtonsConfig) => {
+    if (!config.condition) return true;
+    switch (config.condition.type) {
+      case 'starsMinimum':
+        return score >= (config.condition.args as Number)
+    }
+  }
+
   const headerKey = (time - timePassed) <= 0 ? "timeup-header" : "complete-header";
 
   return (
@@ -102,12 +144,11 @@ const CompleteDialogTimedFinder = (props: Props) => {
         {renderStars()}
       </div>
       <div className="bottom">
-        <button className="green button" onClick={props.onTryAgain}>
-          {getText("complete-try-again")}
-        </button>
-        <button className="red button" onClick={props.onExit}>
-          {getText("complete-exit")}
-        </button>
+        { buttonConfig.map(bc => (
+          <button key={bc.text} disabled={!buttonEnabled(bc)} className={`button ${bc.color ?? 'red'}`} onClick={() => handleButtonClick(bc)}>
+            {buttonEnabled(bc) ? getText(bc.text) : getText(bc.condition!.text)}
+          </button>
+        ))}
       </div>
     </BaseDialog>
   );

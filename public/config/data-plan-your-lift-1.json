@@ -22,7 +22,24 @@
         [43, 16],
         [44, 15],
         [44,  6]
-      ]
+      ],
+      "complete": {
+        "buttons": [{
+          "text": "complete-try-again",
+          "action": "again",
+          "color": "green"
+        }, {
+          "text": "complete-next",
+          "action": "loadPage",
+          "actionArgs": "https://21cccdn.blob.core.windows.net/21cc/game-loader/index.html?game=module/plan-your-lift-2",
+          "color": "red",
+          "condition": {
+            "type": "starsMinimum",
+            "args": 2,
+            "text": "complete-next-not-enough-stars"
+          }
+        }]
+      }
     },
     "instructions": [{
       "text": "The box at this location ...",
@@ -109,6 +126,14 @@
     {
       "key": "complete-try-again",
       "value": "Again"
+    },
+    {
+      "key": "complete-next",
+      "value": "Next"
+    },
+    {
+      "key": "complete-next-not-enough-stars",
+      "value": "Not enough stars"
     },
     {
         "key": "complete-exit",

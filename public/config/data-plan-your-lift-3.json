@@ -33,8 +33,18 @@
         [40, 7],
         [42, 7],
         [45, 11]
-      ]
-    },
+      ],
+      "complete": {
+        "buttons": [{
+          "text": "complete-try-again",
+          "action": "again",
+          "color": "green"
+        }, {
+          "text": "complete-exit",
+          "action": "exit",
+          "color": "red"
+        }]
+      },
     "instructions": [{
       "text": "The box at this location ...",
       "time": 3000,
@@ -124,6 +134,14 @@
     {
         "key": "complete-exit",
         "value": "Exit"
+    },
+    {
+      "key": "complete-next",
+      "value": "Next"
+    },
+    {
+      "key": "complete-next-not-enough-stars",
+      "value": "Not enough stars"
     }
   ],
   "levelsCompleted": [{
