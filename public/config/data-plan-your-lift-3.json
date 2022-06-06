@@ -45,28 +45,29 @@
           "color": "red"
         }]
       },
-    "instructions": [{
-      "text": "The box at this location ...",
-      "time": 3000,
-      "x": 2300,
-      "y": 500,
-      "zoom": 2
-    }, {
-      "text": "... needs to be transported to this location",
-      "time": 3000,
-      "delay": 1000,
-      "x": 4700,
-      "y": 2000,
-      "zoom": 2
-    }, {
-      "text": "Make sure the path is clear! \n\n You have {time}. Get ready!!",
-      "time": 3000,
-      "delay": 1000,
-      "x": 2300,
-      "y": 500,
-      "zoom": 0.5
-    }]
-  },
+      "instructions": [{
+        "text": "The box at this location ...",
+        "time": 3000,
+        "x": 2300,
+        "y": 500,
+        "zoom": 2
+      }, {
+        "text": "... needs to be transported to this location",
+        "time": 3000,
+        "delay": 1000,
+        "x": 4700,
+        "y": 2000,
+        "zoom": 2
+      }, {
+        "text": "Make sure the path is clear! \n\n You have {time}. Get ready!!",
+        "time": 3000,
+        "delay": 1000,
+        "x": 2300,
+        "y": 500,
+        "zoom": 0.5
+      }]
+    },
+  }
   "translations": [{
       "key": "intro-header",
       "value": "Plan your lift"
@@ -132,8 +133,8 @@
       "value": "Again"
     },
     {
-        "key": "complete-exit",
-        "value": "Exit"
+      "key": "complete-exit",
+      "value": "Exit"
     },
     {
       "key": "complete-next",

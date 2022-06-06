@@ -41,8 +41,6 @@ const CompleteDialogTimedFinder = (props: Props) => {
   }
   const { time = DEFAULT_TIME } = finderContent ?? { time: DEFAULT_TIME };
   const buttonConfig = finderContent.complete?.buttons ?? DEFAULT_COMPLETE_CONFIG.buttons;
-console.log(content.finder)
-console.log(finderContent)
 
   const score = useMemo(() => {
     if (foundSituations.length === 0) return 0;
