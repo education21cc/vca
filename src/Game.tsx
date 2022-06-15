@@ -123,6 +123,7 @@ const Game = (props: Props) => {
 
   const handleSituationClick = (situation: string) => {
     if (!content.finder) return;
+    if (state !== GameState.normal) return;
 
     if (content.finder.situations.indexOf(situation) > -1 && foundSituations.indexOf(situation) === -1){
       setFoundSituations([...foundSituations, situation]);
