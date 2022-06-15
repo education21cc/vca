@@ -112,7 +112,10 @@ const CompleteDialogTimedFinder = (props: Props) => {
         break;
       }
       case 'loadConfig': {
-        const url = buttonConfig.find(bc => bc.action === action)?.actionArgs as string;
+        let url = buttonConfig.find(bc => bc.action === action)?.actionArgs as string;
+        if (!url.startsWith('http')) {
+          url = process.env.PUBLIC_URL + "/" + url;
+        }
         fetch(url)
         .then((response) => {
           response.json().then((data) => {

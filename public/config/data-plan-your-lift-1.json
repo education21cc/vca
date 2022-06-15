@@ -31,7 +31,7 @@
         }, {
           "text": "complete-next",
           "action": "loadConfig",
-          "actionArgs": "vca/config/data-plan-your-lift-2.json",
+          "actionArgs": "config/data-plan-your-lift-2.json",
           "color": "red",
           "condition": {
             "type": "starsMinimum",
