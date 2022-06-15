@@ -9,6 +9,7 @@ export interface Content {
   mistakeMode?: boolean; // when true, answering the wrong scenario will make the the marker disappear and it will cost a star
   stars?: number;
   instructions?: Instruction[];
+  disableBackButton?: boolean;
 }
 
 export enum GameMode {

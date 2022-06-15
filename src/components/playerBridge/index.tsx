@@ -25,7 +25,7 @@ declare global {
 
 const PlayerBridge = (props: Props) => {
   const {gameDataReceived, disableBackButton} = props;
-
+  console.log('disableBackButton', disableBackButton)
   useEffect(() => {
     /* Add the following to index.html
     <script>
