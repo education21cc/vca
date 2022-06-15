@@ -27,6 +27,7 @@ import { useContentStore } from "stores/content";
 
 interface Props {
   data: GameData<Content>
+  onLoadedNewGameData: (data: GameData<Content>) => void // when a game needs to load a new level
 }
 
 declare global {
@@ -38,7 +39,7 @@ PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
 
 const Game = (props: Props) => {
-  const { data } = props;
+  const { data, onLoadedNewGameData } = props;
   const [mapData, setMapData] = useState<TiledMapData>();
 
   const [scenario, setScenario] = useState<string|undefined>();
@@ -63,7 +64,6 @@ const Game = (props: Props) => {
 
   useEffect(() => {
     if (!content) return;
-
     // Content loaded, load map json
     const jsonPath = content.mapJson;
     loadResource(`${process.env.PUBLIC_URL}/${jsonPath}`, (resource) => {
@@ -73,7 +73,6 @@ const Game = (props: Props) => {
 
   useEffect(() => {
     if (!mapData) return;
-
     loadTilesets(mapData.tilesets);
   }, [loadTilesets, mapData]);
 
@@ -169,6 +168,13 @@ const Game = (props: Props) => {
     setScenarioReactions({});
     setFoundSituations([]);
     useTimerStore.setState({ timePassed: 0})
+  }
+
+  const handleLoadedNewGameData = (data: GameData<Content>) => {
+    onLoadedNewGameData(data);
+    handleReset();
+    setState(GameState.intro);
+
   }
 
   const { correctScenarios, wrongScenarios } = useMemo(() => {
@@ -270,6 +276,7 @@ const Game = (props: Props) => {
                     foundSituations={foundSituations}
                     onTryAgain={handleReset}
                     onExit={handleExit}
+                    onLoadedNewGameData={handleLoadedNewGameData}
                   />)
                 ))}
               </>

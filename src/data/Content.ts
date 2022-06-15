@@ -41,7 +41,7 @@ export interface CompleteConfig {
 
 export interface CompleteButtonsConfig {
   text: string;
-  action: 'again' | 'loadPage' | 'exit';
+  action: 'again' | 'loadPage' | 'loadConfig' | 'exit';
   actionArgs?: unknown;
   color?: 'red' | 'green' | 'white'
   condition?: CompleteButtonConditionConfig;

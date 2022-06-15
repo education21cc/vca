@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { GameData } from 'components/playerBridge/GameData';
 import { Content } from 'data/Content';
 import { useTranslationStore } from 'stores/translations';
@@ -16,7 +16,7 @@ function App() {
 
   const handleGameDataReceived = useCallback((data: GameData<Content>) => {
     setBackButtonDisabled(data.content.disableBackButton === true)
-    console.log('backbutton', data.content.disableBackButton)
+
     // PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST; // prevent lines on the edges of tiles
     setData(data);
     const { content } = data
@@ -29,9 +29,6 @@ function App() {
       }, {});
       useTranslationStore.setState({ texts: t });
     }
-
-    // console.log(data.translations.map(t => `${t.key}`).join('\n'))
-    // console.log(data.translations.map(t => t.value).join('\n'))
   }, [setContent]);
 
 
@@ -46,15 +43,15 @@ function App() {
         // @ts-ignore
 
         // fetch(`${process.env.PUBLIC_URL}/config/data-handling.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-1.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-2.json`)
-        // fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-1.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-3.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-emergencyexits.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-aeds.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-dangeroussituations.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-basic-english-EN.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_CH.json`)
@@ -83,7 +80,7 @@ function App() {
         // disableBackButton={!!iframeOpen || !!scenario}
       />
       {loaded && data && (
-        <Game data={data} />
+        <Game data={data} onLoadedNewGameData={handleGameDataReceived} />
       )}
     </div>
   )

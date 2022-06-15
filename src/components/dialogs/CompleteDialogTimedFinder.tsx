@@ -6,12 +6,14 @@ import { useTranslationStore } from 'stores/translations';
 import { useTimerStore } from 'stores/timer';
 import { useContentStore } from 'stores/content';
 import './styles/completeDialogScenarios.scss';
-import { CompleteButtonsConfig, CompleteConfig } from 'data/Content';
+import { CompleteButtonsConfig, CompleteConfig, Content } from 'data/Content';
+import { GameData } from 'components/playerBridge/GameData';
 
 interface Props {
   foundSituations: string[];
   onTryAgain: () => void;
   onExit: () => void;
+  onLoadedNewGameData: (data: GameData<Content>) => void // when a game needs to load a new level
 }
 const DEFAULT_TIME = 120
 const DEFAULT_COMPLETE_CONFIG: CompleteConfig = {
@@ -27,7 +29,7 @@ const DEFAULT_COMPLETE_CONFIG: CompleteConfig = {
 }
 
 const CompleteDialogTimedFinder = (props: Props) => {
-  const { foundSituations, onTryAgain, onExit } = props;
+  const { foundSituations, onTryAgain, onExit, onLoadedNewGameData } = props;
   const { getText } = useTranslationStore();
   const totalStars = 4;
   const [animationScore, setAnimationScore] = useState(0)
@@ -106,7 +108,17 @@ const CompleteDialogTimedFinder = (props: Props) => {
       }
       case 'loadPage': {
         // eslint-disable-next-line no-restricted-globals
-        location.href = buttonConfig.find(bc => bc.action === action)?.actionArgs as string
+        location.href = buttonConfig.find(bc => bc.action === action)?.actionArgs as string;
+        break;
+      }
+      case 'loadConfig': {
+        const url = buttonConfig.find(bc => bc.action === action)?.actionArgs as string;
+        fetch(url)
+        .then((response) => {
+          response.json().then((data) => {
+            onLoadedNewGameData(data);
+          })
+        })
         break;
       }
     }

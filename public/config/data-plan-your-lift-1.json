@@ -30,8 +30,8 @@
           "color": "green"
         }, {
           "text": "complete-next",
-          "action": "loadPage",
-          "actionArgs": "https://21cccdn.blob.core.windows.net/21cc/game-loader/index.html?game=module/plan-your-lift-2",
+          "action": "loadConfig",
+          "actionArgs": "vca/config/data-plan-your-lift-2.json",
           "color": "red",
           "condition": {
             "type": "starsMinimum",
