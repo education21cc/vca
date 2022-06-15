@@ -39,10 +39,6 @@
           "text": "complete-try-again",
           "action": "again",
           "color": "green"
-        }, {
-          "text": "complete-exit",
-          "action": "exit",
-          "color": "red"
         }]
       }
     },
