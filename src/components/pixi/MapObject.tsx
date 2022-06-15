@@ -46,7 +46,7 @@ const MapObject = (props: Props) => {
         return null
     }
   }, [o.properties]);
-  
+
   useEffect(() => {
     // Pop in animation!
     if (!checkRef.current) return;
@@ -314,7 +314,7 @@ const MapObject = (props: Props) => {
     } else {
       textures = [spritesheetTextures.current![textureName]];
     }
-    
+
     return (
       <SpriteAnimated
         name={`${o.name}: ${x},${y} (${textureName})`}
@@ -342,6 +342,7 @@ const MapObject = (props: Props) => {
             scale={0.8}
             anchor={[-0.1, 1]}
             pivot={[TILE_WIDTH / 2, 0]}
+            hitArea={null}
           />
         )}
       </SpriteAnimated>
