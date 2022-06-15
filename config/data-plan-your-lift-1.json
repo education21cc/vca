@@ -61,7 +61,8 @@
       "x": 2200,
       "y": 1220,
       "zoom": 0.5
-    }]
+    }],
+    "disableBackButton": true
   },
   "translations": [{
       "key": "intro-header",
