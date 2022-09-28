@@ -43,7 +43,7 @@ function App() {
         // @ts-ignore
 
         // fetch(`${process.env.PUBLIC_URL}/config/data-handling.json`)
-        fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-1.json`)
+        // fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-1.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-2.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-plan-your-lift-3.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/data-fireextinguishers.json`)
@@ -58,6 +58,7 @@ function App() {
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_MS.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_MR.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_KN.json`)
+        fetch(`${process.env.PUBLIC_URL}/config/scenarios-1_TM.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_EN.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-1-microsoft_HI.json`)
         // fetch(`${process.env.PUBLIC_URL}/config/scenarios-2.json`)
