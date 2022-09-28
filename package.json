@@ -14,7 +14,6 @@
     "gh-pages": "^3.2.3",
     "gsap": "^3.10.2",
     "node-polyfill-webpack-plugin": "^1.1.4",
-    "node-sass": "^7.0.1",
     "pixi-particles": "^4.3.1",
     "pixi-sound": "^3.0.5",
     "pixi-viewport": "^4.34.4",
@@ -25,6 +24,7 @@
     "react-markdown": "^8.0.1",
     "react-modal": "^3.14.4",
     "react-scripts": "^5.0.0",
+    "sass": "^1.55.0",
     "typescript": "^4.6.3",
     "zustand": "^3.7.2"
   },
