@@ -144,11 +144,11 @@
     },
     {
         "key": "description-together-cantina-image",
-        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-description-tm.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-description-ta.png"
     },
     {
         "key": "description-together-cantina-image-feedback",
-        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-tm.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/together-cantina/together-cantina-outcome-ta.png"
     },
     {
         "key": "reaction-together-cantina-reaction1",
@@ -176,11 +176,11 @@
     },
     {
         "key": "description-agv-walk-image",
-        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-description-tm.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-description-ta.png"
     },
     {
         "key": "description-agv-walk-image-feedback",
-        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-tm.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/agv-walk/agv-walk-outcome-ta.png"
     },
     {
         "key": "reaction-agv-walk-reaction1",
@@ -208,15 +208,15 @@
     },
     {
         "key": "description-store-cargo-image",
-        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-description-tm.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-description-ta.png"
     },
     {
         "key": "description-store-cargo-image-feedback",
-        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-tm.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-outcome-ta.png"
     },
     {
         "key": "description-store-cargo-hotspot-image",
-        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-insert-tm.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/store-cargo/store-cargo-insert-ta.png"
     },
     {
         "key": "description-store-cargo-hotspot-hotspot",
@@ -244,11 +244,11 @@
     },
     {
         "key": "description-emergency-door-image",
-        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-description-tm.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-description-ta.png"
     },
     {
         "key": "description-emergency-door-image-feedback",
-        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-tm.png"
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/emergency-door-outcome-ta.png"
     },
     {
         "key": "reaction-emergency-door-reaction1",
@@ -264,7 +264,7 @@
     },
     {
         "key": "feedback-emergency-door",
-        "value": "\"கீழே உள்ள பச்சை நிற ஐகானால் அவசர கதவு குறிக்கப்படுகிறது.\r\n\r\nபாதுகாப்புக் கண்ணோட்டத்தில் அவசர கதவு திறந்தே இருக்கலாம். ![](https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\r\n\r\nதீ விபத்து அவசர கதவுகள் தீ தடுப்பு அமைப்பைக் கொண்டுள்ளதால் அவை திறக்கப்பட முடிந்தாலும், கதவு திறந்தே  இருந்தால் அந்த அமைப்பு வேலை செய்யாது என்பதால் திறந்திருக்கக்கூடாது. தீ விபத்து கதவை கீழே உள்ள சிவப்பு அடையாளத்தால் அடையாளம் காணலாம் அல்லது கதவில் எழுத்துக்களில் எழுதப்பட்டிருக்கும். ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur.png) ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/fire-sign-tm.png)\r\n\r\nநீங்கள் அவசர கதவு அல்லது தீ விபத்து கதவைப் பயன்படுத்துவது சில சூழ்நிலைகளில் சரியானதாக இருக்காது. உதாரணத்திற்கு, அதில் அலாரம் இருக்கும் போது"
+        "value": "\"கீழே உள்ள பச்சை நிற ஐகானால் அவசர கதவு குறிக்கப்படுகிறது.\r\n\r\nபாதுகாப்புக் கண்ணோட்டத்தில் அவசர கதவு திறந்தே இருக்கலாம். ![](https://21cccdn.blob.core.windows.net/21cc/games/images/flashcards/vca/veiligheidsvoorzieningen-uitgang-die-tevens-dient-als-nooduitgang.png)\r\n\r\nதீ விபத்து அவசர கதவுகள் தீ தடுப்பு அமைப்பைக் கொண்டுள்ளதால் அவை திறக்கப்பட முடிந்தாலும், கதவு திறந்தே  இருந்தால் அந்த அமைப்பு வேலை செய்யாது என்பதால் திறந்திருக்கக்கூடாது. தீ விபத்து கதவை கீழே உள்ள சிவப்பு அடையாளத்தால் அடையாளம் காணலாம் அல்லது கதவில் எழுத்துக்களில் எழுதப்பட்டிருக்கும். ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/branddeur.png) ![](https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/emergency-door/fire-sign-ta.png)\r\n\r\nநீங்கள் அவசர கதவு அல்லது தீ விபத்து கதவைப் பயன்படுத்துவது சில சூழ்நிலைகளில் சரியானதாக இருக்காது. உதாரணத்திற்கு, அதில் அலாரம் இருக்கும் போது"
     },
     {
         "key": "description-forklift-hole",
