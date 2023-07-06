@@ -85,8 +85,8 @@ const ScenarioScreen = (props: Props) => {
   const selectedReactionText = useMemo(() => {
     if (!selectedReaction) return "";
     const id = content.reactions.find(r => r.id === selectedReaction)?.id;
-    return getText(`reaction-${scenario}-${id}`);
-  }, [content.reactions, getText, scenario, selectedReaction]);
+    return getTextRaw(`reaction-${scenario}-${id}`);
+  }, [content.reactions, getTextRaw, scenario, selectedReaction]);
 
   const selectedReactionCorrect = useMemo(() => {
     if (!selectedReaction) return false;
@@ -108,6 +108,7 @@ const ScenarioScreen = (props: Props) => {
   }
 
   const imageUrl = useMemo(() => {
+    console.log(content)
     if (content.image && state !== State.feedback) {
       return parseUrl(content.image, getTextRaw);
     }
@@ -180,7 +181,9 @@ const ScenarioScreen = (props: Props) => {
             correct={selectedReactionCorrect}
           />
           <p className={`reaction ${selectedReactionCorrect ? "correct" : "wrong"}`}>
-           {selectedReactionText}
+            <ReactMarkdown>
+             {selectedReactionText}
+            </ReactMarkdown>
           </p>
           <h1 className="title">{getText("feedback")}</h1>
           <ReactMarkdown>

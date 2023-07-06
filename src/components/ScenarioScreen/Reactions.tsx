@@ -1,5 +1,6 @@
 import { ScenarioReaction } from 'data/Content';
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import { useTranslationStore } from 'stores/translations';
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
 }
 
 const Reactions = (props: Props) => {
-  const { getText } = useTranslationStore();
+  const { getTextRaw } = useTranslationStore();
   return (
     <ul>
       {props.reactions.map(r => {
@@ -18,8 +19,10 @@ const Reactions = (props: Props) => {
           props.onSelect(r.id);
         }
         return (
-          <li key={r.id} onClick={handleClick} className={`${props.selected === r.id ? "selected": ""}`}>
-            {getText(`reaction-${props.scenario}-${r.id}`)}
+          <li key={r.id} onClick={handleClick} className={`reaction ${props.selected === r.id ? "selected": ""}`}>
+            <ReactMarkdown>
+              {getTextRaw(`reaction-${props.scenario}-${r.id}`)}
+            </ReactMarkdown>
           </li>
         )
       })}
