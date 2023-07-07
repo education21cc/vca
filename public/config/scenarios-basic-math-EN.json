@@ -168,11 +168,11 @@
   "translations": [
     {
         "key": "intro-header",
-        "value": "<<TODO>>"
+        "value": "Can you do basic maths?"
     },
     {
         "key": "intro-description",
-        "value": "<<TODO>>"
+        "value": "The red marks located in this warehouse will take you to different scenarios. When you click on a red marker, a mathematical problem in the warehouse will be shown and you will have to answer a question. After answering the question you will receive an explanation as to what the correct answer is. Every time you answer a question correctly you will get a star."
     },
     {
         "key": "intro-start",
@@ -240,19 +240,19 @@
     },
     {
         "key": "reaction-multiply-reaction1",
-        "value": "1. 192"
+        "value": "a. 192"
     },
     {
         "key": "reaction-multiply-reaction2",
-        "value": "2. 312"
+        "value": "b. 312"
     },
     {
         "key": "reaction-multiply-reaction3",
-        "value": "3. 432"
+        "value": "c. 432"
     },
     {
         "key": "reaction-multiply-reaction4",
-        "value": "4. 576"
+        "value": "d. 576"
     },
     {
         "key": "feedback-multiply",
@@ -268,19 +268,19 @@
     },
     {
         "key": "reaction-subtraction-reaction1",
-        "value": "1. `40`"
+        "value": "a. 40"
     },
     {
         "key": "reaction-subtraction-reaction2",
-        "value": "2. `36`"
+        "value": "b. 36"
     },
     {
         "key": "reaction-subtraction-reaction3",
-        "value": "3. `32`"
+        "value": "c. 32"
     },
     {
         "key": "reaction-subtraction-reaction4",
-        "value": "4. `28`"
+        "value": "d. 28"
     },
     {
         "key": "feedback-subtraction",
@@ -296,19 +296,19 @@
     },
     {
         "key": "reaction-addition-days-reaction1",
-        "value": "1. June 22"
+        "value": "a. June 22"
     },
     {
         "key": "reaction-addition-days-reaction2",
-        "value": "2. June 24"
+        "value": "b. June 24"
     },
     {
         "key": "reaction-addition-days-reaction3",
-        "value": "3. June 26"
+        "value": "c. June 26"
     },
     {
         "key": "reaction-addition-days-reaction4",
-        "value": "4. June 28"
+        "value": "d. June 28"
     },
     {
         "key": "feedback-addition-days",
@@ -324,19 +324,19 @@
     },
     {
         "key": "reaction-multiply-2-reaction1",
-        "value": "1. `30`"
+        "value": "a. 30"
     },
     {
         "key": "reaction-multiply-2-reaction2",
-        "value": "2. `32`"
+        "value": "b. 32"
     },
     {
         "key": "reaction-multiply-2-reaction3",
-        "value": "3. `36`"
+        "value": "c. 36"
     },
     {
         "key": "reaction-multiply-2-reaction4",
-        "value": "4. `40`"
+        "value": "d. 40"
     },
     {
         "key": "feedback-multiply-2",
@@ -352,19 +352,19 @@
     },
     {
         "key": "reaction-division-reaction1",
-        "value": "1. `2`"
+        "value": "a. 2"
     },
     {
         "key": "reaction-division-reaction2",
-        "value": "2. `2.5`"
+        "value": "b. 2.5"
     },
     {
         "key": "reaction-division-reaction3",
-        "value": "3. `3`"
+        "value": "c. 3"
     },
     {
         "key": "reaction-division-reaction4",
-        "value": "4. `3.5`"
+        "value": "d. 3.5"
     },
     {
         "key": "feedback-division",
@@ -380,19 +380,19 @@
     },
     {
         "key": "reaction-subtraction-2-reaction1",
-        "value": "1. `2`"
+        "value": "a. 2"
     },
     {
         "key": "reaction-subtraction-2-reaction2",
-        "value": "2. `2.5`"
+        "value": "b. 2.5"
     },
     {
         "key": "reaction-subtraction-2-reaction3",
-        "value": "3. `3`"
+        "value": "c. 3"
     },
     {
         "key": "reaction-subtraction-2-reaction4",
-        "value": "4. `3.5`"
+        "value": "d. 3.5"
     },
     {
         "key": "feedback-subtraction-2",
@@ -408,19 +408,19 @@
     },
     {
         "key": "reaction-multiply-3-reaction1",
-        "value": "1. `70`"
+        "value": "a. 70"
     },
     {
         "key": "reaction-multiply-3-reaction2",
-        "value": "2. `280`"
+        "value": "b. 280"
     },
     {
         "key": "reaction-multiply-3-reaction3",
-        "value": "3. `420`"
+        "value": "c. 420"
     },
     {
         "key": "reaction-multiply-3-reaction4",
-        "value": "4. `1008`"
+        "value": "d. 1008"
     },
     {
         "key": "feedback-multiply-3",
@@ -436,19 +436,19 @@
     },
     {
         "key": "reaction-combination-reaction1",
-        "value": "1. `100`"
+        "value": "a. 100"
     },
     {
         "key": "reaction-combination-reaction2",
-        "value": "2. `128`"
+        "value": "b. 128"
     },
     {
         "key": "reaction-combination-reaction3",
-        "value": "3. `156`"
+        "value": "c. 156"
     },
     {
         "key": "reaction-combination-reaction4",
-        "value": "4. `184`"
+        "value": "d. 184"
     },
     {
         "key": "feedback-combination",
@@ -464,19 +464,19 @@
     },
     {
         "key": "reaction-division-2-reaction1",
-        "value": "1. `15`"
+        "value": "a. 15"
     },
     {
         "key": "reaction-division-2-reaction2",
-        "value": "2. `20`"
+        "value": "b. 20"
     },
     {
         "key": "reaction-division-2-reaction3",
-        "value": "3. `25`"
+        "value": "c. 25"
     },
     {
         "key": "reaction-division-2-reaction4",
-        "value": "4. `30`"
+        "value": "d. 30"
     },
     {
         "key": "feedback-division-2",
@@ -492,19 +492,19 @@
     },
     {
         "key": "reaction-combination-2-reaction1",
-        "value": "1. `890`"
+        "value": "a. 890"
     },
     {
         "key": "reaction-combination-2-reaction2",
-        "value": "2. `900`"
+        "value": "b. 900"
     },
     {
         "key": "reaction-combination-2-reaction3",
-        "value": "3. `990`"
+        "value": "c. 990"
     },
     {
         "key": "reaction-combination-2-reaction4",
-        "value": "4. `1008`"
+        "value": "d. 1008"
     },
     {
         "key": "feedback-combination-2",
