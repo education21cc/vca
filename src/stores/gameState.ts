@@ -1,4 +1,4 @@
-import create from "zustand";
+import create from 'zustand'
 
 export enum GameState {
   intro = 1 << 0,
@@ -14,7 +14,7 @@ type GameStateStore = {
 }
 
 export const useGameStateStore = create<GameStateStore>(
-  (set, get): GameStateStore => ({
+  (set): GameStateStore => ({
     state: GameState.intro,
     setState: (state: GameState) => set({ state })
   })

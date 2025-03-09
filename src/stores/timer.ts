@@ -1,12 +1,11 @@
-import create from "zustand";
+import create from 'zustand'
 
 type TimerStore = {
   timePassed: number
 }
 
 export const useTimerStore = create<TimerStore>(
-  (set, get) => ({
+  () => ({
     timePassed: 0,
   })
 )
-

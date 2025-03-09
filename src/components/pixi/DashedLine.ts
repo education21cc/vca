@@ -1,11 +1,11 @@
-import { PixiComponent, applyDefaultProps, Graphics } from '@inlet/react-pixi';
-import { LineStyle, LINE_CAP, LINE_JOIN } from 'pixi.js';
-import { Point } from 'pixi.js';
-import * as PIXI from 'pixi.js';
+import { PixiComponent, applyDefaultProps, Graphics } from '@inlet/react-pixi'
+import { LineStyle, LINE_CAP, LINE_JOIN } from 'pixi.js'
+import { Point } from 'pixi.js'
+import * as PIXI from 'pixi.js'
 
 interface Props  {
   points?: Point[];
-  style?:  Partial<LineStyle>;
+  style?: Partial<LineStyle>;
   dash?: number;
   gap?: number;
   speed?: number; // positive to move forward, negative to move backward, 0 to not move at all
@@ -16,7 +16,7 @@ interface Props  {
  */
 const DashedLine = PixiComponent<React.ComponentProps<typeof Graphics> & Props, PIXI.Graphics>('DashedLine', {
   create: () => {
-    return new PIXI.Graphics();
+    return new PIXI.Graphics()
   },
 
   applyProps: (instance: PIXI.Graphics, oldProps: Props, newProps: Props) => {
@@ -27,20 +27,20 @@ const DashedLine = PixiComponent<React.ComponentProps<typeof Graphics> & Props, 
       speed = 40,
       style,
       ...newP
-    } = newProps;
+    } = newProps
 
     // apply rest props to PIXI.Graphics
-    applyDefaultProps(instance, oldProps, newP);
-    instance.clear();
+    applyDefaultProps(instance, oldProps, newP)
+    instance.clear()
 
     const draw = () => {
 
       if (instance.destroyed) {
         // component is unmounted, cancel drawing the line
-        return;
+        return
       }
 
-      instance.clear();
+      instance.clear()
       instance.lineStyle({
         width: style?.width ?? 10,
         ...style,
@@ -49,72 +49,72 @@ const DashedLine = PixiComponent<React.ComponentProps<typeof Graphics> & Props, 
 
       })
 
-      const offsetPercentage = (Date.now() % (10000 / speed) + 1) / Math.abs(10000 / speed);
+      const offsetPercentage = (Date.now() % (10000 / speed) + 1) / Math.abs(10000 / speed)
 
-      let dashLeft = 0;
-      let gapLeft = 0;
+      let dashLeft = 0
+      let gapLeft = 0
       if (offsetPercentage > 0) {
-        const progressOffset = (dash + gap) * offsetPercentage * (speed < -1 ? 1 : -1) ;
+        const progressOffset = (dash + gap) * offsetPercentage * (speed < -1 ? 1 : -1)
         if (progressOffset < dash) {
-          dashLeft = dash - progressOffset;
+          dashLeft = dash - progressOffset
         } else {
-          gapLeft = gap - (progressOffset - dash);
+          gapLeft = gap - (progressOffset - dash)
         }
       }
-      const rotatedpoints = [];
+      const rotatedpoints = []
       for (const point of points) {
-        const p = point.clone();
-        const cosAngle = Math.cos(instance.rotation);
-        const sinAngle = Math.sin(instance.rotation);
-        const dx = p.x;
-        const dy = p.y;
-        p.x = (dx * cosAngle - dy * sinAngle);
-        p.y = (dx * sinAngle + dy * cosAngle);
-        rotatedpoints.push(p);
+        const p = point.clone()
+        const cosAngle = Math.cos(instance.rotation)
+        const sinAngle = Math.sin(instance.rotation)
+        const dx = p.x
+        const dy = p.y
+        p.x = (dx * cosAngle - dy * sinAngle)
+        p.y = (dx * sinAngle + dy * cosAngle)
+        rotatedpoints.push(p)
       }
 
       for (let i = 0; i < rotatedpoints.length - 1; i++) {
-        const p1 = rotatedpoints[i];
-        const p2 = rotatedpoints[i + 1];
-        const dx = p2.x - p1.x;
-        const dy = p2.y - p1.y;
-        const len = Math.sqrt(dx * dx + dy * dy);
+        const p1 = rotatedpoints[i]
+        const p2 = rotatedpoints[i + 1]
+        const dx = p2.x - p1.x
+        const dy = p2.y - p1.y
+        const len = Math.sqrt(dx * dx + dy * dy)
         const normal = {
           x: dx / len,
           y: dy / len,
-        };
-        let progressOnLine = 0;
+        }
+        let progressOnLine = 0
 
-        instance.moveTo(p1.x + gapLeft * normal.x, p1.y + gapLeft * normal.y);
+        instance.moveTo(p1.x + gapLeft * normal.x, p1.y + gapLeft * normal.y)
         while (progressOnLine <= len) {
-          progressOnLine += gapLeft;
+          progressOnLine += gapLeft
           if (dashLeft > 0) {
-            progressOnLine += dashLeft;
+            progressOnLine += dashLeft
           } else {
-            progressOnLine += dash;
+            progressOnLine += dash
           }
           if (progressOnLine > len) {
-            dashLeft = progressOnLine - len;
-            progressOnLine = len;
+            dashLeft = progressOnLine - len
+            progressOnLine = len
           } else {
-            dashLeft = 0;
+            dashLeft = 0
           }
-          instance.lineTo(p1.x + progressOnLine * normal.x, p1.y + progressOnLine * normal.y);
-          progressOnLine += gap;
+          instance.lineTo(p1.x + progressOnLine * normal.x, p1.y + progressOnLine * normal.y)
+          progressOnLine += gap
           if (progressOnLine > len && dashLeft === 0) {
-            gapLeft = progressOnLine - len;
+            gapLeft = progressOnLine - len
           } else {
-            gapLeft = 0;
-            instance.moveTo(p1.x + progressOnLine * normal.x, p1.y + progressOnLine * normal.y);
+            gapLeft = 0
+            instance.moveTo(p1.x + progressOnLine * normal.x, p1.y + progressOnLine * normal.y)
           }
         }
       }
       if (speed !== 0) {
-        requestAnimationFrame(draw);
+        requestAnimationFrame(draw)
       }
-    };
-    draw();
+    }
+    draw()
   },
-});
+})
 
-export default DashedLine;
+export default DashedLine

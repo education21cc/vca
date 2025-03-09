@@ -1,20 +1,20 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from 'react'
 import {
   TiledObjectData,
   TiledProperty,
   TiledMapData,
   TiledTilesetData,
-} from "utils/tiledMapData";
-import { TILE_HEIGHT, TILE_WIDTH } from "constants/tiles";
-import { Sprite, Graphics } from "@inlet/react-pixi";
-import { findTileset } from "utils/tiles";
-import { getTileIndex, tileLocationToPosition } from "utils/isometric";
-import Smoke1 from "./effects/smoke1";
-import { gsap, Linear } from "gsap";
-import SpriteAnimated from "./SpriteAnimated";
-import { AnimatedSprite } from "pixi.js";
-import { GameMode } from "data/Content";
-import { OutlineFilter } from '@pixi/filter-outline';
+} from '@/utils/tiledMapData'
+import { Sprite, Graphics } from '@inlet/react-pixi'
+import { TILE_HEIGHT, TILE_WIDTH } from '@/constants/tiles'
+import { findTileset } from '@/utils/tiles'
+import { getTileIndex, tileLocationToPosition } from '@/utils/isometric'
+import Smoke1 from './effects/smoke1'
+import { gsap, Linear } from 'gsap'
+import SpriteAnimated from './SpriteAnimated'
+import { AnimatedSprite } from 'pixi.js'
+import { GameMode } from '@/data/Content'
+import { YELLOW_HIGHLIGHT_FILTER } from './filters'
 
 interface Props {
   data: TiledObjectData;
@@ -24,40 +24,39 @@ interface Props {
   tilesetsTextures: { [key: string]: any };
   onClick: (name: string) => void;
 }
-export const YELLOW_HIGHLIGHT_FILTER = new OutlineFilter(8, 0xffcc00);
 
-const popInDuration = 1;
-const fadeOutDuration = 0.5;
+const popInDuration = 1
+const fadeOutDuration = 0.5
 const MapObject = (props: Props) => {
-  const o = props.data;
-  const { mapData, tilesetsTextures, found, gameMode, onClick } = props;
+  const o = props.data
+  const { mapData, tilesetsTextures, found, gameMode, onClick } = props
 
-  const checkRef = useRef(null);
-  const ref = useRef<AnimatedSprite>(null);
-  const tileset = useRef<TiledTilesetData>();
-  const spritesheetTextures = useRef<any>();
+  const checkRef = useRef(null)
+  const ref = useRef<AnimatedSprite>(null)
+  const tileset = useRef<TiledTilesetData>()
+  const spritesheetTextures = useRef<any>()
 
   const filters = useMemo(() => {
-    const filter = o.properties?.find((p) => p.name === "filter")?.value
+    const filter = o.properties?.find((p) => p.name === 'filter')?.value
     switch (filter) {
       case 'yellow-highlight':
-        return [YELLOW_HIGHLIGHT_FILTER];
+        return [YELLOW_HIGHLIGHT_FILTER]
       default:
         return null
     }
-  }, [o.properties]);
+  }, [o.properties])
 
   useEffect(() => {
     // Pop in animation!
-    if (!checkRef.current) return;
+    if (!checkRef.current) return
     gsap.from(checkRef.current, {
       duration: popInDuration,
-      ease: "elastic.out(2, 0.5)",
+      ease: 'elastic.out(2, 0.5)',
       pixi: {
         visible: false,
         scale: 0.1,
       },
-    });
+    })
     if (gameMode === GameMode.timedFinder) {
       // fade the entire thing out in timedFinder mode
       gsap.to(ref.current, {
@@ -68,70 +67,70 @@ const MapObject = (props: Props) => {
           visible: false,
           alpha: 0,
         },
-      });
+      })
     }
-  }, [found, gameMode]);
+  }, [found, gameMode])
 
   useEffect(() => {
-    const checkRefEffect = checkRef.current;
-    const refEffect = ref.current;
+    const checkRefEffect = checkRef.current
+    const refEffect = ref.current
     return () => {
-      gsap.killTweensOf(checkRefEffect);
-      gsap.killTweensOf(refEffect);
-    };
-  }, []);
+      gsap.killTweensOf(checkRefEffect)
+      gsap.killTweensOf(refEffect)
+    }
+  }, [])
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
-    let tl: gsap.core.Timeline;
-    if (!ref.current) return;
+    let timeout: ReturnType<typeof setTimeout>
+    let tl: gsap.core.Timeline
+    if (!ref.current) return
 
-    const animation = o.properties?.find((p) => p.name === "animation");
-    if (!animation) return;
+    const animation = o.properties?.find((p) => p.name === 'animation')
+    if (!animation) return
 
-    const type = o.properties?.find((p) => p.name === "type")?.value;
+    const type = o.properties?.find((p) => p.name === 'type')?.value
     const delay = parseFloat(
-      o.properties?.find((p) => p.name === "delay")?.value || 0
-    );
+      o.properties?.find((p) => p.name === 'delay')?.value || '0'
+    )
 
     switch (type) {
-      case "move": {
+      case 'move': {
         // Pass a string like "[[0, 22], [5, 22], [5,25], [11, 25], [11, 18]]" with coordinates
-        let steps;
+        let steps
         try {
-          steps = JSON.parse(animation.value);
+          steps = JSON.parse(animation.value)
         } catch (e) {
           throw new Error(
-            `Couldn't parse animation steps: "${animation.value}"`
-          );
+            `Couldn't parse animation steps: "${animation.value}"\n${e}`
+          )
         }
         // the spritheet is to show different frames for different angles.
         // it looks for sprites with the given type in the tileset.
         // first frame is southeast, second frame is northeasth
         const animSpritesheet = o.properties?.find(
-          (p) => p.name === "spritesheet"
-        )?.value;
+          (p) => p.name === 'spritesheet'
+        )?.value
         tl = gsap.timeline({
           repeat: -1,
           delay,
-        });
+        })
         for (let i = 1; i < steps.length; i++) {
-          const lastStep = steps[i - 1];
-          const currentStep = steps[i];
+          const lastStep = steps[i - 1]
+          const currentStep = steps[i]
           const distance = Math.sqrt(
             Math.pow(currentStep[0] - lastStep[0], 2) +
               Math.pow(currentStep[1] - lastStep[1], 2)
-          );
+          )
 
-          ref.current.gotoAndStop(0);
+          ref.current.gotoAndStop(0)
           const position = tileLocationToPosition(
             currentStep,
             mapData.width,
             mapData.height
-          );
+          )
           const speed = parseFloat(
-            o.properties?.find((p) => p.name === "speed")?.value || 0.25
-          );
+            o.properties?.find((p) => p.name === 'speed')?.value ?? '0.25'
+          )
 
           tl.to(ref.current, {
             onStart: () => {
@@ -140,29 +139,29 @@ const MapObject = (props: Props) => {
                   lastStep[0] === currentStep[0] &&
                   lastStep[1] > currentStep[1]
                 ) {
-                  ref.current!.gotoAndStop(1);
-                  ref.current!.scale.set(1, 1);
+                  ref.current!.gotoAndStop(1)
+                  ref.current!.scale.set(1, 1)
                 } else if (
                   lastStep[0] > currentStep[0] &&
                   lastStep[1] === currentStep[1]
                 ) {
-                  ref.current!.gotoAndStop(1);
-                  ref.current!.scale.set(-1, 1);
+                  ref.current!.gotoAndStop(1)
+                  ref.current!.scale.set(-1, 1)
                 } else if (
                   lastStep[0] === currentStep[0] &&
                   lastStep[1] < currentStep[1]
                 ) {
-                  ref.current!.gotoAndStop(0);
-                  ref.current!.scale.set(-1, 1);
+                  ref.current!.gotoAndStop(0)
+                  ref.current!.scale.set(-1, 1)
                 } else {
-                  ref.current!.gotoAndStop(0);
-                  ref.current!.scale.set(1, 1);
+                  ref.current!.gotoAndStop(0)
+                  ref.current!.scale.set(1, 1)
                 }
               }
             },
             onUpdate: () => {
               if (ref.current) {
-                ref.current.zIndex = getTileIndex(currentStep, mapData.width);
+                ref.current.zIndex = getTileIndex(currentStep, mapData.width)
               }
             },
             duration: speed * distance,
@@ -171,26 +170,26 @@ const MapObject = (props: Props) => {
               y: position.y,
             },
             ease: Linear.easeNone,
-          });
+          })
         }
 
-        break;
+        break
       }
-      case "flicker": {
+      case 'flicker': {
         const flash = () => {
-          ref.current!.visible = Math.random() < 0.5;
-          timeout = setTimeout(flash, Math.random() * 250);
-        };
-        timeout = setTimeout(flash, Math.random() * 250);
-        break;
+          ref.current!.visible = Math.random() < 0.5
+          timeout = setTimeout(flash, Math.random() * 250)
+        }
+        timeout = setTimeout(flash, Math.random() * 250)
+        break
       }
 
-      case "scale": {
+      case 'scale': {
         tl = gsap.timeline({
           repeat: -1,
           delay,
-        });
-        const scale = JSON.parse(animation.value);
+        })
+        const scale = JSON.parse(animation.value)
 
         tl.to(ref.current, {
           onStart: () => {
@@ -208,38 +207,38 @@ const MapObject = (props: Props) => {
             each: 0.5,
             repeat: -1
           }
-        });
+        })
       }
     }
 
     return () => {
-      clearTimeout(timeout);
+      clearTimeout(timeout)
       if (tl) {
-        tl.clear();
+        tl.clear()
       }
-    };
-  }, [mapData, o.properties]);
+    }
+  }, [mapData, o.properties])
 
   if (o.polygon) {
-    const { x, y } = o;
-    const location: [number, number] = [x / TILE_HEIGHT, y / TILE_HEIGHT];
+    const { x, y } = o
+    const location: [number, number] = [x / TILE_HEIGHT, y / TILE_HEIGHT]
 
     const points = o.polygon.reduce(
       (acc: number[], value: { x: number; y: number }) => {
-        acc.push(value.y + value.x);
-        acc.push(value.y / 2 - value.x / 2);
-        return acc;
+        acc.push(value.y + value.x)
+        acc.push(value.y / 2 - value.x / 2)
+        return acc
       },
       []
-    );
+    )
 
     return (
       <Graphics
         key={`${o.type}${o.name}`}
         draw={(graphics) => {
-          graphics.beginFill(0xbada55);
-          graphics.drawPolygon(points);
-          graphics.endFill();
+          graphics.beginFill(0xbada55)
+          graphics.drawPolygon(points)
+          graphics.endFill()
         }}
         position={tileLocationToPosition(
           location,
@@ -248,34 +247,34 @@ const MapObject = (props: Props) => {
         )}
         pivot={[TILE_WIDTH / 2, TILE_HEIGHT / 2]}
       />
-    );
+    )
   } else if (o.gid) {
     // todo: DRY
-    const { x, y, gid } = o;
+    const { x, y, gid } = o
     const location: [number, number] = [
       x / TILE_HEIGHT - 1,
       y / TILE_HEIGHT - 1,
-    ];
+    ]
 
-    const actualGid = gid & 0x1fffffff;
-    tileset.current = findTileset(actualGid, mapData!.tilesets);
+    const actualGid = gid & 0x1fffffff
+    tileset.current = findTileset(actualGid, mapData!.tilesets)
 
-    if (!tileset || !tileset.current!.tiles || gid === 0) return null;
+    if (!tileset || !tileset.current!.tiles || gid === 0) return null
 
     // See https://discourse.mapeditor.org/t/data-field-in-the-tmx-format-json/3633
-    const flipHor = (gid & 0x80000000) !== 0;
-    const flipVert = (gid & 0x40000000) !== 0;
-    const scale: [number, number] = [1, 1];
+    const flipHor = (gid & 0x80000000) !== 0
+    const flipVert = (gid & 0x40000000) !== 0
+    const scale: [number, number] = [1, 1]
     if (flipHor) {
-      scale[0] *= -1;
+      scale[0] *= -1
     }
     if (flipVert) {
-      scale[1] *= -1;
+      scale[1] *= -1
     }
     const texture = tileset.current!.tiles.find(
       (t) => t.id === actualGid - tileset.current!.firstgid
-    );
-    if (!texture) return null;
+    )
+    if (!texture) return null
 
     // the image is in the format "tiles/structure-wall/tile-structure-wall-gray-left.png"
     // the 'structure-wall' part refers to the spritesheet, the 'tile-structure-wall-gray-left' is the texture on the spritesheet
@@ -284,35 +283,35 @@ const MapObject = (props: Props) => {
       _,
       spritesheet,
       textureName,
-    ] = texture.image.split("/");
+    ] = texture.image.split('/')
     if (!tilesetsTextures[spritesheet]) {
       console.warn(
         `Could not find spritesheet ${spritesheet} ${tilesetsTextures}`
-      );
+      )
     }
-    spritesheetTextures.current = tilesetsTextures[spritesheet].textures;
+    spritesheetTextures.current = tilesetsTextures[spritesheet].textures
     if (!spritesheetTextures.current![textureName]) {
-      console.warn(`Could not find texture ${spritesheet} ${textureName}`);
+      console.warn(`Could not find texture ${spritesheet} ${textureName}`)
     }
 
     // the spritheet is to show different frames for different angles.
     // it looks for sprites with the given type in the tileset.
     // first frame is southeast, second frame is northeast
     const animSpritesheet = o.properties?.find(
-      (p) => p.name === "spritesheet"
-    )?.value;
-    let textures;
+      (p) => p.name === 'spritesheet'
+    )?.value
+    let textures
     if (animSpritesheet) {
       const spritesheetTiles = tileset.current?.tiles
         ?.filter((t) => t.type === animSpritesheet)
-        .map((td) => td.image);
+        .map((td) => td.image)
 
       textures = spritesheetTiles!.map((image) => {
-        const str = image.substr(image.lastIndexOf("/") + 1);
-        return tilesetsTextures[spritesheet].textures?.[str];
-      });
+        const str = image.substr(image.lastIndexOf('/') + 1)
+        return tilesetsTextures[spritesheet].textures?.[str]
+      })
     } else {
-      textures = [spritesheetTextures.current![textureName]];
+      textures = [spritesheetTextures.current![textureName]]
     }
 
     return (
@@ -338,7 +337,7 @@ const MapObject = (props: Props) => {
         {found && (
           <Sprite
             ref={checkRef}
-            image={`${process.env.PUBLIC_URL}/images/ui/check.svg`}
+            image={`${import.meta.env.VITE_BASE_URL}images/ui/check.svg`}
             scale={0.8}
             anchor={[-0.1, 1]}
             pivot={[TILE_WIDTH / 2, 0]}
@@ -346,25 +345,26 @@ const MapObject = (props: Props) => {
           />
         )}
       </SpriteAnimated>
-    );
+    )
   }
-  return null;
-};
+  return null
+}
 
-export default MapObject;
+export default MapObject
 
 const renderEffects = (properties?: TiledProperty[]) => {
-  if (!properties) return null;
+  if (!properties) return null
 
-  let x, y;
-  const offset = properties.find((p) => p.name === "offset");
+  let x = '0'
+  let y = '0'
+  const offset = properties.find((p) => p.name === 'offset')
   if (offset) {
-    [x, y] = offset.value.split(",");
+    [x, y] = offset.value.split(',')
   }
 
-  const effect = properties.find((p) => p.name === "effect");
-  if (effect?.value === "smoke1") {
-    return <Smoke1 x={x} y={y} />;
+  const effect = properties.find((p) => p.name === 'effect')
+  if (effect?.value === 'smoke1') {
+    return <Smoke1 x={+x} y={+y} />
   }
-  return null;
-};
+  return null
+}

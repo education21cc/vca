@@ -1,5 +1,5 @@
-import { Content } from "data/Content";
-import create from "zustand";
+import { Content } from '@/data/Content'
+import create from 'zustand'
 
 type ContentStore = {
   content: Content
@@ -8,14 +8,15 @@ type ContentStore = {
 }
 
 export const useContentStore = create<ContentStore>(
-  (set, get) => ({
+  (set) => ({
     content: {
-      mapJson: "",
+      mapJson: '',
       situations: {},
       scenarios: {}
     },
     loaded: false,
-    setContent: (content: Content) => { set({content, loaded: true}) },
+    setContent: (content: Content) => {
+      set({content, loaded: true})
+    },
   })
 )
-

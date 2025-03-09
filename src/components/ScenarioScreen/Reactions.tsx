@@ -1,7 +1,6 @@
-import { ScenarioReaction } from 'data/Content';
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
-import { useTranslationStore } from 'stores/translations';
+import ReactMarkdown from 'react-markdown'
+import { ScenarioReaction } from '@/data/Content'
+import { useTranslationStore } from '@/stores/translations'
 
 interface Props {
   scenario: string;
@@ -11,15 +10,15 @@ interface Props {
 }
 
 const Reactions = (props: Props) => {
-  const { getTextRaw } = useTranslationStore();
+  const { getTextRaw } = useTranslationStore()
   return (
     <ul>
       {props.reactions.map(r => {
         const handleClick = () => {
-          props.onSelect(r.id);
+          props.onSelect(r.id)
         }
         return (
-          <li key={r.id} onClick={handleClick} className={`reaction ${props.selected === r.id ? "selected": ""}`}>
+          <li key={r.id} onClick={handleClick} className={`reaction ${props.selected === r.id ? 'selected': ''}`}>
             <ReactMarkdown>
               {getTextRaw(`reaction-${props.scenario}-${r.id}`)}
             </ReactMarkdown>
@@ -27,7 +26,7 @@ const Reactions = (props: Props) => {
         )
       })}
     </ul>
-  );
+  )
 }
 
-export default Reactions;
+export default Reactions

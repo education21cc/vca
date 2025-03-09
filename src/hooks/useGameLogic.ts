@@ -1,12 +1,12 @@
-import { Content, GameMode } from "data/Content";
-import { useEffect } from "react";
-import { GameState, useGameStateStore } from "stores/gameState";
-import useGameMode from "./useGameMode";
-import { usePrevious } from "./usePrevious";
-import sound from 'pixi-sound';
+import { useEffect } from 'react'
+import sound from 'pixi-sound'
+import { Content, GameMode } from '@/data/Content'
+import { GameState, useGameStateStore } from '@/stores/gameState'
+import useGameMode from './useGameMode'
+import { usePrevious } from './usePrevious'
 
 
-sound.add('blip', `${process.env.PUBLIC_URL}/sound/blip.ogg`);
+sound.add('blip', `${import.meta.env.VITE_BASE_URL}sound/blip.ogg`)
 
 export const useGameLogic = (content: Content, foundSituations: string[]) => {
   const { setState } = useGameStateStore()
@@ -17,14 +17,16 @@ export const useGameLogic = (content: Content, foundSituations: string[]) => {
   useEffect(() => {
     if (gameMode === GameMode.timedFinder) {
       if (foundSituations.length === content.finder?.situations.length) {
-        setTimeout(() => { setState(GameState.preComplete) }, 1000)
+        setTimeout(() => {
+          setState(GameState.preComplete)
+        }, 1000)
       }
     }
-  }, [content.finder?.situations.length, foundSituations.length, gameMode, setState]);
+  }, [content.finder?.situations.length, foundSituations.length, gameMode, setState])
 
   useEffect(() => {
     if (previousFoundSituationsCount !== foundSituations.length && foundSituations.length) {
-      sound.play('blip');
+      sound.play('blip')
     }
   }, [foundSituations.length, previousFoundSituationsCount])
 }

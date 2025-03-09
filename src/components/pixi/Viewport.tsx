@@ -1,8 +1,8 @@
-import React, { forwardRef } from "react";
-import { Viewport as PixiViewport } from "pixi-viewport";
-import { PixiComponent, useApp } from "@inlet/react-pixi";
-import * as PIXI  from 'pixi.js';
-import { InteractionEvent } from "pixi.js";
+import { forwardRef } from 'react'
+import { Viewport as PixiViewport } from 'pixi-viewport'
+import { PixiComponent, useApp } from '@inlet/react-pixi'
+import * as PIXI  from 'pixi.js'
+import { InteractionEvent } from 'pixi.js'
 
 interface Props {
   onClick?(event: InteractionEvent): void;
@@ -18,17 +18,16 @@ interface Props {
  * https://davidfig.github.io/pixi-viewport/jsdoc/
  */
 const Viewport = forwardRef<PixiViewport, any>((props, ref) => {
-  const app = useApp();
+  const app = useApp()
 
-  return <PixiComponentViewport app={app} {...props} ref={ref} />;
-});
+  return <PixiComponentViewport app={app} {...props} ref={ref} />
+})
 
 interface PixiComponentProps {
-    app: PIXI.Application;
+  app: PIXI.Application;
 }
 
-const PixiComponentViewport = PixiComponent("Viewport", {
-  // @ts-ignore
+const PixiComponentViewport = PixiComponent('Viewport', {
   create: (props: PixiComponentProps & Props) => {
     const viewport = new PixiViewport({
       screenWidth: props.screenWidth,
@@ -38,18 +37,18 @@ const PixiComponentViewport = PixiComponent("Viewport", {
       ticker: props.app.ticker,
       //interaction: props.app.renderer.plugins.interaction,
       // the interaction module is important for wheel to work properly when renderer.view is placed or scaled
-    });
+    })
     // viewport.on("clicked", (event) => { if(props.onClick) props.onClick(event) });
-    viewport.on('clicked', (e) => {
-      // console.log(viewport.toLocal(e.data.global))
-    })
-    viewport.on('mousemove', (e) => {
-      //console.log(viewport.toLocal(e.data.global))
-    })
+    // viewport.on('clicked', (e) => {
+    // console.log(viewport.toLocal(e.data.global))
+    // })
+    // viewport.on('mousemove', (e) => {
+    //console.log(viewport.toLocal(e.data.global))
+    // })
     const {
       minScale = .15,
       maxScale = 1
-    } = props;
+    } = props
 
     viewport
       .drag()
@@ -58,9 +57,9 @@ const PixiComponentViewport = PixiComponent("Viewport", {
       .clamp({ direction: 'all' })
       .setZoom(.15)
       .clampZoom({ minScale, maxScale })
-      .decelerate();
+      .decelerate()
 
-    return viewport;
+    return viewport
   }
-});
-export default Viewport;
+})
+export default Viewport

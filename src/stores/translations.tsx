@@ -1,6 +1,5 @@
-import React from "react";
-import { ReactNode } from "react";
-import create from "zustand";
+import { ReactNode } from 'react'
+import create from 'zustand'
 
 type TranslationsStore = {
   texts: {[key: string]: string},
@@ -9,14 +8,14 @@ type TranslationsStore = {
 }
 
 export const useTranslationStore = create<TranslationsStore>(
-  (set, get): TranslationsStore => ({
+  (_, get): TranslationsStore => ({
     texts: {},
     getText: (key: string) => {
       const text = get().texts[key]
-      return convertToJSX(text);
+      return convertToJSX(text)
     },
     getTextRaw: (key: string) => {
-      return  get().texts[key];
+      return  get().texts[key]
     }
   })
 )

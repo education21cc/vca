@@ -1,11 +1,15 @@
 
-import React, {  useEffect } from 'react';
-import './style/styles.css';
-import { ReactComponent as CloseIcon } from './style/close.svg';
+import { useEffect } from 'react'
+import CloseIcon from './style/close.svg?react'
+import { GameData } from './GameData'
+import { send } from './utils'
 
-interface Props {
-  disableBackButton?: boolean;
-  gameDataReceived: (gameData: any) => void;
+import './style/styles.css'
+
+interface Props<TContentType> {
+  playerMode?: boolean // in playerMode there is a back button and 
+  disableBackButton?: boolean
+  gameDataReceived: (gameData: GameData<TContentType>) => void
 }
 
 export type GameEvent = {
@@ -16,15 +20,22 @@ export type GameEvent = {
 
 declare global {
   interface Window {
-    setGameData: (gameData: any) => void;
+    setGameData: (gameData: GameData<unknown>) => void;
     storeGameEvent: (gameEvent: GameEvent) => void;
-    getGameData: () => any
-    GAMEDATA: any
+    getGameData: () => unknown
+    GAMEDATA: GameData<unknown>
+    webkit?: {
+      messageHandlers: {
+        cordova_iab: {
+          postMessage: (message: string) => void
+        }
+      }
+    }
   }
 }
 
-const PlayerBridge = (props: Props) => {
-  const {gameDataReceived, disableBackButton} = props;
+const PlayerBridge = <TContentType,>(props: Props<TContentType>) => {
+  const { gameDataReceived, disableBackButton, playerMode } = props
   useEffect(() => {
     /* Add the following to index.html
     <script>
@@ -37,34 +48,34 @@ const PlayerBridge = (props: Props) => {
       window.addEventListener("message", receiveMessage, false);
     </script>
     */
-    if (!process.env.REACT_APP_PLAYER_MODE) {
-      return;
+    if (!playerMode) {
+      return
     }
 
     window.getGameData = () => {
-      return window.GAMEDATA;
+      return window.GAMEDATA
     }
 
     const check = () => {
       if (window.GAMEDATA) {
-        clearInterval(interval);
-        gameDataReceived(window.GAMEDATA);
+        clearInterval(interval)
+        gameDataReceived(window.GAMEDATA as GameData<TContentType>)
       }
     }
     // cordova iab just sets window.GAMEDATA
-    let interval = setInterval(check, 250);
+    const interval = setInterval(check, 250)
 
     return () => {
-      clearInterval(interval);
+      clearInterval(interval)
     }
-  }, [gameDataReceived]);
+  }, [playerMode, gameDataReceived])
 
-  if (!process.env.REACT_APP_PLAYER_MODE) {
-    return null;
+  if (!playerMode) {
+    return null
   }
 
   if (disableBackButton === true) {
-    return null;
+    return null
   }
 
   return (
@@ -74,38 +85,24 @@ const PlayerBridge = (props: Props) => {
   )
 }
 
-export default PlayerBridge;
+export default PlayerBridge
 
 const exit = () => {
   send({
     type: 'exit'
-  });
+  })
 }
 
-window.setGameData = (gameData: any) => {
+window.setGameData = (gameData: GameData<unknown>) => {
   send({
     type: 'setGameData',
     data: gameData
-  });
+  })
 }
 
 window.storeGameEvent = (gameEvent: GameEvent) => {
   send({
     type: 'gameEvent',
     data: gameEvent
-  });
-}
-
-export const send = (payload: any) => {
-  // @ts-ignore
-  if (window.hasOwnProperty("webkit") && window.webkit.hasOwnProperty("messageHandlers")){
-    var stringifiedMessageObj = JSON.stringify(payload);
-    // Send to In App Browser context
-    // @ts-ignore
-    webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);
-  }
-  else {
-    // @ts-ignore
-    window.parent.postMessage(payload, '*');
-  }
+  })
 }
