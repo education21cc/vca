@@ -1,0 +1,65 @@
+{
+  "userId": 2,
+  "settings": {
+    "muted": false
+
+  },
+  "content": {
+    "mapJson": "maps/testmap5.json",
+    "stars": 4,
+    "finder": {
+      "instruction": "Vind 5 brandbrussers",
+      "situations": ["trash1", "trash2", "trash3", "burningBin", "blockingContainer", "blockingBox", "stackOfBoxes"],
+      "complete": {
+        "buttons": [{
+          "text": "complete-exit",
+          "action": "again",
+          "color": "green"
+        }]
+      }
+    }
+  },
+  "translations": [{
+    "key": "intro-header",
+    "value": "Gevaarlijke situaties"
+  }, {
+    "key": "intro-description",
+    "value": "Voorkomen van incidenten kan alleen als je alert bent op het voorkomen van onveilige situaties. De werkplek moet goed zijn opgeruimd en goed te overzien zijn, zonder onnodige blokkades. In dit spel is het de uitdaging om alle onveilige situaties te vinden en als het dan toch fout gaat goed te weten wat je moet doen. Je kunt hier 2 sterren mee verdienen. Succes!"
+  }, {
+    "key": "intro-start",
+    "value": "Start"
+  }, {
+    "key": "intro-stars-to-gain",
+    "value": "{0}/{1} verdiend"
+  }, {
+    "key": "button-next",
+    "value": "Volgende"
+  }, {
+    "key": "finder-instruction",
+    "value": "Vind alle gevaarlijke situaties"
+  }, {
+    "key": "score-list-1",
+    "value": "Found some trash"
+  }, {
+    "key": "score-list-2",
+    "value": "Found all trash"
+  }, {
+    "key": "score-list-3",
+    "value": "50% time bonus"
+  }, {
+    "key": "score-list-4",
+    "value": "80% time bonus"
+  }, {
+    "key": "complete-header",
+    "value": "Complete"
+   }, {
+    "key": "complete-exit",
+    "value": "Exit"
+  }],
+  "levelsCompleted": [{
+    "level": 0,
+    "score": 0,
+    "maxScore": 8
+  }]
+
+}
