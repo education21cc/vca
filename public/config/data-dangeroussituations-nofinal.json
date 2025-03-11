@@ -2,7 +2,6 @@
   "userId": 2,
   "settings": {
     "muted": false
-
   },
   "content": {
     "mapJson": "maps/testmap5.json",
@@ -24,7 +23,7 @@
     "value": "Gevaarlijke situaties"
   }, {
     "key": "intro-description",
-    "value": "Voorkomen van incidenten kan alleen als je alert bent op het voorkomen van onveilige situaties. De werkplek moet goed zijn opgeruimd en goed te overzien zijn, zonder onnodige blokkades. In dit spel is het de uitdaging om alle onveilige situaties te vinden en als het dan toch fout gaat goed te weten wat je moet doen. Je kunt hier 2 sterren mee verdienen. Succes!"
+    "value": "Voorkomen van incidenten kan alleen als je alert bent op het voorkomen van onveilige situaties. De werkplek moet goed zijn opgeruimd en goed te overzien zijn, zonder onnodige blokkades. In dit spel is het de uitdaging om alle onveilige situaties te vinden en als het dan toch fout gaat goed te weten wat je moet doen. Je kunt hier 4 sterren mee verdienen. Succes!"
   }, {
     "key": "intro-start",
     "value": "Start"
@@ -39,19 +38,19 @@
     "value": "Vind alle gevaarlijke situaties"
   }, {
     "key": "score-list-1",
-    "value": "Found some trash"
+    "value": "Je hebt een aantal situaties gevonden"
   }, {
     "key": "score-list-2",
-    "value": "Found all trash"
+    "value": "Je hebt alle situaties gevonden"
   }, {
     "key": "score-list-3",
-    "value": "50% time bonus"
+    "value": "50% tijd bonus"
   }, {
     "key": "score-list-4",
-    "value": "80% time bonus"
+    "value": "80% tijd bonus"
   }, {
     "key": "complete-header",
-    "value": "Complete"
+    "value": "Goed zo1"
    }, {
     "key": "complete-exit",
     "value": "Exit"

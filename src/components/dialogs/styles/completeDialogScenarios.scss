@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   font-size: large;
-
+  min-width: 33rem;
 
   .block {
     flex: 1;
@@ -79,13 +79,12 @@
 }
 
 .complete-dialog .bottom {
-  height: 128px;
+  height: 8rem;
   background: #EBEBEB;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   gap: 2rem;
   padding: 2rem;
-  align-self: start;
   overflow: hidden;
   align-items: center;
   display: flex;
