@@ -20,7 +20,7 @@ const useTilesetsLoader = (determineTilesetSpritesheetPath: (tileset: TiledTiles
     const path = determineTilesetSpritesheetPath(nextTileset)
     loadResource(`${path}`, (resource) => {
       if (resource.error) {
-        throw new Error(`Loading ${path}\n${resource.error}`)
+        throw new Error(`Loading ${path}\nError. Did you *embed* the map in Tiled?\n${resource.error}`)
       }
       const newTilesets = {
         ...tilesetsTextures,

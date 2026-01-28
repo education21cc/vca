@@ -314,6 +314,10 @@ const MapObject = (props: Props) => {
       textures = [spritesheetTextures.current![textureName]]
     }
 
+    if (!textures.length) {
+      console.warn(`Warning, ${o.name} ${spritesheet} has no textures!`)
+    }
+
     return (
       <SpriteAnimated
         name={`${o.name}: ${x},${y} (${textureName})`}
