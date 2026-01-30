@@ -18,7 +18,7 @@
 },
 "tile-people-misc-handshake-01.png":
 {
-	"frame": {"x":0,"y":192,"w":160,"h":192},
+	"frame": {"x":256,"y":0,"w":160,"h":192},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":192},
@@ -26,7 +26,7 @@
 },
 "tile-people-misc-handshake-mainfreight.png":
 {
-	"frame": {"x":0,"y":384,"w":160,"h":192},
+	"frame": {"x":0,"y":192,"w":160,"h":192},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":192},
@@ -34,7 +34,7 @@
 },
 "tile-people-misc-hardhadbox-one.png":
 {
-	"frame": {"x":0,"y":576,"w":128,"h":192},
+	"frame": {"x":160,"y":192,"w":128,"h":192},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":192},
@@ -42,7 +42,7 @@
 },
 "tile-people-misc-hardhadbox-tall.png":
 {
-	"frame": {"x":128,"y":576,"w":128,"h":192},
+	"frame": {"x":288,"y":192,"w":128,"h":192},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":192},
@@ -50,7 +50,15 @@
 },
 "tile-people-misc-shoulder.png":
 {
-	"frame": {"x":0,"y":768,"w":128,"h":134},
+	"frame": {"x":0,"y":384,"w":128,"h":134},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":134},
+	"sourceSize": {"w":128,"h":134}
+},
+"tile-people-misc-tablet-mainfreight.png":
+{
+	"frame": {"x":128,"y":384,"w":128,"h":134},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":134},
@@ -58,7 +66,7 @@
 },
 "tile-people-misc-tablet.png":
 {
-	"frame": {"x":128,"y":768,"w":128,"h":134},
+	"frame": {"x":256,"y":384,"w":128,"h":134},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":134},
@@ -69,8 +77,8 @@
 	"version": "1.1",
 	"image": "people-misc.png",
 	"format": "RGBA8888",
-	"size": {"w":256,"h":902},
+	"size": {"w":416,"h":518},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:b8cd7ed55a6d4dcb110cbce743d89725:30f23a01512c032248c8f11892183ab8:8b6b403079140aa7dc2eb68bfcf9a703$"
+	"smartupdate": "$TexturePacker:SmartUpdate:06f93660c2a8e7360b285b2e385cbb0a:92e7775f096954240c5854dbb9c4bdea:8b6b403079140aa7dc2eb68bfcf9a703$"
 }
 }
