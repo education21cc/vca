@@ -1,0 +1,76 @@
+{"frames": {
+
+"tile-misc-banners-mainfreight-narrow-left-blue.png":
+{
+	"frame": {"x":0,"y":0,"w":64,"h":252},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":252},
+	"sourceSize": {"w":64,"h":252}
+},
+"tile-misc-banners-mainfreight-narrow-left-white.png":
+{
+	"frame": {"x":64,"y":0,"w":64,"h":252},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":252},
+	"sourceSize": {"w":64,"h":252}
+},
+"tile-misc-banners-mainfreight-narrow-right-blue.png":
+{
+	"frame": {"x":0,"y":252,"w":64,"h":252},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":252},
+	"sourceSize": {"w":64,"h":252}
+},
+"tile-misc-banners-mainfreight-narrow-right-white.png":
+{
+	"frame": {"x":64,"y":252,"w":64,"h":252},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":252},
+	"sourceSize": {"w":64,"h":252}
+},
+"tile-misc-banners-mainfreight-wide-left-blue.png":
+{
+	"frame": {"x":0,"y":504,"w":128,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":276},
+	"sourceSize": {"w":128,"h":276}
+},
+"tile-misc-banners-mainfreight-wide-right-blue.png":
+{
+	"frame": {"x":0,"y":780,"w":128,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":276},
+	"sourceSize": {"w":128,"h":276}
+},
+"tile-misc-banners-mainfreight-wide-right-white.png":
+{
+	"frame": {"x":0,"y":1056,"w":128,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":276},
+	"sourceSize": {"w":128,"h":276}
+},
+"tile-misc-banners-mainfreight-wide-white-blue.png":
+{
+	"frame": {"x":0,"y":1332,"w":128,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":276},
+	"sourceSize": {"w":128,"h":276}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "misc-banners.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":1608},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0ce4787d90201e2eae0a6b10d002b323:593c9fc3579f8f417edea88dff4f55f6:21654b08f14dba5de6b25759203790c0$"
+}
+}

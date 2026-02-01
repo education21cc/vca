@@ -8,9 +8,33 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":513,"h":407},
 	"sourceSize": {"w":513,"h":407}
 },
+"truck-mainfreight-01.png":
+{
+	"frame": {"x":513,"y":0,"w":512,"h":406},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":406},
+	"sourceSize": {"w":512,"h":406}
+},
+"truck-mainfreight-02.png":
+{
+	"frame": {"x":1025,"y":0,"w":513,"h":407},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":513,"h":407},
+	"sourceSize": {"w":513,"h":407}
+},
+"truck-mainfreight-open.png":
+{
+	"frame": {"x":0,"y":407,"w":609,"h":406},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":609,"h":406},
+	"sourceSize": {"w":609,"h":406}
+},
 "truck-whitered-open.png":
 {
-	"frame": {"x":513,"y":0,"w":609,"h":406},
+	"frame": {"x":609,"y":407,"w":609,"h":406},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":609,"h":406},
@@ -18,19 +42,22 @@
 },
 "truck-whitered.png":
 {
-	"frame": {"x":1122,"y":0,"w":512,"h":406},
+	"frame": {"x":1218,"y":407,"w":512,"h":406},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":406},
 	"sourceSize": {"w":512,"h":406}
 }},
+"animations": {
+	"truck-mainfreight": ["truck-mainfreight-01.png","truck-mainfreight-02.png"]
+},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
-	"version": "1.0",
+	"version": "1.1",
 	"image": "trucks.png",
 	"format": "RGBA8888",
-	"size": {"w":1634,"h":407},
+	"size": {"w":1730,"h":813},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:f64b317c9cd4e77d636eb9e686d0700c:d437c3bbf7224464ccc0474ac2b9c04d:e7371f666a1e0f8b76e6aef0ff52ad4b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:448dbad636d386b0c8b16db347fffd5c:c15bcac65bec5a177f4005e9fc175942:e7371f666a1e0f8b76e6aef0ff52ad4b$"
 }
 }
