@@ -10,7 +10,7 @@
     "scenarios": {
       "broken-forklift": {
         "location": [23, 0],
-        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/broken-forklift/broken-forklift-description.jpg",
+        "image": "broken-forklift-image",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -24,7 +24,7 @@
       },
       "dark-warehouse": {
         "location": [1, 25],
-        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/dark-warehouse/dark-warehouse-description.jpg",
+        "image": "dark-warehouse-image",
         "reactions": [{
           "id": "reaction1",
           "correct": true
@@ -39,8 +39,7 @@
       },
       "forklift-crash": {
         "location": [6, 18],
-        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-crash/forklift-crash-description.jpg",
-        "imageFeedback": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-crash/forklift-crash-outcome.jpg",
+        "image": "forklift-crash-image",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -52,9 +51,8 @@
       },
       "loading-dock": {
         "location": [52, 13],
-        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/loading-dock/loading-dock-description.png",
-        "imageFeedback": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/loading-dock/loading-dock-outcome.png",
-      "reactions": [{
+        "image": "loading-dock-image",
+        "reactions": [{
           "id": "reaction1",
           "correct": true
         }, {
@@ -182,7 +180,21 @@
   }, {
     "key": "feedback-loading-dock",
     "value": "Je moet dit om een aantal redenen melden. Het vertraagt het laden en lossen, is vervelend en extra zwaar voor jou (gezondheid) en ook gewoon gevaarlijk (veiligheid). Wat als je zo hard moet trekken of duwen dat een kar omvalt?\n\nHoewel goed bedoelt, is het meestal niet de bedoeling dat je zelf reparaties gaat uitvoeren of noodoplossingen bedenkt.\n\nWellicht is er een ander laadplatform dat gebruikt kan worden totdat deze is gerepareerd.\n\n _ VCA 5.2: Je hebt recht op een veilige en gezonde werkomgeving._"
-  }],
+    }, {
+      "key": "broken-forklift-image",
+      "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/broken-forklift/broken-forklift-description-mainfreight.jpg"
+
+       },{
+        "key": "forklift-crash-image",
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-crash/forklift-crash-description-mainfreight.jpg"
+      }, {
+          "key": "dark-warehouse-image",
+          "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/dark-warehouse/dark-warehouse-description-mainfreight.png"
+      }, {
+        "key": "loading-dock-image",
+        "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/loading-dock/loading-dock-mainfreight-description.jpg"
+
+        }],
   "levelsCompleted": [{
     "level": 0,
     "score": 2,
