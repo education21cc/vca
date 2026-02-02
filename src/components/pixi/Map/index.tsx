@@ -5,7 +5,6 @@ import {
   TiledMapData,
   TiledLayerData,
   TiledLayerType,
-  TiledObjectData,
 } from '@/utils/tiledMapData'
 import * as PIXI from 'pixi.js'
 import sound from 'pixi-sound'
@@ -133,7 +132,7 @@ const Map = (props: Props) => {
     }
     return (
       <FloorTileLayer
-        texture={(resource.spritesheet as any)._texture}
+        texture={(resource.spritesheet)._texture}
         verticalTiles={mapData.height}
         horizontalTiles={mapData.width}
         layer={layer}
@@ -218,14 +217,15 @@ const Map = (props: Props) => {
   }
 
   const renderObjectLayers = (layers: TiledLayerData[]) => {
-
     return layers.filter(l => l.visible && l.type === TiledLayerType.objectgroup)
       .map((layer: TiledLayerData) => {
-        return renderObjects(layer.objects)
+        return renderObjectLayer(layer)
       })
   }
 
-  const renderObjects = (objects: TiledObjectData[]) => {
+  const renderObjectLayer = (layerData: TiledLayerData) => {
+    const { objects } = layerData
+
     return objects.filter(o => o.visible).map((o, index) => {
       const found = foundSituations.indexOf(o.name) > -1
 
@@ -237,6 +237,7 @@ const Map = (props: Props) => {
           gameMode={gameMode}
           tilesetsTextures={tilesetsTextures}
           mapData={mapData}
+          renderOrder={layerData.draworder}
           onClick={onSituationClick}
         />
       )

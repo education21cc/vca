@@ -38,6 +38,7 @@ export interface TiledLayerData {
   data: number[]
   objects: TiledObjectData[]
   type: TiledLayerType
+  draworder: TiledDrawOrder
   height: number
   id: number
   name: string
@@ -68,6 +69,11 @@ export interface TiledObjectData {
 export enum TiledLayerType {
   tilelayer = 'tilelayer',
   objectgroup = 'objectgroup'
+}
+
+export enum TiledDrawOrder {
+  topdown = 'topdown',
+  index = 'index'
 }
 
 export interface TiledProperty {

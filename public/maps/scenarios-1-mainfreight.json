@@ -1528,7 +1528,7 @@
          "y":0
         }, 
         {
-         "draworder":"topdown",
+         "draworder":"index",
          "id":22,
          "name":"rack banners",
          "objects":[
@@ -1627,6 +1627,30 @@
                  "width":64,
                  "x":1327.5,
                  "y":1806.5
+                }, 
+                {
+                 "gid":172,
+                 "height":252,
+                 "id":120,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":3816,
+                 "y":1748
+                }, 
+                {
+                 "gid":172,
+                 "height":252,
+                 "id":121,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":3800,
+                 "y":116
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1635,7 +1659,7 @@
          "y":0
         }],
  "nextlayerid":24,
- "nextobjectid":120,
+ "nextobjectid":122,
  "orientation":"isometric",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",

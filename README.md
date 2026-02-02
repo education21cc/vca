@@ -23,6 +23,10 @@ This game presents a warehouse in an isometric view, the player can zoom in and 
 -  timedFinder
 
 
+## About the map
+
+- When a layers drawing order is set to manual, it will be drawn in front of everything. Otherwise it will be drawn like regular tiles, ie top down.
+
 ## Updates:
 
 `2.0.0` mar 2025: Changed CRA for Vite

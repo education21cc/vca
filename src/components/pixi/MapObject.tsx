@@ -4,6 +4,7 @@ import {
   TiledProperty,
   TiledMapData,
   TiledTilesetData,
+  TiledDrawOrder,
 } from '@/utils/tiledMapData'
 import { Sprite, Graphics } from '@inlet/react-pixi'
 import { TILE_HEIGHT, TILE_WIDTH } from '@/constants/tiles'
@@ -23,10 +24,12 @@ interface Props {
   mapData: TiledMapData;
   tilesetsTextures: { [key: string]: any };
   onClick: (name: string) => void;
+  renderOrder: TiledDrawOrder
 }
 
 const popInDuration = 1
 const fadeOutDuration = 0.5
+
 const MapObject = (props: Props) => {
   const o = props.data
   const { mapData, tilesetsTextures, found, gameMode, onClick } = props
@@ -161,7 +164,7 @@ const MapObject = (props: Props) => {
             },
             onUpdate: () => {
               if (ref.current) {
-                ref.current.zIndex = getTileIndex(currentStep, mapData.width)
+                ref.current.zIndex = props.renderOrder === TiledDrawOrder.topdown ? getTileIndex(currentStep, mapData.width) : mapData.width * mapData.height
               }
             },
             duration: speed * distance,
@@ -318,6 +321,8 @@ const MapObject = (props: Props) => {
       console.warn(`Warning, ${o.name} ${spritesheet} has no textures!`)
     }
 
+
+
     return (
       <SpriteAnimated
         name={`${o.name}: ${x},${y} (${textureName})`}
@@ -335,7 +340,7 @@ const MapObject = (props: Props) => {
         )}
         pointerdown={() => onClick(o.name)}
         interactive={!!o.name}
-        zIndex={getTileIndex(location, mapData.width)}
+        zIndex={props.renderOrder === TiledDrawOrder.topdown ? getTileIndex(location, mapData.width) : mapData.width * mapData.height}
       >
         {renderEffects(o.properties)}
         {found && (
