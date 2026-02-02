@@ -10,7 +10,7 @@
       "muted": false
     },
     "mapJson": "maps/scenarios-1-mainfreight.json",
-    "stars": 4,
+    "stars": 3,
     "scenarios": {
       "together-cantina": {
         "location": [8, 14],
