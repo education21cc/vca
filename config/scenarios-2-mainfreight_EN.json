@@ -10,7 +10,7 @@
     "scenarios": {
       "broken-forklift": {
         "location": [23, 0],
-        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/broken-forklift/broken-forklift-description.jpg",
+        "image": "broken-forklift-image",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -24,7 +24,7 @@
       },
       "dark-warehouse": {
         "location": [1, 25],
-        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/dark-warehouse/dark-warehouse-description.jpg",
+        "image": "dark-warehouse-image",
         "reactions": [{
           "id": "reaction1",
           "correct": true
@@ -39,8 +39,7 @@
       },
       "forklift-crash": {
         "location": [6, 18],
-        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-crash/forklift-crash-description.jpg",
-        "imageFeedback": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-crash/forklift-crash-outcome.jpg",
+        "image": "forklift-crash-image",
         "reactions": [{
           "id": "reaction1"
         }, {
@@ -52,9 +51,8 @@
       },
       "loading-dock": {
         "location": [52, 13],
-        "image": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/loading-dock/loading-dock-description.png",
-        "imageFeedback": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/loading-dock/loading-dock-outcome.png",
-      "reactions": [{
+        "image": "loading-dock-image",
+        "reactions": [{
           "id": "reaction1",
           "correct": true
         }, {
@@ -142,10 +140,6 @@
             "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/broken-forklift/broken-forklift-description-mainfreight.jpg"
         },
         {
-            "key": "broken-forklift-feedback",
-            "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/broken-forklift/broken-forklift-description-mainfreight.jpg"
-        },
-        {
             "key": "reaction-broken-forklift-reaction1",
             "value": "1. You just carry on as usual for now. Aside from the strange noise, the forklift is still working fine."
         },
@@ -171,10 +165,6 @@
         },
         {
             "key": "forklift-crash-image",
-            "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-crash/forklift-crash-description-mainfreight.jpg"
-        },
-        {
-            "key": "forklift-crash-feedback",
             "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/forklift-crash/forklift-crash-description-mainfreight.jpg"
         },
         {
@@ -206,10 +196,6 @@
             "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/dark-warehouse/dark-warehouse-description-mainfreight.png"
         },
         {
-            "key": "dark-warehouse-feedback",
-            "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/dark-warehouse/dark-warehouse-description-mainfreight.png"
-        },
-        {
             "key": "reaction-dark-warehouse-reaction1",
             "value": "1. You report this to your team leader."
         },
@@ -231,10 +217,6 @@
         },
         {
             "key": "loading-dock-image",
-            "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/loading-dock/loading-dock-mainfreight-description.jpg"
-        },
-        {
-            "key": "loading-dock-feedback",
             "value": "https://21cccdn.blob.core.windows.net/21cc/games/images/vcaWarehouse/scenarios/loading-dock/loading-dock-mainfreight-description.jpg"
         },
         {
