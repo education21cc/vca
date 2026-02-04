@@ -607,29 +607,6 @@
                  "width":128,
                  "x":128,
                  "y":512
-                }, 
-                {
-                 "gid":114,
-                 "height":224,
-                 "id":9,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"animation",
-                         "type":"string",
-                         "value":""
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"flicker"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":384,
-                 "x":256,
-                 "y":1920
                 }],
          "opacity":1,
          "type":"objectgroup",
