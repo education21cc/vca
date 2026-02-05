@@ -6,7 +6,6 @@
   },
   "content": {
     "mapJson": "maps/scenarios-2-mainfreight.json",
-    "stars": 3,
     "scenarios": {
       "broken-forklift": {
         "location": [23, 0],
