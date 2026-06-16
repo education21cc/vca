@@ -108,6 +108,9 @@
     "key": "complete-try-again",
     "value": "Opnieuw"
   }, {
+    "key": "complete-exit",
+    "value": "Afsluiten"
+  }, {
     "key": "feedback",
     "value": "Feedback"
   }, {

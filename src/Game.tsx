@@ -23,6 +23,7 @@ import CompleteDialogFinder from '@/components/dialogs/CompleteDialogFinder'
 import { useTimerStore } from '@/stores/timer'
 import { GameState, useGameStateStore } from '@/stores/gameState'
 import { useContentStore } from '@/stores/content'
+import usePersistedGameProgress from '@/hooks/usePersistedGameProgress'
 
 interface Props {
   data: GameData<Content>
@@ -46,6 +47,14 @@ const Game = (props: Props) => {
   useGameLogic(content, foundSituations)
   const gameMode = useGameMode(content)
   const { state, setState } = useGameStateStore()
+
+  usePersistedGameProgress({
+    content,
+    foundSituations,
+    setFoundSituations,
+    scenarioReactions,
+    setScenarioReactions
+  })
 
   const handleBack = useCallback(() => {
     setIframeOpen(false)
@@ -122,7 +131,7 @@ const Game = (props: Props) => {
     if (state !== GameState.normal) return
 
     if (content.finder.situations.indexOf(situation) > -1 && foundSituations.indexOf(situation) === -1){
-      setFoundSituations([...foundSituations, situation])
+      setFoundSituations((currentFoundSituations) => [...currentFoundSituations, situation])
     }
   }
 
@@ -133,20 +142,20 @@ const Game = (props: Props) => {
   const handleCorrectReaction = (reaction: string) => {
     // gets called from within modal once the correct answer is selected
 
-    setScenarioReactions({
-      ...scenarioReactions,
+    setScenarioReactions((currentScenarioReactions) => ({
+      ...currentScenarioReactions,
       [scenario!]: reaction
-    })
+    }))
   }
 
   const handleWrongScenario = (reaction: string) => {
     // gets called from within modal once the correct answer is selected
 
     if(content.mistakeMode) {
-      setScenarioReactions({
-        ...scenarioReactions,
+      setScenarioReactions((currentScenarioReactions) => ({
+        ...currentScenarioReactions,
         [scenario!]: reaction
-      })
+      }))
     }
   }
 
