@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import BaseDialog from './BaseDialog'
 import StarEmpty from './../../common/images/star-empty.svg?react'
 import { useTranslationStore } from '@/stores/translations'
@@ -10,12 +10,15 @@ import './styles/introDialog.scss'
 interface Props {
   gameData: GameData<Content>;
   onStart: () => void;
+  onResetProgress: () => void;
 }
 
 const IntroDialog = (props: Props) => {
   const { getText, getTextRaw } = useTranslationStore()
   const { gameData } = props
   const { levelsCompleted, content } = gameData
+  const starTapCountRef = useRef(0)
+  const resetTapTimerRef = useRef<number>()
 
   const starsToGainText = useMemo<string>(() => {
     const currentScore = levelsCompleted?.[0]?.score || 0
@@ -27,6 +30,35 @@ const IntroDialog = (props: Props) => {
       .replace('{1}', ''+maxScore)
   }, [content?.finder?.situations.length, content?.scenarios, content?.stars, getTextRaw, levelsCompleted])
 
+  useEffect(() => {
+    return () => {
+      if (resetTapTimerRef.current) {
+        window.clearTimeout(resetTapTimerRef.current)
+      }
+    }
+  }, [])
+
+  const handleStarClick = () => {
+    starTapCountRef.current += 1
+
+    if (starTapCountRef.current === 3) {
+      starTapCountRef.current = 0
+      if (resetTapTimerRef.current) {
+        window.clearTimeout(resetTapTimerRef.current)
+      }
+      props.onResetProgress()
+      return
+    }
+
+    if (resetTapTimerRef.current) {
+      window.clearTimeout(resetTapTimerRef.current)
+    }
+
+    resetTapTimerRef.current = window.setTimeout(() => {
+      starTapCountRef.current = 0
+    }, 700)
+  }
+
   return (
     <BaseDialog className="intro-dialog">
       <div className="top">
@@ -36,7 +68,9 @@ const IntroDialog = (props: Props) => {
         <section>{getText('intro-description')}</section>
       </div>
       <div className="bottom">
-        <StarEmpty className="star"/>
+        <button type="button" className="star-button" onClick={handleStarClick} aria-label="Reset saved progress">
+          <StarEmpty className="star"/>
+        </button>
         <span className="stars-to-gain">
           {starsToGainText}
         </span>

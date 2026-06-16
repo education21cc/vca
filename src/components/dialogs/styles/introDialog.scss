@@ -27,8 +27,18 @@
     display: flex;
     align-items: center;
 
-    .star {
+    .star-button {
       margin: auto 16px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .star {
+      display: block;
     }
 
     .stars-to-gain {

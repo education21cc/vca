@@ -27,7 +27,14 @@ This game presents a warehouse in an isometric view, the player can zoom in and 
 
 - When a layers drawing order is set to manual, it will be drawn in front of everything. Otherwise it will be drawn like regular tiles, ie top down.
 
+
+## Persistance
+
+Progress is saved to a cookie. Click the star in the start screen 3 times to clear it (for debugging).
+
+
 ## Updates:
 
+`2.1.0` jun 2026: added persistence (cookie)
 `2.0.0` mar 2025: Changed CRA for Vite
 `0.1.0` aug 2023: First version (using Create React App)

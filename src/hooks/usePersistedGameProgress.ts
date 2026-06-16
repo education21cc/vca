@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useMemo, useRef, useState } from 'react'
 import { Content } from '@/data/Content'
 
 type ScenarioReactions = { [key: string]: string }
@@ -24,6 +24,7 @@ const usePersistedGameProgress = ({
   setScenarioReactions
 }: UsePersistedGameProgressArgs) => {
   const [hydratedProgressKey, setHydratedProgressKey] = useState<string>()
+  const skipNextWriteRef = useRef(false)
   const progressCookieName = useMemo(() => getProgressCookieName(content.mapJson), [content.mapJson])
 
   useEffect(() => {
@@ -40,11 +41,29 @@ const usePersistedGameProgress = ({
   useEffect(() => {
     if (!progressCookieName || hydratedProgressKey !== progressCookieName) return
 
+    if (skipNextWriteRef.current) {
+      skipNextWriteRef.current = false
+      return
+    }
+
     writeProgressCookie(progressCookieName, {
       foundSituations,
       scenarioReactions
     })
   }, [foundSituations, hydratedProgressKey, progressCookieName, scenarioReactions])
+
+  const resetPersistedProgress = () => {
+    if (!progressCookieName) return
+
+    skipNextWriteRef.current = true
+    deleteProgressCookie(progressCookieName)
+    setFoundSituations([])
+    setScenarioReactions({})
+  }
+
+  return {
+    resetPersistedProgress
+  }
 }
 
 export default usePersistedGameProgress
@@ -92,6 +111,12 @@ const writeProgressCookie = (cookieName: string, progress: PersistedProgress) =>
   expiresAt.setFullYear(expiresAt.getFullYear() + 1)
 
   document.cookie = `${cookieName}=${encodeURIComponent(JSON.stringify(progress))}; expires=${expiresAt.toUTCString()}; path=/; SameSite=Lax`
+}
+
+const deleteProgressCookie = (cookieName: string) => {
+  if (typeof document === 'undefined') return
+
+  document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax`
 }
 
 const sanitizePersistedProgress = (content: Content, progress: PersistedProgress): PersistedProgress => {

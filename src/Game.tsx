@@ -48,7 +48,7 @@ const Game = (props: Props) => {
   const gameMode = useGameMode(content)
   const { state, setState } = useGameStateStore()
 
-  usePersistedGameProgress({
+  const { resetPersistedProgress } = usePersistedGameProgress({
     content,
     foundSituations,
     setFoundSituations,
@@ -214,6 +214,7 @@ const Game = (props: Props) => {
             (<IntroDialog
               gameData={data}
               onStart={handleStart}
+              onResetProgress={resetPersistedProgress}
             />)}
           {(showMap) && mapData && gameMode && (
             <>
